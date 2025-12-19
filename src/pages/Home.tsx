@@ -515,13 +515,22 @@ export const Home = () => {
 
                     <form className="max-w-md mx-auto space-y-4 text-left" onSubmit={(e) => {
                         e.preventDefault();
+                        const name = (document.getElementById('name') as HTMLInputElement).value;
+                        const company = (document.getElementById('company') as HTMLInputElement).value;
                         const email = (document.getElementById('email') as HTMLInputElement).value;
                         const message = (document.getElementById('message') as HTMLTextAreaElement).value;
-                        const subject = `【EduShift】お問い合わせ（${email}）`;
+
+                        const subject = `【EduShift】お問い合わせ（${name}様）`;
                         const body = `
 --------------------------------------------------
 以下の内容でお問い合わせがありました。
 --------------------------------------------------
+
+■ お名前
+${name}
+
+■ 会社名・塾名
+${company || '（未入力）'}
 
 ■ メールアドレス
 ${email}
@@ -532,11 +541,19 @@ ${message}
                         window.location.href = `mailto:katsu.yoshii@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                     }}>
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">メールアドレス</label>
+                            <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-1">お名前 <span className="text-red-400 text-xs ml-1">必須</span></label>
+                            <input type="text" id="name" required className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all" placeholder="山田 太郎" />
+                        </div>
+                        <div>
+                            <label htmlFor="company" className="block text-sm font-medium text-slate-300 mb-1">会社名・塾名 <span className="text-slate-500 text-xs ml-1">任意</span></label>
+                            <input type="text" id="company" className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all" placeholder="〇〇塾" />
+                        </div>
+                        <div>
+                            <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">メールアドレス <span className="text-red-400 text-xs ml-1">必須</span></label>
                             <input type="email" id="email" required className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all" placeholder="your@email.com" />
                         </div>
                         <div>
-                            <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-1">お問い合わせ内容</label>
+                            <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-1">お問い合わせ内容 <span className="text-red-400 text-xs ml-1">必須</span></label>
                             <textarea
                                 id="message"
                                 rows={6}
