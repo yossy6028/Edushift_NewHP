@@ -8,6 +8,7 @@ import serviceAi from '../assets/service-ai.png';
 import serviceFreelance from '../assets/service-online-tutor.png';
 import serviceHp from '../assets/service-hp.png';
 import aiGradingReport from '../assets/ai-grading-report.png';
+import { NoteArticles } from '../components/NoteArticles';
 
 import { AnimatedHeroTitle } from '../components/AnimatedHeroTitle';
 
@@ -503,6 +504,11 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
+
+
+
+            {/* Note Articles Section */}
+            <NoteArticles />
 
             {/* Contact Section */}
             <section id="contact" className="py-20 bg-slate-900 text-white">
