@@ -513,17 +513,40 @@ export const Home = () => {
                         最適なプランをご提案いたします。
                     </p>
 
-                    <form className="max-w-md mx-auto space-y-4 text-left">
+                    <form className="max-w-md mx-auto space-y-4 text-left" onSubmit={(e) => {
+                        e.preventDefault();
+                        const email = (document.getElementById('email') as HTMLInputElement).value;
+                        const message = (document.getElementById('message') as HTMLTextAreaElement).value;
+                        const subject = `【EduShift】お問い合わせ（${email}）`;
+                        const body = `
+--------------------------------------------------
+以下の内容でお問い合わせがありました。
+--------------------------------------------------
+
+■ メールアドレス
+${email}
+
+■ お問い合わせ内容
+${message}
+                        `;
+                        window.location.href = `mailto:katsu.yoshii@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    }}>
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-1">メールアドレス</label>
-                            <input type="email" id="email" className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all" placeholder="your@email.com" />
+                            <input type="email" id="email" required className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all" placeholder="your@email.com" />
                         </div>
                         <div>
                             <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-1">お問い合わせ内容</label>
-                            <textarea id="message" rows={4} className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all" placeholder="ご相談内容をご記入ください"></textarea>
+                            <textarea
+                                id="message"
+                                rows={6}
+                                required
+                                className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all placeholder-slate-500"
+                                placeholder="・AIの導入について相談したい&#10;・問い合わせ減少について解決策をしめしてほしい&#10;・HP作成・更新・管理の相談をしたい&#10;など、お気軽にご記入ください。"
+                            ></textarea>
                         </div>
                         <button type="submit" className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-bold text-white shadow-lg shadow-indigo-900/50 transition-all">
-                            送信する
+                            問い合わせる
                         </button>
                     </form>
                 </div>
