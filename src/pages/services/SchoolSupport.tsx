@@ -2,11 +2,17 @@
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FadeIn } from '../../components/FadeIn';
+import MetaTags from '../../components/MetaTags';
 import serviceSchool from '../../assets/service-school-meeting.png';
 
 export const SchoolSupport = () => {
     return (
         <div className="bg-white">
+            <MetaTags
+                title="教育機関向けAI導入支援"
+                description="学習塾・学校の運営をAIで最適化。業務効率化から教務支援まで、教育現場を知り尽くしたコンサルタントが伴走します。"
+                image="/ogp-school.png"
+            />
             {/* Hero Section */}
             <div className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-white">
                 <div className="absolute inset-0">

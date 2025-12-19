@@ -2,11 +2,17 @@
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FadeIn } from '../../components/FadeIn';
+import MetaTags from '../../components/MetaTags';
 import serviceFreelance from '../../assets/service-online-tutor.png';
 
 export const FreelanceSupport = () => {
     return (
         <div className="bg-white">
+            <MetaTags
+                title="フリーランス独立支援"
+                description="教育者の「独立」と「稼ぐ力」を最大化。事業計画からWeb集客、ブランディングまで、自由なキャリアの構築を伴走サポートします。"
+                image="/ogp-freelance.png"
+            />
             {/* Hero Section */}
             <div className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-white">
                 <div className="absolute inset-0">

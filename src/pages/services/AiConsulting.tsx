@@ -2,11 +2,17 @@
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FadeIn } from '../../components/FadeIn';
+import MetaTags from '../../components/MetaTags';
 import serviceAi from '../../assets/service-ai.png';
 
 export const AiConsulting = () => {
     return (
         <div className="bg-white">
+            <MetaTags
+                title="AI導入コンサルティング"
+                description="最新のAI技術を教育現場の力に。事務効率化から独自のAI教材開発まで、実用的なAI導入を支援します。"
+                image="/ogp-ai.png"
+            />
             {/* Hero Section */}
             <div className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-white">
                 <div className="absolute inset-0">
