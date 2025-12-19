@@ -1,11 +1,12 @@
 
-import { Sparkles, Brain, GraduationCap, ArrowRight, CheckCircle2, ChevronDown, Code2, ExternalLink } from 'lucide-react';
+import { Monitor, Sparkles, Brain, GraduationCap, ArrowRight, CheckCircle2, ChevronDown, Code2, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FadeIn } from '../components/FadeIn';
 import heroBg from '../assets/hero-bg.png';
 import serviceSchool from '../assets/service-school-meeting.png';
 import serviceAi from '../assets/service-ai.png';
 import serviceFreelance from '../assets/service-online-tutor.png';
+import serviceHp from '../assets/service-hp.png';
 import aiGradingReport from '../assets/ai-grading-report.png';
 
 import { AnimatedHeroTitle } from '../components/AnimatedHeroTitle';
@@ -75,7 +76,7 @@ export const Home = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <FadeIn>
                         <div className="text-center mb-20">
-                            <h2 className="text-4xl font-bold text-slate-900 mb-6">教育の明日に、3つの『Shift』を。</h2>
+                            <h2 className="text-4xl font-bold text-slate-900 mb-6">教育の明日に、4つの『Shift』を。</h2>
                             <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
                                 経営の迷いには、確かな戦略を。現場の停滞には、AIの革新を。<br className="hidden md:block" />
                                 個人の情熱には、独立への翼を。EduShiftは、教育のあらゆる局面でブレイクスルーを生み出します。
@@ -83,7 +84,7 @@ export const Home = () => {
                         </div>
                     </FadeIn>
 
-                    <div className="grid md:grid-cols-3 gap-10">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {/* Service 1 */}
                         <FadeIn delay={100}>
                             <Link to="/service/school-support" className="block h-full">
@@ -176,6 +177,38 @@ export const Home = () => {
                                                 <li className="flex items-center gap-3"><CheckCircle2 className="h-5 w-5 text-pink-500 flex-shrink-0" /> 事業計画の策定</li>
                                                 <li className="flex items-center gap-3"><CheckCircle2 className="h-5 w-5 text-pink-500 flex-shrink-0" /> ポートフォリオ作成</li>
                                                 <li className="flex items-center gap-3"><CheckCircle2 className="h-5 w-5 text-pink-500 flex-shrink-0" /> 独自の強み発掘</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        </FadeIn>
+
+                        {/* Service 4 */}
+                        <FadeIn delay={400}>
+                            <Link to="/service/hp-production" className="block h-full">
+                                <div className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 flex flex-col h-full cursor-pointer">
+                                    <div className="relative h-64 overflow-hidden">
+                                        <div className="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors z-10"></div>
+                                        <img
+                                            src={serviceHp}
+                                            alt="HP制作・保守運用"
+                                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                        />
+                                        <div className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur p-3 rounded-2xl shadow-lg">
+                                            <Monitor className="h-8 w-8 text-blue-600" />
+                                        </div>
+                                    </div>
+                                    <div className="p-8 flex flex-col flex-grow">
+                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">HP制作・保守運用</h3>
+                                        <p className="text-slate-600 mb-8 leading-relaxed flex-grow">
+                                            小規模塾に特化したHP制作。低価格な構築と、AIを活用した伴走型の保守で、Web集客を自動化します。
+                                        </p>
+                                        <div className="border-t border-slate-100 pt-6">
+                                            <ul className="space-y-3 text-sm text-slate-600">
+                                                <li className="flex items-center gap-3"><CheckCircle2 className="h-5 w-5 text-blue-500 flex-shrink-0" /> 低価格HP構築</li>
+                                                <li className="flex items-center gap-3"><CheckCircle2 className="h-5 w-5 text-blue-500 flex-shrink-0" /> AIブログ支援</li>
+                                                <li className="flex items-center gap-3"><CheckCircle2 className="h-5 w-5 text-blue-500 flex-shrink-0" /> 運用代行・コンサル</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -395,7 +428,7 @@ export const Home = () => {
                         <div className="text-center mb-16">
                             <h2 className="text-3xl font-bold text-slate-900 mb-6">私たちについて</h2>
                             <p className="text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                                教育の現場を知るからこそ、できる支援がある。<br />
+                                教育の現場を知るからこそ, できる支援がある。<br />
                                 私たちは、先生と共に走る伴走者です。
                             </p>
                         </div>
@@ -412,18 +445,18 @@ export const Home = () => {
                                     </h3>
                                     <div className="prose prose-slate text-slate-600 leading-relaxed">
                                         <p className="mb-4">
-                                            「現場の先生が、もっと教育に集中できる環境をつくりたい」
+                                            「現場の先生が, もっと教育に集中できる環境をつくりたい」
                                         </p>
                                         <p className="mb-4">
                                             それが、EduShiftを立ち上げた原点です。
-                                            私自身、長年教育業界に身を置き、生徒の成長に立ち会う喜びと同時に、
-                                            経営や雑務に追われ、理想の教育を追求しきれないジレンマも感じてきました。
+                                            私自身, 長年教育業界に身を置き, 生徒の成長に立ち会う喜びと同時に,
+                                            経営や雑務に追われ, 理想の教育を追求しきれないジレンマも感じてきました。
                                         </p>
                                         <p>
-                                            AI技術の進化は、この課題を解決する大きな鍵となります。
-                                            しかし、技術ありきではなく、あくまで「人の温かみ」を活かすための技術でなければなりません。
-                                            私たちは、最新のテクノロジーと現場の泥臭い知見を融合させ、
-                                            教育に関わるすべての人を、裏側から力強く支えていきます。
+                                            AI技術の進化は, この課題を解決する大きな鍵となります。
+                                            しかし, 技術ありきではなく, あくまで「人の温かみ」を活かすための技術でなければなりません。
+                                            私たちは, 最新のテクノロジーと現場の泥臭い知見を融合させ,
+                                            教育に関わるすべての人を, 裏側から力強く支えていきます。
                                         </p>
                                     </div>
                                     <div className="mt-8 text-right">
@@ -456,7 +489,7 @@ export const Home = () => {
                                                 <li>教育機関向けAI導入支援・DX推進</li>
                                                 <li>教育関連フリーランス独立支援・育成</li>
                                                 <li>教育アプリ・システム開発</li>
-                                                <li>Webサイト制作・マーケティング支援</li>
+                                                <li>Webサイト制作・保守運用支援</li>
                                             </ul>
                                         </div>
                                     </div>

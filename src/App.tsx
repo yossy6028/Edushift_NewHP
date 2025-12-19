@@ -8,6 +8,7 @@ import { AiConsulting } from './pages/services/AiConsulting';
 import { FreelanceSupport } from './pages/services/FreelanceSupport';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { BusinessLaw } from './pages/BusinessLaw';
+import { HpProduction } from './pages/services/HpProduction';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/service/freelance-support" element={<FreelanceSupport />} />
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />
             <Route path="/business-law" element={<BusinessLaw />} />
+            <Route path="/service/hp-production" element={<HpProduction />} />
           </Routes>
         </main>
         <Footer />
