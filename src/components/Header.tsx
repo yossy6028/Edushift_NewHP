@@ -19,6 +19,7 @@ export const Header = () => {
                     {/* Desktop Menu */}
                     <div className="hidden md:flex space-x-8 items-center">
                         <Link to="/#services" className="text-slate-600 hover:text-indigo-600 font-medium transition-colors">サービス</Link>
+                        <Link to="/service/hp-production" className="text-slate-600 hover:text-indigo-600 font-medium transition-colors">HP制作・保守</Link>
                         <Link to="/#about" className="text-slate-600 hover:text-indigo-600 font-medium transition-colors">私たちについて</Link>
                         <Link to="/#contact" className="px-6 py-2.5 bg-indigo-600 text-white rounded-full hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 hover:shadow-indigo-300 font-medium">
                             お問い合わせ
@@ -39,6 +40,7 @@ export const Header = () => {
                 <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b border-slate-100 shadow-xl animate-in slide-in-from-top-5">
                     <div className="px-4 pt-2 pb-6 space-y-2">
                         <Link to="/#services" className="block px-4 py-3 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">サービス</Link>
+                        <Link to="/service/hp-production" className="block px-4 py-3 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">HP制作・保守</Link>
                         <Link to="/#about" className="block px-4 py-3 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">私たちについて</Link>
                         <Link to="/#contact" className="block px-4 py-3 text-indigo-600 font-medium bg-indigo-50 rounded-lg mt-4">お問い合わせ</Link>
                     </div>
