@@ -1,11 +1,12 @@
-import React from 'react';
-import { Sparkles, Brain, GraduationCap, ArrowRight, CheckCircle2, ChevronDown } from 'lucide-react';
+
+import { Sparkles, Brain, GraduationCap, ArrowRight, CheckCircle2, ChevronDown, Code2, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { FadeIn } from '../components/FadeIn';
 import heroBg from '../assets/hero-bg.png';
 import serviceSchool from '../assets/service-school-meeting.png';
 import serviceAi from '../assets/service-ai.png';
 import serviceFreelance from '../assets/service-online-tutor.png';
+import aiGradingReport from '../assets/ai-grading-report.png';
 
 import { AnimatedHeroTitle } from '../components/AnimatedHeroTitle';
 
@@ -182,6 +183,86 @@ export const Home = () => {
                             </Link>
                         </FadeIn>
                     </div>
+                </div>
+            </section>
+
+            {/* Development Section */}
+            <section id="development" className="py-24 bg-slate-900 relative overflow-hidden">
+                {/* Background Elements */}
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+                    <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-blue-600/20 rounded-full blur-3xl"></div>
+                </div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <FadeIn>
+                        <div className="text-center mb-20">
+                            <div className="inline-flex items-center justify-center p-3 bg-indigo-500/10 rounded-xl mb-6">
+                                <Code2 className="w-8 h-8 text-indigo-400" />
+                            </div>
+                            <h2 className="text-4xl font-bold text-white mb-6">教育アプリ開発</h2>
+                            <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                                現場の「あったらいいな」をカタチに。<br className="hidden md:block" />
+                                最新技術を活用した、実用的な教育ソリューションを開発しています。
+                            </p>
+                        </div>
+                    </FadeIn>
+
+                    <FadeIn delay={100}>
+                        <div className="bg-slate-800/50 backdrop-blur-xl rounded-3xl border border-slate-700 overflow-hidden flex flex-col lg:flex-row box-border">
+                            {/* Image Side */}
+                            <div className="lg:w-1/2 relative min-h-[300px] lg:min-h-full bg-slate-900/50 group overflow-hidden">
+                                <img
+                                    src={aiGradingReport}
+                                    alt="AI記述式自動添削システム"
+                                    className="absolute inset-0 w-full h-full object-contain bg-slate-100 transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-slate-900/10"></div>
+                            </div>
+
+                            {/* Content Side */}
+                            <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                                <div className="inline-block px-4 py-1.5 bg-indigo-500/20 text-indigo-300 rounded-full text-sm font-semibold mb-6 w-fit">
+                                    PICK UP PRODUCT
+                                </div>
+                                <h3 className="text-3xl font-bold text-white mb-4">AI記述式自動添削システム</h3>
+                                <p className="text-slate-300 mb-8 leading-relaxed">
+                                    記述模試や定期テストの採点を、AIが強力にサポート。<br />
+                                    手書き文字認識（OCR）と自然言語処理（NLP）を組み合わせ、
+                                    従来の手作業に比べて採点工数を大幅に削減します。<br />
+                                    一人ひとりに合わせたフィードバックコメントも自動生成可能です。<br />
+                                    <span className="text-indigo-400 font-bold mt-2 inline-block">※ 初回登録で3回分の無料採点をお試しいただけます。</span>
+                                </p>
+
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <a
+                                        href="https://auto-tensaku-system.vercel.app/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-all hover:scale-105 shadow-lg shadow-indigo-900/30"
+                                    >
+                                        アプリを見る
+                                        <ExternalLink className="w-5 h-5" />
+                                    </a>
+                                </div>
+
+                                <div className="mt-8 pt-8 border-t border-slate-700 grid grid-cols-3 gap-4">
+                                    <div className="text-center">
+                                        <div className="text-2xl font-bold text-indigo-400 mb-1">OCR</div>
+                                        <div className="text-xs text-slate-500">手書き認識</div>
+                                    </div>
+                                    <div className="text-center">
+                                        <div className="text-2xl font-bold text-indigo-400 mb-1">NLP</div>
+                                        <div className="text-xs text-slate-500">自然言語処理</div>
+                                    </div>
+                                    <div className="text-center">
+                                        <div className="text-2xl font-bold text-indigo-400 mb-1">DX</div>
+                                        <div className="text-xs text-slate-500">業務効率化</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </FadeIn>
                 </div>
             </section>
 
@@ -374,6 +455,7 @@ export const Home = () => {
                                                 <li>学習塾・スクール向け経営コンサルティング</li>
                                                 <li>教育機関向けAI導入支援・DX推進</li>
                                                 <li>教育関連フリーランス独立支援・育成</li>
+                                                <li>教育アプリ・システム開発</li>
                                                 <li>Webサイト制作・マーケティング支援</li>
                                             </ul>
                                         </div>

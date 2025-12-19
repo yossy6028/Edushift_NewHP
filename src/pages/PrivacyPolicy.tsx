@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FadeIn } from '../components/FadeIn';
 
 export const PrivacyPolicy = () => {
