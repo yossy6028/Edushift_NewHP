@@ -18,10 +18,10 @@ export const NoteArticles = () => {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://note.com/katsu_yossy/rss');
+                const res = await fetch('/api/note');
                 const data = await res.json();
                 if (data.items) {
-                    setArticles(data.items.slice(0, 3));
+                    setArticles(data.items);
                 }
             } catch (e) {
                 console.error('Failed to fetch Note articles', e);
