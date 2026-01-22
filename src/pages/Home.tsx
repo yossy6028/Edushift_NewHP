@@ -38,28 +38,31 @@ export const Home = () => {
                         <div className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-indigo-100 text-sm font-semibold mb-6 animate-fade-in-up">
                             <span className="flex items-center gap-2">
                                 <Sparkles className="w-4 h-4 text-yellow-300" />
-                                教育への情熱に、確かな翼を。
+                                塾・スクール経営者のための専門コンサルティング
                             </span>
                         </div>
 
                         <AnimatedHeroTitle
-                            text1="時代を超える教育を、"
-                            text2="今、あなたの手で。"
+                            text1="教育者の情熱を、"
+                            text2="確かな成果へ。"
                         />
 
                         <p className="text-xl md:text-2xl text-slate-200 mb-12 leading-relaxed max-w-2xl text-shadow-sm animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                            変わらない想いを、変わりゆく技術で支える。<br className="hidden md:block" />
-                            塾経営の洗練も、独立への挑戦も。<br className="hidden md:block" />
-                            ここは、教育者のための滑走路です。
+                            経営・集客の悩みをAIと仕組みで解決。<br className="hidden md:block" />
+                            あなたが本当にやりたい教育に、<br className="hidden md:block" />
+                            もう一度集中できる環境をつくります。
                         </p>
                         <div className="flex flex-col sm:flex-row gap-5 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                             <a
                                 href="#contact"
                                 onClick={() => trackConversion.ctaClick('hero_無料相談を予約する', '#contact')}
-                                className="px-8 py-4 bg-indigo-600 text-white rounded-full font-bold shadow-xl shadow-indigo-900/30 hover:bg-indigo-500 hover:scale-105 transition-all flex items-center justify-center gap-2 group ring-4 ring-indigo-600/30"
+                                className="px-8 py-4 bg-indigo-600 text-white rounded-full font-bold shadow-xl shadow-indigo-900/30 hover:bg-indigo-500 hover:scale-105 transition-all flex flex-col items-center justify-center group ring-4 ring-indigo-600/30"
                             >
-                                無料相談を予約する
-                                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                                <span className="flex items-center gap-2">
+                                    30分の無料相談を予約
+                                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                                </span>
+                                <span className="text-xs text-indigo-200 font-normal mt-1">営業は一切ありません</span>
                             </a>
                             <a
                                 href="#services"
@@ -86,10 +89,10 @@ export const Home = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <FadeIn>
                         <div className="text-center mb-20">
-                            <h2 className="text-4xl font-bold text-slate-900 mb-6">教育の明日に、4つの『Shift』を。</h2>
+                            <h2 className="text-4xl font-bold text-slate-900 mb-6">4つの専門サービスで、教育現場を支援</h2>
                             <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                                経営の迷いには、確かな戦略を。現場の停滞には、AIの革新を。<br className="hidden md:block" />
-                                個人の情熱には、独立への翼を。EduShiftは、教育のあらゆる局面でブレイクスルーを生み出します。
+                                経営改善、AI導入、独立支援、Web集客。<br className="hidden md:block" />
+                                あなたの課題に合わせて、最適なサポートを提供します。
                             </p>
                         </div>
                     </FadeIn>
@@ -113,8 +116,9 @@ export const Home = () => {
                                     <div className="p-8 flex flex-col flex-grow">
                                         <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-indigo-600 transition-colors">小規模塾経営サポート</h3>
                                         <p className="text-slate-600 mb-8 leading-relaxed flex-grow">
-                                            生徒集客から業務効率化、独自のカリキュラム作成まで、
-                                            小規模塾ならではの強みを活かした経営戦略をご提案します。
+                                            生徒数10〜50名規模の塾に特化。
+                                            集客・業務効率化・カリキュラム設計で、
+                                            小規模ならではの強みを最大化します。
                                         </p>
                                         <div className="border-t border-slate-100 pt-6">
                                             <ul className="space-y-3 text-sm text-slate-600">
@@ -146,8 +150,9 @@ export const Home = () => {
                                     <div className="p-8 flex flex-col flex-grow">
                                         <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-purple-600 transition-colors">AI導入コンサルティング</h3>
                                         <p className="text-slate-600 mb-8 leading-relaxed flex-grow">
-                                            業務の自動化から教育ツールとしてのAI活用まで。
-                                            最新技術を現場に定着させ、生産性を劇的に向上させます。
+                                            ChatGPT・Claude等の生成AIを教育現場に導入。
+                                            週5〜10時間の事務作業削減を目指し、
+                                            先生が教育に集中できる環境をつくります。
                                         </p>
                                         <div className="border-t border-slate-100 pt-6">
                                             <ul className="space-y-3 text-sm text-slate-600">
@@ -179,8 +184,9 @@ export const Home = () => {
                                     <div className="p-8 flex flex-col flex-grow">
                                         <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-pink-600 transition-colors">フリーランス独立支援</h3>
                                         <p className="text-slate-600 mb-8 leading-relaxed flex-grow">
-                                            教育業界での経験を活かし、フリーランスとして独立するための
-                                            スキルセット構築から案件獲得まで伴走します。
+                                            教育業界の経験を武器に独立。
+                                            3ヶ月の伴走プログラムで、
+                                            スキル構築から初案件獲得までサポートします。
                                         </p>
                                         <div className="border-t border-slate-100 pt-6">
                                             <ul className="space-y-3 text-sm text-slate-600">
@@ -212,7 +218,9 @@ export const Home = () => {
                                     <div className="p-8 flex flex-col flex-grow">
                                         <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">HP制作・保守運用</h3>
                                         <p className="text-slate-600 mb-8 leading-relaxed flex-grow">
-                                            小規模塾に特化したHP制作。低価格な構築と、AIを活用した伴走型の保守で、Web集客を自動化します。
+                                            初期費用15万円〜の塾専用HP制作。
+                                            月額9,800円〜のAI活用保守で、
+                                            ブログ更新・SEO対策も継続サポート。
                                         </p>
                                         <div className="border-t border-slate-100 pt-6">
                                             <ul className="space-y-3 text-sm text-slate-600">
@@ -272,9 +280,9 @@ export const Home = () => {
                                 <p className="text-slate-300 mb-8 leading-relaxed">
                                     記述模試や定期テストの採点を、AIが強力にサポート。<br />
                                     手書き文字認識（OCR）と自然言語処理（NLP）を組み合わせ、
-                                    従来の手作業に比べて採点工数を大幅に削減します。<br />
-                                    一人ひとりに合わせたフィードバックコメントも自動生成可能です。<br />
-                                    <span className="text-indigo-400 font-bold mt-2 inline-block">※ 初回登録で3回分の無料採点をお試しいただけます。</span>
+                                    <span className="text-white font-semibold">採点時間を最大70%削減</span>します。<br />
+                                    一人ひとりに合わせたフィードバックコメントも自動生成。<br />
+                                    <span className="text-indigo-400 font-bold mt-2 inline-block">✓ 初回登録で3回分の無料採点をお試しいただけます</span>
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row gap-4">
@@ -317,8 +325,8 @@ export const Home = () => {
                         <div className="text-center mb-20">
                             <h2 className="text-3xl font-bold text-slate-900 mb-6">料金プラン</h2>
                             <p className="text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                                あなたのフェーズに合わせて選べる、<br className="hidden md:block" />
-                                シンプルで透明性の高いプランをご用意しています。
+                                まずは無料相談で、最適なプランをご提案。<br className="hidden md:block" />
+                                <span className="text-indigo-600 font-medium">契約期間の縛りなし</span>、いつでも解約可能です。
                             </p>
                         </div>
                     </FadeIn>
@@ -535,10 +543,13 @@ export const Home = () => {
             {/* Contact Section */}
             <section id="contact" className="py-20 bg-slate-900 text-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold mb-8">未来を切り拓く第一歩を。</h2>
-                    <p className="text-slate-400 mb-12">
-                        まずは無料相談から。あなたの現状と目標をお聞かせください。<br />
-                        最適なプランをご提案いたします。
+                    <h2 className="text-3xl font-bold mb-4">まずは30分、お話しませんか？</h2>
+                    <p className="text-slate-400 mb-4">
+                        現状のお悩みをお聞かせください。<br />
+                        具体的な改善の方向性をその場でお伝えします。
+                    </p>
+                    <p className="text-sm text-slate-500 mb-12">
+                        ※ 無理な営業は一切いたしません。情報収集だけでもOKです。
                     </p>
 
                     <form className="max-w-md mx-auto space-y-4 text-left" onSubmit={(e) => {
@@ -594,8 +605,11 @@ ${message}
                             ></textarea>
                         </div>
                         <button type="submit" className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-bold text-white shadow-lg shadow-indigo-900/50 transition-all">
-                            問い合わせる
+                            無料で相談する
                         </button>
+                        <p className="text-center text-xs text-slate-500 mt-3">
+                            送信後、2営業日以内にご連絡いたします
+                        </p>
                     </form>
                 </div>
             </section>
