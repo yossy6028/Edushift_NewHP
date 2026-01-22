@@ -9,6 +9,7 @@ import serviceFreelance from '../assets/service-online-tutor.png';
 import serviceHp from '../assets/service-hp.png';
 import aiGradingReport from '../assets/ai-grading-report.png';
 import { NoteArticles } from '../components/NoteArticles';
+import { trackConversion } from '../utils/gtag';
 
 import { AnimatedHeroTitle } from '../components/AnimatedHeroTitle';
 
@@ -52,11 +53,19 @@ export const Home = () => {
                             ここは、教育者のための滑走路です。
                         </p>
                         <div className="flex flex-col sm:flex-row gap-5 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                            <a href="#contact" className="px-8 py-4 bg-indigo-600 text-white rounded-full font-bold shadow-xl shadow-indigo-900/30 hover:bg-indigo-500 hover:scale-105 transition-all flex items-center justify-center gap-2 group ring-4 ring-indigo-600/30">
+                            <a
+                                href="#contact"
+                                onClick={() => trackConversion.ctaClick('hero_無料相談を予約する', '#contact')}
+                                className="px-8 py-4 bg-indigo-600 text-white rounded-full font-bold shadow-xl shadow-indigo-900/30 hover:bg-indigo-500 hover:scale-105 transition-all flex items-center justify-center gap-2 group ring-4 ring-indigo-600/30"
+                            >
                                 無料相談を予約する
                                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                             </a>
-                            <a href="#services" className="px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/30 rounded-full font-bold hover:bg-white/20 transition-all text-center">
+                            <a
+                                href="#services"
+                                onClick={() => trackConversion.ctaClick('hero_サービス詳細を見る', '#services')}
+                                className="px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/30 rounded-full font-bold hover:bg-white/20 transition-all text-center"
+                            >
                                 サービス詳細を見る
                             </a>
                         </div>
@@ -273,6 +282,7 @@ export const Home = () => {
                                         href="https://auto-tensaku-system.vercel.app/"
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        onClick={() => trackConversion.outboundClick('https://auto-tensaku-system.vercel.app/', 'AI記述式自動添削システム_アプリを見る')}
                                         className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-all hover:scale-105 shadow-lg shadow-indigo-900/30"
                                     >
                                         アプリを見る
@@ -340,7 +350,11 @@ export const Home = () => {
                                         </li>
                                     </ul>
                                 </div>
-                                <a href="#contact" className="block w-full py-3 text-center rounded-xl border border-indigo-600 text-indigo-600 font-bold hover:bg-indigo-600 hover:text-white transition-colors">
+                                <a
+                                    href="#contact"
+                                    onClick={() => trackConversion.ctaClick('pricing_単発スポット_相談する', '#contact')}
+                                    className="block w-full py-3 text-center rounded-xl border border-indigo-600 text-indigo-600 font-bold hover:bg-indigo-600 hover:text-white transition-colors"
+                                >
                                     相談する
                                 </a>
                             </div>
@@ -378,7 +392,11 @@ export const Home = () => {
                                         </li>
                                     </ul>
                                 </div>
-                                <a href="#contact" className="block w-full py-3 text-center rounded-xl bg-indigo-600 text-white font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200">
+                                <a
+                                    href="#contact"
+                                    onClick={() => trackConversion.ctaClick('pricing_期間コンサル_詳しく聞く', '#contact')}
+                                    className="block w-full py-3 text-center rounded-xl bg-indigo-600 text-white font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200"
+                                >
                                     詳しく聞く
                                 </a>
                             </div>
@@ -412,7 +430,11 @@ export const Home = () => {
                                         </li>
                                     </ul>
                                 </div>
-                                <a href="#contact" className="block w-full py-3 text-center rounded-xl border border-slate-300 text-slate-600 font-bold hover:bg-slate-800 hover:text-white transition-colors">
+                                <a
+                                    href="#contact"
+                                    onClick={() => trackConversion.ctaClick('pricing_顧問年間契約_お問い合わせ', '#contact')}
+                                    className="block w-full py-3 text-center rounded-xl border border-slate-300 text-slate-600 font-bold hover:bg-slate-800 hover:text-white transition-colors"
+                                >
                                     お問い合わせ
                                 </a>
                             </div>
@@ -525,6 +547,9 @@ export const Home = () => {
                         const company = (document.getElementById('company') as HTMLInputElement).value;
                         const email = (document.getElementById('email') as HTMLInputElement).value;
                         const message = (document.getElementById('message') as HTMLTextAreaElement).value;
+
+                        // GA4 コンバージョンイベント送信
+                        trackConversion.formSubmit('contact_form');
 
                         const subject = `【EduShift】お問い合わせ（${name}様）`;
                         const body = `

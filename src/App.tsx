@@ -9,10 +9,18 @@ import { FreelanceSupport } from './pages/services/FreelanceSupport';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { BusinessLaw } from './pages/BusinessLaw';
 import { HpProduction } from './pages/services/HpProduction';
+import { usePageTracking } from './hooks/usePageTracking';
+
+// ページ計測コンポーネント（Router内で使用）
+function PageTracker() {
+  usePageTracking();
+  return null;
+}
 
 function App() {
   return (
     <Router>
+      <PageTracker />
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Header />
