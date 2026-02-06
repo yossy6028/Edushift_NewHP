@@ -9,8 +9,8 @@ export const SchoolSupport = () => {
     return (
         <div className="bg-white">
             <MetaTags
-                title="教育機関向けAI導入支援"
-                description="学習塾・学校の運営をAIで最適化。業務効率化から教務支援まで、教育現場を知り尽くしたコンサルタントが伴走します。"
+                title="小規模塾経営サポート"
+                description="生徒数10〜50名規模の学習塾に特化した経営コンサルティング。集客・収益改善・業務効率化で、地域に愛される塾づくりを伴走支援します。"
                 image="/ogp-school.png"
             />
             {/* Hero Section */}

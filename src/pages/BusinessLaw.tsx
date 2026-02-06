@@ -1,9 +1,14 @@
 
 import { FadeIn } from '../components/FadeIn';
+import MetaTags from '../components/MetaTags';
 
 export const BusinessLaw = () => {
     return (
         <div className="bg-slate-50 min-h-screen py-24">
+            <MetaTags
+                title="特定商取引法に基づく表記"
+                description="EduShiftの特定商取引法に基づく表記です。販売業者情報、支払方法、キャンセルポリシーをご確認いただけます。"
+            />
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <FadeIn>
                     <h1 className="text-3xl font-bold text-slate-900 mb-12 text-center">特定商取引法に基づく表記</h1>

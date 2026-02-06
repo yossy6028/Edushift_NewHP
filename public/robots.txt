@@ -1,0 +1,6 @@
+# EduShift robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://edushift-newhp.vercel.app/sitemap.xml

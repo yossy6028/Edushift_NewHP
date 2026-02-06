@@ -371,9 +371,6 @@ export const Home = () => {
                         {/* Plan 2 */}
                         <FadeIn delay={200}>
                             <div className="bg-white rounded-3xl p-8 border-2 border-indigo-600 shadow-2xl relative h-full flex flex-col overflow-hidden">
-                                <div className="absolute top-5 right-5 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                                    人気No.1
-                                </div>
                                 <h3 className="text-lg font-bold text-slate-900 mb-2">期間コンサル</h3>
                                 <p className="text-sm text-slate-500 mb-6">根本的な改善と実行支援に</p>
                                 <div className="mb-6">

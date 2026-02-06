@@ -27,13 +27,27 @@ const MetaTags = ({ title, description, image, url }: MetaTagsProps) => {
 
         // Helper to update meta tags
         const updateMeta = (selector: string, attr: string, value: string) => {
-            let element = document.querySelector(selector);
+            const element = document.querySelector(selector);
             if (element) {
                 element.setAttribute(attr, value);
-            } else {
-                // If tag is missing, we could create it, but for simplicity we'll assume they exist in index.html
             }
         };
+
+        // Helper to update or create link tags
+        const updateLink = (rel: string, href: string) => {
+            let element = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement;
+            if (element) {
+                element.href = href;
+            } else {
+                element = document.createElement('link');
+                element.rel = rel;
+                element.href = href;
+                document.head.appendChild(element);
+            }
+        };
+
+        // Canonical URL
+        updateLink('canonical', currentUrl);
 
         // Standard Meta
         updateMeta('meta[name="description"]', 'content', currentDescription);

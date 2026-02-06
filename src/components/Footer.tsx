@@ -12,7 +12,7 @@ export const Footer = () => {
                 <div className="flex gap-6 text-sm">
                     <Link to="/privacypolicy" className="hover:text-slate-300 transition-colors">プライバシーポリシー</Link>
                     <Link to="/business-law" className="hover:text-slate-300 transition-colors">特定商取引法に基づく表記</Link>
-                    <a href="#contact" className="hover:text-slate-300 transition-colors">お問い合わせ</a>
+                    <Link to="/#contact" className="hover:text-slate-300 transition-colors">お問い合わせ</Link>
                 </div>
                 <p>&copy; 2024 EduShift. All rights reserved.</p>
             </div>

@@ -1,9 +1,14 @@
 
 import { FadeIn } from '../components/FadeIn';
+import MetaTags from '../components/MetaTags';
 
 export const PrivacyPolicy = () => {
     return (
         <div className="bg-slate-50 min-h-screen py-24">
+            <MetaTags
+                title="プライバシーポリシー"
+                description="EduShiftのプライバシーポリシーです。個人情報の取り扱いについてご確認いただけます。"
+            />
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <FadeIn>
                     <h1 className="text-3xl font-bold text-slate-900 mb-12 text-center">プライバシーポリシー</h1>
