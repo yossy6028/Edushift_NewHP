@@ -290,10 +290,10 @@ export const Home = () => {
                                         href="https://auto-tensaku-system.vercel.app/"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        onClick={() => trackConversion.outboundClick('https://auto-tensaku-system.vercel.app/', 'AI記述式自動添削システム_アプリを見る')}
+                                        onClick={() => trackConversion.outboundClick('https://auto-tensaku-system.vercel.app/', 'AI記述式自動添削システム_詳しく見る')}
                                         className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-all hover:scale-105 shadow-lg shadow-indigo-900/30"
                                     >
-                                        アプリを見る
+                                        詳しく見る
                                         <ExternalLink className="w-5 h-5" />
                                     </a>
                                 </div>
