@@ -84,6 +84,9 @@ export const HpProduction = () => {
                         <div className="text-center mb-16">
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">HP構築プラン</h2>
                             <p className="text-slate-600">初期費用を抑えた流し込みプランから、本格的なSEO特化プランまで。</p>
+                            <div className="inline-block mt-6 px-6 py-3 bg-red-50 border border-red-200 rounded-2xl">
+                                <p className="text-red-600 font-bold text-sm">🎉 2026年3月31日受注分まで 特別価格でご提供中！</p>
+                            </div>
                         </div>
                     </FadeIn>
 
@@ -94,7 +97,8 @@ export const HpProduction = () => {
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">ライト</h3>
                                     <p className="text-sm text-slate-500 mb-4">まずは名刺代わりの1枚が欲しい方に</p>
-                                    <div className="text-3xl font-bold text-indigo-600">¥29,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
+                                    <div className="text-sm text-slate-400 line-through">¥29,800</div>
+                                    <div className="text-3xl font-bold text-red-600">¥19,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
                                 </div>
                                 <ul className="space-y-3 mb-8 text-sm text-slate-600 flex-grow">
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> LP（1枚構成）</li>
@@ -117,12 +121,13 @@ export const HpProduction = () => {
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">スタンダード</h3>
                                     <p className="text-sm text-slate-500 mb-4">集客に必要な基本構成を網羅</p>
-                                    <div className="text-3xl font-bold text-indigo-600">¥49,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
+                                    <div className="text-sm text-slate-400 line-through">¥49,800</div>
+                                    <div className="text-3xl font-bold text-red-600">¥39,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
                                 </div>
                                 <ul className="space-y-3 mb-8 text-sm text-slate-600 flex-grow">
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> TOP + 下層3ページ</li>
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> ブログ・お知らせ機能</li>
-                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> WordPress構築</li>
+                                    <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> Googleマップ連携</li>
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> 過去サイトからの移行相談</li>
                                     <li className="flex items-center gap-2 font-semibold border-t pt-2">※基本レイアウトへの流し込み</li>
                                     <li className="flex items-center gap-2">※納品前の確認1回のみ対応</li>
@@ -137,7 +142,8 @@ export const HpProduction = () => {
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">プレミアム</h3>
                                     <p className="text-sm text-slate-500 mb-4">競合に勝つ、強み訴求の本格サイト</p>
-                                    <div className="text-3xl font-bold text-indigo-600">¥98,000<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
+                                    <div className="text-sm text-slate-400 line-through">¥98,000</div>
+                                    <div className="text-3xl font-bold text-red-600">¥78,000<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
                                 </div>
                                 <ul className="space-y-3 mb-8 text-sm text-slate-600 flex-grow">
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> TOP + 下層5~7ページ</li>
