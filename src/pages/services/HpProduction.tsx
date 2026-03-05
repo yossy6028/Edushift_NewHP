@@ -240,7 +240,7 @@ export const HpProduction = () => {
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <CheckCircle2 className="w-5 h-5 text-indigo-600 shrink-0" />
-                                        <span>お知らせ更新代行</span>
+                                        <span>お知らせ更新代行（週1回まで）</span>
                                     </li>
                                 </ul>
                                 <p className="text-xs text-slate-500 mt-6">※ライトプランのすべての内容を含みます</p>
