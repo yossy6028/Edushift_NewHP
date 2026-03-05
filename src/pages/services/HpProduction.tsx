@@ -200,24 +200,24 @@ export const HpProduction = () => {
                             <div className="p-8 rounded-3xl border border-slate-100 bg-slate-50 flex flex-col h-full">
                                 <div className="mb-6">
                                     <span className="text-indigo-600 font-bold text-sm uppercase mb-2 block tracking-widest">Insurance</span>
-                                    <h3 className="text-xl font-bold text-slate-900 mb-2">ミニマム</h3>
-                                    <div className="text-2xl font-bold text-slate-900">¥2,900<span className="text-sm font-normal text-slate-400">/月</span></div>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2">ライト</h3>
+                                    <div className="text-2xl font-bold text-slate-900">¥980<span className="text-sm font-normal text-slate-400">/月</span></div>
                                 </div>
                                 <ul className="space-y-4 text-sm text-slate-600 flex-grow border-t border-slate-200 pt-6">
                                     <li className="flex items-start gap-3">
                                         <Settings className="w-5 h-5 text-indigo-500 shrink-0" />
-                                        <span>ドメイン・サーバー維持管理</span>
+                                        <span>稼働監視（自動）</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <Settings className="w-5 h-5 text-indigo-500 shrink-0" />
-                                        <span>WP本体/プラグインの更新</span>
+                                        <span>SSL期限チェック（自動）</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <Settings className="w-5 h-5 text-indigo-500 shrink-0" />
-                                        <span>定期バックアップ作成</span>
+                                        <span>定期バックアップ作成（自動）</span>
                                     </li>
                                 </ul>
-                                <p className="text-xs text-slate-400 mt-6">※一切の修正・サポート対応を含みません</p>
+                                <p className="text-xs text-slate-400 mt-6">※個別修正・個別サポート対応は含みません</p>
                             </div>
                         </FadeIn>
 
@@ -227,7 +227,7 @@ export const HpProduction = () => {
                                 <div className="mb-6">
                                     <span className="text-indigo-600 font-bold text-sm uppercase mb-2 block tracking-widest">Office Assistant</span>
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">ベーシック</h3>
-                                    <div className="text-2xl font-bold text-slate-900">¥11,000<span className="text-sm font-normal text-slate-400">/月</span></div>
+                                    <div className="text-2xl font-bold text-slate-900">¥9,800<span className="text-sm font-normal text-slate-400">/月</span></div>
                                 </div>
                                 <ul className="space-y-4 text-sm text-slate-600 flex-grow border-t border-indigo-200 pt-6">
                                     <li className="flex items-start gap-3">
@@ -243,7 +243,7 @@ export const HpProduction = () => {
                                         <span>お知らせ更新代行</span>
                                     </li>
                                 </ul>
-                                <p className="text-xs text-slate-500 mt-6">※ミニマムプランのすべての内容を含みます</p>
+                                <p className="text-xs text-slate-500 mt-6">※ライトプランのすべての内容を含みます</p>
                             </div>
                         </FadeIn>
 
@@ -253,7 +253,7 @@ export const HpProduction = () => {
                                 <div className="mb-6">
                                     <span className="text-indigo-400 font-bold text-sm uppercase mb-2 block tracking-widest">Strategic Partner</span>
                                     <h3 className="text-xl font-bold mb-2">アドバンス</h3>
-                                    <div className="text-2xl font-bold">¥22,000<span className="text-sm font-normal text-slate-400">/月</span></div>
+                                    <div className="text-2xl font-bold">¥29,800<span className="text-sm font-normal text-slate-400">/月</span></div>
                                 </div>
                                 <ul className="space-y-4 text-sm text-slate-400 flex-grow border-t border-slate-700 pt-6">
                                     <li className="flex items-start gap-3">
@@ -320,7 +320,7 @@ export const HpProduction = () => {
                                 <div>
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">連絡手段の分離</h3>
                                     <p className="text-slate-600 leading-relaxed text-sm">
-                                        プランにより連絡手段が異なります。ミニマムプランはメールのみ、ベーシック以上はLINE/Chatwork等のチャットツールが解禁となります。
+                                        プランにより連絡手段が異なります。ライトプランはメールのみ、ベーシック以上はLINE/Chatwork等のチャットツールが解禁となります。
                                         迅速なコミュニケーションが必要な場合は、上位プランへの移行をご検討ください。
                                     </p>
                                 </div>
