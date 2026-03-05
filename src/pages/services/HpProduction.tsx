@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FadeIn } from '../../components/FadeIn';
 import MetaTags from '../../components/MetaTags';
 import serviceHp from '../../assets/service-hp.png';
+import hpBeforeAfter from '../../assets/hp-before-after.jpg';
 
 export const HpProduction = () => {
     return (
@@ -72,6 +73,29 @@ export const HpProduction = () => {
                             <p className="text-slate-600 leading-relaxed mb-6">
                                 HPは作ってからが本番です。単なる「維持管理（サーバー・ドメイン管理）」に留まらず、上位プランではAIを活用したブログ記事案の提供や、集客の右腕としてのコンサルティングを組み込み、貴塾の成長を継続的に支えます。
                             </p>
+                        </div>
+                    </FadeIn>
+                </div>
+            </section>
+
+            {/* Before / After Comparison */}
+            <section className="py-20 bg-white border-t border-slate-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <FadeIn>
+                        <div className="text-center mb-10">
+                            <h2 className="text-3xl font-bold text-slate-900 mb-3">同じ内容でも、コピーとデザインでここまで変わる</h2>
+                            <p className="text-slate-600">※1ページ内比較（Before: 写真なし / After: 写真あり）</p>
+                        </div>
+                    </FadeIn>
+
+                    <FadeIn delay={100}>
+                        <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl">
+                            <img
+                                src={hpBeforeAfter}
+                                alt="学習塾ホームページのBefore・After比較"
+                                className="w-full h-auto object-cover"
+                                loading="lazy"
+                            />
                         </div>
                     </FadeIn>
                 </div>
