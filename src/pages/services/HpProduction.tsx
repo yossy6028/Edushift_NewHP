@@ -191,6 +191,9 @@ export const HpProduction = () => {
                         <div className="text-center mb-16">
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">保守・運用プラン</h2>
                             <p className="text-slate-600">サイトの健康を保つ維持管理から、経営を加速させるパートナーシップまで。</p>
+                            <div className="inline-block mt-6 px-6 py-3 bg-red-50 border border-red-200 rounded-2xl">
+                                <p className="text-red-600 font-bold text-sm">🎉 2026年3月31日受注分まで 特別価格でご提供中！（3月31日以降も同一価格で保守サービス提供）</p>
+                            </div>
                         </div>
                     </FadeIn>
 
@@ -227,7 +230,7 @@ export const HpProduction = () => {
                                 <div className="mb-6">
                                     <span className="text-indigo-600 font-bold text-sm uppercase mb-2 block tracking-widest">Office Assistant</span>
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">ベーシック</h3>
-                                    <div className="text-2xl font-bold text-slate-900">¥9,800<span className="text-sm font-normal text-slate-400">/月</span></div>
+                                    <div className="text-2xl font-bold text-slate-900">¥2,980<span className="text-sm font-normal text-slate-400">/月</span></div>
                                 </div>
                                 <ul className="space-y-4 text-sm text-slate-600 flex-grow border-t border-indigo-200 pt-6">
                                     <li className="flex items-start gap-3">
