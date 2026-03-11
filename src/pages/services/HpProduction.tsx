@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom';
 import { FadeIn } from '../../components/FadeIn';
 import MetaTags from '../../components/MetaTags';
 import serviceHp from '../../assets/service-hp.png';
-import hpBeforeAfter from '../../assets/hp-before-after.jpg';
 
 export const HpProduction = () => {
     return (
         <div className="bg-white">
             <MetaTags
                 title="HP制作・保守運用"
-                description="「低価格なHP構築」から始まる、塾経営のデジタルトランスフォーメーション。EduShiftのWebソリューション。"
+                description="塾に問い合わせが来ない。その原因、HPにあるかもしれません。小規模塾専門のHP制作・保守サービス。月々980円〜、あなたの塾を「選ばれる塾」に変えます。"
                 image="/ogp-hp.png"
             />
             {/* Hero Section */}
@@ -25,8 +24,11 @@ export const HpProduction = () => {
                         EduShift Web Solution
                     </div>
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up">HP制作・保守運用</h1>
-                    <p className="text-xl md:text-2xl text-slate-200 mb-8 animate-fade-in-up max-w-3xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
-                        「低価格なHP構築」から始まる、<br className="md:hidden" />塾経営のデジタルトランスフォーメーション。
+                    <p className="text-xl md:text-2xl text-slate-200 mb-4 animate-fade-in-up max-w-3xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
+                        塾に問い合わせが来ない。<br className="md:hidden" />その原因、HPにあるかもしれません。
+                    </p>
+                    <p className="text-base md:text-lg text-slate-300 animate-fade-in-up max-w-2xl mx-auto leading-relaxed" style={{ animationDelay: '0.4s' }}>
+                        小規模塾専門のHP制作・保守サービス。月々980円〜、あなたの塾を「選ばれる塾」に変えます。
                     </p>
                 </div>
             </div>
@@ -35,12 +37,18 @@ export const HpProduction = () => {
             <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
                 <FadeIn>
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-6">プロジェクトの目的</h2>
-                        <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                            EduShiftのHP制作は、単に「サイトを作る」ことだけを目的としません。<br />
-                            小規模学習塾の皆様が、<strong>低コストでプロフェッショナルなWeb基盤</strong>を持ち、<br className="hidden md:block" />
-                            その後の<strong>保守・コンサルティングを通じてLTV（顧客生涯価値）を最大化</strong>することを目指しています。
-                        </p>
+                        <h2 className="text-3xl font-bold text-slate-900 mb-6">こんな塾の先生に、使ってほしい</h2>
+                        <div className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed text-left bg-slate-50 rounded-3xl p-8 border border-slate-100">
+                            <p className="mb-4">
+                                ✅ HPを作ったのに、問い合わせがほぼゼロ<br />
+                                ✅ チラシは配っているのに、ネット経由の問い合わせがない<br />
+                                ✅ 大手塾と比べてHPが見劣りする気がして、URLを教えにくい
+                            </p>
+                            <p className="text-slate-700 font-medium">
+                                1つでも当てはまるなら、EduShiftにご相談ください。<br />
+                                低コストで始めて、成果が出たら一緒に育てる。それがEduShiftのスタイルです。
+                            </p>
+                        </div>
                     </div>
                 </FadeIn>
 
@@ -52,11 +60,13 @@ export const HpProduction = () => {
                             </div>
                             <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
                                 <Zap className="w-6 h-6 text-indigo-600" />
-                                制作（ショット）の考え方
+                                まず「ある状態」にする。完璧より、スピード。
                             </h3>
                             <p className="text-slate-600 leading-relaxed mb-6">
-                                下位プランでは、厳選されたテンプレートを使用し、あえて「デザイン修正」を制限することで、圧倒的なコストパフォーマンスとスピード感を実現します。
-                                浮いたコストと時間を、教育の質を高めるための「コンテンツ作成」や「経営改善」に充てていただく。それがEduShiftの提案です。
+                                HPがない塾に、毎月どれだけの問い合わせが流れているか、考えたことはありますか？<br /><br />
+                                EduShiftの制作プランは「完璧なHP」より「今すぐある状態」を優先します。
+                                テンプレートを活用し、デザインの自由度をあえて絞ることで、圧倒的なスピードと低価格を実現。<br /><br />
+                                浮いた時間とお金を、授業の質や生徒対応に使ってください。
                             </p>
                         </div>
                     </FadeIn>
@@ -68,35 +78,24 @@ export const HpProduction = () => {
                             </div>
                             <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
                                 <Shield className="w-6 h-6 text-blue-600" />
-                                保守（ストック）の考え方
+                                HPは、作った後が9割。
                             </h3>
                             <p className="text-slate-600 leading-relaxed mb-6">
-                                HPは作ってからが本番です。単なる「維持管理（サーバー・ドメイン管理）」に留まらず、上位プランではAIを活用したブログ記事案の提供や、集客の右腕としてのコンサルティングを組み込み、貴塾の成長を継続的に支えます。
+                                多くの塾が、HPを作った後に止まります。
+                                更新されないサイトは、Googleからも保護者からも「活動していない塾」と判断されます。<br /><br />
+                                EduShiftの保守プランは「壊れたら直す」だけじゃありません。
+                                ブログ更新・SEO改善・集客レポート——あなたの塾の「Web担当者」として、毎月継続サポートします。
                             </p>
                         </div>
                     </FadeIn>
                 </div>
             </section>
 
-            {/* Before / After Comparison */}
-            <section className="py-20 bg-white border-t border-slate-100">
+            {/* Coming Soon Notice (replaces Before/After) */}
+            <section className="py-12 bg-slate-50 border-t border-slate-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <FadeIn>
-                        <div className="text-center mb-10">
-                            <h2 className="text-3xl font-bold text-slate-900 mb-3">同じ内容でも、コピーとデザインでここまで変わる</h2>
-                            <p className="text-slate-600">※1ページ内比較（Before: 写真なし / After: 写真あり）</p>
-                        </div>
-                    </FadeIn>
-
-                    <FadeIn delay={100}>
-                        <div className="rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-xl">
-                            <img
-                                src={hpBeforeAfter}
-                                alt="学習塾ホームページのBefore・After比較"
-                                className="w-full h-auto object-cover"
-                                loading="lazy"
-                            />
-                        </div>
+                        <p className="text-center text-slate-500 text-sm">※ 導入実績は近日公開予定</p>
                     </FadeIn>
                 </div>
             </section>
@@ -106,7 +105,7 @@ export const HpProduction = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <FadeIn>
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold text-slate-900 mb-4">HP構築プラン</h2>
+                            <h2 className="text-3xl font-bold text-slate-900 mb-4">あなたの塾の状況に合わせて選べる、3つのプラン</h2>
                             <p className="text-slate-600">初期費用を抑えた流し込みプランから、本格的なSEO特化プランまで。</p>
                             <div className="inline-block mt-6 px-6 py-3 bg-red-50 border border-red-200 rounded-2xl">
                                 <p className="text-red-600 font-bold text-sm">🎉 2026年3月31日受注分まで 特別価格でご提供中！</p>
@@ -120,7 +119,7 @@ export const HpProduction = () => {
                             <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 h-full flex flex-col">
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">ライト</h3>
-                                    <p className="text-sm text-slate-500 mb-4">まずは名刺代わりの1枚が欲しい方に</p>
+                                    <p className="text-sm text-slate-500 mb-4">最速1週間で公開。まず"存在する塾"になる</p>
                                     <div className="text-sm text-slate-400 line-through">¥29,800</div>
                                     <div className="text-3xl font-bold text-red-600">¥19,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
                                 </div>
@@ -144,7 +143,7 @@ export const HpProduction = () => {
                                 </div>
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">スタンダード</h3>
-                                    <p className="text-sm text-slate-500 mb-4">集客に必要な基本構成を網羅</p>
+                                    <p className="text-sm text-slate-500 mb-4">問い合わせ導線から地図まで。選ばれる仕組みを整える</p>
                                     <div className="text-sm text-slate-400 line-through">¥49,800</div>
                                     <div className="text-3xl font-bold text-red-600">¥39,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
                                 </div>
@@ -165,7 +164,7 @@ export const HpProduction = () => {
                             <div className="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 h-full flex flex-col">
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">プレミアム</h3>
-                                    <p className="text-sm text-slate-500 mb-4">競合に勝つ、強み訴求の本格サイト</p>
+                                    <p className="text-sm text-slate-500 mb-4">"うちを選ぶ理由"を言語化。地域で頭ひとつ抜け出すHP</p>
                                     <div className="text-sm text-slate-400 line-through">¥98,000</div>
                                     <div className="text-3xl font-bold text-red-600">¥78,000<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
                                 </div>
@@ -190,7 +189,7 @@ export const HpProduction = () => {
                     <FadeIn>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">保守・運用プラン</h2>
-                            <p className="text-slate-600">サイトの健康を保つ維持管理から、経営を加速させるパートナーシップまで。</p>
+                            <p className="text-slate-600">作りっぱなしにしない。成長し続けるHPのために。</p>
                             <div className="inline-block mt-6 px-6 py-3 bg-red-50 border border-red-200 rounded-2xl">
                                 <p className="text-red-600 font-bold text-sm">🎉 2026年3月31日受注分まで 特別価格でご提供中！（3月31日以降も同一価格で保守サービス提供）</p>
                             </div>
@@ -295,7 +294,7 @@ export const HpProduction = () => {
                                     <Settings className="w-6 h-6 text-indigo-600" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-slate-900 mb-2">修正回数の制限</h3>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2">低価格を実現するための、シンプルなルール</h3>
                                     <p className="text-slate-600 leading-relaxed text-sm">
                                         ライト/スタンダードプランの制作時修正は「納品前確認の1回のみ」とさせていただきます。
                                         これにより制作コストを極限まで抑え、低価格での提供を実現しています。以降は有償での対応となります。
@@ -308,7 +307,7 @@ export const HpProduction = () => {
                                     <CheckCircle2 className="w-6 h-6 text-indigo-600" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-slate-900 mb-2">素材提供のルール</h3>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2">制作をスムーズに進めるための準備について</h3>
                                     <p className="text-slate-600 leading-relaxed text-sm">
                                         ライトプラン等、低価格プランでの制作においては、指定フォーマット（Excel/Word）ですべての原稿・画像が揃ってから着手いたします。
                                         五月雨式の提出は別途管理工数が発生するため、お控えいただけますようお願いいたします。
@@ -321,7 +320,7 @@ export const HpProduction = () => {
                                     <MessageSquare className="w-6 h-6 text-indigo-600" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-slate-900 mb-2">連絡手段の分離</h3>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2">プランに応じた、最適なコミュニケーション方法</h3>
                                     <p className="text-slate-600 leading-relaxed text-sm">
                                         プランにより連絡手段が異なります。ライトプランはメールのみ、ベーシック以上はLINE/Chatwork等のチャットツールが解禁となります。
                                         迅速なコミュニケーションが必要な場合は、上位プランへの移行をご検討ください。
@@ -334,7 +333,7 @@ export const HpProduction = () => {
                                     <BrainCircuit className="w-6 h-6 text-indigo-600" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-slate-900 mb-2">AI活用の組み込み</h3>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2">AIでブログ更新の悩みをゼロに（アドバンス限定）</h3>
                                     <p className="text-slate-600 leading-relaxed text-sm">
                                         アドバンスプランでは、AI（ChatGPT等）を用いたブログ記事構成案の提案を月に1回行います。
                                         「何を書いていいかわからない」という課題を解消し、サイトの更新頻度を維持することでSEO効果を最大化します。
@@ -349,8 +348,8 @@ export const HpProduction = () => {
             {/* CTA */}
             <div className="bg-indigo-600 py-20 text-center text-white">
                 <div className="max-w-4xl mx-auto px-4">
-                    <h2 className="text-3xl font-bold mb-6">低価格で高品質なHPを、貴塾の新たな武器に。</h2>
-                    <p className="text-indigo-100 mb-10 text-lg">まずは現在のWeb状況の診断から承ります。お気軽にご相談ください。</p>
+                    <h2 className="text-3xl font-bold mb-6">今のHPで、何人の生徒を逃していますか？</h2>
+                    <p className="text-indigo-100 mb-10 text-lg">まず現在のWeb状況を、無料で診断します。しつこい営業は一切しません。お気軽にどうぞ。</p>
                     <div className="flex justify-center">
                         <Link to="/#contact" className="px-10 py-5 bg-white text-indigo-600 rounded-full font-bold shadow-2xl hover:bg-slate-50 transition-all flex items-center gap-2 text-lg">
                             無料で相談・見積もりを依頼する
