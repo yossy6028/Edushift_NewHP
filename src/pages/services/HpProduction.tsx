@@ -226,7 +226,7 @@ export const HpProduction = () => {
                                 <ul className="space-y-4 text-sm text-slate-600 flex-grow border-t border-indigo-200 pt-6">
                                     <li className="flex items-start gap-3">
                                         <MessageSquare className="w-5 h-5 text-indigo-600 shrink-0" />
-                                        <span>LINEチャットでの技術相談</span>
+                                        <span>チャットでの更新・技術相談</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <CheckCircle2 className="w-5 h-5 text-indigo-600 shrink-0" />
