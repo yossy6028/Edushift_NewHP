@@ -91,14 +91,6 @@ export const HpProduction = () => {
                 </div>
             </section>
 
-            {/* Coming Soon Notice (replaces Before/After) */}
-            <section className="py-12 bg-slate-50 border-t border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <FadeIn>
-                        <p className="text-center text-slate-500 text-sm">※ 導入実績は近日公開予定</p>
-                    </FadeIn>
-                </div>
-            </section>
 
             {/* Production Plans */}
             <section className="py-24 bg-slate-50">
