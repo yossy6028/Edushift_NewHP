@@ -78,7 +78,7 @@ export const HpProduction = () => {
                             </div>
                             <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
                                 <Shield className="w-6 h-6 text-blue-600" />
-                                HPは、作った後が9割。
+                                HPは、作った後が重要。
                             </h3>
                             <p className="text-slate-600 leading-relaxed mb-6">
                                 多くの塾が、HPを作った後に止まります。
