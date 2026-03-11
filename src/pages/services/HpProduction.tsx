@@ -23,7 +23,7 @@ export const HpProduction = () => {
                     <div className="inline-block px-4 py-1.5 rounded-full bg-indigo-500/20 backdrop-blur-md border border-indigo-400/30 text-indigo-100 text-sm font-semibold mb-6 animate-fade-in-up">
                         EduShift Web Solution
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up">HP制作・保守運用</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up">塾のWeb、まるごとサポート。</h1>
                     <p className="text-xl md:text-2xl text-slate-200 mb-4 animate-fade-in-up max-w-3xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
                         塾に問い合わせが来ない。<br className="md:hidden" />その原因、HPにあるかもしれません。
                     </p>
@@ -37,12 +37,12 @@ export const HpProduction = () => {
             <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
                 <FadeIn>
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-6">こんな塾の先生に、使ってほしい</h2>
+                        <h2 className="text-3xl font-bold text-slate-900 mb-6">HPに関するこんな困りごとありませんか？</h2>
                         <div className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed text-left bg-slate-50 rounded-3xl p-8 border border-slate-100">
                             <p className="mb-4">
-                                ✅ HPを作ったのに、問い合わせがほぼゼロ<br />
-                                ✅ チラシは配っているのに、ネット経由の問い合わせがない<br />
-                                ✅ 大手塾と比べてHPが見劣りする気がして、URLを教えにくい
+                                HPを作ったのに、問い合わせがほぼゼロ<br />
+                                チラシは配っているのに、ネット経由の問い合わせがない<br />
+                                大手塾と比べてHPが見劣りする気がして、URLを教えにくい
                             </p>
                             <p className="text-slate-700 font-medium">
                                 1つでも当てはまるなら、EduShiftにご相談ください。<br />
