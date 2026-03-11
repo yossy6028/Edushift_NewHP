@@ -340,7 +340,7 @@ export const HpProduction = () => {
             {/* CTA */}
             <div className="bg-indigo-600 py-20 text-center text-white">
                 <div className="max-w-4xl mx-auto px-4">
-                    <h2 className="text-3xl font-bold mb-6">今のHPで、何人の生徒を逃していますか？</h2>
+                    <h2 className="text-3xl font-bold mb-6">今のHPで競合他塾に勝てますか？</h2>
                     <p className="text-indigo-100 mb-10 text-lg">まず現在のWeb状況を、無料で診断します。しつこい営業は一切しません。お気軽にどうぞ。</p>
                     <div className="flex justify-center">
                         <Link to="/#contact" className="px-10 py-5 bg-white text-indigo-600 rounded-full font-bold shadow-2xl hover:bg-slate-50 transition-all flex items-center gap-2 text-lg">
