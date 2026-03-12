@@ -43,26 +43,26 @@ export const Home = () => {
                         </div>
 
                         <AnimatedHeroTitle
-                            text1="教育者の情熱を、"
-                            text2="確かな成果へ。"
+                            text1="今のHPで、"
+                            text2="何人の生徒を逃していますか？"
                         />
 
                         <p className="text-xl md:text-2xl text-slate-200 mb-12 leading-relaxed max-w-2xl text-shadow-sm animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                            経営・集客の悩みをAIと仕組みで解決。<br className="hidden md:block" />
-                            あなたが本当にやりたい教育に、<br className="hidden md:block" />
-                            もう一度集中できる環境をつくります。
+                            春の新年度募集、今のHPが集客の分岐点。<br className="hidden md:block" />
+                            取りこぼしをなくす仕組みを、<br className="hidden md:block" />
+                            EduShiftが一緒につくります。
                         </p>
                         <div className="flex flex-col sm:flex-row gap-5 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                             <a
                                 href="#contact"
-                                onClick={() => trackConversion.ctaClick('hero_無料相談を予約する', '#contact')}
+                                onClick={() => trackConversion.ctaClick('hero_無料HP診断を受ける', '#contact')}
                                 className="px-8 py-4 bg-indigo-600 text-white rounded-full font-bold shadow-xl shadow-indigo-900/30 hover:bg-indigo-500 hover:scale-105 transition-all flex flex-col items-center justify-center group ring-4 ring-indigo-600/30"
                             >
                                 <span className="flex items-center gap-2">
-                                    30分の無料相談を予約
+                                    無料でHP診断を受ける
                                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                                 </span>
-                                <span className="text-xs text-indigo-200 font-normal mt-1">営業は一切ありません</span>
+                                <span className="text-xs text-indigo-200 font-normal mt-1">まず現状を診るだけでもOK</span>
                             </a>
                             <a
                                 href="#services"
@@ -540,10 +540,10 @@ export const Home = () => {
             {/* Contact Section */}
             <section id="contact" className="py-20 bg-slate-900 text-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold mb-4">まずは30分、お話しませんか？</h2>
+                    <h2 className="text-3xl font-bold mb-4">春の生徒、今のHPで取りこぼしていませんか？</h2>
                     <p className="text-slate-400 mb-4">
-                        現状のお悩みをお聞かせください。<br />
-                        具体的な改善の方向性をその場でお伝えします。
+                        30分で現状診断します。<br />
+                        改善ポイントはその場でお伝えします。
                     </p>
                     <p className="text-sm text-slate-500 mb-12">
                         ※ 無理な営業は一切いたしません。情報収集だけでもOKです。
