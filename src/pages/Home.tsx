@@ -43,8 +43,8 @@ export const Home = () => {
                         </div>
 
                         <AnimatedHeroTitle
-                            text1="今のHPで、"
-                            text2="何人の生徒を逃していますか？"
+                            text1="今のHPで"
+                            text2="隣の塾に勝てますか？"
                         />
 
                         <p className="text-xl md:text-2xl text-slate-200 mb-12 leading-relaxed max-w-2xl text-shadow-sm animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
