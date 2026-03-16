@@ -210,6 +210,10 @@ export const HpProduction = () => {
                                         <Settings className="w-5 h-5 text-indigo-500 shrink-0" />
                                         <span>定期バックアップ作成（自動）</span>
                                     </li>
+                                    <li className="flex items-start gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0" />
+                                        <span>月1回のお知らせ更新代行</span>
+                                    </li>
                                 </ul>
                                 <p className="text-xs text-slate-400 mt-6">※個別修正・個別サポート対応は含みません</p>
                             </div>
