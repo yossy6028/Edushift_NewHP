@@ -99,9 +99,7 @@ export const HpProduction = () => {
                         <div className="text-center mb-16">
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">あなたの塾の状況に合わせて選べる、3つのプラン</h2>
                             <p className="text-slate-600">初期費用を抑えた流し込みプランから、本格的なSEO特化プランまで。</p>
-                            <div className="inline-block mt-6 px-6 py-3 bg-red-50 border border-red-200 rounded-2xl">
-                                <p className="text-red-600 font-bold text-sm">🎉 2026年3月31日受注分まで 特別価格でご提供中！</p>
-                            </div>
+
                         </div>
                     </FadeIn>
 
@@ -112,8 +110,7 @@ export const HpProduction = () => {
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">ライト</h3>
                                     <p className="text-sm text-slate-500 mb-4">最速1週間で公開。まず"存在する塾"になる</p>
-                                    <div className="text-sm text-slate-400 line-through">¥29,800</div>
-                                    <div className="text-3xl font-bold text-red-600">¥19,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
+                                    <div className="text-3xl font-bold text-slate-900">¥29,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
                                 </div>
                                 <ul className="space-y-3 mb-8 text-sm text-slate-600 flex-grow">
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> LP（1枚構成）</li>
@@ -136,8 +133,7 @@ export const HpProduction = () => {
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">スタンダード</h3>
                                     <p className="text-sm text-slate-500 mb-4">問い合わせ導線から地図まで。選ばれる仕組みを整える</p>
-                                    <div className="text-sm text-slate-400 line-through">¥49,800</div>
-                                    <div className="text-3xl font-bold text-red-600">¥39,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
+                                    <div className="text-3xl font-bold text-slate-900">¥49,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
                                 </div>
                                 <ul className="space-y-3 mb-8 text-sm text-slate-600 flex-grow">
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> TOP + 下層3ページ</li>
@@ -157,8 +153,7 @@ export const HpProduction = () => {
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">プレミアム</h3>
                                     <p className="text-sm text-slate-500 mb-4">"うちを選ぶ理由"を言語化。地域で頭ひとつ抜け出すHP</p>
-                                    <div className="text-sm text-slate-400 line-through">¥98,000</div>
-                                    <div className="text-3xl font-bold text-red-600">¥78,000<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
+                                    <div className="text-3xl font-bold text-slate-900">¥98,000<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
                                 </div>
                                 <ul className="space-y-3 mb-8 text-sm text-slate-600 flex-grow">
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> TOP + 下層5~7ページ</li>
@@ -182,9 +177,7 @@ export const HpProduction = () => {
                         <div className="text-center mb-16">
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">保守・運用プラン</h2>
                             <p className="text-slate-600">作りっぱなしにしない。成長し続けるHPのために。</p>
-                            <div className="inline-block mt-6 px-6 py-3 bg-red-50 border border-red-200 rounded-2xl">
-                                <p className="text-red-600 font-bold text-sm">🎉 2026年3月31日受注分まで 特別価格でご提供中！（3月31日以降も同一価格で保守サービス提供）</p>
-                            </div>
+
                         </div>
                     </FadeIn>
 
