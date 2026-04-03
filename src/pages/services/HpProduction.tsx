@@ -5,7 +5,7 @@ import { FadeIn } from '../../components/FadeIn';
 import MetaTags from '../../components/MetaTags';
 import serviceHp from '../../assets/service-hp.png';
 
-// Updated: 2026-04-03 - Campaign ended, prices reverted to normal
+// Updated: 2026-04-04 - Campaign ended, prices reverted to normal (force rebuild)
 export const HpProduction = () => {
     return (
         <div className="bg-white">
