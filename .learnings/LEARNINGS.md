@@ -1,5 +1,20 @@
 # LEARNINGS.md
 
+## 2026-04-03: session_manager.py cron動作確認完了
+- **経緯**: session_manager.pyが不在でcronエラーが継続していた問題を修正
+- **対応内容**:
+  1. session_manager_cron.sh（ラッパースクリプト）を作成
+  2. パス検証（--verify-path）を事前に実行
+  3. エラー時に自動的に.ERRORS.mdに記録する機能を追加
+  4. crontabに30分ごとの実行を設定
+- **テスト結果**: ✅ 成功
+  - 09:36:48 JST - パス検証OK → クリーンアップ完了
+  - 09:42:46 JST - パス検証OK → クリーンアップ完了
+- **ログ確認**: `/Users/yossy/.openclaw/workspace/logs/session_manager_cron.log`
+- **次回以降**: 30分ごとに自動実行、問題があればTelegram通知＋ERRORS.md記録
+
+---
+
 ## 2026-03-29: 提案完了時の可視性改善（固定1行）
 - **運用追加**: 提案完了メッセージの末尾に、必ず以下1行を固定で添える。
 

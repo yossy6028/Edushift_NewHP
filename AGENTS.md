@@ -21,6 +21,17 @@
 - 「Invalid API key」と思ったら設定の問題ではなく → **五条悟(main)に報告**
 - 利用方法: claude_code ツールにタスクを渡すだけ（認証は自動）
 
+## 重いタスク応答プロトコル（必須）
+
+**画像多数・複数ファイル編集・広い調査・claude_code 実行を含む依頼は、無言で抱え込まない。**
+
+- 開始 15 秒以内に短い受領メッセージを返す
+- 2 分を超えそうなら、まず「何を分けて進めるか」を1行で宣言する
+- 進捗はフェーズ完了時、または 60〜90 秒ごとに短く返す
+- `overloaded` / `aborted` / timeout が出たら、黙って再試行し続けず、先に失敗理由を1行返す
+- 大きい依頼は一発で最後まで抱えず、`調査 → 実装 → 検証` の段階に分ける
+- `claude_code` が重そうな時は、先に対象ファイルや対象件数を絞ってから投げる
+
 ---
 
 This folder is home. Treat it that way.
@@ -262,3 +273,25 @@ This is a starting point. Add your own conventions, style, and rules as you figu
 - **禁止**: twitter-cli search（X社API変更により恒久的に使用不可）
 - **主力**: SocialData API
 - **補助**: xurl
+
+---
+
+## PJ1パイプライン・引き継ぎSLA（2026-04-03 追加）
+
+**nanami（七海建人）→ kugisaki（釘咲野薔薇）間の引き継ぎ速度基準**
+
+### 目標SLA
+| フェーズ | 目標時間 | 最長許容時間 |
+|---------|---------|-------------|
+| nanami発掘完了 → mailbox送信 | 即時（同ターン内） | 30分以内 |
+| kugisaki ACK受信 → DM第一稿開始 | 即時 | 1時間以内 |
+| DM第一稿完成 | 24時間以内 | 48時間以内 |
+
+### 詳細手順
+- 完全な手順書: `pj1/handoff-sla.md`
+- DM生成・品質チェック: `skills/pj1-copy-generator/SKILL.md`
+- デザイン評価: `skills/pj1-design-evaluator/SKILL.md`
+
+### 遅延時のエスカレーション
+- 24時間超過 → main（五条悟）へ報告
+- 48時間超過 → 必ずエスカレーション、優先順位再調整
