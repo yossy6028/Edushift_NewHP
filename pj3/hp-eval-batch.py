@@ -5,7 +5,7 @@ agent-browserのsnapshotテキストからデザイン品質を推定してNotio
 """
 import subprocess, json, re, time, sys, os
 
-NOTION_TOKEN = "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"
+NOTION_TOKEN = 
 RESULTS_FILE = "/Users/yossy/.openclaw/workspace-kugisaki/pj3/hp-eval-result.md"
 
 def run(cmd, timeout=20):
