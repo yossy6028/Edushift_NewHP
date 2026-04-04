@@ -5,7 +5,7 @@ import { FadeIn } from '../../components/FadeIn';
 import MetaTags from '../../components/MetaTags';
 import serviceHp from '../../assets/service-hp.png';
 
-// Updated: 2026-04-04 - Campaign ended, prices reverted to normal (force rebuild)
+// Updated: 2026-04-04 - Prices adjusted: Light ¥19,800, Standard ¥39,800 (force rebuild)
 export const HpProduction = () => {
     return (
         <div className="bg-white">
@@ -111,7 +111,7 @@ export const HpProduction = () => {
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">ライト</h3>
                                     <p className="text-sm text-slate-500 mb-4">最速1週間で公開。まず"存在する塾"になる</p>
-                                    <div className="text-3xl font-bold text-slate-900">¥29,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
+                                    <div className="text-3xl font-bold text-slate-900">¥19,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
                                 </div>
                                 <ul className="space-y-3 mb-8 text-sm text-slate-600 flex-grow">
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> LP（1枚構成）</li>
@@ -134,7 +134,7 @@ export const HpProduction = () => {
                                 <div className="mb-6">
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">スタンダード</h3>
                                     <p className="text-sm text-slate-500 mb-4">問い合わせ導線から地図まで。選ばれる仕組みを整える</p>
-                                    <div className="text-3xl font-bold text-slate-900">¥49,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
+                                    <div className="text-3xl font-bold text-slate-900">¥39,800<span className="text-sm font-normal text-slate-400"> (税抜)</span></div>
                                 </div>
                                 <ul className="space-y-3 mb-8 text-sm text-slate-600 flex-grow">
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> TOP + 下層3ページ</li>
