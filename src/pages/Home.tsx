@@ -218,7 +218,7 @@ export const Home = () => {
                                     <div className="p-8 flex flex-col flex-grow">
                                         <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">HP制作・保守運用</h3>
                                         <p className="text-slate-600 mb-8 leading-relaxed flex-grow">
-                                            初期費用19,800円〜の塾専用HP制作。
+                                            初期費用29,800円〜の塾専用HP制作。
                                             月々980円〜の保守運用で、
                                             ブログ更新・SEO対策も継続サポート。
                                         </p>
