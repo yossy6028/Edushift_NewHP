@@ -43,14 +43,14 @@ export const Home = () => {
                         </div>
 
                         <AnimatedHeroTitle
-                            text1="今のHPで"
-                            text2="隣の塾に勝てますか？"
+                            text1="1人塾でも"
+                            text2="年間100名集客できる仕組み"
                         />
 
                         <p className="text-xl md:text-2xl text-slate-200 mb-12 leading-relaxed max-w-2xl text-shadow-sm animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                            春の新年度募集、今のHPが集客の分岐点。<br className="hidden md:block" />
-                            取りこぼしをなくす仕組みを、<br className="hidden md:block" />
-                            EduShiftが一緒につくります。
+                            チラシ配布だけではもう限界。<br className="hidden md:block" />
+                            Web集客の仕組みを整えて、<br className="hidden md:block" />
+                            選ばれる塾になる第一歩を踏み出しましょう。
                         </p>
                         <div className="flex flex-col sm:flex-row gap-5 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                             <a
