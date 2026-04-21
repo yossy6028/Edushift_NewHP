@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import logoImg from '../assets/logo.png';
-import founderImg from '../assets/founder.png';
+import founderImg from '../assets/founder.webp';
 import '../styles/scholarly.css';
 
 type NoteContent = {
