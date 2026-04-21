@@ -1,0 +1,728 @@
+{
+  "data": {
+    "contents": [
+      {
+        "id": 153409918,
+        "type": "TextNote",
+        "status": "published",
+        "name": "「なぜその解き方？」をClaudeに5回聞く — 算数・数学の理解を深める対話術",
+        "description": null,
+        "likeCount": 5,
+        "price": 0,
+        "key": "n773d255a24a6",
+        "slug": "slug-n773d255a24a6",
+        "publishAt": "2026-03-30T15:14:02+09:00",
+        "thumbnailExternalUrl": "",
+        "eyecatch": "https://assets.st-note.com/production/uploads/images/263326116/rectangle_large_type_2_27918fe56697697903911e638e4a2a5a.jpeg?fit=bounds&quality=85&width=1280",
+        "user": {
+          "id": 2745766,
+          "key": "15a4838697c108b86dd54f553993820f",
+          "name": "吉井勝彦 | EduShift代表",
+          "urlname": "katsu_yossy",
+          "nickname": "吉井勝彦 | EduShift代表",
+          "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/186420723/profile_aeb3b7d0f0722dd65cbbf7f0db0f9b4f.png?fit=bounds&format=jpeg&quality=85&width=330",
+          "customDomain": null,
+          "disableSupport": false,
+          "disableGuestPurchase": false,
+          "emailConfirmedFlag": true,
+          "likeAppealText": "ありがとう！励みになります！",
+          "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_4.png",
+          "purchaseAppealTextNote": null,
+          "twitterNickname": "YSTConsulting",
+          "shareAppeal": {
+            "text": null,
+            "image": null
+          },
+          "magazineAddAppeal": {
+            "text": null,
+            "image": null
+          }
+        },
+        "canRead": true,
+        "isAuthor": false,
+        "externalUrl": null,
+        "customDomain": null,
+        "body": "AIの使い方、「答えを教えて」で止まっていませんか？\n生徒さん、お子さんがClaudeやChatGPTに算数の問題を聞いている姿をご覧になったことはありますか？\n\n画面にはきれいな解法が並んでいる。子どもは「わかった」と言ってノートに写す。でも翌週、同じ単元のテストで同じような問題を間違える。\n\nこの光景に心当たりがあるなら、お子さんはAIを「解答自動生成機」として使っています。\n\nKUMONが2026年3月に発表した調査では、家庭学習で生成AIの利用を「増やしたい」と答えた",
+        "separator": "",
+        "isLimited": false,
+        "isTrial": false,
+        "canUpdate": false,
+        "tweetText": "",
+        "twitterRelatedAccounts": "YSTConsulting,note_PR",
+        "isRefund": false,
+        "isLiked": false,
+        "commentCount": 0,
+        "likes": [],
+        "anonymousLikeCount": 0,
+        "disableComment": false,
+        "hashtags": [
+          {
+            "hashtag": {
+              "name": "#AI活用"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#問題"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#Claude"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#数学"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#算数"
+            }
+          }
+        ],
+        "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/katsu_yossy/n/n773d255a24a6&text=%E3%80%8C%E3%81%AA%E3%81%9C%E3%81%9D%E3%81%AE%E8%A7%A3%E3%81%8D%E6%96%B9%EF%BC%9F%E3%80%8D%E3%82%92Claude%E3%81%AB5%E5%9B%9E%E8%81%9E%E3%81%8F+%E2%80%94+%E7%AE%97%E6%95%B0%E3%83%BB%E6%95%B0%E5%AD%A6%E3%81%AE%E7%90%86%E8%A7%A3%E3%82%92%E6%B7%B1%E3%82%81%E3%82%8B%E5%AF%BE%E8%A9%B1%E8%A1%93%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8+%40YSTConsulting&related=YSTConsulting,note_PR",
+        "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/katsu_yossy/n/n773d255a24a6&t=%E3%80%8C%E3%81%AA%E3%81%9C%E3%81%9D%E3%81%AE%E8%A7%A3%E3%81%8D%E6%96%B9%EF%BC%9F%E3%80%8D%E3%82%92Claude%E3%81%AB5%E5%9B%9E%E8%81%9E%E3%81%8F+%E2%80%94+%E7%AE%97%E6%95%B0%E3%83%BB%E6%95%B0%E5%AD%A6%E3%81%AE%E7%90%86%E8%A7%A3%E3%82%92%E6%B7%B1%E3%82%81%E3%82%8B%E5%AF%BE%E8%A9%B1%E8%A1%93%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+        "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%80%8C%E3%81%AA%E3%81%9C%E3%81%9D%E3%81%AE%E8%A7%A3%E3%81%8D%E6%96%B9%EF%BC%9F%E3%80%8D%E3%82%92Claude%E3%81%AB5%E5%9B%9E%E8%81%9E%E3%81%8F+%E2%80%94+%E7%AE%97%E6%95%B0%E3%83%BB%E6%95%B0%E5%AD%A6%E3%81%AE%E7%90%86%E8%A7%A3%E3%82%92%E6%B7%B1%E3%82%81%E3%82%8B%E5%AF%BE%E8%A9%B1%E8%A1%93%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/katsu_yossy/n/n773d255a24a6",
+        "audio": {},
+        "pictures": [],
+        "limitedMessage": null,
+        "labels": [],
+        "priorSale": null,
+        "canMultipleLimitedNote": false,
+        "isMembershipConnected": false,
+        "hasAvailableCirclePlans": false,
+        "isPinned": false,
+        "pinnedUserNoteId": null,
+        "spEyecatch": "https://assets.st-note.com/production/uploads/images/263326116/square_large_27918fe56697697903911e638e4a2a5a.jpeg?fit=bounds&format=jpeg&quality=85&width=360",
+        "enableBacktoDraft": false,
+        "notificationMessages": [],
+        "isProfiled": false,
+        "isForWork": false,
+        "isCircleDescription": false,
+        "noteDraft": null,
+        "noteUrl": "https://note.com/katsu_yossy/n/n773d255a24a6",
+        "imageCount": 2,
+        "format": "4.0",
+        "capabilities": {
+          "amazonpayCampaign": true,
+          "amazonpay": false,
+          "guestAmazonpay": false,
+          "rubyText": true,
+          "formulaText": true,
+          "duplication": true,
+          "noteComment": true
+        },
+        "discountCampaigns": [],
+        "remainedCharNum": 0,
+        "remainedImageNum": 0,
+        "remainedFileNum": 0,
+        "priceInfo": {
+          "isFree": true,
+          "lowestPrice": null,
+          "hasMultiple": false,
+          "hasSubscription": false,
+          "oneshotLowestPrice": null
+        }
+      },
+      {
+        "id": 152420876,
+        "type": "TextNote",
+        "status": "published",
+        "name": "Z会・代ゼミがAI導入を加速！                 個人塾が今すぐできる差別化とは？",
+        "description": null,
+        "likeCount": 7,
+        "price": 0,
+        "key": "n0cca5f255779",
+        "slug": "slug-n0cca5f255779",
+        "publishAt": "2026-03-25T17:01:01+09:00",
+        "thumbnailExternalUrl": "",
+        "eyecatch": "https://assets.st-note.com/production/uploads/images/262049143/rectangle_large_type_2_28ac737c7bf32eb6d02da61dd539a8e2.jpeg?fit=bounds&quality=85&width=1280",
+        "user": {
+          "id": 2745766,
+          "key": "15a4838697c108b86dd54f553993820f",
+          "name": "吉井勝彦 | EduShift代表",
+          "urlname": "katsu_yossy",
+          "nickname": "吉井勝彦 | EduShift代表",
+          "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/186420723/profile_aeb3b7d0f0722dd65cbbf7f0db0f9b4f.png?fit=bounds&format=jpeg&quality=85&width=330",
+          "customDomain": null,
+          "disableSupport": false,
+          "disableGuestPurchase": false,
+          "emailConfirmedFlag": true,
+          "likeAppealText": "ありがとう！励みになります！",
+          "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_4.png",
+          "purchaseAppealTextNote": null,
+          "twitterNickname": "YSTConsulting",
+          "shareAppeal": {
+            "text": null,
+            "image": null
+          },
+          "magazineAddAppeal": {
+            "text": null,
+            "image": null
+          }
+        },
+        "canRead": true,
+        "isAuthor": false,
+        "externalUrl": null,
+        "customDomain": null,
+        "body": "AI導入なんて大手企業がする話で、個人塾には関係ないと思っているなら、それは大きな誤解です。\n\n大手塾がAIで効率化を進める今だからこそ、個人塾が「人」にしかできない価値で差別化し、選ばれる存在になるチャンスが来ています。\n\nこの記事では、大手塾の最新AI導入事例を紐解きながら、小さな塾がAI時代を生き抜くための具体的な差別化戦略をご紹介します。\n\n1. 大手塾のAI導入、その実態大手学習塾や予備校は、すでにAIを学習支援の強力なツールとして活用しています。\n\nZ会のAI活用",
+        "separator": null,
+        "isLimited": false,
+        "isTrial": false,
+        "canUpdate": false,
+        "tweetText": "",
+        "twitterRelatedAccounts": "YSTConsulting,note_PR",
+        "isRefund": false,
+        "isLiked": false,
+        "commentCount": 0,
+        "likes": [],
+        "anonymousLikeCount": 0,
+        "disableComment": false,
+        "hashtags": [
+          {
+            "hashtag": {
+              "name": "#AI活用"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#効率化"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#個人塾"
+            }
+          }
+        ],
+        "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/katsu_yossy/n/n0cca5f255779&text=Z%E4%BC%9A%E3%83%BB%E4%BB%A3%E3%82%BC%E3%83%9F%E3%81%8CAI%E5%B0%8E%E5%85%A5%E3%82%92%E5%8A%A0%E9%80%9F%EF%BC%81+++++++++++++++++%E5%80%8B%E4%BA%BA%E5%A1%BE%E3%81%8C%E4%BB%8A%E3%81%99%E3%81%90%E3%81%A7%E3%81%8D%E3%82%8B%E5%B7%AE%E5%88%A5%E5%8C%96%E3%81%A8%E3%81%AF%EF%BC%9F%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8+%40YSTConsulting&related=YSTConsulting,note_PR",
+        "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/katsu_yossy/n/n0cca5f255779&t=Z%E4%BC%9A%E3%83%BB%E4%BB%A3%E3%82%BC%E3%83%9F%E3%81%8CAI%E5%B0%8E%E5%85%A5%E3%82%92%E5%8A%A0%E9%80%9F%EF%BC%81+++++++++++++++++%E5%80%8B%E4%BA%BA%E5%A1%BE%E3%81%8C%E4%BB%8A%E3%81%99%E3%81%90%E3%81%A7%E3%81%8D%E3%82%8B%E5%B7%AE%E5%88%A5%E5%8C%96%E3%81%A8%E3%81%AF%EF%BC%9F%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+        "lineShareUrl": "https://line.naver.jp/R/msg/text/?Z%E4%BC%9A%E3%83%BB%E4%BB%A3%E3%82%BC%E3%83%9F%E3%81%8CAI%E5%B0%8E%E5%85%A5%E3%82%92%E5%8A%A0%E9%80%9F%EF%BC%81+++++++++++++++++%E5%80%8B%E4%BA%BA%E5%A1%BE%E3%81%8C%E4%BB%8A%E3%81%99%E3%81%90%E3%81%A7%E3%81%8D%E3%82%8B%E5%B7%AE%E5%88%A5%E5%8C%96%E3%81%A8%E3%81%AF%EF%BC%9F%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/katsu_yossy/n/n0cca5f255779",
+        "audio": {},
+        "pictures": [],
+        "limitedMessage": null,
+        "labels": [],
+        "priorSale": null,
+        "canMultipleLimitedNote": false,
+        "isMembershipConnected": false,
+        "hasAvailableCirclePlans": false,
+        "isPinned": false,
+        "pinnedUserNoteId": null,
+        "spEyecatch": "https://assets.st-note.com/production/uploads/images/262049143/square_large_28ac737c7bf32eb6d02da61dd539a8e2.jpeg?fit=bounds&format=jpeg&quality=85&width=360",
+        "enableBacktoDraft": false,
+        "notificationMessages": [],
+        "isProfiled": false,
+        "isForWork": false,
+        "isCircleDescription": false,
+        "noteDraft": null,
+        "noteUrl": "https://note.com/katsu_yossy/n/n0cca5f255779",
+        "imageCount": 1,
+        "format": "4.0",
+        "capabilities": {
+          "amazonpayCampaign": true,
+          "amazonpay": false,
+          "guestAmazonpay": false,
+          "rubyText": true,
+          "formulaText": true,
+          "duplication": true,
+          "noteComment": true
+        },
+        "discountCampaigns": [],
+        "remainedCharNum": 0,
+        "remainedImageNum": 0,
+        "remainedFileNum": 0,
+        "priceInfo": {
+          "isFree": true,
+          "lowestPrice": null,
+          "hasMultiple": false,
+          "hasSubscription": false,
+          "oneshotLowestPrice": null
+        }
+      },
+      {
+        "id": 152096286,
+        "type": "TextNote",
+        "status": "published",
+        "name": "過去問5年分をClaude Projectsに入れたら、入試の傾向が見えてきた",
+        "description": null,
+        "likeCount": 4,
+        "price": 0,
+        "key": "n3c70fd6b5f85",
+        "slug": "slug-n3c70fd6b5f85",
+        "publishAt": "2026-03-21T21:36:06+09:00",
+        "thumbnailExternalUrl": "",
+        "eyecatch": "https://assets.st-note.com/production/uploads/images/260979258/rectangle_large_type_2_1cc4635ae43f6ecfed4bced250df7db2.jpeg?fit=bounds&quality=85&width=1280",
+        "user": {
+          "id": 2745766,
+          "key": "15a4838697c108b86dd54f553993820f",
+          "name": "吉井勝彦 | EduShift代表",
+          "urlname": "katsu_yossy",
+          "nickname": "吉井勝彦 | EduShift代表",
+          "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/186420723/profile_aeb3b7d0f0722dd65cbbf7f0db0f9b4f.png?fit=bounds&format=jpeg&quality=85&width=330",
+          "customDomain": null,
+          "disableSupport": false,
+          "disableGuestPurchase": false,
+          "emailConfirmedFlag": true,
+          "likeAppealText": "ありがとう！励みになります！",
+          "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_4.png",
+          "purchaseAppealTextNote": null,
+          "twitterNickname": "YSTConsulting",
+          "shareAppeal": {
+            "text": null,
+            "image": null
+          },
+          "magazineAddAppeal": {
+            "text": null,
+            "image": null
+          }
+        },
+        "canRead": true,
+        "isAuthor": false,
+        "externalUrl": null,
+        "customDomain": null,
+        "body": "— 開成中の算数・国語で実際にやってみた\n\n開成の算数と国語、5年分の過去問を分析してみました。\n\n「開成の問題って、最近どんな傾向？」と聞かれて、すぐ答えられる講師はどれくらいいるでしょうか。「図形が多い気がする」「記述が長かった」——1年ずつ解いていると、目の前の問題で精一杯で、5年分を横断した「全体像」はなかなか見えてきません。\n\nでも、合格する家庭の多くは、この「傾向」を塾の先生と共有したうえで対策を組んでいます。\n\n今回はその分析を、AIにやらせてみました。使ったの",
+        "separator": null,
+        "isLimited": false,
+        "isTrial": false,
+        "canUpdate": false,
+        "tweetText": "",
+        "twitterRelatedAccounts": "YSTConsulting,note_PR",
+        "isRefund": false,
+        "isLiked": false,
+        "commentCount": 0,
+        "likes": [],
+        "anonymousLikeCount": 0,
+        "disableComment": false,
+        "hashtags": [
+          {
+            "hashtag": {
+              "name": "#AI活用"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#データ"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#過去問"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#傾向"
+            }
+          }
+        ],
+        "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/katsu_yossy/n/n3c70fd6b5f85&text=%E9%81%8E%E5%8E%BB%E5%95%8F5%E5%B9%B4%E5%88%86%E3%82%92Claude+Projects%E3%81%AB%E5%85%A5%E3%82%8C%E3%81%9F%E3%82%89%E3%80%81%E5%85%A5%E8%A9%A6%E3%81%AE%E5%82%BE%E5%90%91%E3%81%8C%E8%A6%8B%E3%81%88%E3%81%A6%E3%81%8D%E3%81%9F%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8+%40YSTConsulting&related=YSTConsulting,note_PR",
+        "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/katsu_yossy/n/n3c70fd6b5f85&t=%E9%81%8E%E5%8E%BB%E5%95%8F5%E5%B9%B4%E5%88%86%E3%82%92Claude+Projects%E3%81%AB%E5%85%A5%E3%82%8C%E3%81%9F%E3%82%89%E3%80%81%E5%85%A5%E8%A9%A6%E3%81%AE%E5%82%BE%E5%90%91%E3%81%8C%E8%A6%8B%E3%81%88%E3%81%A6%E3%81%8D%E3%81%9F%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+        "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E9%81%8E%E5%8E%BB%E5%95%8F5%E5%B9%B4%E5%88%86%E3%82%92Claude+Projects%E3%81%AB%E5%85%A5%E3%82%8C%E3%81%9F%E3%82%89%E3%80%81%E5%85%A5%E8%A9%A6%E3%81%AE%E5%82%BE%E5%90%91%E3%81%8C%E8%A6%8B%E3%81%88%E3%81%A6%E3%81%8D%E3%81%9F%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/katsu_yossy/n/n3c70fd6b5f85",
+        "audio": {},
+        "pictures": [],
+        "limitedMessage": null,
+        "labels": [],
+        "priorSale": null,
+        "canMultipleLimitedNote": false,
+        "isMembershipConnected": false,
+        "hasAvailableCirclePlans": false,
+        "isPinned": false,
+        "pinnedUserNoteId": null,
+        "spEyecatch": "https://assets.st-note.com/production/uploads/images/260979258/square_large_1cc4635ae43f6ecfed4bced250df7db2.jpeg?fit=bounds&format=jpeg&quality=85&width=360",
+        "enableBacktoDraft": false,
+        "notificationMessages": [],
+        "isProfiled": false,
+        "isForWork": false,
+        "isCircleDescription": false,
+        "noteDraft": null,
+        "noteUrl": "https://note.com/katsu_yossy/n/n3c70fd6b5f85",
+        "imageCount": 8,
+        "format": "4.0",
+        "capabilities": {
+          "amazonpayCampaign": true,
+          "amazonpay": false,
+          "guestAmazonpay": false,
+          "rubyText": true,
+          "formulaText": true,
+          "duplication": true,
+          "noteComment": true
+        },
+        "discountCampaigns": [],
+        "remainedCharNum": 0,
+        "remainedImageNum": 0,
+        "remainedFileNum": 0,
+        "priceInfo": {
+          "isFree": true,
+          "lowestPrice": null,
+          "hasMultiple": false,
+          "hasSubscription": false,
+          "oneshotLowestPrice": null
+        }
+      },
+      {
+        "id": 151872423,
+        "type": "TextNote",
+        "status": "published",
+        "name": "日記・メモのデータ化が、AIを“使える部下”に変えていく",
+        "description": null,
+        "likeCount": 4,
+        "price": 0,
+        "key": "nb7dde512ed12",
+        "slug": "slug-nb7dde512ed12",
+        "publishAt": "2026-03-20T11:38:21+09:00",
+        "thumbnailExternalUrl": "",
+        "eyecatch": "https://assets.st-note.com/production/uploads/images/260561896/rectangle_large_type_2_51e859f56e8b84b662289a9d3f0c4baa.jpeg?fit=bounds&quality=85&width=1280",
+        "user": {
+          "id": 2745766,
+          "key": "15a4838697c108b86dd54f553993820f",
+          "name": "吉井勝彦 | EduShift代表",
+          "urlname": "katsu_yossy",
+          "nickname": "吉井勝彦 | EduShift代表",
+          "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/186420723/profile_aeb3b7d0f0722dd65cbbf7f0db0f9b4f.png?fit=bounds&format=jpeg&quality=85&width=330",
+          "customDomain": null,
+          "disableSupport": false,
+          "disableGuestPurchase": false,
+          "emailConfirmedFlag": true,
+          "likeAppealText": "ありがとう！励みになります！",
+          "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_4.png",
+          "purchaseAppealTextNote": null,
+          "twitterNickname": "YSTConsulting",
+          "shareAppeal": {
+            "text": null,
+            "image": null
+          },
+          "magazineAddAppeal": {
+            "text": null,
+            "image": null
+          }
+        },
+        "canRead": true,
+        "isAuthor": false,
+        "externalUrl": null,
+        "customDomain": null,
+        "body": "AIが実務で惜しいのは、「頭の良さ」より「前提不足」\n\nAIを使っていて、こんな感覚になることがありませんか？\n「賢いんだけど、毎回、最初から説明しないと動きにくい」\n\n「その場では正しく答える。でも翌日になると前提が切れる」\n\n「きれいな文章は返る。でも実務ではあと一歩深みが足りない」\n\nこの原因は、モデルの性能不足というより、文脈が蓄積されていないことにある場合が多いです。\n\n最近のAIは、長い文章を読み、複数の資料を踏まえて考え、複数ステップの仕事もこなせるようになって",
+        "separator": null,
+        "isLimited": false,
+        "isTrial": false,
+        "canUpdate": false,
+        "tweetText": "",
+        "twitterRelatedAccounts": "YSTConsulting,note_PR",
+        "isRefund": false,
+        "isLiked": false,
+        "commentCount": 1,
+        "likes": [],
+        "anonymousLikeCount": 0,
+        "disableComment": false,
+        "hashtags": [
+          {
+            "hashtag": {
+              "name": "#日記"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#AI活用"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#Notion"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#Obsidian"
+            }
+          }
+        ],
+        "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/katsu_yossy/n/nb7dde512ed12&text=%E6%97%A5%E8%A8%98%E3%83%BB%E3%83%A1%E3%83%A2%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E5%8C%96%E3%81%8C%E3%80%81AI%E3%82%92%E2%80%9C%E4%BD%BF%E3%81%88%E3%82%8B%E9%83%A8%E4%B8%8B%E2%80%9D%E3%81%AB%E5%A4%89%E3%81%88%E3%81%A6%E3%81%84%E3%81%8F%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8+%40YSTConsulting&related=YSTConsulting,note_PR",
+        "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/katsu_yossy/n/nb7dde512ed12&t=%E6%97%A5%E8%A8%98%E3%83%BB%E3%83%A1%E3%83%A2%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E5%8C%96%E3%81%8C%E3%80%81AI%E3%82%92%E2%80%9C%E4%BD%BF%E3%81%88%E3%82%8B%E9%83%A8%E4%B8%8B%E2%80%9D%E3%81%AB%E5%A4%89%E3%81%88%E3%81%A6%E3%81%84%E3%81%8F%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+        "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E6%97%A5%E8%A8%98%E3%83%BB%E3%83%A1%E3%83%A2%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E5%8C%96%E3%81%8C%E3%80%81AI%E3%82%92%E2%80%9C%E4%BD%BF%E3%81%88%E3%82%8B%E9%83%A8%E4%B8%8B%E2%80%9D%E3%81%AB%E5%A4%89%E3%81%88%E3%81%A6%E3%81%84%E3%81%8F%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/katsu_yossy/n/nb7dde512ed12",
+        "audio": {},
+        "pictures": [],
+        "limitedMessage": null,
+        "labels": [],
+        "priorSale": null,
+        "canMultipleLimitedNote": false,
+        "isMembershipConnected": false,
+        "hasAvailableCirclePlans": false,
+        "isPinned": false,
+        "pinnedUserNoteId": null,
+        "spEyecatch": "https://assets.st-note.com/production/uploads/images/260561896/square_large_51e859f56e8b84b662289a9d3f0c4baa.jpeg?fit=bounds&format=jpeg&quality=85&width=360",
+        "enableBacktoDraft": false,
+        "notificationMessages": [],
+        "isProfiled": false,
+        "isForWork": false,
+        "isCircleDescription": false,
+        "noteDraft": null,
+        "noteUrl": "https://note.com/katsu_yossy/n/nb7dde512ed12",
+        "imageCount": 1,
+        "format": "4.0",
+        "capabilities": {
+          "amazonpayCampaign": true,
+          "amazonpay": false,
+          "guestAmazonpay": false,
+          "rubyText": true,
+          "formulaText": true,
+          "duplication": true,
+          "noteComment": true
+        },
+        "discountCampaigns": [],
+        "remainedCharNum": 0,
+        "remainedImageNum": 0,
+        "remainedFileNum": 0,
+        "priceInfo": {
+          "isFree": true,
+          "lowestPrice": null,
+          "hasMultiple": false,
+          "hasSubscription": false,
+          "oneshotLowestPrice": null
+        }
+      },
+      {
+        "id": 151162051,
+        "type": "TextNote",
+        "status": "published",
+        "name": "フリーランス講師のAI活用リアル——導入2年で「できたこと」と「まだできないこと」",
+        "description": null,
+        "likeCount": 4,
+        "price": 0,
+        "key": "n8298d03f3adc",
+        "slug": "slug-n8298d03f3adc",
+        "publishAt": "2026-03-15T16:27:52+09:00",
+        "thumbnailExternalUrl": "",
+        "eyecatch": "https://assets.st-note.com/production/uploads/images/259308050/rectangle_large_type_2_1bae7456f35a5514e1381c9a1c313e5b.jpeg?fit=bounds&quality=85&width=1280",
+        "user": {
+          "id": 2745766,
+          "key": "15a4838697c108b86dd54f553993820f",
+          "name": "吉井勝彦 | EduShift代表",
+          "urlname": "katsu_yossy",
+          "nickname": "吉井勝彦 | EduShift代表",
+          "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/186420723/profile_aeb3b7d0f0722dd65cbbf7f0db0f9b4f.png?fit=bounds&format=jpeg&quality=85&width=330",
+          "customDomain": null,
+          "disableSupport": false,
+          "disableGuestPurchase": false,
+          "emailConfirmedFlag": true,
+          "likeAppealText": "ありがとう！励みになります！",
+          "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_4.png",
+          "purchaseAppealTextNote": null,
+          "twitterNickname": "YSTConsulting",
+          "shareAppeal": {
+            "text": null,
+            "image": null
+          },
+          "magazineAddAppeal": {
+            "text": null,
+            "image": null
+          }
+        },
+        "canRead": true,
+        "isAuthor": false,
+        "externalUrl": null,
+        "customDomain": null,
+        "body": "フリーランス講師としてAIを業務に導入して2年。結論から言うと、「教える仕事」は奪われなかったけど、「教材を作る時間」は劇的に減りました。\n\n「AIってすごい！」という礼賛記事でも、「AIは使えない」という批判記事でもありません。1人で指導の仕事を回しながらAIを使い続けた人間の、ありのままの結果です。\n\n私は元大手学習塾の管理職を経て独立し、現在は中学受験の国語指導と、塾経営者向けのDXコンサルティングを行っています。\n\nこの記事では、「結局AIで何ができて、何ができなかっ",
+        "separator": null,
+        "isLimited": false,
+        "isTrial": false,
+        "canUpdate": false,
+        "tweetText": "",
+        "twitterRelatedAccounts": "YSTConsulting,note_PR",
+        "isRefund": false,
+        "isLiked": false,
+        "commentCount": 0,
+        "likes": [],
+        "anonymousLikeCount": 0,
+        "disableComment": false,
+        "hashtags": [
+          {
+            "hashtag": {
+              "name": "#AI活用"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#学習塾"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#オンライン学習"
+            }
+          }
+        ],
+        "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/katsu_yossy/n/n8298d03f3adc&text=%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9%E8%AC%9B%E5%B8%AB%E3%81%AEAI%E6%B4%BB%E7%94%A8%E3%83%AA%E3%82%A2%E3%83%AB%E2%80%94%E2%80%94%E5%B0%8E%E5%85%A52%E5%B9%B4%E3%81%A7%E3%80%8C%E3%81%A7%E3%81%8D%E3%81%9F%E3%81%93%E3%81%A8%E3%80%8D%E3%81%A8%E3%80%8C%E3%81%BE%E3%81%A0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%E3%80%8D%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8+%40YSTConsulting&related=YSTConsulting,note_PR",
+        "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/katsu_yossy/n/n8298d03f3adc&t=%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9%E8%AC%9B%E5%B8%AB%E3%81%AEAI%E6%B4%BB%E7%94%A8%E3%83%AA%E3%82%A2%E3%83%AB%E2%80%94%E2%80%94%E5%B0%8E%E5%85%A52%E5%B9%B4%E3%81%A7%E3%80%8C%E3%81%A7%E3%81%8D%E3%81%9F%E3%81%93%E3%81%A8%E3%80%8D%E3%81%A8%E3%80%8C%E3%81%BE%E3%81%A0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%E3%80%8D%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+        "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E3%83%95%E3%83%AA%E3%83%BC%E3%83%A9%E3%83%B3%E3%82%B9%E8%AC%9B%E5%B8%AB%E3%81%AEAI%E6%B4%BB%E7%94%A8%E3%83%AA%E3%82%A2%E3%83%AB%E2%80%94%E2%80%94%E5%B0%8E%E5%85%A52%E5%B9%B4%E3%81%A7%E3%80%8C%E3%81%A7%E3%81%8D%E3%81%9F%E3%81%93%E3%81%A8%E3%80%8D%E3%81%A8%E3%80%8C%E3%81%BE%E3%81%A0%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8%E3%80%8D%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/katsu_yossy/n/n8298d03f3adc",
+        "audio": {},
+        "pictures": [],
+        "limitedMessage": null,
+        "labels": [],
+        "priorSale": null,
+        "canMultipleLimitedNote": false,
+        "isMembershipConnected": false,
+        "hasAvailableCirclePlans": false,
+        "isPinned": false,
+        "pinnedUserNoteId": null,
+        "spEyecatch": "https://assets.st-note.com/production/uploads/images/259308050/square_large_1bae7456f35a5514e1381c9a1c313e5b.jpeg?fit=bounds&format=jpeg&quality=85&width=360",
+        "enableBacktoDraft": false,
+        "notificationMessages": [],
+        "isProfiled": false,
+        "isForWork": false,
+        "isCircleDescription": false,
+        "noteDraft": null,
+        "noteUrl": "https://note.com/katsu_yossy/n/n8298d03f3adc",
+        "imageCount": 3,
+        "format": "4.0",
+        "capabilities": {
+          "amazonpayCampaign": true,
+          "amazonpay": false,
+          "guestAmazonpay": false,
+          "rubyText": true,
+          "formulaText": true,
+          "duplication": true,
+          "noteComment": true
+        },
+        "discountCampaigns": [],
+        "remainedCharNum": 0,
+        "remainedImageNum": 0,
+        "remainedFileNum": 0,
+        "priceInfo": {
+          "isFree": true,
+          "lowestPrice": null,
+          "hasMultiple": false,
+          "hasSubscription": false,
+          "oneshotLowestPrice": null
+        }
+      },
+      {
+        "id": 145780944,
+        "type": "TextNote",
+        "status": "published",
+        "name": "子どもたちは、もう使い始めている——「38.5%がAI自主利用」の調査から、塾として考えること",
+        "description": null,
+        "likeCount": 1,
+        "price": 0,
+        "key": "ne44252c67a17",
+        "slug": "slug-ne44252c67a17",
+        "publishAt": "2026-02-07T13:46:19+09:00",
+        "thumbnailExternalUrl": "",
+        "eyecatch": "https://assets.st-note.com/production/uploads/images/249807301/rectangle_large_type_2_48388213f67526d0eff5632ec0ef1f20.png?fit=bounds&quality=85&width=1280",
+        "user": {
+          "id": 2745766,
+          "key": "15a4838697c108b86dd54f553993820f",
+          "name": "吉井勝彦 | EduShift代表",
+          "urlname": "katsu_yossy",
+          "nickname": "吉井勝彦 | EduShift代表",
+          "userProfileImagePath": "https://assets.st-note.com/production/uploads/images/186420723/profile_aeb3b7d0f0722dd65cbbf7f0db0f9b4f.png?fit=bounds&format=jpeg&quality=85&width=330",
+          "customDomain": null,
+          "disableSupport": false,
+          "disableGuestPurchase": false,
+          "emailConfirmedFlag": true,
+          "likeAppealText": "ありがとう！励みになります！",
+          "likeAppealImage": "https://assets.st-note.com/poc-image/manual/production/preset_reaction_4.png",
+          "purchaseAppealTextNote": null,
+          "twitterNickname": "YSTConsulting",
+          "shareAppeal": {
+            "text": null,
+            "image": null
+          },
+          "magazineAddAppeal": {
+            "text": null,
+            "image": null
+          }
+        },
+        "canRead": true,
+        "isAuthor": false,
+        "externalUrl": null,
+        "customDomain": null,
+        "body": "◆はじめに\n\n先日、ポストもしましたが気になるデータを目にしました。\n\n「児童生徒の38.5%が、教師の指示なくブラウザAI要約を自主利用している」\n\n『月刊先端教育』2026年2月号に掲載された調査結果です。学校現場の教員1,090名を対象にしたものですが、これ、塾にとっても無関係な話ではありません。\n\nむしろ、塾に通う子どもたちこそ、こうしたツールを積極的に使っている可能性が高いのではないでしょうか。\n\n今回は、このデータを見ながら、塾として何を考えればいいのか、整理して",
+        "separator": null,
+        "isLimited": false,
+        "isTrial": false,
+        "canUpdate": false,
+        "tweetText": "",
+        "twitterRelatedAccounts": "YSTConsulting,note_PR",
+        "isRefund": false,
+        "isLiked": false,
+        "commentCount": 0,
+        "likes": [],
+        "anonymousLikeCount": 0,
+        "disableComment": false,
+        "hashtags": [
+          {
+            "hashtag": {
+              "name": "#AI"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#教育"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#生成AI"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#先生"
+            }
+          },
+          {
+            "hashtag": {
+              "name": "#中学生"
+            }
+          }
+        ],
+        "twitterShareUrl": "https://twitter.com/intent/tweet?url=https://note.com/katsu_yossy/n/ne44252c67a17&text=%E5%AD%90%E3%81%A9%E3%82%82%E3%81%9F%E3%81%A1%E3%81%AF%E3%80%81%E3%82%82%E3%81%86%E4%BD%BF%E3%81%84%E5%A7%8B%E3%82%81%E3%81%A6%E3%81%84%E3%82%8B%E2%80%94%E2%80%94%E3%80%8C38.5%25%E3%81%8CAI%E8%87%AA%E4%B8%BB%E5%88%A9%E7%94%A8%E3%80%8D%E3%81%AE%E8%AA%BF%E6%9F%BB%E3%81%8B%E3%82%89%E3%80%81%E5%A1%BE%E3%81%A8%E3%81%97%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E3%81%93%E3%81%A8%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8+%40YSTConsulting&related=YSTConsulting,note_PR",
+        "facebookShareUrl": "https://www.facebook.com/share.php?u=https://note.com/katsu_yossy/n/ne44252c67a17&t=%E5%AD%90%E3%81%A9%E3%82%82%E3%81%9F%E3%81%A1%E3%81%AF%E3%80%81%E3%82%82%E3%81%86%E4%BD%BF%E3%81%84%E5%A7%8B%E3%82%81%E3%81%A6%E3%81%84%E3%82%8B%E2%80%94%E2%80%94%E3%80%8C38.5%25%E3%81%8CAI%E8%87%AA%E4%B8%BB%E5%88%A9%E7%94%A8%E3%80%8D%E3%81%AE%E8%AA%BF%E6%9F%BB%E3%81%8B%E3%82%89%E3%80%81%E5%A1%BE%E3%81%A8%E3%81%97%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E3%81%93%E3%81%A8%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89",
+        "lineShareUrl": "https://line.naver.jp/R/msg/text/?%E5%AD%90%E3%81%A9%E3%82%82%E3%81%9F%E3%81%A1%E3%81%AF%E3%80%81%E3%82%82%E3%81%86%E4%BD%BF%E3%81%84%E5%A7%8B%E3%82%81%E3%81%A6%E3%81%84%E3%82%8B%E2%80%94%E2%80%94%E3%80%8C38.5%25%E3%81%8CAI%E8%87%AA%E4%B8%BB%E5%88%A9%E7%94%A8%E3%80%8D%E3%81%AE%E8%AA%BF%E6%9F%BB%E3%81%8B%E3%82%89%E3%80%81%E5%A1%BE%E3%81%A8%E3%81%97%E3%81%A6%E8%80%83%E3%81%88%E3%82%8B%E3%81%93%E3%81%A8%EF%BD%9C%E5%90%89%E4%BA%95%E5%8B%9D%E5%BD%A6+%7C+EduShift%E4%BB%A3%E8%A1%A8%EF%BD%9Cnote%EF%BC%88%E3%83%8E%E3%83%BC%E3%83%88%EF%BC%89%0Ahttps://note.com/katsu_yossy/n/ne44252c67a17",
+        "audio": {},
+        "pictures": [],
+        "limitedMessage": null,
+        "labels": [],
+        "priorSale": null,
+        "canMultipleLimitedNote": false,
+        "isMembershipConnected": false,
+        "hasAvailableCirclePlans": false,
+        "isPinned": false,
+        "pinnedUserNoteId": null,
+        "spEyecatch": "https://assets.st-note.com/production/uploads/images/249807301/square_large_48388213f67526d0eff5632ec0ef1f20.png?fit=bounds&format=jpeg&quality=85&width=360",
+        "enableBacktoDraft": false,
+        "notificationMessages": [],
+        "isProfiled": false,
+        "isForWork": false,
+        "isCircleDescription": false,
+        "noteDraft": null,
+        "noteUrl": "https://note.com/katsu_yossy/n/ne44252c67a17",
+        "imageCount": 3,
+        "format": "4.0",
+        "capabilities": {
+          "amazonpayCampaign": true,
+          "amazonpay": false,
+          "guestAmazonpay": false,
+          "rubyText": true,
+          "formulaText": true,
+          "duplication": true,
+          "noteComment": true
+        },
+        "discountCampaigns": [],
+        "remainedCharNum": 0,
+        "remainedImageNum": 0,
+        "remainedFileNum": 0,
+        "priceInfo": {
+          "isFree": true,
+          "lowestPrice": null,
+          "hasMultiple": false,
+          "hasSubscription": false,
+          "oneshotLowestPrice": null
+        }
+      }
+    ],
+    "isLastPage": false,
+    "totalCount": 57
+  }
+}
