@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import logoImg from '../assets/logo.png';
+import logoImg from '../assets/logo-scholarly-mark.svg';
 import founderImg from '../assets/founder.webp';
 import '../styles/scholarly.css';
 
@@ -88,6 +88,7 @@ export const HomeScholarly = () => {
         <div className="s-container s-header-inner">
             <a href="#" className="s-brand">
                 <img src={logoImg} alt="EduShift" />
+                <span className="s-brand-name">Edu<em>Shift</em></span>
                 <span className="s-brand-sep"></span>
                 <span className="s-brand-tag">学びの伴走者</span>
             </a>
@@ -110,17 +111,22 @@ export const HomeScholarly = () => {
         <div className="s-hero-grid"></div>
         <div className="s-container s-hero-inner">
             <div>
-                <div className="s-eyebrow">Educational Partnership — since 2024</div>
+                <div className="s-eyebrow">
+                    <span className="s-eyebrow-brand">Edu<em>Shift</em></span>
+                    <span className="s-eyebrow-rule"></span>
+                    <span>小さな塾と、独立する先生の伴走者 — since 2024</span>
+                </div>
                 <h1>
-                    <span className="s-accent-line">塾経営</span>という仕事を、<br />
-                    ひとりで<br />抱えない時代へ。
-                    <small>A long-form partner for small schools, independent tutors, and those who love teaching.</small>
+                    <span className="s-accent-line">小さな塾</span>と、<br />
+                    <span className="s-accent-line">独立する先生</span>を、<br />
+                    AIとWebで支える。
+                    <small>EduShift — A long-form partner for small schools and independent tutors, powered by AI &amp; Web.</small>
                 </h1>
                 <p className="s-hero-body">
-                    経営、集客、事務、保護者対応——。<br />
+                    経営、集客、事務、保護者対応、教材づくり——。<br />
                     本当は、生徒と向き合う時間がいちばん長いはずでした。<br />
-                    EduShiftは、教育現場のすべての"周辺"を一緒に考える、<br />
-                    あなたの塾専属の経営パートナーです。
+                    EduShiftは、教える人の"周辺"をテクノロジーで軽くして、<br />
+                    小さな塾と、独立する先生を、ひとりで抱えない時代へ導きます。
                 </p>
                 <div className="s-hero-cta">
                     <a href="#contact" className="s-btn-primary">
@@ -131,33 +137,36 @@ export const HomeScholarly = () => {
                 </div>
             </div>
 
-            <div className="s-hero-seal">
-                <div className="s-seal-ring">
-                    <svg className="s-seal-curve" viewBox="0 0 400 400">
-                        <defs>
-                            <path id="topArc" d="M 50 200 A 150 150 0 0 1 350 200" />
-                            <path id="bottomArc" d="M 350 200 A 150 150 0 0 1 50 200" />
-                        </defs>
-                        <text>
-                            <textPath href="#topArc" startOffset="50%" textAnchor="middle">
-                                EduShift · 教育の明日に · Est. 2024
-                            </textPath>
-                        </text>
-                        <text>
-                            <textPath href="#bottomArc" startOffset="50%" textAnchor="middle">
-                                · Partnership · Wisdom · Shift ·
-                            </textPath>
-                        </text>
-                    </svg>
-                </div>
-                <div className="s-seal-ring r2"></div>
-                <div style={{"position": `absolute`, "inset": `0`, "display": `flex`, "alignItems": `center`, "justifyContent": `center`}}>
-                    <div className="s-seal-center">
-                        <div className="mark">ES</div>
-                        <div className="kanji">学び舎</div>
-                        <div className="est">Est · MMXXIV</div>
+            <div className="s-hero-diagram">
+                <div className="s-hero-diagram-label">We focus on</div>
+                <div className="s-hero-diagram-pillars">
+                    <div className="s-pillar-chip">
+                        <span className="num">Pillar · 01</span>
+                        <span className="label">小規模塾</span>
+                        <span className="sub">School Management</span>
+                    </div>
+                    <div className="s-pillar-chip">
+                        <span className="num">Pillar · 02</span>
+                        <span className="label">独立する先生</span>
+                        <span className="sub">Freelance Tutor</span>
                     </div>
                 </div>
+                <div className="s-hero-diagram-connector">Implement with</div>
+                <div className="s-hero-diagram-tools">
+                    <div className="s-tool-chip">
+                        <span className="tag">Tool · 01</span>
+                        <span className="name">AI</span>
+                        <span className="jp">業務自動化・教材生成</span>
+                    </div>
+                    <div className="s-tool-chip">
+                        <span className="tag">Tool · 02</span>
+                        <span className="name">Web</span>
+                        <span className="jp">HP・ブログ・集客</span>
+                    </div>
+                </div>
+                <p className="s-hero-diagram-out">
+                    = <strong>選ばれる塾</strong>・<strong>選ばれる先生</strong>を、今日から。
+                </p>
             </div>
         </div>
     </section>
@@ -196,31 +205,51 @@ export const HomeScholarly = () => {
     <section className="s-services" id="services">
         <div className="s-container">
             <div className="s-sec-head">
-                <div className="s-sec-num">CHAPTER I · 01—04</div>
+                <div className="s-sec-num">CHAPTER I · 2 Pillars × 2 Tools</div>
                 <div className="s-sec-titles">
-                    <h2>"周辺"の悩みを、<em>ぜんぶ一緒に</em>考える。</h2>
+                    <h2><em>小規模塾</em>と、<em>独立する先生</em>を、<br />テクノロジーで実践する。</h2>
                     <p className="s-sec-lede">
-                        経営・AI・独立・Web——塾を取り巻く4つの領域に、それぞれ専門家が伴走します。単発でも、継続でも、あなたの歩幅に合わせて。
+                        <strong>EduShift</strong> が本気で向き合う対象は、この2つ。「小規模塾の経営」と「一人で独立する先生の成長」——その両方を、AIとWebの力で実現します。
                     </p>
                 </div>
             </div>
 
-            <div className="s-service-grid">
-                <div className="s-service-card">
-                    <div className="s-service-num">No. 01</div>
+            <div className="s-service-grid has-pillars">
+                <div className="s-service-card pillar">
+                    <div className="s-service-num">Pillar · 01</div>
                     <h3>小規模塾経営サポート</h3>
                     <div className="s-service-en">School Management</div>
-                    <p>生徒10〜50名規模の塾に特化。収益構造、集客、ブランディング——"先生一人の塾"が持続できる仕組みを、一緒に整えます。</p>
+                    <p>生徒10〜50名規模の塾に特化。収益構造、集客、ブランディング——"先生一人の塾"が持続できる仕組みを、AIと実データを味方につけて一緒に整えます。</p>
                     <div className="s-service-tags">
                         <span className="s-service-tag">収益改善</span>
                         <span className="s-service-tag">地域集客</span>
                         <span className="s-service-tag">ブランディング</span>
+                        <span className="s-service-tag tech">AIデータ分析</span>
                     </div>
-                    <a href="https://edu-shift.com/service/school-support" target="_blank" rel="noopener" className="s-service-link">詳しく読む →</a>
+                    <a href="/v2/service/school-support" className="s-service-link">詳しく読む →</a>
                 </div>
 
-                <div className="s-service-card">
-                    <div className="s-service-num">No. 02</div>
+                <div className="s-service-card pillar">
+                    <div className="s-service-num">Pillar · 02</div>
+                    <h3>フリーランス独立支援</h3>
+                    <div className="s-service-en">Independent Tutor Support</div>
+                    <p>「教えるのは好き、経営は苦手」——その気持ちに寄り添う3ヶ月の伴走プログラム。事業計画から初案件獲得まで、AI活用と自前HPで"選ばれる先生"になる道を、一緒に歩きます。</p>
+                    <div className="s-service-tags">
+                        <span className="s-service-tag">事業計画</span>
+                        <span className="s-service-tag">ポートフォリオ</span>
+                        <span className="s-service-tag">案件獲得</span>
+                        <span className="s-service-tag tech">AI活用 × Web発信</span>
+                    </div>
+                    <a href="/v2/service/freelance-support" className="s-service-link">詳しく読む →</a>
+                </div>
+
+                <div className="s-service-bridge">
+                    <span className="s-bridge-rule">— and the tools that make it real —</span>
+                    <h4>ふたつの柱を、<em>AI</em> と <em>Web</em> の力で、今日から実装する。</h4>
+                </div>
+
+                <div className="s-service-card tool">
+                    <div className="s-service-num">Tool · 01</div>
                     <h3>AI導入コンサルティング</h3>
                     <div className="s-service-en">AI Integration</div>
                     <p>AIは"人の温かみ"を奪うものではなく、取り戻すもの。週5〜10時間の事務を削って、先生が教育に集中できる環境をつくります。</p>
@@ -229,24 +258,11 @@ export const HomeScholarly = () => {
                         <span className="s-service-tag">AI教材</span>
                         <span className="s-service-tag">スタッフ研修</span>
                     </div>
-                    <a href="https://edu-shift.com/service/ai-consulting" target="_blank" rel="noopener" className="s-service-link">詳しく読む →</a>
+                    <a href="/v2/service/ai-consulting" className="s-service-link">詳しく読む →</a>
                 </div>
 
-                <div className="s-service-card">
-                    <div className="s-service-num">No. 03</div>
-                    <h3>フリーランス独立支援</h3>
-                    <div className="s-service-en">Independent Tutor Support</div>
-                    <p>「教えるのは好き、経営は苦手」——その気持ちに寄り添う3ヶ月の伴走プログラム。事業計画から初案件獲得まで、一緒に歩きます。</p>
-                    <div className="s-service-tags">
-                        <span className="s-service-tag">事業計画</span>
-                        <span className="s-service-tag">ポートフォリオ</span>
-                        <span className="s-service-tag">案件獲得</span>
-                    </div>
-                    <a href="https://edu-shift.com/service/freelance-support" target="_blank" rel="noopener" className="s-service-link">詳しく読む →</a>
-                </div>
-
-                <div className="s-service-card">
-                    <div className="s-service-num">No. 04</div>
+                <div className="s-service-card tool">
+                    <div className="s-service-num">Tool · 02</div>
                     <h3>HP制作・保守運用</h3>
                     <div className="s-service-en">Web Production &amp; Care</div>
                     <p>初期19,800円〜、月々980円〜。「立派なHP」より「今日から選ばれるHP」を。ブログ更新もSEOも、Web担当者のように支えます。</p>
@@ -255,7 +271,7 @@ export const HomeScholarly = () => {
                         <span className="s-service-tag">AIブログ</span>
                         <span className="s-service-tag">保守運用</span>
                     </div>
-                    <a href="https://edu-shift.com/service/hp-production" target="_blank" rel="noopener" className="s-service-link">詳しく読む →</a>
+                    <a href="/v2/service/hp-production" className="s-service-link">詳しく読む →</a>
                 </div>
             </div>
         </div>
@@ -499,7 +515,7 @@ export const HomeScholarly = () => {
 
                 <p className="s-sub-price-cta-row">
                     HP制作費は別途見積（初期¥19,800〜）。詳しくは
-                    <a href="https://edu-shift.com/service/hp-production" target="_blank" rel="noopener">サービス詳細ページ</a>
+                    <a href="/v2/service/hp-production">サービス詳細ページ</a>
                     をご覧ください。
                 </p>
             </div>
@@ -639,7 +655,7 @@ export const HomeScholarly = () => {
                     </div>
                     <div className="s-company-row">
                         <dt>Notation <span>法令表記</span></dt>
-                        <dd><a href="https://edu-shift.com/business-law" target="_blank" rel="noopener" style={{"color": `var(--s-teal-deep)`, "textDecoration": `underline`}}>特定商取引法に基づく表記</a></dd>
+                        <dd><a href="/v2/business-law" style={{"color": `var(--s-teal-deep)`, "textDecoration": `underline`}}>特定商取引法に基づく表記</a></dd>
                     </div>
                 </dl>
             </div>
@@ -703,7 +719,7 @@ export const HomeScholarly = () => {
                     </summary>
                     <div className="s-faq-a">
                         <span className="s-faq-a-marker">A.</span>
-                        銀行振込またはクレジットカード決済に対応しています。銀行振込は請求書発行から1週間以内、クレジットカードは各カード会社の引き落とし日となります。詳細は<a href="https://edu-shift.com/business-law" target="_blank" rel="noopener" style={{"color": `var(--s-teal-deep)`}}>特定商取引法に基づく表記</a>をご参照ください。
+                        銀行振込またはクレジットカード決済に対応しています。銀行振込は請求書発行から1週間以内、クレジットカードは各カード会社の引き落とし日となります。詳細は<a href="/v2/business-law" style={{"color": `var(--s-teal-deep)`}}>特定商取引法に基づく表記</a>をご参照ください。
                     </div>
                 </details>
 
@@ -737,13 +753,14 @@ export const HomeScholarly = () => {
     {/* ====== FINAL CTA ====== */}
     <section className="s-final" id="contact">
         <div className="s-container s-final-inner">
+            <div className="s-final-brand">Edu<em>Shift</em></div>
             <div className="s-final-eyebrow">— 最後に、ひとことだけ。</div>
             <h2>
                 一度、<em>お話ししませんか</em>。<br />
                 きっと、新しい景色が見えます。
             </h2>
             <p>
-                30分の無料面談で、あなたの塾の現状を一緒に見ていきます。<br />
+                <strong>EduShift</strong> の30分無料面談で、あなたの塾の現状を一緒に見ていきます。<br />
                 "売り込み"は、ひとつもいたしません。情報収集のためだけでも、歓迎です。
             </p>
             <a href="mailto:info@edu-shift.com?subject=%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%81%AE%E4%BE%9D%E9%A0%BC&body=%E2%97%8B%E5%A1%BE%E5%90%8D%EF%BC%9A%0A%E2%97%8B%E5%9C%B0%E5%9F%9F%EF%BC%9A%0A%E2%97%8B%E7%94%9F%E5%BE%92%E6%95%B0%EF%BC%9A%0A%E2%97%8B%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%EF%BC%9A%0A" className="s-final-cta">
@@ -757,7 +774,10 @@ export const HomeScholarly = () => {
         <div className="s-container">
             <div className="s-footer-grid">
                 <div>
-                    <div className="s-footer-brand">Edu<em>Shift</em></div>
+                    <a href="#" className="s-footer-brand-logo" aria-label="EduShift">
+                        <img src={logoImg} alt="EduShift" />
+                        <span className="s-footer-brand-name-text">Edu<em>Shift</em></span>
+                    </a>
                     <p style={{"fontFamily": `var(--s-serif-jp)`, "fontSize": `13px`, "lineHeight": `1.9`, "margin": `0`}}>
                         教育の"周辺"を、<br />いちばん近くで支える。
                     </p>
@@ -765,10 +785,10 @@ export const HomeScholarly = () => {
                 <div>
                     <h5>Services</h5>
                     <ul>
-                        <li><a href="https://edu-shift.com/service/school-support" target="_blank" rel="noopener">小規模塾経営サポート</a></li>
-                        <li><a href="https://edu-shift.com/service/ai-consulting" target="_blank" rel="noopener">AI導入コンサル</a></li>
-                        <li><a href="https://edu-shift.com/service/freelance-support" target="_blank" rel="noopener">独立支援</a></li>
-                        <li><a href="https://edu-shift.com/service/hp-production" target="_blank" rel="noopener">HP制作・運用</a></li>
+                        <li><a href="/v2/service/school-support">小規模塾経営サポート</a></li>
+                        <li><a href="/v2/service/ai-consulting">AI導入コンサル</a></li>
+                        <li><a href="/v2/service/freelance-support">独立支援</a></li>
+                        <li><a href="/v2/service/hp-production">HP制作・運用</a></li>
                     </ul>
                 </div>
                 <div>
@@ -785,8 +805,8 @@ export const HomeScholarly = () => {
                 <div>
                     <h5>Legal</h5>
                     <ul>
-                        <li><a href="https://edu-shift.com/privacypolicy" target="_blank" rel="noopener">プライバシーポリシー</a></li>
-                        <li><a href="https://edu-shift.com/business-law" target="_blank" rel="noopener">特定商取引法</a></li>
+                        <li><a href="/v2/privacypolicy">プライバシーポリシー</a></li>
+                        <li><a href="/v2/business-law">特定商取引法</a></li>
                     </ul>
                 </div>
             </div>

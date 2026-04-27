@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Paper/Cream background rounded square for contrast in browser tabs -->
+  <rect x="0" y="0" width="512" height="512" rx="80" fill="#f7f2e8"/>
+  <!-- Origami back wing (Navy) - centered and scaled -->
+  <path d="M 80 332
+           L 336 116
+           L 416 136
+           L 256 312
+           L 252 368
+           Z"
+        fill="#0b1b3a" />
+  <!-- Origami front wing (Gold) -->
+  <path d="M 152 392
+           L 428 160
+           L 464 192
+           L 324 376
+           L 328 432
+           Z"
+        fill="#b08a3e" />
+  <!-- Crease line -->
+  <line x1="228" y1="236" x2="356" y2="148"
+        stroke="#f7f2e8" stroke-width="3" stroke-opacity="0.65"/>
+</svg>

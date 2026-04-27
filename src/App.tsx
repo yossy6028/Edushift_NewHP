@@ -1,15 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet, useLocation, Navigate, useParams } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { Home } from './pages/Home';
 import { HomeScholarly } from './pages/HomeScholarly';
-import { SchoolSupport } from './pages/services/SchoolSupport';
-import { AiConsulting } from './pages/services/AiConsulting';
-import { FreelanceSupport } from './pages/services/FreelanceSupport';
-import { PrivacyPolicy } from './pages/PrivacyPolicy';
-import { BusinessLaw } from './pages/BusinessLaw';
-import { HpProduction } from './pages/services/HpProduction';
+import { ServiceDetailScholarly } from './pages/v2/ServiceDetailScholarly';
+import { BusinessLawScholarly } from './pages/v2/BusinessLawScholarly';
+import { PrivacyPolicyScholarly } from './pages/v2/PrivacyPolicyScholarly';
+import { LogoPreview } from './pages/v2/LogoPreview';
 import { usePageTracking } from './hooks/usePageTracking';
 
 function PageTracker() {
@@ -44,6 +42,11 @@ function ThemeReset() {
   return null;
 }
 
+function RedirectServiceToV2() {
+  const { slug = '' } = useParams();
+  return <Navigate to={`/v2/service/${slug}`} replace />;
+}
+
 function App() {
   return (
     <Router>
@@ -53,15 +56,18 @@ function App() {
       <Routes>
         <Route element={<DefaultLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/service/school-support" element={<SchoolSupport />} />
-          <Route path="/service/ai-consulting" element={<AiConsulting />} />
-          <Route path="/service/freelance-support" element={<FreelanceSupport />} />
-          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-          <Route path="/business-law" element={<BusinessLaw />} />
-          <Route path="/service/hp-production" element={<HpProduction />} />
+        </Route>
+        <Route element={<StandaloneLayout />}>
+          <Route path="/service/:slug" element={<RedirectServiceToV2 />} />
+          <Route path="/privacypolicy" element={<Navigate to="/v2/privacypolicy" replace />} />
+          <Route path="/business-law" element={<Navigate to="/v2/business-law" replace />} />
         </Route>
         <Route element={<StandaloneLayout />}>
           <Route path="/v2" element={<HomeScholarly />} />
+          <Route path="/v2/service/:slug" element={<ServiceDetailScholarly />} />
+          <Route path="/v2/business-law" element={<BusinessLawScholarly />} />
+          <Route path="/v2/privacypolicy" element={<PrivacyPolicyScholarly />} />
+          <Route path="/v2/logo-preview" element={<LogoPreview />} />
         </Route>
       </Routes>
     </Router>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Outer chevron (Navy) - wider, behind -->
+  <path d="M 128 48
+           L 236 140
+           L 220 168
+           L 128 92
+           L 36 168
+           L 20 140
+           Z"
+        fill="#0b1b3a" />
+  <!-- Inner chevron (Gold) - narrower, in front, offset down -->
+  <path d="M 128 118
+           L 214 196
+           L 198 220
+           L 128 160
+           L 58 220
+           L 42 196
+           Z"
+        fill="#b08a3e" />
+</svg>

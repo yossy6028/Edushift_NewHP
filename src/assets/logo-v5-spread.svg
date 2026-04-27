@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Left wing (Navy) - sweeping up-left from center base -->
+  <path d="M 128 180
+           C 120 130 100 84 50 58
+           C 40 54 34 62 38 72
+           C 54 112 82 150 120 182
+           C 124 186 128 184 128 180 Z"
+        fill="#0b1b3a" />
+  <!-- Right wing (Gold) - sweeping up-right, slightly forward -->
+  <path d="M 128 180
+           C 136 124 158 74 214 48
+           C 226 44 232 54 226 66
+           C 206 110 174 152 134 182
+           C 130 186 128 184 128 180 Z"
+        fill="#b08a3e" />
+  <!-- Central axis accent -->
+  <circle cx="128" cy="182" r="6" fill="#0b1b3a" />
+  <circle cx="128" cy="182" r="3" fill="#b08a3e" />
+</svg>

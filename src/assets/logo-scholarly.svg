@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 640" role="img" aria-label="EduShift">
+  <!-- Origami back wing (Navy) -->
+  <path d="M 80 356
+           L 360 120
+           L 440 140
+           L 260 340
+           L 256 400
+           Z"
+        fill="#0b1b3a" />
+  <!-- Origami front wing (Gold) -->
+  <path d="M 160 420
+           L 456 168
+           L 492 200
+           L 340 400
+           L 344 460
+           Z"
+        fill="#b08a3e" />
+  <!-- Crease line on navy wing -->
+  <line x1="240" y1="260" x2="390" y2="156"
+        stroke="#f7f2e8" stroke-width="2.4" stroke-opacity="0.6"/>
+  <!-- Wordmark: EduShift in Playfair Display -->
+  <text x="256" y="588" text-anchor="middle"
+        font-family="'Playfair Display','Shippori Mincho',Georgia,serif"
+        font-size="96" font-weight="700" letter-spacing="-0.01em"
+        fill="#0b1b3a">
+    Edu<tspan font-style="italic" font-weight="500" fill="#b08a3e">Shift</tspan>
+  </text>
+</svg>
