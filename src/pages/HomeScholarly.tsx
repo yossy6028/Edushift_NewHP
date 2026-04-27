@@ -198,21 +198,21 @@ export const HomeScholarly = () => {
         <div className="s-container">
             <div className="s-numbers-grid">
                 <div className="s-numbers-stats">
-                    <div className="s-numbers-eyebrow">— Three doors into EduShift</div>
+                    <div className="s-numbers-eyebrow">— A three-step pricing ladder, transparent from day one</div>
                     <div className="s-stat">
-                        <div className="s-stat-eyebrow">From</div>
-                        <div className="s-stat-num">¥980<span className="unit">/月〜</span></div>
-                        <div className="s-stat-label">保守運用プラン3種で、<br />HPを"持ち続けられる"価格に。</div>
+                        <div className="s-stat-eyebrow">Trial</div>
+                        <div className="s-stat-num">¥0<span className="unit">完全無料</span></div>
+                        <div className="s-stat-label">30分の初回オンライン相談は完全無料。<br />売り込みは、ひとつもいたしません。</div>
                     </div>
                     <div className="s-stat">
-                        <div className="s-stat-eyebrow">First step</div>
-                        <div className="s-stat-num">30<span className="unit">分・無料</span></div>
-                        <div className="s-stat-label">初回はオンライン相談から。<br />売り込みは、ひとつもいたしません。</div>
+                        <div className="s-stat-eyebrow">First project</div>
+                        <div className="s-stat-num">¥9,800<span className="unit">〜/回</span></div>
+                        <div className="s-stat-label">単発スポット相談で、<br />具体的な改善案までを1回で完結します。</div>
                     </div>
                     <div className="s-stat">
-                        <div className="s-stat-eyebrow">Reach</div>
-                        <div className="s-stat-num">全国<span className="unit">対応</span></div>
-                        <div className="s-stat-label">Zoomを基本に、<br />全国どこからでもご依頼いただけます。</div>
+                        <div className="s-stat-eyebrow">Long-term</div>
+                        <div className="s-stat-num">¥980<span className="unit">〜/月</span></div>
+                        <div className="s-stat-label">HP保守運用プランは月額¥980から。<br />"持ち続けられる"価格で長く伴走します。</div>
                     </div>
                 </div>
                 <figure className="s-numbers-visual">
