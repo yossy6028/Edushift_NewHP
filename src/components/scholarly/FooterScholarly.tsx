@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import logoImg from '../../assets/logo-scholarly-mark.svg';
 
 export const FooterScholarly = ({ mode = 'subpage' }: { mode?: 'home' | 'subpage' }) => {
-    const anchor = (hash: string) => (mode === 'home' ? `#${hash}` : `/v2#${hash}`);
+    const anchor = (hash: string) => (mode === 'home' ? `#${hash}` : `/#${hash}`);
     return (
         <footer className="s-footer">
             <div className="s-container">
                 <div className="s-footer-grid">
                     <div>
-                        <Link to="/v2" className="s-footer-brand-logo" aria-label="EduShift">
+                        <Link to="/" className="s-footer-brand-logo" aria-label="EduShift">
                             <img src={logoImg} alt="EduShift" />
                             <span className="s-footer-brand-name-text">Edu<em>Shift</em></span>
                         </Link>
@@ -19,10 +19,10 @@ export const FooterScholarly = ({ mode = 'subpage' }: { mode?: 'home' | 'subpage
                     <div>
                         <h5>Services</h5>
                         <ul>
-                            <li><Link to="/v2/service/school-support">小規模塾経営サポート</Link></li>
-                            <li><Link to="/v2/service/ai-consulting">AI導入コンサル</Link></li>
-                            <li><Link to="/v2/service/freelance-support">独立支援</Link></li>
-                            <li><Link to="/v2/service/hp-production">HP制作・運用</Link></li>
+                            <li><Link to="/service/school-support">小規模塾経営サポート</Link></li>
+                            <li><Link to="/service/ai-consulting">AI導入コンサル</Link></li>
+                            <li><Link to="/service/freelance-support">独立支援</Link></li>
+                            <li><Link to="/service/hp-production">HP制作・運用</Link></li>
                         </ul>
                     </div>
                     <div>
@@ -39,8 +39,8 @@ export const FooterScholarly = ({ mode = 'subpage' }: { mode?: 'home' | 'subpage
                     <div>
                         <h5>Legal</h5>
                         <ul>
-                            <li><Link to="/v2/privacypolicy">プライバシーポリシー</Link></li>
-                            <li><Link to="/v2/business-law">特定商取引法</Link></li>
+                            <li><Link to="/privacypolicy">プライバシーポリシー</Link></li>
+                            <li><Link to="/business-law">特定商取引法</Link></li>
                         </ul>
                     </div>
                 </div>

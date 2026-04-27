@@ -12,7 +12,7 @@ export const BusinessLawScholarly = () => {
             <section className="s-legal-doc">
                 <div className="s-container">
                     <nav className="s-breadcrumb">
-                        <Link to="/v2">Home</Link>
+                        <Link to="/">Home</Link>
                         <span>/</span>
                         <span className="current">特定商取引法に基づく表記</span>
                     </nav>

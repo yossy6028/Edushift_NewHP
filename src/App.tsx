@@ -1,8 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Outlet, useLocation, Navigate, useParams } from 'react-router-dom';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import { Home } from './pages/Home';
 import { HomeScholarly } from './pages/HomeScholarly';
 import { ServiceDetailScholarly } from './pages/v2/ServiceDetailScholarly';
 import { BusinessLawScholarly } from './pages/v2/BusinessLawScholarly';
@@ -15,36 +12,20 @@ function PageTracker() {
   return null;
 }
 
-function DefaultLayout() {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow pt-20">
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
-  );
-}
-
 function StandaloneLayout() {
   return <Outlet />;
 }
 
-function ThemeReset() {
-  const location = useLocation();
-  const isStandalone = location.pathname.startsWith('/v2');
-  if (!isStandalone) {
-    document.documentElement.removeAttribute('data-theme');
-  } else {
-    document.documentElement.setAttribute('data-theme', 'scholarly');
-  }
+function ScholarlyTheme() {
+  // Scholarly Navy is now the only theme — apply site-wide.
+  useLocation(); // re-run on navigation so SPA route changes refresh attribute
+  document.documentElement.setAttribute('data-theme', 'scholarly');
   return null;
 }
 
-function RedirectServiceToV2() {
+function RedirectV2Service() {
   const { slug = '' } = useParams();
-  return <Navigate to={`/v2/service/${slug}`} replace />;
+  return <Navigate to={`/service/${slug}`} replace />;
 }
 
 function App() {
@@ -52,22 +33,22 @@ function App() {
     <Router>
       <PageTracker />
       <ScrollToTop />
-      <ThemeReset />
+      <ScholarlyTheme />
       <Routes>
-        <Route element={<DefaultLayout />}>
-          <Route path="/" element={<Home />} />
-        </Route>
         <Route element={<StandaloneLayout />}>
-          <Route path="/service/:slug" element={<RedirectServiceToV2 />} />
-          <Route path="/privacypolicy" element={<Navigate to="/v2/privacypolicy" replace />} />
-          <Route path="/business-law" element={<Navigate to="/v2/business-law" replace />} />
-        </Route>
-        <Route element={<StandaloneLayout />}>
-          <Route path="/v2" element={<HomeScholarly />} />
-          <Route path="/v2/service/:slug" element={<ServiceDetailScholarly />} />
-          <Route path="/v2/business-law" element={<BusinessLawScholarly />} />
-          <Route path="/v2/privacypolicy" element={<PrivacyPolicyScholarly />} />
-          <Route path="/v2/logo-preview" element={<LogoPreview />} />
+          {/* Primary site (Scholarly Navy) */}
+          <Route path="/" element={<HomeScholarly />} />
+          <Route path="/service/:slug" element={<ServiceDetailScholarly />} />
+          <Route path="/business-law" element={<BusinessLawScholarly />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicyScholarly />} />
+          <Route path="/logo-preview" element={<LogoPreview />} />
+
+          {/* Backward-compatibility: legacy /v2 prefix → root */}
+          <Route path="/v2" element={<Navigate to="/" replace />} />
+          <Route path="/v2/service/:slug" element={<RedirectV2Service />} />
+          <Route path="/v2/business-law" element={<Navigate to="/business-law" replace />} />
+          <Route path="/v2/privacypolicy" element={<Navigate to="/privacypolicy" replace />} />
+          <Route path="/v2/logo-preview" element={<Navigate to="/logo-preview" replace />} />
         </Route>
       </Routes>
     </Router>

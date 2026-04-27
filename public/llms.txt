@@ -21,24 +21,24 @@ EduShiftが提供するのは「短期的な集客テクニック」ではなく
 ## サービス（4領域）
 
 ### 1. 小規模塾経営サポート
-- URL: https://edu-shift.com/v2/service/school-support
+- URL: https://edu-shift.com/service/school-support
 - 「良い授業」だけでは塾は生き残れない時代に、収益構造の可視化、集客・ブランディング、保護者対応のAI化までを伴走支援
 - 主な対象: 小規模学習塾・個人塾・1人塾
 - 実績例: 卒業による大量流出の不安から、新規20名以上の春を実現
 
 ### 2. AI導入コンサルティング
-- URL: https://edu-shift.com/v2/service/ai-consulting
+- URL: https://edu-shift.com/service/ai-consulting
 - ChatGPT / Claude / Gemini を活用した教材生成、添削自動化、保護者対応の文面生成、面談記録の構造化など、塾現場で「今日から使えるAI業務効率化」を1ヶ月で導入
 - 主な対象: 学習塾・教育事業者
 
 ### 3. 独立支援（フリーランス家庭教師・個人塾立ち上げ）
-- URL: https://edu-shift.com/v2/service/freelance-support
+- URL: https://edu-shift.com/service/freelance-support
 - 教員からの独立、フリーランス家庭教師・個人塾の立ち上げを、集客・契約書・料金設計・SNS発信まで伴走
 - 実績例: 生徒1人から、教員時代の収入超え（実例ベース）
 - 主な対象: 教員・元教員・独立志望の指導者
 
 ### 4. HP制作・運用（学習塾特化）
-- URL: https://edu-shift.com/v2/service/hp-production
+- URL: https://edu-shift.com/service/hp-production
 - 学習塾に特化したホームページ制作。AIを活用したコンテンツ生成・更新代行付き
 - **制作プラン（初期費用・税抜）**:
   - Light: ¥19,800
@@ -52,8 +52,8 @@ EduShiftが提供するのは「短期的な集客テクニック」ではなく
 
 ## 法務・取引情報
 
-- 特定商取引法に基づく表記: https://edu-shift.com/v2/business-law
-- プライバシーポリシー: https://edu-shift.com/v2/privacypolicy
+- 特定商取引法に基づく表記: https://edu-shift.com/business-law
+- プライバシーポリシー: https://edu-shift.com/privacypolicy
 - **支払い方法**: 銀行振込／クレジットカード決済
 - **支払い時期**: 銀行振込は請求書発行から1週間以内、クレジットカードは各カード会社の引き落とし日
 - **キャンセル**: ご入金後の返金は、当方都合の場合を除き原則お受けしておりません

@@ -226,7 +226,7 @@ export const HomeScholarly = () => {
                         <span className="s-service-tag">ブランディング</span>
                         <span className="s-service-tag tech">AIデータ分析</span>
                     </div>
-                    <a href="/v2/service/school-support" className="s-service-link">詳しく読む →</a>
+                    <a href="/service/school-support" className="s-service-link">詳しく読む →</a>
                 </div>
 
                 <div className="s-service-card pillar">
@@ -240,7 +240,7 @@ export const HomeScholarly = () => {
                         <span className="s-service-tag">案件獲得</span>
                         <span className="s-service-tag tech">AI活用 × Web発信</span>
                     </div>
-                    <a href="/v2/service/freelance-support" className="s-service-link">詳しく読む →</a>
+                    <a href="/service/freelance-support" className="s-service-link">詳しく読む →</a>
                 </div>
 
                 <div className="s-service-bridge">
@@ -258,7 +258,7 @@ export const HomeScholarly = () => {
                         <span className="s-service-tag">AI教材</span>
                         <span className="s-service-tag">スタッフ研修</span>
                     </div>
-                    <a href="/v2/service/ai-consulting" className="s-service-link">詳しく読む →</a>
+                    <a href="/service/ai-consulting" className="s-service-link">詳しく読む →</a>
                 </div>
 
                 <div className="s-service-card tool">
@@ -271,7 +271,7 @@ export const HomeScholarly = () => {
                         <span className="s-service-tag">AIブログ</span>
                         <span className="s-service-tag">保守運用</span>
                     </div>
-                    <a href="/v2/service/hp-production" className="s-service-link">詳しく読む →</a>
+                    <a href="/service/hp-production" className="s-service-link">詳しく読む →</a>
                 </div>
             </div>
         </div>
@@ -515,7 +515,7 @@ export const HomeScholarly = () => {
 
                 <p className="s-sub-price-cta-row">
                     HP制作費は別途見積（初期¥19,800〜）。詳しくは
-                    <a href="/v2/service/hp-production">サービス詳細ページ</a>
+                    <a href="/service/hp-production">サービス詳細ページ</a>
                     をご覧ください。
                 </p>
             </div>
@@ -655,7 +655,7 @@ export const HomeScholarly = () => {
                     </div>
                     <div className="s-company-row">
                         <dt>Notation <span>法令表記</span></dt>
-                        <dd><a href="/v2/business-law" style={{"color": `var(--s-teal-deep)`, "textDecoration": `underline`}}>特定商取引法に基づく表記</a></dd>
+                        <dd><a href="/business-law" style={{"color": `var(--s-teal-deep)`, "textDecoration": `underline`}}>特定商取引法に基づく表記</a></dd>
                     </div>
                 </dl>
             </div>
@@ -719,7 +719,7 @@ export const HomeScholarly = () => {
                     </summary>
                     <div className="s-faq-a">
                         <span className="s-faq-a-marker">A.</span>
-                        銀行振込またはクレジットカード決済に対応しています。銀行振込は請求書発行から1週間以内、クレジットカードは各カード会社の引き落とし日となります。詳細は<a href="/v2/business-law" style={{"color": `var(--s-teal-deep)`}}>特定商取引法に基づく表記</a>をご参照ください。
+                        銀行振込またはクレジットカード決済に対応しています。銀行振込は請求書発行から1週間以内、クレジットカードは各カード会社の引き落とし日となります。詳細は<a href="/business-law" style={{"color": `var(--s-teal-deep)`}}>特定商取引法に基づく表記</a>をご参照ください。
                     </div>
                 </details>
 
@@ -785,10 +785,10 @@ export const HomeScholarly = () => {
                 <div>
                     <h5>Services</h5>
                     <ul>
-                        <li><a href="/v2/service/school-support">小規模塾経営サポート</a></li>
-                        <li><a href="/v2/service/ai-consulting">AI導入コンサル</a></li>
-                        <li><a href="/v2/service/freelance-support">独立支援</a></li>
-                        <li><a href="/v2/service/hp-production">HP制作・運用</a></li>
+                        <li><a href="/service/school-support">小規模塾経営サポート</a></li>
+                        <li><a href="/service/ai-consulting">AI導入コンサル</a></li>
+                        <li><a href="/service/freelance-support">独立支援</a></li>
+                        <li><a href="/service/hp-production">HP制作・運用</a></li>
                     </ul>
                 </div>
                 <div>
@@ -805,8 +805,8 @@ export const HomeScholarly = () => {
                 <div>
                     <h5>Legal</h5>
                     <ul>
-                        <li><a href="/v2/privacypolicy">プライバシーポリシー</a></li>
-                        <li><a href="/v2/business-law">特定商取引法</a></li>
+                        <li><a href="/privacypolicy">プライバシーポリシー</a></li>
+                        <li><a href="/business-law">特定商取引法</a></li>
                     </ul>
                 </div>
             </div>

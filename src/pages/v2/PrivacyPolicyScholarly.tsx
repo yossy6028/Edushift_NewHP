@@ -12,7 +12,7 @@ export const PrivacyPolicyScholarly = () => {
             <section className="s-legal-doc">
                 <div className="s-container">
                     <nav className="s-breadcrumb">
-                        <Link to="/v2">Home</Link>
+                        <Link to="/">Home</Link>
                         <span>/</span>
                         <span className="current">プライバシーポリシー</span>
                     </nav>

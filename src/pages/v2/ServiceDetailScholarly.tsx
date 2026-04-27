@@ -13,7 +13,7 @@ export const ServiceDetailScholarly = () => {
         window.scrollTo(0, 0);
     }, [slug]);
 
-    if (!svc) return <Navigate to="/v2" replace />;
+    if (!svc) return <Navigate to="/" replace />;
 
     return (
         <div className="theme-scholarly">
@@ -22,9 +22,9 @@ export const ServiceDetailScholarly = () => {
             <section className="s-detail-hero">
                 <div className="s-container">
                     <nav className="s-breadcrumb">
-                        <Link to="/v2">Home</Link>
+                        <Link to="/">Home</Link>
                         <span>/</span>
-                        <Link to="/v2#services">Services</Link>
+                        <Link to="/#services">Services</Link>
                         <span>/</span>
                         <span className="current">{svc.label}</span>
                     </nav>
@@ -124,7 +124,7 @@ export const ServiceDetailScholarly = () => {
                                             ))}
                                         </ul>
                                     )}
-                                    <Link to="/v2#contact" className="s-detail-price-cta">お問い合わせ</Link>
+                                    <Link to="/#contact" className="s-detail-price-cta">お問い合わせ</Link>
                                 </div>
                             ))}
                         </div>
@@ -132,7 +132,7 @@ export const ServiceDetailScholarly = () => {
                         {svc.pricingBlock.footnote && (
                             <p className="s-detail-price-footnote">
                                 公開後の保守・運用プラン（¥980/¥2,980/¥29,800）は
-                                <Link to="/v2#pricing">トップページの料金セクション</Link>
+                                <Link to="/#pricing">トップページの料金セクション</Link>
                                 でご確認いただけます。
                             </p>
                         )}
@@ -216,10 +216,10 @@ export const ServiceDetailScholarly = () => {
                         単発スポット相談（¥9,800〜/回）もご用意しています。
                     </p>
                     <div className="s-detail-cta-row">
-                        <Link to="/v2#contact" className="s-btn-primary">
+                        <Link to="/#contact" className="s-btn-primary">
                             無料相談を予約する<span className="arrow">→</span>
                         </Link>
-                        <Link to="/v2#services" className="s-btn-ghost">他のサービスを見る</Link>
+                        <Link to="/#services" className="s-btn-ghost">他のサービスを見る</Link>
                     </div>
                 </div>
             </section>

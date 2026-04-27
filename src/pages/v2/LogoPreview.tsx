@@ -19,7 +19,7 @@ export const LogoPreview = () => {
         <div className="theme-scholarly" style={{ minHeight: '100vh', background: 'var(--s-paper)' }}>
             <div className="s-container" style={{ paddingTop: 96, paddingBottom: 120 }}>
                 <nav className="s-breadcrumb" style={{ marginBottom: 32 }}>
-                    <Link to="/v2">Home</Link>
+                    <Link to="/">Home</Link>
                     <span>/</span>
                     <span className="current">Logo Preview</span>
                 </nav>

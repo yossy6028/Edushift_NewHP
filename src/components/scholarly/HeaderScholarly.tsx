@@ -4,7 +4,7 @@ import logoImg from '../../assets/logo-scholarly-mark.svg';
 type NavMode = 'home' | 'subpage';
 
 export const HeaderScholarly = ({ mode = 'subpage' }: { mode?: NavMode }) => {
-    const homePath = '/v2';
+    const homePath = '/';
     const anchor = (hash: string) => (mode === 'home' ? `#${hash}` : `${homePath}#${hash}`);
     return (
         <header className="s-header">
