@@ -3518,9 +3518,134 @@ html[data-theme="scholarly"] body {
             .s-header-inner { height: 80px; }
         }
 
+        /* =====================================================
+           HAMBURGER TOGGLE (hidden on desktop, shown on mobile)
+           ===================================================== */
+        .s-nav-toggle {
+            display: none;
+            position: relative;
+            width: 40px;
+            height: 32px;
+            padding: 0;
+            background: transparent;
+            border: 0;
+            cursor: pointer;
+            z-index: 60;
+        }
+        .s-nav-toggle span {
+            position: absolute;
+            left: 6px;
+            right: 6px;
+            height: 1.5px;
+            background: var(--s-navy-900);
+            transition: transform 0.28s ease, opacity 0.18s ease, top 0.28s ease;
+        }
+        .s-nav-toggle span:nth-child(1) { top: 9px; }
+        .s-nav-toggle span:nth-child(2) { top: 15px; }
+        .s-nav-toggle span:nth-child(3) { top: 21px; }
+        .s-nav-toggle.is-open span:nth-child(1) {
+            top: 15px;
+            transform: rotate(45deg);
+        }
+        .s-nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+        .s-nav-toggle.is-open span:nth-child(3) {
+            top: 15px;
+            transform: rotate(-45deg);
+        }
+
+        /* =====================================================
+           MOBILE NAV — overlay sheet (≤920px)
+           ===================================================== */
         @media (max-width: 920px) {
-            /* Hide secondary anchors so primary nav fits; keep the CTA visible */
-            .s-nav a:not(.s-cta-small):not(.s-nav-ext) { display: none; }
-            .s-nav .s-nav-ext { display: none; }
+            /* backdrop-filter creates a containing block — disable it on
+               mobile so the fixed overlay nav can fill the full viewport. */
+            .s-header {
+                backdrop-filter: none;
+                background: rgba(247, 242, 232, 0.96);
+            }
+
+            .s-nav-toggle { display: block; }
+
+            .s-nav {
+                position: fixed;
+                inset: 0;
+                background: var(--s-cream);
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 112px 28px 48px;
+                transform: translateY(-100%);
+                transition: transform 0.32s cubic-bezier(0.77, 0, 0.175, 1);
+                overflow-y: auto;
+                z-index: 55;
+                border-bottom: 1px solid var(--s-line);
+            }
+            .s-nav.is-open {
+                transform: translateY(0);
+            }
+
+            .s-nav a {
+                font-size: 22px;
+                font-weight: 600;
+                padding: 22px 4px;
+                border-bottom: 1px solid var(--s-line);
+                width: 100%;
+                color: var(--s-navy-900);
+            }
+            .s-nav a::after { display: none; }
+
+            .s-nav .s-nav-ext {
+                color: var(--s-teal-deep);
+                font-size: 22px;
+            }
+
+            .s-nav .s-cta-small {
+                margin-top: 32px;
+                width: 100%;
+                text-align: center;
+                padding: 20px 28px;
+                font-size: 16px;
+                letter-spacing: 0.12em;
+                border: 1px solid var(--s-navy-900);
+            }
+        }
+
+        /* =====================================================
+           HERO TYPOGRAPHY — small phone tighten
+           ===================================================== */
+        @media (max-width: 600px) {
+            .s-hero { padding-top: 96px; }
+            .s-hero h1 {
+                font-size: clamp(28px, 8.6vw, 38px);
+                line-height: 1.4;
+                margin: 0 0 24px;
+            }
+            .s-hero h1 small {
+                font-size: 0.5em;
+                margin-top: 18px;
+            }
+            .s-hero-body {
+                font-size: 15px;
+                line-height: 1.95;
+                margin: 0 0 32px;
+            }
+            .s-hero-cta { flex-direction: column; align-items: stretch; }
+            .s-btn-primary, .s-btn-ghost {
+                width: 100%;
+                justify-content: center;
+            }
+            .s-eyebrow { font-size: 11px; }
+            .s-hero-frame { aspect-ratio: 4 / 5; }
+            .s-hero-caption { font-size: 11px; padding: 16px 16px 14px; }
+            .s-mini-chip { padding: 12px 10px; }
+            .s-mini-chip .label { font-size: 13px; }
+
+            .s-numbers { padding: 56px 0 64px; }
+            .s-numbers-eyebrow { font-size: 11px; margin-bottom: 24px; }
+            .s-stat { padding: 20px 0; }
+            .s-stat-num { font-size: 34px; }
+            .s-stat-num .unit { font-size: 0.5em; }
+            .s-stat-label { font-size: 13px; line-height: 1.8; }
         }
     

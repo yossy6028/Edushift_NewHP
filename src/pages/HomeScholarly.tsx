@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import logoImg from '../assets/logo-scholarly-mark.svg';
 import founderImg from '../assets/founder.webp';
 import heroDeskImg from '../assets/hero-desk.jpeg';
@@ -35,6 +35,14 @@ const escapeHtml = (s: string) =>
     s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 export const HomeScholarly = () => {
+    const [navOpen, setNavOpen] = useState(false);
+    const closeNav = () => setNavOpen(false);
+
+    useEffect(() => {
+        document.body.style.overflow = navOpen ? 'hidden' : '';
+        return () => { document.body.style.overflow = ''; };
+    }, [navOpen]);
+
     useEffect(() => {
         const grid = document.getElementById('journal-grid');
         if (!grid) return;
@@ -88,21 +96,33 @@ export const HomeScholarly = () => {
     {/* ====== HEADER ====== */}
     <header className="s-header">
         <div className="s-container s-header-inner">
-            <a href="#" className="s-brand">
+            <a href="#" className="s-brand" onClick={closeNav}>
                 <img src={logoImg} alt="EduShift" />
                 <span className="s-brand-name">Edu<em>Shift</em></span>
                 <span className="s-brand-sep"></span>
                 <span className="s-brand-tag">学びの伴走者</span>
             </a>
-            <nav className="s-nav">
-                <a href="#empathy">塾経営の今</a>
-                <a href="#services">サービス</a>
-                <a href="#founder">代表</a>
-                <a href="#journal">ブログ</a>
-                <a href="https://note.com/katsu_yossy" target="_blank" rel="noopener" className="s-nav-ext" aria-label="noteを別タブで開く">note<span className="s-nav-ext-arrow" aria-hidden="true">↗</span></a>
-                <a href="#faq">FAQ</a>
-                <a href="#company">会社概要</a>
-                <a href="#contact" className="s-cta-small">ご相談</a>
+            <button
+                type="button"
+                className={`s-nav-toggle${navOpen ? ' is-open' : ''}`}
+                aria-label={navOpen ? 'メニューを閉じる' : 'メニューを開く'}
+                aria-expanded={navOpen}
+                aria-controls="primary-nav"
+                onClick={() => setNavOpen(v => !v)}
+            >
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+            <nav id="primary-nav" className={`s-nav${navOpen ? ' is-open' : ''}`}>
+                <a href="#empathy" onClick={closeNav}>塾経営の今</a>
+                <a href="#services" onClick={closeNav}>サービス</a>
+                <a href="#founder" onClick={closeNav}>代表</a>
+                <a href="#journal" onClick={closeNav}>ブログ</a>
+                <a href="https://note.com/katsu_yossy" target="_blank" rel="noopener" className="s-nav-ext" aria-label="noteを別タブで開く" onClick={closeNav}>note<span className="s-nav-ext-arrow" aria-hidden="true">↗</span></a>
+                <a href="#faq" onClick={closeNav}>FAQ</a>
+                <a href="#company" onClick={closeNav}>会社概要</a>
+                <a href="#contact" className="s-cta-small" onClick={closeNav}>ご相談</a>
             </nav>
         </div>
     </header>
