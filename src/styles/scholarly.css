@@ -144,12 +144,14 @@ html[data-theme="scholarly"] body {
             color: var(--s-ink-500);
             letter-spacing: 0.3em;
             font-weight: 500;
+            white-space: nowrap;
         }
 
         .s-nav {
             display: flex;
             align-items: center;
             gap: 40px;
+            flex-wrap: nowrap;
         }
 
         .s-nav a {
@@ -159,6 +161,7 @@ html[data-theme="scholarly"] body {
             color: var(--s-navy-800);
             position: relative;
             padding-bottom: 4px;
+            white-space: nowrap;
         }
 
         .s-nav a::after {
@@ -187,6 +190,7 @@ html[data-theme="scholarly"] body {
             font-size: 13px;
             letter-spacing: 0.08em;
             transition: all 0.2s;
+            white-space: nowrap;
         }
 
         .s-nav .s-cta-small:hover {
@@ -3492,5 +3496,31 @@ html[data-theme="scholarly"] body {
             .s-numbers-visual {
                 aspect-ratio: 16 / 9;
             }
+        }
+
+        /* =====================================================
+           HEADER — narrow-viewport adjustments to prevent
+           Japanese nav labels from wrapping vertically
+           ===================================================== */
+        @media (max-width: 1240px) {
+            .s-nav { gap: 28px; }
+            .s-brand-tag { font-size: 10px; letter-spacing: 0.22em; }
+        }
+
+        @media (max-width: 1100px) {
+            .s-brand-sep,
+            .s-brand-tag { display: none; }
+            .s-nav { gap: 22px; }
+            .s-nav a { font-size: 13px; }
+            .s-nav .s-cta-small { padding: 9px 16px; font-size: 12px; }
+            .s-brand img { height: 48px; }
+            .s-brand-name { font-size: 24px; }
+            .s-header-inner { height: 80px; }
+        }
+
+        @media (max-width: 920px) {
+            /* Hide secondary anchors so primary nav fits; keep the CTA visible */
+            .s-nav a:not(.s-cta-small):not(.s-nav-ext) { display: none; }
+            .s-nav .s-nav-ext { display: none; }
         }
     
