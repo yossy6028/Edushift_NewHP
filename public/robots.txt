@@ -1,6 +1,56 @@
 # EduShift robots.txt
+# https://edu-shift.com/
+
+# Default — all general-purpose crawlers welcome
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://edushift-newhp.vercel.app/sitemap.xml
+# ── AI / LLM crawlers (explicitly allowed) ──
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI (Gemini / AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Common Crawl (used as training data by many models)
+User-agent: CCBot
+Allow: /
+
+# You.com / Phind
+User-agent: YouBot
+Allow: /
+
+User-agent: PhindBot
+Allow: /
+
+# ── Sitemap & LLM index ──
+Sitemap: https://edu-shift.com/sitemap.xml
