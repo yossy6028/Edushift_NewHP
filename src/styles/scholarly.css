@@ -3260,4 +3260,237 @@ html[data-theme="scholarly"] body {
                 padding-top: 56px;
             }
         }
+
+        /* =====================================================
+           HERO RIGHT — image-led visual block (replaces diagram)
+           ===================================================== */
+        .s-hero-visual {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            align-self: center;
+        }
+
+        .s-hero-frame {
+            position: relative;
+            margin: 0;
+            aspect-ratio: 4 / 5;
+            background: var(--s-cream);
+            box-shadow:
+                0 1px 0 rgba(11, 27, 58, 0.04),
+                0 22px 56px -28px rgba(11, 27, 58, 0.35),
+                0 6px 18px -10px rgba(11, 27, 58, 0.25);
+            overflow: hidden;
+        }
+
+        .s-hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.96) contrast(1.02);
+        }
+
+        .s-hero-frame-corner {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-color: var(--s-gold);
+            border-style: solid;
+            border-width: 0;
+            pointer-events: none;
+            opacity: 0.95;
+        }
+        .s-hero-frame-corner.tl { top: 12px; left: 12px; border-top-width: 1.5px; border-left-width: 1.5px; }
+        .s-hero-frame-corner.tr { top: 12px; right: 12px; border-top-width: 1.5px; border-right-width: 1.5px; }
+        .s-hero-frame-corner.bl { bottom: 12px; left: 12px; border-bottom-width: 1.5px; border-left-width: 1.5px; }
+        .s-hero-frame-corner.br { bottom: 12px; right: 12px; border-bottom-width: 1.5px; border-right-width: 1.5px; }
+
+        .s-hero-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            padding: 24px 22px 18px;
+            background: linear-gradient(180deg, rgba(11, 27, 58, 0) 0%, rgba(11, 27, 58, 0.78) 70%, rgba(11, 27, 58, 0.92) 100%);
+            color: var(--s-paper);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .s-hero-caption-rule {
+            display: inline-block;
+            width: 28px;
+            height: 1px;
+            background: var(--s-gold);
+            opacity: 0.95;
+            flex-shrink: 0;
+        }
+
+        .s-hero-mini-chips {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            padding: 0 4px;
+        }
+
+        .s-mini-chip {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 14px 12px;
+            background: var(--s-cream);
+            border: 1px solid var(--s-line);
+            border-top: 2px solid var(--s-navy-900);
+        }
+
+        .s-mini-chip.tool {
+            border-top-color: var(--s-gold);
+        }
+
+        .s-mini-chip .num {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            color: var(--s-gold-deep);
+            text-transform: uppercase;
+        }
+
+        .s-mini-chip .label {
+            font-family: var(--s-serif-jp);
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--s-navy-900);
+            letter-spacing: 0.02em;
+        }
+
+        /* =====================================================
+           NUMBERS BAND — three doors into EduShift
+           ===================================================== */
+        .s-numbers {
+            background: var(--s-cream);
+            border-top: 1px solid var(--s-line);
+            border-bottom: 1px solid var(--s-line);
+            padding: 88px 0 96px;
+        }
+
+        .s-numbers-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 72px;
+            align-items: center;
+        }
+
+        .s-numbers-eyebrow {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 13px;
+            letter-spacing: 0.18em;
+            color: var(--s-gold-deep);
+            margin-bottom: 36px;
+        }
+
+        .s-numbers-stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .s-stat {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            padding: 24px 0;
+            border-top: 1px solid var(--s-line);
+        }
+        .s-stat:last-child {
+            border-bottom: 1px solid var(--s-line);
+        }
+
+        .s-stat-eyebrow {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 12px;
+            letter-spacing: 0.22em;
+            color: var(--s-gold-deep);
+            text-transform: uppercase;
+        }
+
+        .s-stat-num {
+            font-family: var(--s-serif-jp);
+            font-weight: 600;
+            font-size: clamp(34px, 4vw, 46px);
+            color: var(--s-navy-900);
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+        }
+
+        .s-stat-num .unit {
+            font-size: 0.42em;
+            font-weight: 500;
+            margin-left: 6px;
+            color: var(--s-ink-700);
+            letter-spacing: 0.02em;
+        }
+
+        .s-stat-label {
+            font-family: var(--s-serif-jp);
+            font-size: 14px;
+            line-height: 1.85;
+            color: var(--s-ink-700);
+            margin-top: 4px;
+        }
+
+        .s-numbers-visual {
+            margin: 0;
+            position: relative;
+            aspect-ratio: 16 / 11;
+            overflow: hidden;
+            box-shadow:
+                0 18px 40px -22px rgba(11, 27, 58, 0.32),
+                0 4px 12px -6px rgba(11, 27, 58, 0.18);
+        }
+
+        .s-numbers-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.94);
+        }
+
+        /* Responsive trim for new blocks */
+        @media (max-width: 900px) {
+            .s-hero-visual {
+                margin-top: 16px;
+            }
+
+            .s-hero-mini-chips {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            .s-numbers {
+                padding: 64px 0 72px;
+            }
+
+            .s-numbers-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .s-numbers-visual {
+                aspect-ratio: 16 / 9;
+            }
+        }
     

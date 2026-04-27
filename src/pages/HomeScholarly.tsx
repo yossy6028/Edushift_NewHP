@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import logoImg from '../assets/logo-scholarly-mark.svg';
 import founderImg from '../assets/founder.webp';
+import heroDeskImg from '../assets/hero-desk.jpeg';
+import paperFlatlayImg from '../assets/hero-paper-flatlay.jpeg';
 import '../styles/scholarly.css';
 
 type NoteContent = {
@@ -137,36 +139,65 @@ export const HomeScholarly = () => {
                 </div>
             </div>
 
-            <div className="s-hero-diagram">
-                <div className="s-hero-diagram-label">We focus on</div>
-                <div className="s-hero-diagram-pillars">
-                    <div className="s-pillar-chip">
+            <div className="s-hero-visual">
+                <figure className="s-hero-frame">
+                    <img src={heroDeskImg} alt="EduShiftが伴走する、先生の机に置かれたノートPCと手書きノート" className="s-hero-image" />
+                    <span className="s-hero-frame-corner tl" aria-hidden="true"></span>
+                    <span className="s-hero-frame-corner tr" aria-hidden="true"></span>
+                    <span className="s-hero-frame-corner bl" aria-hidden="true"></span>
+                    <span className="s-hero-frame-corner br" aria-hidden="true"></span>
+                    <figcaption className="s-hero-caption">
+                        <span className="s-hero-caption-rule"></span>
+                        <span>Scholar's Workspace — a long-form partner</span>
+                    </figcaption>
+                </figure>
+                <div className="s-hero-mini-chips" aria-label="EduShiftが向き合う2つの対象と、2つの実装手段">
+                    <div className="s-mini-chip">
                         <span className="num">Pillar · 01</span>
                         <span className="label">小規模塾</span>
-                        <span className="sub">School Management</span>
                     </div>
-                    <div className="s-pillar-chip">
+                    <div className="s-mini-chip">
                         <span className="num">Pillar · 02</span>
                         <span className="label">独立する先生</span>
-                        <span className="sub">Freelance Tutor</span>
+                    </div>
+                    <div className="s-mini-chip tool">
+                        <span className="num">Tool · 01</span>
+                        <span className="label">AI</span>
+                    </div>
+                    <div className="s-mini-chip tool">
+                        <span className="num">Tool · 02</span>
+                        <span className="label">Web</span>
                     </div>
                 </div>
-                <div className="s-hero-diagram-connector">Implement with</div>
-                <div className="s-hero-diagram-tools">
-                    <div className="s-tool-chip">
-                        <span className="tag">Tool · 01</span>
-                        <span className="name">AI</span>
-                        <span className="jp">業務自動化・教材生成</span>
+            </div>
+        </div>
+    </section>
+
+    {/* ====== NUMBERS BAND ====== */}
+    <section className="s-numbers" aria-label="EduShiftの3つの入り口">
+        <div className="s-container">
+            <div className="s-numbers-grid">
+                <div className="s-numbers-stats">
+                    <div className="s-numbers-eyebrow">— Three doors into EduShift</div>
+                    <div className="s-stat">
+                        <div className="s-stat-eyebrow">From</div>
+                        <div className="s-stat-num">¥980<span className="unit">/月〜</span></div>
+                        <div className="s-stat-label">保守運用プラン3種で、<br />HPを"持ち続けられる"価格に。</div>
                     </div>
-                    <div className="s-tool-chip">
-                        <span className="tag">Tool · 02</span>
-                        <span className="name">Web</span>
-                        <span className="jp">HP・ブログ・集客</span>
+                    <div className="s-stat">
+                        <div className="s-stat-eyebrow">First step</div>
+                        <div className="s-stat-num">30<span className="unit">分・無料</span></div>
+                        <div className="s-stat-label">初回はオンライン相談から。<br />売り込みは、ひとつもいたしません。</div>
+                    </div>
+                    <div className="s-stat">
+                        <div className="s-stat-eyebrow">Reach</div>
+                        <div className="s-stat-num">全国<span className="unit">対応</span></div>
+                        <div className="s-stat-label">Zoomを基本に、<br />全国どこからでもご依頼いただけます。</div>
                     </div>
                 </div>
-                <p className="s-hero-diagram-out">
-                    = <strong>選ばれる塾</strong>・<strong>選ばれる先生</strong>を、今日から。
-                </p>
+                <figure className="s-numbers-visual">
+                    <img src={paperFlatlayImg} alt="EduShiftの仕事道具：紺のノート、万年筆、本、懐中時計" className="s-numbers-image" />
+                </figure>
             </div>
         </div>
     </section>
