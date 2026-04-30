@@ -3648,4 +3648,60 @@ html[data-theme="scholarly"] body {
             .s-stat-num .unit { font-size: 0.5em; }
             .s-stat-label { font-size: 13px; line-height: 1.8; }
         }
+
+        /* =====================================================
+           MOBILE OVERFLOW FIXES — collapse 2-col grids that
+           inflate beyond the viewport on phones (≤768px)
+           ===================================================== */
+        @media (max-width: 768px) {
+            .s-sec-head {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin-bottom: 48px;
+                padding-top: 32px;
+            }
+            .s-sec-num {
+                white-space: normal;
+                padding-top: 0;
+                font-size: 12px;
+                letter-spacing: 0.15em;
+            }
+            .s-sec-titles h2 {
+                font-size: clamp(24px, 6.4vw, 32px);
+                line-height: 1.5;
+                word-break: keep-all;
+                overflow-wrap: anywhere;
+            }
+            .s-sec-lede {
+                font-size: 15px;
+                line-height: 1.9;
+            }
+
+            .s-service-grid.has-pillars {
+                grid-template-columns: 1fr;
+            }
+            .s-service-card.pillar {
+                padding: 48px 28px;
+            }
+            .s-service-card.pillar h3 { font-size: 26px; }
+            .s-service-card.pillar .s-service-en { font-size: 15px; }
+            .s-service-card.pillar p { font-size: 15px; }
+            .s-service-card.tool { padding: 32px 24px; }
+
+            .s-service-bridge {
+                grid-column: 1 / -1;
+                flex-direction: column;
+                padding: 28px 24px;
+                gap: 12px;
+                text-align: center;
+            }
+            .s-service-bridge h4 {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+            .s-service-bridge .s-bridge-rule {
+                font-size: 11px;
+                letter-spacing: 0.25em;
+            }
+        }
     
