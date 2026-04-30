@@ -99,7 +99,7 @@ export const HpProduction = () => {
                     <FadeIn>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl font-bold text-slate-900 mb-4">あなたの塾の状況に合わせて選べる、3つのプラン</h2>
-                            <p className="text-slate-600">初期費用を抑えた流し込みプランから、本格的なSEO特化プランまで。</p>
+                            <p className="text-slate-600">初期費用を抑えた流し込みプランから、SEO・MEO対応のプレミアムプランまで。</p>
 
                         </div>
                     </FadeIn>

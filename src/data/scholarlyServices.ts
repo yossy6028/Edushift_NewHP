@@ -189,7 +189,7 @@ export const SCHOLARLY_SERVICES: Record<string, ServiceContent> = {
         ],
         pricingBlock: {
             headline: 'あなたの塾の状況に合わせて選べる、3つのプラン',
-            lede: '初期費用を抑えた流し込みプランから、本格的なSEO特化プランまで。公開までの最短期間と、"選ばれる仕組み"のバランスでお選びください。',
+            lede: '初期費用を抑えた流し込みプランから、SEO・MEO対応のプレミアムプランまで。公開までの最短期間と、"選ばれる仕組み"のバランスでお選びください。',
             tiers: [
                 {
                     name: 'ライト',
