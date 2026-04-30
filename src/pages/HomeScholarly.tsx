@@ -3,6 +3,7 @@ import logoImg from '../assets/logo-scholarly-mark.svg';
 import founderImg from '../assets/founder.webp';
 import heroDeskImg from '../assets/hero-desk.jpeg';
 import paperFlatlayImg from '../assets/hero-paper-flatlay.jpeg';
+import { FloatingCTA } from '../components/FloatingCTA';
 import '../styles/scholarly.css';
 
 type NoteContent = {
@@ -92,6 +93,8 @@ export const HomeScholarly = () => {
 
     return (
         <div className="theme-scholarly">
+
+    <FloatingCTA />
 
     {/* ====== HEADER ====== */}
     <header className="s-header">

@@ -3650,6 +3650,101 @@ html[data-theme="scholarly"] body {
         }
 
         /* =====================================================
+           FLOATING CTA — sticky free-consultation button
+           Bottom-right card on desktop, bottom-bar on phones
+           ===================================================== */
+        .s-floating-cta {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 90;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 22px 14px 18px;
+            background: var(--s-navy-900);
+            color: var(--s-paper);
+            text-decoration: none;
+            border-radius: 999px;
+            box-shadow:
+                0 18px 38px -14px rgba(11, 27, 58, 0.45),
+                0 4px 12px -4px rgba(11, 27, 58, 0.25),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(176, 138, 62, 0.55);
+            font-family: var(--s-serif-jp);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+        }
+        .s-floating-cta.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .s-floating-cta:hover {
+            background: #07153d;
+            box-shadow:
+                0 22px 44px -14px rgba(11, 27, 58, 0.55),
+                0 6px 16px -4px rgba(11, 27, 58, 0.3),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+        .s-floating-cta-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--s-gold);
+            color: var(--s-navy-900);
+            flex-shrink: 0;
+        }
+        .s-floating-cta-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+            text-align: left;
+        }
+        .s-floating-cta-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--s-paper);
+            letter-spacing: 0.02em;
+        }
+        .s-floating-cta-sub {
+            font-family: var(--s-serif-en);
+            font-style: italic;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            color: var(--s-gold);
+            margin-top: 3px;
+        }
+        .s-floating-cta-arrow {
+            font-size: 16px;
+            color: var(--s-gold);
+            margin-left: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .s-floating-cta {
+                right: 12px;
+                left: 12px;
+                bottom: 12px;
+                padding: 14px 18px 14px 16px;
+                padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+                justify-content: center;
+                border-radius: 14px;
+            }
+            .s-floating-cta-label { font-size: 16px; }
+            .s-floating-cta-sub { font-size: 11px; }
+        }
+
+        @media print {
+            .s-floating-cta { display: none !important; }
+        }
+
+        /* =====================================================
            MOBILE OVERFLOW FIXES — collapse 2-col grids that
            inflate beyond the viewport on phones (≤768px)
            ===================================================== */
