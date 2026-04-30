@@ -202,7 +202,7 @@ export const SCHOLARLY_SERVICES: Record<string, ServiceContent> = {
                         'スマートフォン対応',
                         'お問合せフォーム設置',
                     ],
-                    notes: ['※原稿・画像は完全支給', '※修正は誤字脱字のみ対応'],
+                    notes: ['※原稿・画像は完全支給', '※修正は納品前まで3回まで対応'],
                 },
                 {
                     name: 'スタンダード',
@@ -215,7 +215,7 @@ export const SCHOLARLY_SERVICES: Record<string, ServiceContent> = {
                         'Googleマップ連携',
                         '過去サイトからの移行相談',
                     ],
-                    notes: ['※基本レイアウトへの流し込み', '※納品前の確認1回のみ対応'],
+                    notes: ['※基本レイアウトへの流し込み', '※修正は納品前まで3回まで対応'],
                     recommended: true,
                 },
                 {

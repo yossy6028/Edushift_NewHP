@@ -31,6 +31,17 @@ export const HpProduction = () => {
                     <p className="text-base md:text-lg text-slate-300 animate-fade-in-up max-w-2xl mx-auto leading-relaxed" style={{ animationDelay: '0.4s' }}>
                         小規模塾専門のHP制作・保守サービス。月々980円〜、あなたの塾を「選ばれる塾」に変えます。
                     </p>
+                    <div
+                        className="inline-flex items-center gap-3 mt-8 px-5 py-2.5 rounded-full border border-emerald-300/60 bg-emerald-400/10 backdrop-blur-md animate-fade-in-up"
+                        style={{ animationDelay: '0.6s' }}
+                    >
+                        <span className="px-2.5 py-1 rounded-full bg-emerald-400 text-emerald-950 text-xs font-bold tracking-wider">
+                            NEW · AIEO対策
+                        </span>
+                        <strong className="text-white text-sm md:text-base font-semibold">
+                            AIに読まれるHPを作ります。
+                        </strong>
+                    </div>
                 </div>
             </div>
 
@@ -93,6 +104,49 @@ export const HpProduction = () => {
             </section>
 
 
+            {/* AIEO Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-50 via-white to-indigo-50 border-y border-emerald-100">
+                <div className="max-w-5xl mx-auto">
+                    <FadeIn>
+                        <div className="text-center">
+                            <span className="inline-block px-3 py-1 rounded-full bg-emerald-500 text-white text-xs font-bold tracking-wider mb-4">
+                                NEW · AIEO対策
+                            </span>
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                                AIに読まれるHPを、作ります。
+                            </h2>
+                            <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10">
+                                ChatGPT・Perplexity・Google Geminiが「塾」を答える時代。<br />
+                                EduShiftの全プランは、AIに正しく拾われる構造を標準実装します。
+                            </p>
+                            <div className="grid md:grid-cols-3 gap-6 text-left">
+                                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                                    <div className="text-emerald-600 font-bold text-sm mb-2">01</div>
+                                    <h3 className="text-base font-bold text-slate-900 mb-2">構造化データ（JSON-LD）</h3>
+                                    <p className="text-sm text-slate-600 leading-relaxed">
+                                        LocalBusiness／EducationalOrganization スキーマを実装。Googleとオールマイティに会話できる状態にします。
+                                    </p>
+                                </div>
+                                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                                    <div className="text-emerald-600 font-bold text-sm mb-2">02</div>
+                                    <h3 className="text-base font-bold text-slate-900 mb-2">llms.txt 設置</h3>
+                                    <p className="text-sm text-slate-600 leading-relaxed">
+                                        AIクローラーに「何を学んで欲しいか」を明示。塾の特長・対象学年・地域を正確に伝えます。
+                                    </p>
+                                </div>
+                                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                                    <div className="text-emerald-600 font-bold text-sm mb-2">03</div>
+                                    <h3 className="text-base font-bold text-slate-900 mb-2">AI引用に最適化したコピー</h3>
+                                    <p className="text-sm text-slate-600 leading-relaxed">
+                                        固有名詞・地名・実績を自然文に組み込み、AIが回答に引用しやすい記述に整えます。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </FadeIn>
+                </div>
+            </section>
+
             {/* Production Plans */}
             <section className="py-24 bg-slate-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -119,7 +173,7 @@ export const HpProduction = () => {
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> スマートフォン対応</li>
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> 問合せフォーム設置</li>
                                     <li className="flex items-center gap-2 font-semibold border-t pt-2">※原稿・画像は完全支給</li>
-                                    <li className="flex items-center gap-2">※修正は誤字脱字のみ対応</li>
+                                    <li className="flex items-center gap-2">※修正は納品前まで3回まで対応</li>
                                 </ul>
                                 <Link to="/#contact" className="w-full py-3 bg-slate-900 text-white rounded-xl text-center font-bold hover:bg-slate-800 transition-colors">問い合わせる</Link>
                             </div>
@@ -142,7 +196,7 @@ export const HpProduction = () => {
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> Googleマップ連携</li>
                                     <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-500" /> 過去サイトからの移行相談</li>
                                     <li className="flex items-center gap-2 font-semibold border-t pt-2">※基本レイアウトへの流し込み</li>
-                                    <li className="flex items-center gap-2">※納品前の確認1回のみ対応</li>
+                                    <li className="flex items-center gap-2">※修正は納品前まで3回まで対応</li>
                                 </ul>
                                 <Link to="/#contact" className="w-full py-3 bg-indigo-600 text-white rounded-xl text-center font-bold hover:bg-indigo-700 transition-colors">問い合わせる</Link>
                             </div>
@@ -205,11 +259,15 @@ export const HpProduction = () => {
                                         <span>定期バックアップ作成（自動）</span>
                                     </li>
                                     <li className="flex items-start gap-3">
+                                        <Settings className="w-5 h-5 text-indigo-500 shrink-0" />
+                                        <span>データ保管・ストレージ管理</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
                                         <CheckCircle2 className="w-5 h-5 text-indigo-500 shrink-0" />
-                                        <span>月1回のお知らせ更新代行</span>
+                                        <span>月1回の更新代行（修正3回まで）</span>
                                     </li>
                                 </ul>
-                                <p className="text-xs text-slate-400 mt-6">※個別修正・個別サポート対応は含みません</p>
+                                <p className="text-xs text-slate-400 mt-6">※修正4回目以降は別途有償対応となります</p>
                             </div>
                         </FadeIn>
 
@@ -228,11 +286,11 @@ export const HpProduction = () => {
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <CheckCircle2 className="w-5 h-5 text-indigo-600 shrink-0" />
-                                        <span>月1回の画像/テキスト修正代行</span>
+                                        <span>月4回の更新代行（各更新につき修正3回まで）</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <CheckCircle2 className="w-5 h-5 text-indigo-600 shrink-0" />
-                                        <span>お知らせ更新代行（週1回まで）</span>
+                                        <span>お知らせ・画像・テキスト修正含む</span>
                                     </li>
                                 </ul>
                                 <p className="text-xs text-slate-500 mt-6">※ライトプランのすべての内容を含みます</p>

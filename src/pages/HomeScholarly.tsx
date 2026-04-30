@@ -153,6 +153,36 @@ export const HomeScholarly = () => {
                     EduShiftは、教える人の"周辺"をテクノロジーで軽くして、<br />
                     小さな塾と、独立する先生を、ひとりで抱えない時代へ導きます。
                 </p>
+                <div
+                    className="s-hero-aieo"
+                    style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        margin: '8px 0 20px',
+                        padding: '10px 18px',
+                        border: '1px solid #2DB3A0',
+                        borderRadius: '999px',
+                        background: 'linear-gradient(90deg, rgba(45,179,160,0.08), rgba(21,101,192,0.05))',
+                    }}
+                >
+                    <span
+                        style={{
+                            background: '#2DB3A0',
+                            color: 'white',
+                            fontSize: '11px',
+                            fontWeight: 700,
+                            padding: '3px 10px',
+                            borderRadius: '999px',
+                            letterSpacing: '0.05em',
+                        }}
+                    >
+                        NEW · AIEO対策
+                    </span>
+                    <strong style={{ fontWeight: 700, color: '#0D47A1', fontSize: '14px' }}>
+                        AIに読まれるHPを作ります。
+                    </strong>
+                </div>
                 <div className="s-hero-cta">
                     <a href="#contact" className="s-btn-primary">
                         まずは、30分だけお話ししませんか
@@ -530,9 +560,10 @@ export const HomeScholarly = () => {
                             <li>稼働監視（自動）</li>
                             <li>SSL期限チェック（自動）</li>
                             <li>定期バックアップ作成（自動）</li>
-                            <li>月1回のお知らせ更新代行</li>
+                            <li>データ保管・ストレージ管理</li>
+                            <li>月1回の更新代行（修正3回まで）</li>
                         </ul>
-                        <p className="s-sub-price-note">※個別修正・個別サポート対応は含みません</p>
+                        <p className="s-sub-price-note">※修正4回目以降は別途有償対応となります</p>
                     </div>
 
                     <div className="s-sub-price-card featured">
@@ -544,8 +575,8 @@ export const HomeScholarly = () => {
                         </div>
                         <ul className="s-sub-price-features">
                             <li>チャットでの更新・技術相談</li>
-                            <li>月1回の画像 / テキスト修正代行</li>
-                            <li>お知らせ更新代行（週1回まで）</li>
+                            <li>月4回の更新代行（各更新につき修正3回まで）</li>
+                            <li>お知らせ・画像・テキスト修正含む</li>
                         </ul>
                         <p className="s-sub-price-note">※ライトプランのすべての内容を含みます</p>
                     </div>
@@ -761,7 +792,7 @@ export const HomeScholarly = () => {
                     </summary>
                     <div className="s-faq-a">
                         <span className="s-faq-a-marker">A.</span>
-                        制作プランは、ライト ¥19,800、スタンダード ¥39,800、プレミアム ¥98,000（いずれも税抜・初期費用）。保守運用は月々 ¥980〜 ¥29,800 の3プランです。ライトプランの修正は「誤字脱字のみ」、スタンダードプランは「納品前確認1回のみ」、プレミアムプランは「規定範囲内で詳細修正対応」として低価格を実現しています（以降は有償対応）。原稿・画像は指定フォーマット（Excel／Word）で全てご用意いただいた段階で着手します。
+                        制作プランは、ライト ¥19,800、スタンダード ¥39,800、プレミアム ¥98,000（いずれも税抜・初期費用）。保守運用は月々 ¥980〜 ¥29,800 の3プランです。ライト／スタンダードプランの修正は「納品前まで3回」、プレミアムプランは「規定範囲内で詳細修正対応」として低価格を実現しています（以降は有償対応）。原稿・画像は指定フォーマット（Excel／Word）で全てご用意いただいた段階で着手します。
                     </div>
                 </details>
 
