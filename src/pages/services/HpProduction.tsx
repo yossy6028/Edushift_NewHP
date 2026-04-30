@@ -105,43 +105,90 @@ export const HpProduction = () => {
 
 
             {/* AIEO Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-50 via-white to-indigo-50 border-y border-emerald-100">
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-50 via-white to-indigo-50 border-y border-emerald-100">
                 <div className="max-w-5xl mx-auto">
                     <FadeIn>
-                        <div className="text-center">
+                        <div className="text-center mb-12">
                             <span className="inline-block px-3 py-1 rounded-full bg-emerald-500 text-white text-xs font-bold tracking-wider mb-4">
-                                NEW · AIEO対策
+                                NEW · AIEO対策（AI Engine Optimization）
                             </span>
                             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
                                 AIに読まれるHPを、作ります。
                             </h2>
-                            <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed mb-10">
-                                ChatGPT・Perplexity・Google Geminiが「塾」を答える時代。<br />
-                                EduShiftの全プランは、AIに正しく拾われる構造を標準実装します。
+                            <p className="text-lg text-slate-700 max-w-3xl mx-auto leading-relaxed">
+                                保護者が塾を探す方法は、Google検索からChatGPT・Perplexity・Google Geminiへの「相談」へと急速に移っています。<br />
+                                EduShiftの全プランは、こうした生成AIに正しく読み取られ、正しく引用されるための構造を標準実装します。
                             </p>
-                            <div className="grid md:grid-cols-3 gap-6 text-left">
-                                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-                                    <div className="text-emerald-600 font-bold text-sm mb-2">01</div>
-                                    <h3 className="text-base font-bold text-slate-900 mb-2">構造化データ（JSON-LD）</h3>
-                                    <p className="text-sm text-slate-600 leading-relaxed">
-                                        LocalBusiness／EducationalOrganization スキーマを実装。Googleとオールマイティに会話できる状態にします。
-                                    </p>
-                                </div>
-                                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-                                    <div className="text-emerald-600 font-bold text-sm mb-2">02</div>
-                                    <h3 className="text-base font-bold text-slate-900 mb-2">llms.txt 設置</h3>
-                                    <p className="text-sm text-slate-600 leading-relaxed">
-                                        AIクローラーに「何を学んで欲しいか」を明示。塾の特長・対象学年・地域を正確に伝えます。
-                                    </p>
-                                </div>
-                                <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-                                    <div className="text-emerald-600 font-bold text-sm mb-2">03</div>
-                                    <h3 className="text-base font-bold text-slate-900 mb-2">AI引用に最適化したコピー</h3>
-                                    <p className="text-sm text-slate-600 leading-relaxed">
-                                        固有名詞・地名・実績を自然文に組み込み、AIが回答に引用しやすい記述に整えます。
-                                    </p>
-                                </div>
+                        </div>
+
+                        {/* なぜ今AIEOが必要なのか */}
+                        <div className="bg-white rounded-3xl p-8 md:p-10 border border-emerald-100 shadow-sm mb-10">
+                            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">
+                                なぜ今、AIEO対策が必要なのか
+                            </h3>
+                            <p className="text-slate-700 leading-relaxed mb-4">
+                                これまで塾選びの起点は、Googleで「地域名＋塾」と検索することでした。表示された10件の中から保護者が比較検討するという、いわゆるSEO（検索エンジン最適化）の時代です。
+                                ところが2024年以降、保護者の行動は大きく変わりました。「うちの子に合う、飯能の中学受験塾を教えて」とAIに直接相談し、AIが提示した数件の塾だけを比較する。検索結果ページを開かずに、AIの回答だけで意思決定が進むケースが増えています。
+                            </p>
+                            <p className="text-slate-700 leading-relaxed mb-4">
+                                このとき、AIが「どの塾を答えに含めるか」を決めているのは、HPの中身です。AIは塾のHPをクロールし、構造化されたデータと自然文のテキストを読み取り、回答候補に含めるかどうかを判断します。
+                                ここで問題なのは、<strong className="text-emerald-700">SEOで上位を取れているHPが、必ずしもAIに引用されるとは限らない</strong>という点です。両者は別の評価軸で動いており、AIには別の最適化が必要になります。これがAIEO（AI Engine Optimization）です。
+                            </p>
+                            <p className="text-slate-700 leading-relaxed">
+                                EduShiftは、SEOとAIEOを両立させる構造をすべての制作プランに組み込みます。Googleの検索結果でも、ChatGPTの回答でも、保護者の選択肢として正しく挙げてもらえる状態を、最初から作ります。
+                            </p>
+                        </div>
+
+                        <h3 className="text-center text-xl md:text-2xl font-bold text-slate-900 mb-8">
+                            EduShiftが標準実装する3つのAIEO対策
+                        </h3>
+
+                        <div className="grid md:grid-cols-3 gap-6 text-left mb-10">
+                            <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm flex flex-col">
+                                <div className="text-emerald-600 font-bold text-sm mb-2">01</div>
+                                <h4 className="text-lg font-bold text-slate-900 mb-3">構造化データ（JSON-LD）の完全実装</h4>
+                                <p className="text-sm text-slate-700 leading-relaxed mb-3">
+                                    塾の所在地・対象学年・指導科目・営業時間・代表者名・実績などを、検索エンジンとAIが機械的に理解できる形式（JSON-LD）でHPに埋め込みます。
+                                </p>
+                                <p className="text-sm text-slate-600 leading-relaxed">
+                                    具体的には <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">LocalBusiness</code>／<code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">EducationalOrganization</code> スキーマを使い、塾の基本情報を一意のデータとして提示。AIが「飯能市の小中高生向け塾」と質問されたときに、塾を候補として正しく列挙できる土台になります。
+                                </p>
                             </div>
+                            <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm flex flex-col">
+                                <div className="text-emerald-600 font-bold text-sm mb-2">02</div>
+                                <h4 className="text-lg font-bold text-slate-900 mb-3">llms.txt の設置と運用</h4>
+                                <p className="text-sm text-slate-700 leading-relaxed mb-3">
+                                    AIクローラー専用の案内書として、サイトのルートに <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">/llms.txt</code> を配置します。これは、AIに対して「このサイトの何を優先的に読み、どう要約してほしいか」を明示するファイルです。
+                                </p>
+                                <p className="text-sm text-slate-600 leading-relaxed">
+                                    塾の強み（少人数指導／合格実績／指導料金）、対象地域、料金体系、問い合わせ動線を簡潔にまとめ、AIが誤解せずに塾を紹介できるようにします。HPの本文を増やしすぎると逆に焦点がぼやけるため、AI向けの要約として独立して用意することが効きます。
+                                </p>
+                            </div>
+                            <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm flex flex-col">
+                                <div className="text-emerald-600 font-bold text-sm mb-2">03</div>
+                                <h4 className="text-lg font-bold text-slate-900 mb-3">AI引用に最適化された自然文コピー</h4>
+                                <p className="text-sm text-slate-700 leading-relaxed mb-3">
+                                    AIが回答に引用しやすい文章には、共通の特徴があります。固有名詞（塾名・地域名・対象学年）が文中に明示されていること、合格実績や指導方針が完結した一文で表現されていること、抽象論ではなく具体的な数値で語られていること。
+                                </p>
+                                <p className="text-sm text-slate-600 leading-relaxed">
+                                    EduShiftはコピーライティングの段階で「AIが切り取って引用したくなる一文」を意識的に組み込みます。たとえば「飯能市の中高生がGMARCH以上を目指す通い放題の学習塾です」のように、地域・対象・目標・特徴が一文で完結する書き方を全ページに散りばめます。
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* 実装後の効果 */}
+                        <div className="bg-gradient-to-r from-emerald-600 to-indigo-600 rounded-3xl p-8 md:p-10 text-white">
+                            <h3 className="text-xl md:text-2xl font-bold mb-4">
+                                AIEO対策で変わる、塾の見つけられ方
+                            </h3>
+                            <p className="leading-relaxed mb-4 text-emerald-50">
+                                3つの対策を実装すると、ChatGPTやPerplexityで保護者が「○○市の中学受験塾でおすすめは？」と質問したときに、塾名が回答候補として挙がる確率が大きく変わります。
+                                AIに引用される塾は、検索結果の最上位に表示されるのと同じか、それ以上のインパクトを持ちます。なぜならAIの回答は数件しか提示されないからです。
+                            </p>
+                            <p className="leading-relaxed text-emerald-50">
+                                EduShiftはライト（¥19,800）プランから、これら3つのAIEO対策をすべて標準で含めます。プレミアムプランへの追加料金ではなく、塾HP制作の「あたりまえの仕様」として全プランに含める方針です。<br />
+                                AI時代に取り残されないHPを、初期費用を抑えながら今日から始めていただけます。
+                            </p>
                         </div>
                     </FadeIn>
                 </div>
