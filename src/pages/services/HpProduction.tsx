@@ -108,6 +108,7 @@ export const HpProduction = () => {
             <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-50 via-white to-indigo-50 border-y border-emerald-100">
                 <div className="max-w-5xl mx-auto">
                     <FadeIn>
+                        {/* Header */}
                         <div className="text-center mb-12">
                             <span className="inline-block px-3 py-1 rounded-full bg-emerald-500 text-white text-xs font-bold tracking-wider mb-4">
                                 NEW · AIEO対策（AI Engine Optimization）
@@ -121,37 +122,125 @@ export const HpProduction = () => {
                             </p>
                         </div>
 
-                        {/* なぜ今AIEOが必要なのか */}
-                        <div className="bg-white rounded-3xl p-8 md:p-10 border border-emerald-100 shadow-sm mb-10">
-                            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">
-                                なぜ今、AIEO対策が必要なのか
-                            </h3>
+                        {/* AIEOとは */}
+                        <div className="bg-white rounded-3xl p-8 md:p-10 border border-emerald-200 shadow-sm mb-10">
+                            <div className="flex items-start gap-4 mb-5">
+                                <div className="bg-emerald-100 text-emerald-700 font-bold text-xs px-3 py-1.5 rounded-full shrink-0">DEFINITION</div>
+                                <h3 className="text-xl md:text-2xl font-bold text-slate-900">
+                                    AIEOとは何か——「答えに選ばれるための最適化」
+                                </h3>
+                            </div>
                             <p className="text-slate-700 leading-relaxed mb-4">
-                                これまで塾選びの起点は、Googleで「地域名＋塾」と検索することでした。表示された10件の中から保護者が比較検討するという、いわゆるSEO（検索エンジン最適化）の時代です。
-                                ところが2024年以降、保護者の行動は大きく変わりました。「うちの子に合う、飯能の中学受験塾を教えて」とAIに直接相談し、AIが提示した数件の塾だけを比較する。検索結果ページを開かずに、AIの回答だけで意思決定が進むケースが増えています。
+                                AIEO（AI Engine Optimization）とは、ChatGPT・Perplexity・Google Gemini・Microsoft Copilot といった生成AIが質問に答える際に、自塾のHPを情報源として参照・引用してもらえるようにHPの構造とコンテンツを最適化する取り組みです。
+                                日本語では「生成AI最適化」「AI検索最適化」とも呼ばれ、欧米では「GEO（Generative Engine Optimization）」という呼び方も並行して使われています。
                             </p>
                             <p className="text-slate-700 leading-relaxed mb-4">
-                                このとき、AIが「どの塾を答えに含めるか」を決めているのは、HPの中身です。AIは塾のHPをクロールし、構造化されたデータと自然文のテキストを読み取り、回答候補に含めるかどうかを判断します。
-                                ここで問題なのは、<strong className="text-emerald-700">SEOで上位を取れているHPが、必ずしもAIに引用されるとは限らない</strong>という点です。両者は別の評価軸で動いており、AIには別の最適化が必要になります。これがAIEO（AI Engine Optimization）です。
+                                従来のSEO（Search Engine Optimization）が「検索結果ページの上位10件に入る」ことを目指していたのに対し、AIEOが目指すのは「AIが生成する数行の回答の中に塾名と特徴が含まれる」ことです。
+                                ユーザーは検索結果を1件ずつ開いて比較するのではなく、AIが要約した1つの回答を読んで判断します。つまり<strong className="text-emerald-700">「上位10件に入る」ではなく「3件の回答候補に入る」</strong>を狙う、より厳しい競争に変わったのです。
                             </p>
                             <p className="text-slate-700 leading-relaxed">
-                                EduShiftは、SEOとAIEOを両立させる構造をすべての制作プランに組み込みます。Googleの検索結果でも、ChatGPTの回答でも、保護者の選択肢として正しく挙げてもらえる状態を、最初から作ります。
+                                AIEOで重要になるのは、HPの「読まれやすさ」ではなく「引用されやすさ」。AIに「この一文を切り取れば、塾の特徴が完結する」と思わせる構造化と、固有名詞・数値・地名を明確に含む自然文の両立が鍵になります。
                             </p>
                         </div>
 
-                        <h3 className="text-center text-xl md:text-2xl font-bold text-slate-900 mb-8">
-                            EduShiftが標準実装する3つのAIEO対策
-                        </h3>
+                        {/* なぜ今AIEOが必要なのか */}
+                        <div className="bg-white rounded-3xl p-8 md:p-10 border border-emerald-100 shadow-sm mb-10">
+                            <div className="flex items-start gap-4 mb-5">
+                                <div className="bg-indigo-100 text-indigo-700 font-bold text-xs px-3 py-1.5 rounded-full shrink-0">BACKGROUND</div>
+                                <h3 className="text-xl md:text-2xl font-bold text-slate-900">
+                                    なぜ今、AIEO対策が必要なのか
+                                </h3>
+                            </div>
 
-                        <div className="grid md:grid-cols-3 gap-6 text-left mb-10">
+                            <h4 className="text-base font-bold text-slate-900 mt-2 mb-3">① 保護者の塾選びの起点が「検索」から「AIへの相談」に変わった</h4>
+                            <p className="text-slate-700 leading-relaxed mb-5">
+                                これまで塾選びの起点は、Googleで「地域名＋塾」と検索することでした。表示された10件の中から保護者がHPを開き、料金・実績・授業内容を比較するという、いわゆるSEOの時代です。
+                                ところが2024年から2025年にかけて、保護者の行動は大きく変わりました。世界の生成AI週間アクティブユーザーは ChatGPT 単独で5億人を超え、日本でも保護者世代の利用率が急上昇しています。
+                                「うちの子は中堅校志望、共働きで送り迎えが厳しい、月3万円以内で。飯能で合う塾を3つ教えて」——こうした<strong className="text-emerald-700">条件を文章でAIに相談し、AIが提示した数件だけを比較する</strong>パターンが、いまや塾検討の主流になりつつあります。
+                            </p>
+
+                            <h4 className="text-base font-bold text-slate-900 mb-3">② SEOで勝てているHPが、AIに引用されるとは限らない</h4>
+                            <p className="text-slate-700 leading-relaxed mb-5">
+                                AIが「どの塾を答えに含めるか」を決めているのは、HPの中身です。AIはクローラーで塾のHPを読み取り、構造化されたデータと自然文を解釈し、回答候補に入れるかどうかを判断します。
+                                ところが、<strong className="text-emerald-700">SEOで上位を取れているHPが、必ずしもAIに引用されるとは限りません</strong>。Googleの検索アルゴリズムは「リンクの多さ」「ページ滞在時間」など人間の挙動を見ますが、AIは「データが構造化されているか」「事実が一文で完結しているか」「他媒体での言及と整合しているか」を見ます。
+                                評価軸が違うため、SEOとAIEOは別々の最適化が必要です。とくに小規模塾は被リンク数で大手に勝てないため、SEOよりAIEOで先行する方が、コストパフォーマンスが高い戦略になります。
+                            </p>
+
+                            <h4 className="text-base font-bold text-slate-900 mb-3">③ AIに引用されないHPは「存在しないHP」になる</h4>
+                            <p className="text-slate-700 leading-relaxed">
+                                AIの回答に塾が出てこなければ、そもそも保護者の検討候補に入りません。SEOの場合は2ページ目・3ページ目に表示されていても「目立たない」だけで存在は認識されますが、AIの回答は数件で打ち切られるため、入らないHPは事実上「存在しないHP」と同じ扱いになります。
+                                この変化は、HP制作の世界における産業革命級の転換です。AIEO対策をしないHPは、2025年以降、急速に問い合わせを失っていく可能性が高いと考えています。
+                            </p>
+                        </div>
+
+                        {/* SEO vs AIEO 比較表 */}
+                        <div className="bg-white rounded-3xl p-8 md:p-10 border border-slate-200 shadow-sm mb-10">
+                            <div className="flex items-start gap-4 mb-5">
+                                <div className="bg-slate-100 text-slate-700 font-bold text-xs px-3 py-1.5 rounded-full shrink-0">COMPARISON</div>
+                                <h3 className="text-xl md:text-2xl font-bold text-slate-900">
+                                    SEO と AIEO の違い
+                                </h3>
+                            </div>
+                            <p className="text-slate-700 leading-relaxed mb-6">
+                                両者は対立するものではなく、補完関係にあります。EduShiftはSEOとAIEOを両立させる設計を、すべての制作プランで標準にしています。
+                            </p>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-sm border-collapse">
+                                    <thead>
+                                        <tr className="bg-slate-50">
+                                            <th className="border border-slate-200 px-4 py-3 text-left font-bold text-slate-900">観点</th>
+                                            <th className="border border-slate-200 px-4 py-3 text-left font-bold text-slate-900">SEO（従来型）</th>
+                                            <th className="border border-slate-200 px-4 py-3 text-left font-bold text-emerald-700">AIEO（生成AI時代）</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-slate-700">
+                                        <tr>
+                                            <td className="border border-slate-200 px-4 py-3 font-semibold">目的</td>
+                                            <td className="border border-slate-200 px-4 py-3">検索結果の上位10件に入る</td>
+                                            <td className="border border-slate-200 px-4 py-3">AIの回答3件以内に名前を出す</td>
+                                        </tr>
+                                        <tr className="bg-slate-50/50">
+                                            <td className="border border-slate-200 px-4 py-3 font-semibold">評価軸</td>
+                                            <td className="border border-slate-200 px-4 py-3">被リンク数・滞在時間・キーワード</td>
+                                            <td className="border border-slate-200 px-4 py-3">構造化データ・事実の一文完結性</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border border-slate-200 px-4 py-3 font-semibold">勝負の場</td>
+                                            <td className="border border-slate-200 px-4 py-3">検索結果ページ</td>
+                                            <td className="border border-slate-200 px-4 py-3">AIが生成する数行の回答</td>
+                                        </tr>
+                                        <tr className="bg-slate-50/50">
+                                            <td className="border border-slate-200 px-4 py-3 font-semibold">小規模塾の不利</td>
+                                            <td className="border border-slate-200 px-4 py-3">被リンクで大手に劣る</td>
+                                            <td className="border border-slate-200 px-4 py-3">構造化次第で逆転可能</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="border border-slate-200 px-4 py-3 font-semibold">改善の見通し</td>
+                                            <td className="border border-slate-200 px-4 py-3">3〜6か月かかる</td>
+                                            <td className="border border-slate-200 px-4 py-3">数週間〜2か月で兆候が見える</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        {/* EduShiftが実装する5つの対策 */}
+                        <h3 className="text-center text-xl md:text-2xl font-bold text-slate-900 mb-2">
+                            EduShiftが標準実装する5つのAIEO対策
+                        </h3>
+                        <p className="text-center text-slate-600 max-w-3xl mx-auto mb-8">
+                            すべてライトプラン（¥19,800）から標準で含まれます。追加料金は発生しません。
+                        </p>
+
+                        <div className="grid md:grid-cols-2 gap-6 text-left mb-10">
                             <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm flex flex-col">
                                 <div className="text-emerald-600 font-bold text-sm mb-2">01</div>
                                 <h4 className="text-lg font-bold text-slate-900 mb-3">構造化データ（JSON-LD）の完全実装</h4>
                                 <p className="text-sm text-slate-700 leading-relaxed mb-3">
-                                    塾の所在地・対象学年・指導科目・営業時間・代表者名・実績などを、検索エンジンとAIが機械的に理解できる形式（JSON-LD）でHPに埋め込みます。
+                                    塾の所在地・対象学年・指導科目・営業時間・代表者名・合格実績などを、検索エンジンとAIが機械的に理解できる形式（JSON-LD）でHPに埋め込みます。
                                 </p>
                                 <p className="text-sm text-slate-600 leading-relaxed">
-                                    具体的には <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">LocalBusiness</code>／<code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">EducationalOrganization</code> スキーマを使い、塾の基本情報を一意のデータとして提示。AIが「飯能市の小中高生向け塾」と質問されたときに、塾を候補として正しく列挙できる土台になります。
+                                    具体的には <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">LocalBusiness</code>／<code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">EducationalOrganization</code>／<code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">FAQPage</code> スキーマを使い、塾の基本情報を一意のデータとして提示。AIが「飯能市の小中高生向け塾」と質問されたときに、塾を候補として正しく列挙できる土台になります。
                                 </p>
                             </div>
                             <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm flex flex-col">
@@ -174,19 +263,73 @@ export const HpProduction = () => {
                                     EduShiftはコピーライティングの段階で「AIが切り取って引用したくなる一文」を意識的に組み込みます。たとえば「飯能市の中高生がGMARCH以上を目指す通い放題の学習塾です」のように、地域・対象・目標・特徴が一文で完結する書き方を全ページに散りばめます。
                                 </p>
                             </div>
+                            <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm flex flex-col">
+                                <div className="text-emerald-600 font-bold text-sm mb-2">04</div>
+                                <h4 className="text-lg font-bold text-slate-900 mb-3">FAQ・Q&A形式コンテンツの設置</h4>
+                                <p className="text-sm text-slate-700 leading-relaxed mb-3">
+                                    AIは「保護者が聞きそうな質問」と「その答え」が明示的にペアで書かれているページを高く評価します。料金・授業時間・体験申込の流れ・退塾ルールなど、よく聞かれる質問を10〜15個、自然文の問答形式でページに配置します。
+                                </p>
+                                <p className="text-sm text-slate-600 leading-relaxed">
+                                    さらに <code className="text-xs bg-slate-100 px-1.5 py-0.5 rounded">FAQPage</code> スキーマで構造化することで、AIだけでなくGoogleの検索結果にも質問形式のリッチリザルトとして表示されやすくなります。SEOとAIEOの両方に効く、費用対効果の高い施策です。
+                                </p>
+                            </div>
+                            <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm flex flex-col md:col-span-2">
+                                <div className="text-emerald-600 font-bold text-sm mb-2">05</div>
+                                <h4 className="text-lg font-bold text-slate-900 mb-3">一次情報の数値化と外部整合性の確保</h4>
+                                <p className="text-sm text-slate-700 leading-relaxed mb-3">
+                                    AIは「他のサイトでも同じ情報が載っているか」をチェックして信頼度を判定します。塾名・住所・電話番号・営業時間・代表者名がHP・Googleビジネスプロフィール・Mapsの口コミ・各種塾検索ポータルで一致しているかを点検し、ブレを解消します。これを<strong className="text-slate-900">「NAP一貫性」</strong>と呼び、AIEOとローカルSEOの両方の根幹になります。
+                                </p>
+                                <p className="text-sm text-slate-600 leading-relaxed">
+                                    加えて、合格実績・指導年数・在籍生徒数・講師の経歴などを「中堅校◯名合格」「指導歴12年」のように具体的な数値で記載します。AIは数値を含む一文を「引用に値する一次情報」として優先するため、感覚的な表現（「多くの生徒が合格」）よりも、明確な数字を載せた方が回答に採用される確率が大きく上がります。
+                                </p>
+                            </div>
                         </div>
 
-                        {/* 実装後の効果 */}
+                        {/* 期待される効果 */}
+                        <div className="bg-white rounded-3xl p-8 md:p-10 border border-indigo-100 shadow-sm mb-10">
+                            <div className="flex items-start gap-4 mb-5">
+                                <div className="bg-indigo-100 text-indigo-700 font-bold text-xs px-3 py-1.5 rounded-full shrink-0">EFFECT</div>
+                                <h3 className="text-xl md:text-2xl font-bold text-slate-900">
+                                    どのような効果が見込めるか
+                                </h3>
+                            </div>
+                            <p className="text-slate-700 leading-relaxed mb-6">
+                                AIEO対策の効果は、実装直後・数か月後・半年〜1年後の3段階で現れます。
+                            </p>
+
+                            <div className="space-y-5">
+                                <div className="border-l-4 border-emerald-500 pl-5 py-1">
+                                    <h4 className="text-base font-bold text-slate-900 mb-2">短期（公開〜1か月）：AIに「認識」される塾になる</h4>
+                                    <p className="text-sm text-slate-700 leading-relaxed">
+                                        構造化データとllms.txtの設置により、ChatGPTやPerplexityのクローラーが塾の存在を正しく認識します。AIに「○○市の塾を教えて」と聞いた際に、塾名が回答に含まれる確率が、実装前のほぼ0%から30〜50%程度まで上昇する事例が出始めます。
+                                    </p>
+                                </div>
+                                <div className="border-l-4 border-indigo-500 pl-5 py-1">
+                                    <h4 className="text-base font-bold text-slate-900 mb-2">中期（1〜3か月）：AI経由の問い合わせが目に見えて増える</h4>
+                                    <p className="text-sm text-slate-700 leading-relaxed">
+                                        FAQと自然文コピーが整い、AIが「料金は？」「対象学年は？」と聞かれたときに塾の情報を正しく引用できるようになります。問い合わせフォームに「ChatGPTで知りました」「Perplexityで紹介されていて」というコメントが届き始めるのが、このフェーズの特徴です。AI経由の流入は、純粋に新規層の追加流入になります。
+                                    </p>
+                                </div>
+                                <div className="border-l-4 border-slate-700 pl-5 py-1">
+                                    <h4 className="text-base font-bold text-slate-900 mb-2">長期（3か月〜1年）：地域での「指名相談」が増える</h4>
+                                    <p className="text-sm text-slate-700 leading-relaxed">
+                                        NAP一貫性と一次情報の数値化により、AIが塾を「信頼できる一次情報源」として記憶します。保護者が「飯能の中学受験塾といえば？」とAIに聞いたときに、地域内で先頭に名前が挙がる状態を作れます。これは大手塾相手でも逆転可能で、被リンクで勝てない小規模塾にとってAIEOが現実的な勝ち筋になる理由です。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 締め */}
                         <div className="bg-gradient-to-r from-emerald-600 to-indigo-600 rounded-3xl p-8 md:p-10 text-white">
                             <h3 className="text-xl md:text-2xl font-bold mb-4">
-                                AIEO対策で変わる、塾の見つけられ方
+                                EduShiftの方針：AIEO対策は、ライトプランから「あたりまえの仕様」
                             </h3>
                             <p className="leading-relaxed mb-4 text-emerald-50">
-                                3つの対策を実装すると、ChatGPTやPerplexityで保護者が「○○市の中学受験塾でおすすめは？」と質問したときに、塾名が回答候補として挙がる確率が大きく変わります。
-                                AIに引用される塾は、検索結果の最上位に表示されるのと同じか、それ以上のインパクトを持ちます。なぜならAIの回答は数件しか提示されないからです。
+                                上記5つのAIEO対策は、ライトプラン（¥19,800）から全プランで標準実装します。プレミアムプランへの追加料金や、保守プランのオプションではありません。
+                                AI時代に塾HPを作るうえで、これらは「あたりまえの仕様」だと考えているからです。
                             </p>
                             <p className="leading-relaxed text-emerald-50">
-                                EduShiftはライト（¥19,800）プランから、これら3つのAIEO対策をすべて標準で含めます。プレミアムプランへの追加料金ではなく、塾HP制作の「あたりまえの仕様」として全プランに含める方針です。<br />
+                                EduShiftの強みは、塾という業種に特化していること。塾の保護者が何を不安に思い、どんな質問をAIにするかを把握しているため、構造化データの粒度・FAQの質問設計・自然文コピーの言い回しを、塾向けに最適化できます。
                                 AI時代に取り残されないHPを、初期費用を抑えながら今日から始めていただけます。
                             </p>
                         </div>
