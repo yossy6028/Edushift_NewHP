@@ -139,11 +139,11 @@ export const HomeScholarly = () => {
                 <div className="s-eyebrow">
                     <span className="s-eyebrow-brand">Edu<em>Shift</em></span>
                     <span className="s-eyebrow-rule"></span>
-                    <span>小さな塾と、独立する先生の伴走者 — since 2024</span>
+                    <span>小さな塾と、フリーランス講師の伴走者 — since 2024</span>
                 </div>
                 <h1>
                     <span className="s-accent-line">小さな塾</span>と、<br />
-                    <span className="s-accent-line">独立する先生</span>を、<br />
+                    <span className="s-accent-line">フリーランス講師</span>を、<br />
                     AIとWebで支える。
                     <small>EduShift — A long-form partner for small schools and independent tutors, powered by AI &amp; Web.</small>
                 </h1>
@@ -151,7 +151,7 @@ export const HomeScholarly = () => {
                     経営、集客、事務、保護者対応、教材づくり——。<br />
                     本当は、生徒と向き合う時間がいちばん長いはずでした。<br />
                     EduShiftは、教える人の"周辺"をテクノロジーで軽くして、<br />
-                    小さな塾と、独立する先生を、ひとりで抱えない時代へ導きます。
+                    小さな塾と、フリーランス講師を、ひとりで抱えない時代へ導きます。
                 </p>
                 <div
                     className="s-hero-aieo"
