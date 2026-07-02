@@ -39,6 +39,9 @@
 html[data-theme="scholarly"],
 html[data-theme="scholarly"] body {
     background: var(--s-paper);
+    /* data-reveal="left/right" のリビール前 translateX が横スクロールを生むため
+       clip で遮断（hidden と違いスクロールコンテナ化せず sticky を壊さない） */
+    overflow-x: clip;
 }
 
 /* Add a div-level class alternative so global body background is set during /v2 */
@@ -670,7 +673,8 @@ html[data-theme="scholarly"] body {
 
         .s-service-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            /* minmax(0,…): カード内の折返し不可コンテンツでトラックがビューポート超に広がるのを防ぐ */
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 1px;
             background: var(--s-line-strong);
             border: 1px solid var(--s-line-strong);
@@ -1849,7 +1853,7 @@ html[data-theme="scholarly"] body {
 
         /* ---------- Pillars & Tools variation ---------- */
         .s-service-grid.has-pillars {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             grid-auto-rows: auto;
         }
 
@@ -3773,7 +3777,7 @@ html[data-theme="scholarly"] body {
             }
 
             .s-service-grid.has-pillars {
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
             }
             .s-service-card.pillar {
                 padding: 48px 28px;

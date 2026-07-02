@@ -1,0 +1,343 @@
+/* =========================================================
+   Immersive layer — 3Dパーティクルヒーロー / カスタムカーソル / ライブデモ
+   scholarly.css + modern.css の上に重ねる演出専用レイヤー
+   ========================================================= */
+
+/* ---------- Hero particle canvas ---------- */
+/* 透かし文字(.m-hero-word)と同じ z:1（背景の上・コンテンツ z:2 の下） */
+.theme-scholarly .m-hero-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.theme-scholarly .m-hero-canvas canvas {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
+
+/* ---------- Custom cursor ---------- */
+.has-fx-cursor,
+.has-fx-cursor a,
+.has-fx-cursor button,
+.has-fx-cursor [role="button"] {
+    cursor: none;
+}
+
+.has-fx-cursor input,
+.has-fx-cursor textarea,
+.has-fx-cursor select,
+.has-fx-cursor [contenteditable] {
+    cursor: auto;
+}
+
+.fx-dot,
+.fx-ring {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fx-dot::after,
+.fx-ring::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+}
+
+.fx-dot::after {
+    width: 7px;
+    height: 7px;
+    margin: -3.5px 0 0 -3.5px;
+    background: #fff;
+}
+
+.fx-ring::after {
+    width: 42px;
+    height: 42px;
+    margin: -21px 0 0 -21px;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    transition:
+        transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
+        background-color 0.28s ease,
+        border-color 0.28s ease;
+}
+
+.fx-ring.is-hover::after {
+    transform: scale(1.7);
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.fx-ring.is-down::after {
+    transform: scale(0.8);
+}
+
+.fx-dot.is-native,
+.fx-ring.is-native {
+    opacity: 0 !important;
+}
+
+/* 磁気吸着ボタン */
+[data-magnetic] {
+    transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+}
+
+/* ---------- Device showcase (live demo) ---------- */
+.theme-scholarly .dsc {
+    margin-top: 80px;
+}
+
+.theme-scholarly .dsc-head {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.theme-scholarly .dsc-head h3 {
+    font-family: var(--s-serif-jp);
+    font-size: clamp(24px, 3vw, 34px);
+    color: var(--m-cream);
+    margin: 10px 0 12px;
+}
+
+.theme-scholarly .dsc-head h3 em {
+    font-style: normal;
+    background: var(--m-current);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.theme-scholarly .dsc-head p {
+    color: rgba(243, 236, 221, 0.72);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.theme-scholarly .dsc-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.theme-scholarly .dsc-tab {
+    appearance: none;
+    border: 1px solid rgba(243, 236, 221, 0.28);
+    background: transparent;
+    color: rgba(243, 236, 221, 0.85);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.theme-scholarly .dsc-tab:hover {
+    border-color: rgba(41, 199, 201, 0.7);
+}
+
+.theme-scholarly .dsc-tab.is-active {
+    background: var(--m-current);
+    border-color: transparent;
+    color: #fff;
+    font-weight: 600;
+}
+
+.theme-scholarly .dsc-stage {
+    perspective: 1500px;
+    padding: 10px 0 4px;
+}
+
+.theme-scholarly .dsc-laptop {
+    position: relative;
+    margin: 0 auto;
+    max-width: 880px;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease-out;
+    will-change: transform;
+}
+
+.theme-scholarly .dsc-cam {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    z-index: 3;
+}
+
+.theme-scholarly .dsc-screen {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+    background: #0b0f1c;
+    border: 1px solid rgba(243, 236, 221, 0.16);
+    border-bottom: 0;
+    padding: 20px 12px 0;
+    box-shadow:
+        0 50px 90px -35px rgba(0, 0, 0, 0.75),
+        0 0 70px -25px rgba(2, 147, 240, 0.4);
+}
+
+.theme-scholarly .dsc-screen iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 6px 6px 0 0;
+    background: #fff;
+    pointer-events: none;
+}
+
+.theme-scholarly .dsc.is-live .dsc-screen iframe {
+    pointer-events: auto;
+}
+
+.theme-scholarly .dsc-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: linear-gradient(180deg, rgba(7, 16, 34, 0.05) 20%, rgba(7, 16, 34, 0.55));
+}
+
+.theme-scholarly .dsc-go {
+    appearance: none;
+    border: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border-radius: 999px;
+    background: var(--m-current);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    box-shadow: 0 12px 34px -8px rgba(2, 147, 240, 0.55);
+}
+
+.theme-scholarly .dsc-go .arrow {
+    transition: transform 0.25s ease;
+}
+
+.theme-scholarly .dsc-go:hover .arrow {
+    transform: translateX(4px);
+}
+
+.theme-scholarly .dsc-hint {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: rgba(243, 236, 221, 0.65);
+}
+
+.theme-scholarly .dsc-base {
+    height: 15px;
+    width: 112%;
+    max-width: 960px;
+    margin: 0 auto;
+    background: linear-gradient(#232e4a, #0d1424);
+    border-radius: 2px 2px 14px 14px;
+    box-shadow: 0 24px 40px -18px rgba(0, 0, 0, 0.8);
+}
+
+.theme-scholarly .dsc-base::after {
+    content: '';
+    display: block;
+    width: 110px;
+    height: 5px;
+    margin: 0 auto;
+    border-radius: 0 0 8px 8px;
+    background: rgba(7, 12, 24, 0.9);
+}
+
+.theme-scholarly .dsc-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    max-width: 880px;
+    margin: 18px auto 0;
+    font-size: 13px;
+    color: rgba(243, 236, 221, 0.65);
+}
+
+.theme-scholarly .dsc-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.theme-scholarly .dsc-exit {
+    appearance: none;
+    background: transparent;
+    border: 1px solid rgba(243, 236, 221, 0.3);
+    border-radius: 999px;
+    color: rgba(243, 236, 221, 0.85);
+    padding: 6px 14px;
+    font-size: 12.5px;
+    cursor: pointer;
+}
+
+.theme-scholarly .dsc-foot a {
+    color: var(--m-teal-bright);
+    text-decoration: none;
+}
+
+.theme-scholarly .dsc-foot a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .theme-scholarly .dsc-screen {
+        aspect-ratio: 4 / 3;
+        padding: 14px 8px 0;
+    }
+
+    .theme-scholarly .dsc-hint {
+        display: none;
+    }
+}
+
+/* ---------- Reduced motion: 演出系を一括停止 ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .theme-scholarly .m-hero-canvas {
+        display: none;
+    }
+
+    .fx-dot,
+    .fx-ring {
+        display: none;
+    }
+
+    [data-magnetic] {
+        transition: none;
+    }
+
+    .theme-scholarly .dsc-laptop {
+        transition: none;
+        transform: none !important;
+    }
+}
