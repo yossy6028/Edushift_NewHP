@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import logoImg from '../assets/logo-shift-mark.png';
 import founderImg from '../assets/founder.webp';
 import heroDeskImg from '../assets/hero-desk.jpeg';
@@ -8,11 +8,31 @@ import hpAfterPanelImg from '../assets/hp-after-panel.jpg';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { CountUp } from '../components/CountUp';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
+import { CursorFX } from '../components/immersive/CursorFX';
+import { DeviceShowcase } from '../components/immersive/DeviceShowcase';
 import { useReveal } from '../hooks/useReveal';
 import { MAINTENANCE_PLANS, HOME_EMPHASIS } from '../data/maintenancePlans';
 import { SCHOLARLY_SERVICES } from '../data/scholarlyServices';
 import '../styles/scholarly.css';
 import '../styles/modern.css';
+import '../styles/immersive.css';
+
+// three.js（約500KB）をメインバンドルから分離し、演出有効時のみ非同期読込
+const ParticleHero = lazy(() =>
+    import('../components/immersive/ParticleHero').then(m => ({ default: m.ParticleHero })),
+);
+
+// WebGL2が使えて動きの抑制指定が無い環境でのみ3D演出を有効化（不可なら透かし文字に退避）
+const canRunFx = () => {
+    try {
+        return (
+            !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+            !!document.createElement('canvas').getContext('webgl2')
+        );
+    } catch {
+        return false;
+    }
+};
 
 type NoteContent = {
     key: string;
@@ -51,6 +71,7 @@ const HP_PRICING = SCHOLARLY_SERVICES['hp-production'].pricingBlock;
 export const HomeScholarly = () => {
     const [navOpen, setNavOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [fxOn] = useState(canRunFx);
     // イントロ演出はセッション初回のみ（リピーターには遅延にしかならない）
     const [introDone, setIntroDone] = useState(() =>
         sessionStorage.getItem('es-intro-seen') === '1' ||
@@ -147,6 +168,7 @@ export const HomeScholarly = () => {
         <div className="theme-scholarly">
 
     <FloatingCTA />
+    <CursorFX />
 
     {/* ====== INTRO (first visit per session) ====== */}
     {!introDone && (
@@ -209,7 +231,13 @@ export const HomeScholarly = () => {
             <span className="b3"></span>
         </div>
         <div className="m-hero-mesh" aria-hidden="true"></div>
-        <div className="m-hero-word" aria-hidden="true">SHIFT</div>
+        {fxOn
+            ? (
+                <Suspense fallback={<div className="m-hero-word" aria-hidden="true">SHIFT</div>}>
+                    <ParticleHero />
+                </Suspense>
+            )
+            : <div className="m-hero-word" aria-hidden="true">SHIFT</div>}
         <div className="s-container s-hero-inner m-hero-full-inner">
             <div>
                 <div className="s-eyebrow">
@@ -233,7 +261,7 @@ export const HomeScholarly = () => {
                             <strong>AIに読まれるHPを作ります。</strong>
                         </div>
                         <div className="s-hero-cta">
-                            <a href="#contact" className="s-btn-primary m-btn-current">
+                            <a href="#contact" className="s-btn-primary m-btn-current" data-magnetic>
                                 まずは、30分だけお話ししませんか
                                 <span className="arrow">→</span>
                             </a>
@@ -465,13 +493,16 @@ export const HomeScholarly = () => {
                         </div>
                     </div>
                     <div className="m-showcase-cta" data-reveal="up" data-reveal-delay="4">
-                        <a href="/service/hp-production" className="s-btn-primary m-btn-current">
+                        <a href="/service/hp-production" className="s-btn-primary m-btn-current" data-magnetic>
                             HP制作プランを詳しく見る
                             <span className="arrow">→</span>
                         </a>
                     </div>
                 </div>
             </div>
+
+            {/* ---- ライブデモ: 実際に触れる制作事例 ---- */}
+            <DeviceShowcase />
 
             {/* ---- HP制作料金 3プラン（データはサービス詳細と共通） ---- */}
             {HP_PRICING && (

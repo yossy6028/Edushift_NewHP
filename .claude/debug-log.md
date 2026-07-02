@@ -30,3 +30,9 @@
 - **SVGへの直接navigate timeout**: `http://localhost:4173/favicon.svg`へのnavigateが30秒でタイムアウト。単体SVGファイルへの直接ナビゲーションはFirefox+Playwright MCPの組み合わせで不安定な可能性がある。**再発防止**: 今後SVG単体のプレビューが必要な場面では、最初から`qlmanage -t -s <size> -o <dir> <svgパス>`を使う（今回の教訓を踏まえ最短経路）。
 - **screenshot timeout（fonts待ち）/ 一時的な黒塗り描画**: `.m-aurora`のfilter:blur(70px)や複数のbackdrop-filterを持つ本ページで、スクロール直後のスクリーンショットが1回タイムアウトしたり、実際は正しいDOM/CSSOM(computedStyle確認済み)にも関わらず一瞬黒く映ったりする事象が複数回発生。**根本原因**: 重いCSS合成（blur/backdrop-filter/gradient多用）によりFirefoxのコンポジット完了前にキャプチャが走るタイミング競合と推測（要素のcomputedStyleは常に正しかったため、実際のレンダリングロジックのバグではない）。**対応方針**: 疑わしい描画が出たら、まず`getComputedStyle`等でDOM側の実値を確認してから「バグかどうか」を判断する（今回はこれで2回とも誤報と判明）。再現のたびにコード修正で追いかけない。スクリーンショット取得時は`sleep 1`程度の間を置くか、失敗時は1回だけ再試行する。
 - **favicon-original-backup.png削除の件**: 本ターン内で既にRCA・再発防止策を上の見出し「未確認のまま未追跡ファイルを削除」に記録済み（重複記載しない）。
+
+## 2026-07-02 3D没入リニューアル（feat/immersive-3d）での知見
+- **モバイル7px横スクロール（本番にも存在した既存バグ）**: 犯人は2段階だった。①`.s-service-grid`の`1fr`トラックがカード内min-contentで390px超に拡張 → `minmax(0, 1fr)`で修正。②`data-reveal="left/right"`のリビール前`translateX(±40px)`がtransformとしてスクロール幅に算入 → `html[data-theme] body { overflow-x: clip }`で遮断（`hidden`はスクロールコンテナ化してstickyを壊すため`clip`を使用）。**再発防止**: グリッドは常に`minmax(0,1fr)`、横方向リビールを使うページはoverflow-x:clip必須。
+- **粒子文字が「雲」に見える誤診**: スクショのタイミングがモーフ途中（aFrom→aToの経路上）だと文字ボックス全体に一様散布に見える。**検証は必ず時系列連続撮影**（2.5s/3.5s/4.5s/6s/8s）で形成保持フェーズを捉えてから判定する。
+- **three.jsはメインバンドル同梱禁止**: 直importでバンドルが343KB→857KBに肥大。`React.lazy`+`Suspense`（フォールバック=静的透かし文字）で512KBを非同期チャンクに分離。
+- **Edit失敗「File has not been read yet」×3（scholarly.css）**: Bashのgrep/sedで内容を確認しただけでEditツールを呼んだため、ハーネスの「Edit前にReadツールで読むこと」制約に抵触。Readして即再実行で解決（良性・実害なし）。**再発防止**: grep/sedでの下見はRead代わりにならない。Editする予定のファイルは、該当範囲をReadツールで読んでから編集する。
