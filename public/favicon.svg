@@ -1,19 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-  <!-- Shift mark: left chevron (Teal) -->
-  <path d="M 150 30
-           L 150 110
-           L 78 148
-           L 150 186
-           L 150 226
-           L 20 148
-           Z"
-        fill="#00a4a8" />
-  <!-- Shift mark: right chevron (Blue), overlapping with a thin gap -->
-  <path d="M 158 46
-           L 236 92
-           L 236 178
-           L 158 226
-           L 158 30
-           Z"
-        fill="#0293f0" />
+  <defs>
+    <clipPath id="tile">
+      <rect x="0" y="0" width="256" height="256" rx="48" ry="48" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect x="0" y="0" width="256" height="256" fill="#00a4a8" />
+    <polygon points="256,0 256,256 0,256" fill="#0293f0" />
+  </g>
+  <polyline points="158,88 106,128 158,168"
+            fill="none" stroke="#ffffff" stroke-width="34"
+            stroke-linecap="round" stroke-linejoin="round" />
 </svg>

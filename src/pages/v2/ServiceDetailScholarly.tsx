@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { HeaderScholarly } from '../../components/scholarly/HeaderScholarly';
 import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
 import { SCHOLARLY_SERVICES } from '../../data/scholarlyServices';
+import { MAINTENANCE_PLANS, HOME_EMPHASIS } from '../../data/maintenancePlans';
 import '../../styles/scholarly.css';
 
 // AIEO section style helpers
@@ -372,13 +373,44 @@ export const ServiceDetailScholarly = () => {
                             ))}
                         </div>
 
-                        {svc.pricingBlock.footnote && (
-                            <p className="s-detail-price-footnote">
-                                公開後の保守・運用プラン（¥980/¥2,980/¥29,800）は
-                                <Link to="/#pricing">トップページの料金セクション</Link>
-                                でご確認いただけます。
+                    </div>
+                </section>
+            )}
+
+            {slug === 'hp-production' && (
+                <section className="s-sub-pricing" id="maintenance">
+                    <div className="s-container">
+                        <div className="s-sub-pricing-head">
+                            <div className="s-sub-num">HP Maintenance · 3 Plans</div>
+                            <h3>HP制作後の、<em>保守・運用プラン</em></h3>
+                            <p>
+                                作りっぱなしにしない。成長し続けるHPのために、月額¥980〜の保守プランをご用意しています。稼働監視から、AI活用・MEO対策まで。
                             </p>
-                        )}
+                        </div>
+
+                        <div className="s-sub-price-grid">
+                            {MAINTENANCE_PLANS.map(plan => {
+                                const isReco = plan.id === HOME_EMPHASIS.recommendedPlan;
+                                return (
+                                    <div key={plan.id} className={`s-sub-price-card${isReco ? ' featured' : ''}`}>
+                                        <div className="s-sub-price-tier">{plan.tierEn}</div>
+                                        <h4>{plan.name}</h4>
+                                        <div className="s-sub-price-amount">
+                                            <span className="amount">¥{plan.price.toLocaleString('ja-JP')}</span>
+                                            <span className="unit">/ 月</span>
+                                        </div>
+                                        <ul className="s-sub-price-features">
+                                            {plan.features.map(f => <li key={f}>{f}</li>)}
+                                        </ul>
+                                        <p className="s-sub-price-note">{plan.note}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        <p className="s-sub-price-cta-row">
+                            制作費は上記プラン（初期¥19,800〜）をご覧ください。保守プランは制作完了後、いつからでもご契約いただけます。
+                        </p>
                     </div>
                 </section>
             )}
