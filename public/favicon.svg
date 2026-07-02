@@ -1,20 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-  <!-- Origami back wing (Navy) - folded plane silhouette -->
-  <path d="M 40 178
-           L 180 60
-           L 220 70
-           L 130 170
-           L 128 200
+  <!-- Shift mark: left chevron (Teal) -->
+  <path d="M 150 30
+           L 150 110
+           L 78 148
+           L 150 186
+           L 150 226
+           L 20 148
            Z"
-        fill="#0b1b3a" />
-  <!-- Origami front wing (Gold) - overlapping, offset right -->
-  <path d="M 80 210
-           L 228 84
-           L 246 100
-           L 170 200
-           L 172 230
+        fill="#00a4a8" />
+  <!-- Shift mark: right chevron (Blue), overlapping with a thin gap -->
+  <path d="M 158 46
+           L 236 92
+           L 236 178
+           L 158 226
+           L 158 30
            Z"
-        fill="#b08a3e" />
-  <!-- Crease line on navy -->
-  <line x1="120" y1="130" x2="195" y2="78" stroke="#f7f2e8" stroke-width="1.2" stroke-opacity="0.6"/>
+        fill="#0293f0" />
 </svg>

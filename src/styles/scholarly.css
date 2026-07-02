@@ -8,9 +8,9 @@
     --s-navy-600: #2a477f;
     --s-navy-500: #3d5a9a;
 
-    --s-paper: #f7f2e8;
+    --s-paper: #ffffff;
     --s-paper-dim: #efe8d7;
-    --s-cream: #faf6ec;
+    --s-cream: #ffffff;
     --s-sand: #e8dcc0;
 
     --s-gold: #00a4a8;
@@ -80,7 +80,7 @@ html[data-theme="scholarly"] body {
             left: 0;
             right: 0;
             z-index: 50;
-            background: rgba(247, 242, 232, 0.92);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--s-line);
         }
@@ -3561,7 +3561,7 @@ html[data-theme="scholarly"] body {
                mobile so the fixed overlay nav can fill the full viewport. */
             .s-header {
                 backdrop-filter: none;
-                background: rgba(247, 242, 232, 0.96);
+                background: rgba(255, 255, 255, 0.96);
             }
 
             .s-nav-toggle { display: block; }
