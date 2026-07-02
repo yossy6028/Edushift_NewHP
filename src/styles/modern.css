@@ -1168,6 +1168,221 @@
     }
 }
 
+/* ==========================================================
+   Impact layer — フルスクリーンヒーロー / イントロ / 巨大タイポ
+   ========================================================== */
+
+/* ---------- Intro (first visit per session) ---------- */
+.theme-scholarly .m-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: var(--m-night);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    animation: m-intro-out 0.65s 1.45s var(--m-ease) forwards;
+    pointer-events: none;
+}
+
+.theme-scholarly .m-intro-brand {
+    font-family: var(--s-serif-en);
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 700;
+    color: var(--m-cream);
+    line-height: 1;
+    animation: m-fade 0.9s 0.1s var(--m-ease) both;
+}
+
+.theme-scholarly .m-intro-brand em {
+    font-style: italic;
+    background: var(--m-current);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.theme-scholarly .m-intro-line {
+    width: 0;
+    height: 2px;
+    background: var(--m-current);
+    box-shadow: 0 0 24px rgba(45, 179, 160, 0.8);
+    animation: m-intro-line 0.9s 0.5s var(--m-ease) forwards;
+}
+
+@keyframes m-intro-line {
+    to { width: min(420px, 62vw); }
+}
+
+.theme-scholarly .m-intro-tag {
+    font-family: var(--s-serif-jp);
+    font-size: 13px;
+    letter-spacing: 0.32em;
+    color: var(--m-cream-dim);
+    animation: m-fade 0.8s 0.85s var(--m-ease) both;
+}
+
+@keyframes m-intro-out {
+    to { clip-path: inset(0 0 100% 0); }
+}
+
+/* ---------- Hero : full-screen billboard ---------- */
+.theme-scholarly .s-hero.m-hero-full {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: 170px 0 110px;
+}
+
+.theme-scholarly .m-hero-full-inner {
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.theme-scholarly .m-hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.theme-scholarly .m-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    filter: saturate(0.8) brightness(0.92);
+    animation: m-kenburns 26s ease-in-out infinite alternate;
+}
+
+@keyframes m-kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.13) translate(-1.5%, -1%); }
+}
+
+.theme-scholarly .m-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(100deg, rgba(7, 16, 34, 0.96) 28%, rgba(7, 16, 34, 0.66) 62%, rgba(7, 16, 34, 0.86) 100%),
+        linear-gradient(rgba(7, 16, 34, 0.25), rgba(7, 16, 34, 0.95));
+}
+
+.theme-scholarly .m-hero-word {
+    position: absolute;
+    right: -0.06em;
+    bottom: 3%;
+    z-index: 1;
+    font-family: var(--s-serif-en);
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(150px, 24vw, 400px);
+    line-height: 0.82;
+    letter-spacing: 0.02em;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(63, 214, 192, 0.18);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    animation: m-word-drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes m-word-drift {
+    to { transform: translateX(-3vw); }
+}
+
+.theme-scholarly .s-hero.m-hero-full h1 {
+    font-size: clamp(40px, 6.6vw, 92px);
+    line-height: 1.24;
+    letter-spacing: 0.01em;
+    margin: 0 0 44px;
+}
+
+.theme-scholarly .s-hero.m-hero-full h1 small {
+    font-size: clamp(13px, 1.15vw, 17px);
+    margin-top: 20px;
+}
+
+.theme-scholarly .m-hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+}
+
+.theme-scholarly .m-hero-bottom .s-hero-body {
+    max-width: 560px;
+    font-size: 15px;
+    line-height: 2;
+    margin: 0 0 20px;
+}
+
+.theme-scholarly .m-chips-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.theme-scholarly .m-chips-row .s-mini-chip {
+    padding: 12px 18px;
+}
+
+/* ---------- Giant outlined words (night sections) ---------- */
+.theme-scholarly .m-giant-word {
+    position: absolute;
+    top: -0.05em;
+    right: -0.04em;
+    font-family: var(--s-serif-en);
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(110px, 16vw, 250px);
+    line-height: 0.9;
+    color: transparent;
+    -webkit-text-stroke: 1.2px rgba(243, 236, 221, 0.13);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    z-index: 0;
+}
+
+.theme-scholarly .m-showcase .s-container,
+.theme-scholarly .m-care .s-sub-pricing-head,
+.theme-scholarly .m-care .s-sub-price-grid,
+.theme-scholarly .s-final .s-final-inner {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 960px) {
+    .theme-scholarly .s-hero.m-hero-full {
+        padding: 140px 0 90px;
+    }
+
+    .theme-scholarly .s-hero.m-hero-full h1 {
+        font-size: clamp(30px, 8.2vw, 64px);
+    }
+
+    .theme-scholarly .m-hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+    }
+
+    .theme-scholarly .m-hero-word {
+        font-size: 30vw;
+        bottom: 1%;
+    }
+
+    .theme-scholarly .m-giant-word {
+        font-size: clamp(80px, 22vw, 160px);
+    }
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
     .theme-scholarly [data-reveal],
@@ -1187,6 +1402,8 @@
     .theme-scholarly .m-btn-current::before,
     .theme-scholarly .s-final .s-final-cta::before,
     .theme-scholarly .s-hero.m-night .s-hero-frame,
+    .theme-scholarly .m-hero-bg img,
+    .theme-scholarly .m-hero-word,
     .theme-scholarly .m-scroll-cue::after {
         animation: none !important;
     }

@@ -50,8 +50,22 @@ const HP_PRICING = SCHOLARLY_SERVICES['hp-production'].pricingBlock;
 export const HomeScholarly = () => {
     const [navOpen, setNavOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    // イントロ演出はセッション初回のみ（リピーターには遅延にしかならない）
+    const [introDone, setIntroDone] = useState(() =>
+        sessionStorage.getItem('es-intro-seen') === '1' ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    );
     const progressRef = useRef<HTMLDivElement>(null);
     const closeNav = () => setNavOpen(false);
+
+    useEffect(() => {
+        if (introDone) return;
+        const t = setTimeout(() => {
+            sessionStorage.setItem('es-intro-seen', '1');
+            setIntroDone(true);
+        }, 2100);
+        return () => clearTimeout(t);
+    }, [introDone]);
 
     useReveal();
 
@@ -133,6 +147,15 @@ export const HomeScholarly = () => {
 
     <FloatingCTA />
 
+    {/* ====== INTRO (first visit per session) ====== */}
+    {!introDone && (
+        <div className="m-intro" aria-hidden="true">
+            <div className="m-intro-brand">Edu<em>Shift</em></div>
+            <div className="m-intro-line"></div>
+            <div className="m-intro-tag">小さな塾と、フリーランス講師の伴走者</div>
+        </div>
+    )}
+
     {/* ====== SCROLL PROGRESS (Shift Current) ====== */}
     <div className="m-progress" ref={progressRef} aria-hidden="true"></div>
 
@@ -174,15 +197,19 @@ export const HomeScholarly = () => {
         </div>
     </header>
 
-    {/* ====== HERO (night / Shift Current) ====== */}
-    <section className="s-hero m-night">
+    {/* ====== HERO (full-screen billboard) ====== */}
+    <section className="s-hero m-night m-hero-full">
+        <div className="m-hero-bg" aria-hidden="true">
+            <img src={heroDeskImg} alt="" />
+        </div>
         <div className="m-aurora" aria-hidden="true">
             <span className="b1"></span>
             <span className="b2"></span>
             <span className="b3"></span>
         </div>
         <div className="m-hero-mesh" aria-hidden="true"></div>
-        <div className="s-container s-hero-inner">
+        <div className="m-hero-word" aria-hidden="true">SHIFT</div>
+        <div className="s-container s-hero-inner m-hero-full-inner">
             <div>
                 <div className="s-eyebrow">
                     <span className="s-eyebrow-brand">Edu<em>Shift</em></span>
@@ -195,53 +222,40 @@ export const HomeScholarly = () => {
                     <span className="m-line"><span>AIとWebで支える。</span></span>
                     <small>EduShift — A long-form partner for small schools and independent tutors, powered by AI &amp; Web.</small>
                 </h1>
-                <p className="s-hero-body">
-                    経営、集客、事務、保護者対応、教材づくり——。<br />
-                    本当は、生徒と向き合う時間がいちばん長いはずでした。<br />
-                    EduShiftは、教える人の"周辺"をテクノロジーで軽くして、<br />
-                    小さな塾と、フリーランス講師を、ひとりで抱えない時代へ導きます。
-                </p>
-                <div className="m-aieo">
-                    <span className="m-aieo-tag">NEW · AIEO対策</span>
-                    <strong>AIに読まれるHPを作ります。</strong>
-                </div>
-                <div className="s-hero-cta">
-                    <a href="#contact" className="s-btn-primary m-btn-current">
-                        まずは、30分だけお話ししませんか
-                        <span className="arrow">→</span>
-                    </a>
-                    <a href="#services" className="s-btn-ghost">サービスを見る</a>
-                </div>
-            </div>
-
-            <div className="s-hero-visual">
-                <figure className="s-hero-frame">
-                    <img src={heroDeskImg} alt="EduShiftが伴走する、先生の机に置かれたノートPCと手書きノート" className="s-hero-image" />
-                    <span className="s-hero-frame-corner tl" aria-hidden="true"></span>
-                    <span className="s-hero-frame-corner tr" aria-hidden="true"></span>
-                    <span className="s-hero-frame-corner bl" aria-hidden="true"></span>
-                    <span className="s-hero-frame-corner br" aria-hidden="true"></span>
-                    <figcaption className="s-hero-caption">
-                        <span className="s-hero-caption-rule"></span>
-                        <span>Scholar's Workspace — a long-form partner</span>
-                    </figcaption>
-                </figure>
-                <div className="s-hero-mini-chips" aria-label="EduShiftが向き合う2つの対象と、2つの実装手段">
-                    <div className="s-mini-chip" data-reveal="up" data-reveal-delay="1">
-                        <span className="num">Pillar · 01</span>
-                        <span className="label">小規模塾</span>
+                <div className="m-hero-bottom">
+                    <div>
+                        <p className="s-hero-body">
+                            経営、集客、事務、保護者対応、教材づくり——。本当は、生徒と向き合う時間がいちばん長いはずでした。EduShiftは、教える人の"周辺"をテクノロジーで軽くします。
+                        </p>
+                        <div className="m-aieo">
+                            <span className="m-aieo-tag">NEW · AIEO対策</span>
+                            <strong>AIに読まれるHPを作ります。</strong>
+                        </div>
+                        <div className="s-hero-cta">
+                            <a href="#contact" className="s-btn-primary m-btn-current">
+                                まずは、30分だけお話ししませんか
+                                <span className="arrow">→</span>
+                            </a>
+                            <a href="#services" className="s-btn-ghost">サービスを見る</a>
+                        </div>
                     </div>
-                    <div className="s-mini-chip" data-reveal="up" data-reveal-delay="2">
-                        <span className="num">Pillar · 02</span>
-                        <span className="label">独立する先生</span>
-                    </div>
-                    <div className="s-mini-chip tool" data-reveal="up" data-reveal-delay="3">
-                        <span className="num">Tool · 01</span>
-                        <span className="label">AI</span>
-                    </div>
-                    <div className="s-mini-chip tool" data-reveal="up" data-reveal-delay="4">
-                        <span className="num">Tool · 02</span>
-                        <span className="label">Web</span>
+                    <div className="s-hero-mini-chips m-chips-row" aria-label="EduShiftが向き合う2つの対象と、2つの実装手段">
+                        <div className="s-mini-chip" data-reveal="up" data-reveal-delay="1">
+                            <span className="num">Pillar · 01</span>
+                            <span className="label">小規模塾</span>
+                        </div>
+                        <div className="s-mini-chip" data-reveal="up" data-reveal-delay="2">
+                            <span className="num">Pillar · 02</span>
+                            <span className="label">独立する先生</span>
+                        </div>
+                        <div className="s-mini-chip tool" data-reveal="up" data-reveal-delay="3">
+                            <span className="num">Tool · 01</span>
+                            <span className="label">AI</span>
+                        </div>
+                        <div className="s-mini-chip tool" data-reveal="up" data-reveal-delay="4">
+                            <span className="num">Tool · 02</span>
+                            <span className="label">Web</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -409,6 +423,7 @@ export const HomeScholarly = () => {
 
     {/* ====== SHOWCASE : HP制作 Before / After ====== */}
     <section className="m-showcase" id="hp-showcase">
+        <div className="m-giant-word" aria-hidden="true">PROOF</div>
         <div className="s-container">
             <div data-reveal="up">
                 <div className="s-sec-num">SHOWCASE · HP制作の実力</div>
@@ -675,6 +690,7 @@ export const HomeScholarly = () => {
 
             {/* ====== Sub-pricing : HP保守・運用（3パターン / データ駆動） ====== */}
             <div className="s-sub-pricing m-care" id="maintenance">
+                <div className="m-giant-word" aria-hidden="true">CARE</div>
                 <div className="s-sub-pricing-head" data-reveal="up">
                     <div className="s-sub-num">HP Maintenance · 3 Plans</div>
                     <h3>HP制作後の、<em>保守・運用プラン</em></h3>
@@ -948,6 +964,7 @@ export const HomeScholarly = () => {
 
     {/* ====== FINAL CTA ====== */}
     <section className="s-final" id="contact">
+        <div className="m-giant-word" aria-hidden="true">TALK</div>
         <div className="s-container s-final-inner" data-reveal="up">
             <div className="s-final-brand">Edu<em>Shift</em></div>
             <div className="s-final-eyebrow">— 最後に、ひとことだけ。</div>
