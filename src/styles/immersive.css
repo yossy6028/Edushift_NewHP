@@ -35,55 +35,83 @@
     cursor: auto;
 }
 
-.fx-dot,
-.fx-ring {
+/* 彗星軌跡キャンバス（全画面・最背面のFXレイヤー） */
+.fx-trail {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9998;
+    pointer-events: none;
+}
+
+/* カーソル本体: グラデーション球。明色コア＋暗色影の二重シャドウで白背景でも視認できる */
+.fx-orb {
     position: fixed;
     left: 0;
     top: 0;
     z-index: 10000;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.25s ease;
 }
 
-.fx-dot::after,
-.fx-ring::after {
+.fx-orb::after {
     content: '';
     display: block;
+    width: 14px;
+    height: 14px;
+    margin: -7px 0 0 -7px;
     border-radius: 50%;
-    mix-blend-mode: difference;
+    background: radial-gradient(circle at 32% 30%, #ffffff 0%, #00c2c7 42%, #0293f0 85%);
+    box-shadow:
+        0 0 14px rgba(2, 147, 240, 0.75),
+        0 0 3px rgba(0, 194, 199, 0.9),
+        0 1px 4px rgba(7, 16, 34, 0.45);
+    transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.fx-dot::after {
-    width: 7px;
-    height: 7px;
-    margin: -3.5px 0 0 -3.5px;
-    background: #fff;
+.fx-orb.is-locked::after {
+    transform: scale(0.55);
 }
 
-.fx-ring::after {
-    width: 42px;
-    height: 42px;
-    margin: -21px 0 0 -21px;
-    border: 1.5px solid rgba(255, 255, 255, 0.9);
-    transition:
-        transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1),
-        background-color 0.28s ease,
-        border-color 0.28s ease;
+.fx-orb.is-down::after {
+    transform: scale(0.4);
 }
 
-.fx-ring.is-hover::after {
-    transform: scale(1.7);
-    background: rgba(255, 255, 255, 0.14);
-    border-color: rgba(255, 255, 255, 0.5);
+/* ターゲットロック: 四隅ブラケット。JSが対象矩形へ transform/width/height を毎フレーム補間 */
+.fx-lock {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
 }
 
-.fx-ring.is-down::after {
-    transform: scale(0.8);
+.fx-lock span {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border: 2px solid #00c2c7;
+    filter:
+        drop-shadow(0 0 5px rgba(0, 194, 199, 0.8))
+        drop-shadow(0 1px 2px rgba(7, 16, 34, 0.5));
+    animation: fx-lock-glow 1.4s ease-in-out infinite;
 }
 
-.fx-dot.is-native,
-.fx-ring.is-native {
+.fx-lock span:nth-child(1) { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.fx-lock span:nth-child(2) { top: 0; right: 0; border-left: 0; border-bottom: 0; border-color: #2ea8ff; }
+.fx-lock span:nth-child(3) { bottom: 0; left: 0; border-right: 0; border-top: 0; border-color: #2ea8ff; }
+.fx-lock span:nth-child(4) { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+
+@keyframes fx-lock-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+}
+
+.fx-orb.is-native,
+.fx-lock.is-native {
     opacity: 0 !important;
 }
 
@@ -327,8 +355,9 @@
         display: none;
     }
 
-    .fx-dot,
-    .fx-ring {
+    .fx-orb,
+    .fx-lock,
+    .fx-trail {
         display: none;
     }
 
