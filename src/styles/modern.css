@@ -11,11 +11,11 @@
     --m-night-2: #0b1b3a;
     --m-cream: #f3ecdd;
     --m-cream-dim: rgba(243, 236, 221, 0.72);
-    --m-teal: #2db3a0;
-    --m-teal-bright: #3fd6c0;
-    --m-blue: #1f7bdc;
-    --m-current: linear-gradient(115deg, #2db3a0 0%, #1f7bdc 100%);
-    --m-current-soft: linear-gradient(115deg, rgba(45, 179, 160, 0.16), rgba(31, 123, 220, 0.12));
+    --m-teal: #00a4a8;
+    --m-teal-bright: #29c7c9;
+    --m-blue: #0293f0;
+    --m-current: linear-gradient(115deg, #00a4a8 0%, #0293f0 100%);
+    --m-current-soft: linear-gradient(115deg, rgba(0, 164, 168, 0.16), rgba(2, 147, 240, 0.12));
     --m-glass: rgba(255, 255, 255, 0.045);
     --m-glass-line: rgba(255, 255, 255, 0.13);
     --m-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -102,7 +102,7 @@
 
 .theme-scholarly .m-nav-hp:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(45, 179, 160, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 164, 168, 0.3);
 }
 
 .theme-scholarly .m-nav-hp .m-nav-hp-badge {
@@ -121,8 +121,8 @@
     position: relative;
     overflow: hidden;
     background:
-        radial-gradient(1200px 600px at 85% -10%, rgba(31, 123, 220, 0.18), transparent 60%),
-        radial-gradient(900px 520px at -5% 110%, rgba(45, 179, 160, 0.14), transparent 55%),
+        radial-gradient(1200px 600px at 85% -10%, rgba(2, 147, 240, 0.18), transparent 60%),
+        radial-gradient(900px 520px at -5% 110%, rgba(0, 164, 168, 0.14), transparent 55%),
         var(--m-night);
     padding: 200px 0 130px;
 }
@@ -145,7 +145,7 @@
     height: 46vw;
     left: -12vw;
     top: -18vw;
-    background: radial-gradient(circle, rgba(45, 179, 160, 0.5), transparent 65%);
+    background: radial-gradient(circle, rgba(0, 164, 168, 0.5), transparent 65%);
     animation: m-drift 22s ease-in-out infinite alternate;
 }
 
@@ -154,7 +154,7 @@
     height: 40vw;
     right: -10vw;
     top: 8vw;
-    background: radial-gradient(circle, rgba(31, 123, 220, 0.45), transparent 65%);
+    background: radial-gradient(circle, rgba(2, 147, 240, 0.45), transparent 65%);
     animation: m-drift 28s ease-in-out infinite alternate-reverse;
 }
 
@@ -163,7 +163,7 @@
     height: 30vw;
     left: 32vw;
     bottom: -16vw;
-    background: radial-gradient(circle, rgba(176, 138, 62, 0.28), transparent 65%);
+    background: radial-gradient(circle, rgba(0, 100, 190, 0.26), transparent 65%);
     animation: m-drift 26s ease-in-out infinite alternate;
 }
 
@@ -203,7 +203,7 @@
 }
 
 .theme-scholarly .s-hero.m-night h1 small {
-    color: rgba(63, 214, 192, 0.85);
+    color: rgba(41, 199, 201, 0.85);
 }
 
 /* kinetic line reveal */
@@ -229,7 +229,7 @@
 .theme-scholarly .s-hero.m-night .s-accent-line::after {
     height: 3px;
     background: var(--m-current);
-    box-shadow: 0 0 18px rgba(45, 179, 160, 0.7);
+    box-shadow: 0 0 18px rgba(0, 164, 168, 0.7);
 }
 
 .theme-scholarly .s-hero.m-night .s-hero-body {
@@ -244,7 +244,7 @@
     margin: 4px 0 26px;
     padding: 10px 18px;
     border-radius: 999px;
-    border: 1px solid rgba(63, 214, 192, 0.5);
+    border: 1px solid rgba(41, 199, 201, 0.5);
     background: var(--m-current-soft);
     animation: m-fade 1s 0.65s ease both;
 }
@@ -283,7 +283,7 @@
     border: none;
     color: #fff;
     border-radius: 4px;
-    box-shadow: 0 12px 34px rgba(31, 123, 220, 0.35);
+    box-shadow: 0 12px 34px rgba(2, 147, 240, 0.35);
     transition: transform 0.25s var(--m-ease), box-shadow 0.25s ease;
 }
 
@@ -308,7 +308,7 @@
     background: var(--m-current);
     color: #fff;
     transform: translateY(-3px);
-    box-shadow: 0 18px 44px rgba(45, 179, 160, 0.45);
+    box-shadow: 0 18px 44px rgba(0, 164, 168, 0.45);
 }
 
 .theme-scholarly .s-hero.m-night .s-btn-ghost {
@@ -354,7 +354,7 @@
 
 .theme-scholarly .s-hero.m-night .s-mini-chip:hover {
     transform: translateY(-4px);
-    border-color: rgba(63, 214, 192, 0.6);
+    border-color: rgba(41, 199, 201, 0.6);
 }
 
 .theme-scholarly .s-hero.m-night .s-mini-chip .num {
@@ -474,11 +474,11 @@
         linear-gradient(var(--s-cream), var(--s-cream)) padding-box,
         var(--m-current) border-box;
     border: 2px solid transparent;
-    box-shadow: 0 18px 50px rgba(31, 123, 220, 0.16);
+    box-shadow: 0 18px 50px rgba(2, 147, 240, 0.16);
 }
 
 .theme-scholarly .s-service-card.m-hp-featured:hover {
-    box-shadow: 0 30px 70px rgba(45, 179, 160, 0.28);
+    box-shadow: 0 30px 70px rgba(0, 164, 168, 0.28);
 }
 
 .theme-scholarly .m-hp-ribbon {
@@ -495,7 +495,7 @@
     letter-spacing: 0.08em;
     padding: 5px 14px;
     border-radius: 999px;
-    box-shadow: 0 8px 22px rgba(31, 123, 220, 0.35);
+    box-shadow: 0 8px 22px rgba(2, 147, 240, 0.35);
 }
 
 .theme-scholarly .m-hp-prices {
@@ -509,8 +509,8 @@
     font-size: 12px;
     font-weight: 700;
     color: var(--s-navy-900);
-    border: 1px solid rgba(45, 179, 160, 0.5);
-    background: rgba(45, 179, 160, 0.08);
+    border: 1px solid rgba(0, 164, 168, 0.5);
+    background: rgba(0, 164, 168, 0.08);
     border-radius: 999px;
     padding: 4px 12px;
 }
@@ -529,7 +529,7 @@
 
 .theme-scholarly .s-service-card.m-hp-featured .s-service-link:hover {
     transform: translateX(4px);
-    box-shadow: 0 10px 26px rgba(31, 123, 220, 0.35);
+    box-shadow: 0 10px 26px rgba(2, 147, 240, 0.35);
 }
 
 /* ---------- Showcase : HP制作 Before/After (night) ---------- */
@@ -537,8 +537,8 @@
     position: relative;
     overflow: hidden;
     background:
-        radial-gradient(900px 480px at 110% 0%, rgba(31, 123, 220, 0.16), transparent 60%),
-        radial-gradient(700px 420px at -10% 100%, rgba(45, 179, 160, 0.13), transparent 55%),
+        radial-gradient(900px 480px at 110% 0%, rgba(2, 147, 240, 0.16), transparent 60%),
+        radial-gradient(700px 420px at -10% 100%, rgba(0, 164, 168, 0.13), transparent 55%),
         var(--m-night);
     padding: 110px 0 120px;
     color: var(--m-cream);
@@ -606,7 +606,7 @@
 
 .theme-scholarly .m-showcase-point:hover {
     transform: translateX(6px);
-    border-color: rgba(63, 214, 192, 0.5);
+    border-color: rgba(41, 199, 201, 0.5);
 }
 
 .theme-scholarly .m-showcase-point .num {
@@ -692,7 +692,7 @@
 
 .theme-scholarly .m-build-price-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(63, 214, 192, 0.5);
+    border-color: rgba(41, 199, 201, 0.5);
     box-shadow: 0 26px 60px rgba(0, 0, 0, 0.45);
 }
 
@@ -701,7 +701,7 @@
         linear-gradient(rgba(11, 27, 58, 0.92), rgba(11, 27, 58, 0.92)) padding-box,
         var(--m-current) border-box;
     border: 2px solid transparent;
-    box-shadow: 0 24px 70px rgba(31, 123, 220, 0.3);
+    box-shadow: 0 24px 70px rgba(2, 147, 240, 0.3);
 }
 
 .theme-scholarly .m-build-price-card h4 {
@@ -833,7 +833,7 @@
     left: var(--ba-pos, 50%);
     width: 2px;
     background: var(--m-current);
-    box-shadow: 0 0 20px rgba(45, 179, 160, 0.8);
+    box-shadow: 0 0 20px rgba(0, 164, 168, 0.8);
     pointer-events: none;
 }
 
@@ -890,8 +890,8 @@
     padding: 90px 48px 80px;
     border-radius: 20px;
     background:
-        radial-gradient(800px 400px at 90% -10%, rgba(31, 123, 220, 0.2), transparent 60%),
-        radial-gradient(600px 380px at 0% 110%, rgba(45, 179, 160, 0.16), transparent 55%),
+        radial-gradient(800px 400px at 90% -10%, rgba(2, 147, 240, 0.2), transparent 60%),
+        radial-gradient(600px 380px at 0% 110%, rgba(0, 164, 168, 0.16), transparent 55%),
         var(--m-night);
 }
 
@@ -944,7 +944,7 @@
 
 .theme-scholarly .m-care .s-sub-price-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(63, 214, 192, 0.5);
+    border-color: rgba(41, 199, 201, 0.5);
     box-shadow: 0 26px 60px rgba(0, 0, 0, 0.45);
 }
 
@@ -953,7 +953,7 @@
         linear-gradient(rgba(11, 27, 58, 0.92), rgba(11, 27, 58, 0.92)) padding-box,
         var(--m-current) border-box;
     border: 2px solid transparent;
-    box-shadow: 0 24px 70px rgba(31, 123, 220, 0.3);
+    box-shadow: 0 24px 70px rgba(2, 147, 240, 0.3);
 }
 
 .theme-scholarly .m-care .m-care-reco {
@@ -969,7 +969,7 @@
     padding: 5px 16px;
     border-radius: 999px;
     white-space: nowrap;
-    box-shadow: 0 8px 24px rgba(31, 123, 220, 0.4);
+    box-shadow: 0 8px 24px rgba(2, 147, 240, 0.4);
 }
 
 .theme-scholarly .m-care .s-sub-price-tier {
@@ -1065,8 +1065,8 @@
     position: relative;
     overflow: hidden;
     background:
-        radial-gradient(1000px 500px at 50% -20%, rgba(31, 123, 220, 0.22), transparent 65%),
-        radial-gradient(700px 420px at 15% 110%, rgba(45, 179, 160, 0.16), transparent 55%),
+        radial-gradient(1000px 500px at 50% -20%, rgba(2, 147, 240, 0.22), transparent 65%),
+        radial-gradient(700px 420px at 15% 110%, rgba(0, 164, 168, 0.16), transparent 55%),
         var(--m-night);
 }
 
@@ -1096,7 +1096,7 @@
     border: none;
     border-radius: 999px;
     padding: 20px 48px;
-    box-shadow: 0 16px 44px rgba(31, 123, 220, 0.4);
+    box-shadow: 0 16px 44px rgba(2, 147, 240, 0.4);
     transition: transform 0.25s var(--m-ease), box-shadow 0.25s ease;
 }
 
@@ -1114,7 +1114,7 @@
 
 .theme-scholarly .s-final .s-final-cta:hover {
     transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 24px 60px rgba(45, 179, 160, 0.5);
+    box-shadow: 0 24px 60px rgba(0, 164, 168, 0.5);
 }
 
 /* ---------- FAQ / details micro-interaction ---------- */
@@ -1208,7 +1208,7 @@
     width: 0;
     height: 2px;
     background: var(--m-current);
-    box-shadow: 0 0 24px rgba(45, 179, 160, 0.8);
+    box-shadow: 0 0 24px rgba(0, 164, 168, 0.8);
     animation: m-intro-line 0.9s 0.5s var(--m-ease) forwards;
 }
 
@@ -1284,7 +1284,7 @@
     line-height: 0.82;
     letter-spacing: 0.02em;
     color: transparent;
-    -webkit-text-stroke: 1.5px rgba(63, 214, 192, 0.18);
+    -webkit-text-stroke: 1.5px rgba(41, 199, 201, 0.18);
     pointer-events: none;
     user-select: none;
     white-space: nowrap;

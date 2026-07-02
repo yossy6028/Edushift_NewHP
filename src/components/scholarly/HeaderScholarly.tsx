@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logoImg from '../../assets/logo-scholarly-mark.svg';
+import logoImg from '../../assets/logo-shift-mark.png';
 
 type NavMode = 'home' | 'subpage';
 

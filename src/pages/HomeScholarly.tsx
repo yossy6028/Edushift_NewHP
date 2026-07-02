@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import logoImg from '../assets/logo-scholarly-mark.svg';
+import logoImg from '../assets/logo-shift-mark.png';
 import founderImg from '../assets/founder.webp';
 import heroDeskImg from '../assets/hero-desk.jpeg';
 import paperFlatlayImg from '../assets/hero-paper-flatlay.jpeg';

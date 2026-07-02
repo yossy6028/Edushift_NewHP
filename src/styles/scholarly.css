@@ -13,14 +13,14 @@
     --s-cream: #faf6ec;
     --s-sand: #e8dcc0;
 
-    --s-gold: #b08a3e;
-    --s-gold-deep: #8a6a28;
+    --s-gold: #00a4a8;
+    --s-gold-deep: #00868a;
     --s-accent: #a5332a;
 
-    --s-teal: #1a9b93;
-    --s-teal-deep: #137670;
-    --s-blue: #1f7bdc;
-    --s-blue-deep: #155ca8;
+    --s-teal: #00a4a8;
+    --s-teal-deep: #00868a;
+    --s-blue: #0293f0;
+    --s-blue-deep: #0064be;
 
     --s-ink-900: #121212;
     --s-ink-700: #3a3a3a;
@@ -61,10 +61,10 @@ html[data-theme="scholarly"] body {
 
             /* Defensive token redeclaration — ensures teal/blue brand tokens
                always resolve even if colors_and_type.css loads a stale copy. */
-            --s-teal: #1a9b93;
-            --s-teal-deep: #137670;
-            --s-blue: #1f7bdc;
-            --s-blue-deep: #155ca8;
+            --s-teal: #00a4a8;
+            --s-teal-deep: #00868a;
+            --s-blue: #0293f0;
+            --s-blue-deep: #0064be;
         }
 
         .s-container {
@@ -99,7 +99,7 @@ html[data-theme="scholarly"] body {
             font-family: var(--s-serif-en);
             font-weight: 700;
             font-size: 22px;
-            color: var(--s-navy-900);
+            color: var(--s-teal);
             letter-spacing: -0.01em;
             text-decoration: none;
         }
@@ -114,7 +114,7 @@ html[data-theme="scholarly"] body {
             font-family: var(--s-serif-en);
             font-weight: 700;
             font-size: 28px;
-            color: var(--s-navy-900);
+            color: var(--s-teal);
             letter-spacing: -0.01em;
             line-height: 1;
         }
@@ -122,7 +122,7 @@ html[data-theme="scholarly"] body {
         .s-brand-name em {
             font-style: italic;
             font-weight: 500;
-            color: var(--s-gold);
+            color: var(--s-blue-deep);
         }
 
         .s-brand-sep {
@@ -135,7 +135,7 @@ html[data-theme="scholarly"] body {
         .s-brand em {
             font-style: italic;
             font-weight: 400;
-            color: var(--s-gold);
+            color: var(--s-blue-deep);
         }
 
         .s-brand-tag {
@@ -251,7 +251,7 @@ html[data-theme="scholarly"] body {
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 80% 10%, rgba(176, 138, 62, 0.08), transparent 40%),
+                radial-gradient(circle at 80% 10%, rgba(0, 164, 168, 0.08), transparent 40%),
                 radial-gradient(circle at 10% 90%, rgba(11, 27, 58, 0.06), transparent 40%);
             pointer-events: none;
         }
@@ -540,7 +540,7 @@ html[data-theme="scholarly"] body {
 
         .s-sec-titles h2 em {
             font-style: normal;
-            background: linear-gradient(to bottom, transparent 62%, rgba(176, 138, 62, 0.3) 62%, rgba(176, 138, 62, 0.3) 92%, transparent 92%);
+            background: linear-gradient(to bottom, transparent 62%, rgba(0, 164, 168, 0.3) 62%, rgba(0, 164, 168, 0.3) 92%, transparent 92%);
             padding: 0 2px;
         }
 
@@ -824,13 +824,13 @@ html[data-theme="scholarly"] body {
         }
 
         .s-detail-chip.pillar {
-            background: rgba(176, 138, 62, 0.12);
+            background: rgba(0, 164, 168, 0.12);
             border: 1px solid var(--s-gold);
             color: var(--s-gold-deep);
         }
 
         .s-detail-chip.tool {
-            background: rgba(26, 155, 147, 0.08);
+            background: rgba(0, 164, 168, 0.08);
             border: 1px solid var(--s-teal);
             color: var(--s-teal-deep);
         }
@@ -1139,7 +1139,7 @@ html[data-theme="scholarly"] body {
         }
 
         .s-detail-price-card.recommended .s-detail-price-amount {
-            border-color: rgba(176, 138, 62, 0.4);
+            border-color: rgba(0, 164, 168, 0.4);
         }
 
         .s-detail-price-amount .amount {
@@ -1311,7 +1311,7 @@ html[data-theme="scholarly"] body {
             right: 0;
             bottom: -2px;
             height: 10px;
-            background: rgba(176, 138, 62, 0.22);
+            background: rgba(0, 164, 168, 0.22);
             z-index: -1;
         }
 
@@ -1379,7 +1379,7 @@ html[data-theme="scholarly"] body {
         .s-voice-meta {
             width: 100%;
             padding-top: 20px;
-            border-top: 1px solid rgba(176, 138, 62, 0.3);
+            border-top: 1px solid rgba(0, 164, 168, 0.3);
             margin: 0;
             display: flex;
             flex-direction: column;
@@ -1869,7 +1869,7 @@ html[data-theme="scholarly"] body {
             font-weight: 700;
             letter-spacing: 0.35em;
             color: var(--s-gold-deep);
-            background: rgba(176, 138, 62, 0.12);
+            background: rgba(0, 164, 168, 0.12);
             padding: 4px 12px;
             border: 1px solid var(--s-gold);
             border-radius: 2px;
@@ -1902,7 +1902,7 @@ html[data-theme="scholarly"] body {
         }
 
         .s-service-card.pillar .s-service-tag.tech {
-            background: rgba(26, 155, 147, 0.08);
+            background: rgba(0, 164, 168, 0.08);
             border-color: var(--s-teal);
             color: var(--s-teal-deep);
         }
@@ -1922,7 +1922,7 @@ html[data-theme="scholarly"] body {
             font-weight: 600;
             letter-spacing: 0.35em;
             color: var(--s-teal-deep);
-            background: rgba(26, 155, 147, 0.08);
+            background: rgba(0, 164, 168, 0.08);
             padding: 4px 12px;
             border: 1px solid var(--s-teal);
             border-radius: 2px;
@@ -2050,7 +2050,7 @@ html[data-theme="scholarly"] body {
         .s-manifesto-signature {
             margin-top: 60px;
             padding-top: 40px;
-            border-top: 1px solid rgba(176, 138, 62, 0.4);
+            border-top: 1px solid rgba(0, 164, 168, 0.4);
             display: flex;
             gap: 28px;
             align-items: center;
@@ -2163,7 +2163,7 @@ html[data-theme="scholarly"] body {
         }
 
         .s-price-card.featured .s-price-amount {
-            border-color: rgba(176, 138, 62, 0.4);
+            border-color: rgba(0, 164, 168, 0.4);
         }
 
         .s-price-amount .amount {
@@ -2344,7 +2344,7 @@ html[data-theme="scholarly"] body {
         }
 
         .s-sub-price-card.featured .s-sub-price-amount {
-            border-color: rgba(176, 138, 62, 0.4);
+            border-color: rgba(0, 164, 168, 0.4);
         }
 
         .s-sub-price-amount .amount {
@@ -2521,7 +2521,7 @@ html[data-theme="scholarly"] body {
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at center, rgba(176, 138, 62, 0.15), transparent 60%);
+            background: radial-gradient(ellipse at center, rgba(0, 164, 168, 0.15), transparent 60%);
         }
 
         .s-final-inner {
@@ -2544,7 +2544,7 @@ html[data-theme="scholarly"] body {
         .s-final-brand em {
             font-style: italic;
             font-weight: 500;
-            color: var(--s-gold);
+            color: var(--s-blue);
         }
 
         .s-final-eyebrow {
@@ -2703,7 +2703,7 @@ html[data-theme="scholarly"] body {
         .s-footer-brand-name-text em {
             font-style: italic;
             font-weight: 500;
-            color: var(--s-gold);
+            color: var(--s-blue);
         }
 
         .s-footer-bottom {
@@ -2741,7 +2741,7 @@ html[data-theme="scholarly"] body {
             object-position: center 20%;
             display: block;
             filter: grayscale(0.15) contrast(1.02);
-            border: 1px solid rgba(176, 138, 62, 0.3);
+            border: 1px solid rgba(0, 164, 168, 0.3);
         }
 
         .s-founder-photo::before {
@@ -2756,7 +2756,7 @@ html[data-theme="scholarly"] body {
         .s-founder-photo-caption {
             margin-top: 20px;
             padding-top: 16px;
-            border-top: 1px solid rgba(176, 138, 62, 0.4);
+            border-top: 1px solid rgba(0, 164, 168, 0.4);
             display: flex;
             justify-content: space-between;
             align-items: baseline;
@@ -2780,7 +2780,7 @@ html[data-theme="scholarly"] body {
         .s-founder-meta {
             margin-top: 48px;
             padding-top: 32px;
-            border-top: 1px solid rgba(176, 138, 62, 0.4);
+            border-top: 1px solid rgba(0, 164, 168, 0.4);
             display: flex;
             flex-direction: column;
             gap: 16px;
@@ -2937,7 +2937,7 @@ html[data-theme="scholarly"] body {
             inset: 0;
             background-image:
                 radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.12), transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(176, 138, 62, 0.2), transparent 40%);
+                radial-gradient(circle at 80% 70%, rgba(0, 164, 168, 0.2), transparent 40%);
         }
 
         .s-journal-thumb-label {
@@ -3670,7 +3670,7 @@ html[data-theme="scholarly"] body {
                 0 18px 38px -14px rgba(11, 27, 58, 0.45),
                 0 4px 12px -4px rgba(11, 27, 58, 0.25),
                 inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(176, 138, 62, 0.55);
+            border: 1px solid rgba(0, 164, 168, 0.55);
             font-family: var(--s-serif-jp);
             opacity: 0;
             transform: translateY(20px);
