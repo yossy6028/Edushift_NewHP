@@ -1,10 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import logoImg from '../assets/logo-scholarly-mark.svg';
 import founderImg from '../assets/founder.webp';
 import heroDeskImg from '../assets/hero-desk.jpeg';
 import paperFlatlayImg from '../assets/hero-paper-flatlay.jpeg';
+import hpBeforeAfterImg from '../assets/hp-before-after.jpg';
 import { FloatingCTA } from '../components/FloatingCTA';
+import { CountUp } from '../components/CountUp';
+import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
+import { useReveal } from '../hooks/useReveal';
+import { MAINTENANCE_PLANS, HOME_EMPHASIS } from '../data/maintenancePlans';
 import '../styles/scholarly.css';
+import '../styles/modern.css';
 
 type NoteContent = {
     key: string;
@@ -37,12 +43,37 @@ const escapeHtml = (s: string) =>
 
 export const HomeScholarly = () => {
     const [navOpen, setNavOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const progressRef = useRef<HTMLDivElement>(null);
     const closeNav = () => setNavOpen(false);
+
+    useReveal();
 
     useEffect(() => {
         document.body.style.overflow = navOpen ? 'hidden' : '';
         return () => { document.body.style.overflow = ''; };
     }, [navOpen]);
+
+    // Scroll progress bar + header shrink
+    useEffect(() => {
+        let raf = 0;
+        const onScroll = () => {
+            cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(() => {
+                const doc = document.documentElement;
+                const max = doc.scrollHeight - window.innerHeight;
+                const p = max > 0 ? window.scrollY / max : 0;
+                progressRef.current?.style.setProperty('transform', `scaleX(${p})`);
+                setScrolled(window.scrollY > 40);
+            });
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            cancelAnimationFrame(raf);
+        };
+    }, []);
 
     useEffect(() => {
         const grid = document.getElementById('journal-grid');
@@ -96,8 +127,11 @@ export const HomeScholarly = () => {
 
     <FloatingCTA />
 
+    {/* ====== SCROLL PROGRESS (Shift Current) ====== */}
+    <div className="m-progress" ref={progressRef} aria-hidden="true"></div>
+
     {/* ====== HEADER ====== */}
-    <header className="s-header">
+    <header className={`s-header${scrolled ? ' is-scrolled' : ''}`}>
         <div className="s-container s-header-inner">
             <a href="#" className="s-brand" onClick={closeNav}>
                 <img src={logoImg} alt="EduShift" />
@@ -120,6 +154,10 @@ export const HomeScholarly = () => {
             <nav id="primary-nav" className={`s-nav${navOpen ? ' is-open' : ''}`}>
                 <a href="#empathy" onClick={closeNav}>塾経営の今</a>
                 <a href="#services" onClick={closeNav}>サービス</a>
+                <a href="/service/hp-production" className="m-nav-hp" onClick={closeNav}>
+                    HP制作
+                    <span className="m-nav-hp-badge">{HOME_EMPHASIS.hpNavBadge}</span>
+                </a>
                 <a href="#founder" onClick={closeNav}>代表</a>
                 <a href="#journal" onClick={closeNav}>ブログ</a>
                 <a href="https://note.com/katsu_yossy" target="_blank" rel="noopener" className="s-nav-ext" aria-label="noteを別タブで開く" onClick={closeNav}>note<span className="s-nav-ext-arrow" aria-hidden="true">↗</span></a>
@@ -130,10 +168,14 @@ export const HomeScholarly = () => {
         </div>
     </header>
 
-    {/* ====== HERO ====== */}
-    <section className="s-hero">
-        <div className="s-hero-paper"></div>
-        <div className="s-hero-grid"></div>
+    {/* ====== HERO (night / Shift Current) ====== */}
+    <section className="s-hero m-night">
+        <div className="m-aurora" aria-hidden="true">
+            <span className="b1"></span>
+            <span className="b2"></span>
+            <span className="b3"></span>
+        </div>
+        <div className="m-hero-mesh" aria-hidden="true"></div>
         <div className="s-container s-hero-inner">
             <div>
                 <div className="s-eyebrow">
@@ -142,9 +184,9 @@ export const HomeScholarly = () => {
                     <span>小さな塾と、フリーランス講師の伴走者 — since 2024</span>
                 </div>
                 <h1>
-                    <span className="s-accent-line">小さな塾</span>と、<br />
-                    <span className="s-accent-line">フリーランス講師</span>を、<br />
-                    AIとWebで支える。
+                    <span className="m-line"><span><span className="s-accent-line">小さな塾</span>と、</span></span><br />
+                    <span className="m-line"><span><span className="s-accent-line">フリーランス講師</span>を、</span></span><br />
+                    <span className="m-line"><span>AIとWebで支える。</span></span>
                     <small>EduShift — A long-form partner for small schools and independent tutors, powered by AI &amp; Web.</small>
                 </h1>
                 <p className="s-hero-body">
@@ -153,38 +195,12 @@ export const HomeScholarly = () => {
                     EduShiftは、教える人の"周辺"をテクノロジーで軽くして、<br />
                     小さな塾と、フリーランス講師を、ひとりで抱えない時代へ導きます。
                 </p>
-                <div
-                    className="s-hero-aieo"
-                    style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        margin: '8px 0 20px',
-                        padding: '10px 18px',
-                        border: '1px solid #2DB3A0',
-                        borderRadius: '999px',
-                        background: 'linear-gradient(90deg, rgba(45,179,160,0.08), rgba(21,101,192,0.05))',
-                    }}
-                >
-                    <span
-                        style={{
-                            background: '#2DB3A0',
-                            color: 'white',
-                            fontSize: '11px',
-                            fontWeight: 700,
-                            padding: '3px 10px',
-                            borderRadius: '999px',
-                            letterSpacing: '0.05em',
-                        }}
-                    >
-                        NEW · AIEO対策
-                    </span>
-                    <strong style={{ fontWeight: 700, color: '#0D47A1', fontSize: '14px' }}>
-                        AIに読まれるHPを作ります。
-                    </strong>
+                <div className="m-aieo">
+                    <span className="m-aieo-tag">NEW · AIEO対策</span>
+                    <strong>AIに読まれるHPを作ります。</strong>
                 </div>
                 <div className="s-hero-cta">
-                    <a href="#contact" className="s-btn-primary">
+                    <a href="#contact" className="s-btn-primary m-btn-current">
                         まずは、30分だけお話ししませんか
                         <span className="arrow">→</span>
                     </a>
@@ -205,50 +221,68 @@ export const HomeScholarly = () => {
                     </figcaption>
                 </figure>
                 <div className="s-hero-mini-chips" aria-label="EduShiftが向き合う2つの対象と、2つの実装手段">
-                    <div className="s-mini-chip">
+                    <div className="s-mini-chip" data-reveal="up" data-reveal-delay="1">
                         <span className="num">Pillar · 01</span>
                         <span className="label">小規模塾</span>
                     </div>
-                    <div className="s-mini-chip">
+                    <div className="s-mini-chip" data-reveal="up" data-reveal-delay="2">
                         <span className="num">Pillar · 02</span>
                         <span className="label">独立する先生</span>
                     </div>
-                    <div className="s-mini-chip tool">
+                    <div className="s-mini-chip tool" data-reveal="up" data-reveal-delay="3">
                         <span className="num">Tool · 01</span>
                         <span className="label">AI</span>
                     </div>
-                    <div className="s-mini-chip tool">
+                    <div className="s-mini-chip tool" data-reveal="up" data-reveal-delay="4">
                         <span className="num">Tool · 02</span>
                         <span className="label">Web</span>
                     </div>
                 </div>
             </div>
         </div>
+        <div className="m-scroll-cue" aria-hidden="true">Scroll</div>
     </section>
+
+    {/* ====== MARQUEE (Shift Current band) ====== */}
+    <div className="m-marquee" aria-hidden="true">
+        <div className="m-marquee-track">
+            {[0, 1].map(i => (
+                <span key={i}>
+                    <span>AI × Education</span>
+                    <span>HP制作 ¥19,800〜</span>
+                    <span>保守運用 ¥980/月〜</span>
+                    <span>小規模塾経営サポート</span>
+                    <span>フリーランス独立支援</span>
+                    <span>AIEO — AIに読まれるHPへ</span>
+                    <span>EduShift</span>
+                </span>
+            ))}
+        </div>
+    </div>
 
     {/* ====== NUMBERS BAND ====== */}
     <section className="s-numbers" aria-label="EduShiftの3つの入り口">
         <div className="s-container">
             <div className="s-numbers-grid">
                 <div className="s-numbers-stats">
-                    <div className="s-numbers-eyebrow">— A three-step pricing ladder, transparent from day one</div>
-                    <div className="s-stat">
+                    <div className="s-numbers-eyebrow" data-reveal="up">— A three-step pricing ladder, transparent from day one</div>
+                    <div className="s-stat" data-reveal="up" data-reveal-delay="1">
                         <div className="s-stat-eyebrow">Trial</div>
                         <div className="s-stat-num">¥0<span className="unit">完全無料</span></div>
                         <div className="s-stat-label">30分の初回オンライン相談は完全無料。<br />売り込みは、ひとつもいたしません。</div>
                     </div>
-                    <div className="s-stat">
+                    <div className="s-stat" data-reveal="up" data-reveal-delay="2">
                         <div className="s-stat-eyebrow">First project</div>
-                        <div className="s-stat-num">¥9,800<span className="unit">〜/回</span></div>
+                        <div className="s-stat-num"><CountUp value={9800} prefix="¥" /><span className="unit">〜/回</span></div>
                         <div className="s-stat-label">単発スポット相談で、<br />具体的な改善案までを1回で完結します。</div>
                     </div>
-                    <div className="s-stat">
+                    <div className="s-stat" data-reveal="up" data-reveal-delay="3">
                         <div className="s-stat-eyebrow">Long-term</div>
-                        <div className="s-stat-num">¥980<span className="unit">〜/月</span></div>
+                        <div className="s-stat-num"><CountUp value={980} prefix="¥" /><span className="unit">〜/月</span></div>
                         <div className="s-stat-label">HP保守運用プランは月額¥980から。<br />"持ち続けられる"価格で長く伴走します。</div>
                     </div>
                 </div>
-                <figure className="s-numbers-visual">
+                <figure className="s-numbers-visual" data-reveal="zoom" data-reveal-delay="2">
                     <img src={paperFlatlayImg} alt="EduShiftの仕事道具：紺のノート、万年筆、本、懐中時計" className="s-numbers-image" />
                 </figure>
             </div>
@@ -258,7 +292,7 @@ export const HomeScholarly = () => {
     {/* ====== EMPATHY ====== */}
     <section className="s-empathy" id="empathy">
         <div className="s-container">
-            <div className="s-empathy-quote">
+            <div className="s-empathy-quote" data-reveal="up">
                 <h3>
                     「良い授業をしているのに、<br />
                     生徒が来ない。」<br />
@@ -269,15 +303,15 @@ export const HomeScholarly = () => {
             </div>
 
             <div className="s-pain-list">
-                <div className="s-pain-card" data-num="No. 01">
+                <div className="s-pain-card" data-num="No. 01" data-reveal="up" data-reveal-delay="1">
                     <h4>チラシも、口コミも、効かなくなってきた。</h4>
                     <p>保護者は「検索」で塾を選ぶ時代。HPがない、古い、更新されていない——たったそれだけで、候補から外されています。</p>
                 </div>
-                <div className="s-pain-card" data-num="No. 02">
+                <div className="s-pain-card" data-num="No. 02" data-reveal="up" data-reveal-delay="2">
                     <h4>事務作業が、教育の時間を削っている。</h4>
                     <p>月謝管理、保護者対応、シフト、報告書。本当に時間を使うべき"生徒一人"との対話が、後回しになっていませんか。</p>
                 </div>
-                <div className="s-pain-card" data-num="No. 03">
+                <div className="s-pain-card" data-num="No. 03" data-reveal="up" data-reveal-delay="3">
                     <h4>相談できる人が、どこにもいない。</h4>
                     <p>大手コンサルは高額で、同業者はライバル。経営の悩みを誰にも話せないまま、ひとりで抱え続けている先生は少なくありません。</p>
                 </div>
@@ -288,7 +322,7 @@ export const HomeScholarly = () => {
     {/* ====== SERVICES ====== */}
     <section className="s-services" id="services">
         <div className="s-container">
-            <div className="s-sec-head">
+            <div className="s-sec-head" data-reveal="up">
                 <div className="s-sec-num">CHAPTER I · 2 Pillars × 2 Tools</div>
                 <div className="s-sec-titles">
                     <h2><em>小規模塾</em>と、<em>独立する先生</em>を、<br />テクノロジーで実践する。</h2>
@@ -299,7 +333,7 @@ export const HomeScholarly = () => {
             </div>
 
             <div className="s-service-grid has-pillars">
-                <div className="s-service-card pillar">
+                <div className="s-service-card pillar" data-reveal="left">
                     <div className="s-service-num">Pillar · 01</div>
                     <h3>小規模塾経営サポート</h3>
                     <div className="s-service-en">School Management</div>
@@ -313,7 +347,7 @@ export const HomeScholarly = () => {
                     <a href="/service/school-support" className="s-service-link">詳しく読む →</a>
                 </div>
 
-                <div className="s-service-card pillar">
+                <div className="s-service-card pillar" data-reveal="right">
                     <div className="s-service-num">Pillar · 02</div>
                     <h3>フリーランス独立支援</h3>
                     <div className="s-service-en">Independent Tutor Support</div>
@@ -327,12 +361,12 @@ export const HomeScholarly = () => {
                     <a href="/service/freelance-support" className="s-service-link">詳しく読む →</a>
                 </div>
 
-                <div className="s-service-bridge">
+                <div className="s-service-bridge" data-reveal="up">
                     <span className="s-bridge-rule">— and the tools that make it real —</span>
                     <h4>ふたつの柱を、<em>AI</em> と <em>Web</em> の力で、今日から実装する。</h4>
                 </div>
 
-                <div className="s-service-card tool">
+                <div className="s-service-card tool" data-reveal="left" data-reveal-delay="1">
                     <div className="s-service-num">Tool · 01</div>
                     <h3>AI導入コンサルティング</h3>
                     <div className="s-service-en">AI Integration</div>
@@ -345,11 +379,17 @@ export const HomeScholarly = () => {
                     <a href="/service/ai-consulting" className="s-service-link">詳しく読む →</a>
                 </div>
 
-                <div className="s-service-card tool">
+                <div className="s-service-card tool m-hp-featured" data-reveal="right" data-reveal-delay="2">
+                    <span className="m-hp-ribbon">{HOME_EMPHASIS.hpCardBadge}</span>
                     <div className="s-service-num">Tool · 02</div>
                     <h3>HP制作・保守運用</h3>
                     <div className="s-service-en">Web Production &amp; Care</div>
                     <p>初期19,800円〜、月々980円〜。「立派なHP」より「今日から選ばれるHP」を。ブログ更新もSEOも、Web担当者のように支えます。</p>
+                    <div className="m-hp-prices">
+                        <span className="m-hp-price-chip">制作 ¥19,800〜</span>
+                        <span className="m-hp-price-chip">保守 ¥980/月〜</span>
+                        <span className="m-hp-price-chip">最短1週間で公開</span>
+                    </div>
                     <div className="s-service-tags">
                         <span className="s-service-tag">低価格HP</span>
                         <span className="s-service-tag">AIブログ</span>
@@ -361,17 +401,68 @@ export const HomeScholarly = () => {
         </div>
     </section>
 
+    {/* ====== SHOWCASE : HP制作 Before / After ====== */}
+    <section className="m-showcase" id="hp-showcase">
+        <div className="s-container">
+            <div data-reveal="up">
+                <div className="s-sec-num">SHOWCASE · HP制作の実力</div>
+                <h2>同じ塾でも、<em>デザインで、ここまで変わる</em>。</h2>
+                <p className="m-showcase-lede">
+                    私たち自身がHP制作のプロであることを、言葉ではなく実物でお見せします。中央のバーを左右にドラッグして、Before / Afterを比べてみてください。
+                </p>
+            </div>
+            <div className="m-showcase-grid">
+                <div data-reveal="left">
+                    <BeforeAfterSlider
+                        src={hpBeforeAfterImg}
+                        alt="同じ内容の塾HPを、コピーとデザインの改善でどこまで変えられるかのBefore/After比較"
+                    />
+                    <p className="m-showcase-note">※同じ掲載内容・1ページ内での比較（Before: 写真なし / After: 写真あり）</p>
+                </div>
+                <div className="m-showcase-points">
+                    <div className="m-showcase-point" data-reveal="right" data-reveal-delay="1">
+                        <span className="num">01</span>
+                        <div>
+                            <h4>テンプレート型スピード納品</h4>
+                            <p>初期¥19,800〜。デザインの自由度をあえて絞ることで、最短1週間で「今日から選ばれるHP」を公開します。</p>
+                        </div>
+                    </div>
+                    <div className="m-showcase-point" data-reveal="right" data-reveal-delay="2">
+                        <span className="num">02</span>
+                        <div>
+                            <h4>AIEO — AIに読まれるHPへ</h4>
+                            <p>検索エンジンだけでなく、ChatGPTやClaudeなどのAIに「紹介される」ための構造化を標準対応します。</p>
+                        </div>
+                    </div>
+                    <div className="m-showcase-point" data-reveal="right" data-reveal-delay="3">
+                        <span className="num">03</span>
+                        <div>
+                            <h4>作りっぱなしにしない保守運用</h4>
+                            <p>月額¥980〜の3プランで、稼働監視からAI活用・MEO対策まで。あなたの塾の「Web担当者」として伴走します。</p>
+                        </div>
+                    </div>
+                    <div className="m-showcase-cta" data-reveal="up" data-reveal-delay="4">
+                        <a href="/service/hp-production" className="s-btn-primary m-btn-current">
+                            HP制作プランを詳しく見る
+                            <span className="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {/* ====== FOUNDER ====== */}
     <section className="s-manifesto s-founder" id="founder">
         <div className="s-container s-founder-inner">
-            <div className="s-founder-photo">
+            <div className="s-founder-photo" data-reveal="left">
                 <img src={founderImg} alt="吉井 勝彦" />
                 <div className="s-founder-photo-caption">
                     <span>Katsuhiko Yoshii</span>
                     <em>Founder &amp; CEO</em>
                 </div>
             </div>
-            <div>
+            <div data-reveal="right" data-reveal-delay="1">
                 <div className="s-manifesto-label">
                     <div>❦</div>
                     Our Belief — 01
@@ -410,7 +501,7 @@ export const HomeScholarly = () => {
     {/* ====== VOICE / TESTIMONIAL ====== */}
     <section className="s-voice" id="voice">
         <div className="s-container">
-            <div className="s-sec-head">
+            <div className="s-sec-head" data-reveal="up">
                 <div className="s-sec-num">CHAPTER II · 3つの約束</div>
                 <div className="s-sec-titles">
                     <h2>小さな塾に、<em>はじめから</em>寄り添うために。</h2>
@@ -419,7 +510,7 @@ export const HomeScholarly = () => {
             </div>
 
             <div className="s-voice-grid">
-                <div className="s-voice-card">
+                <div className="s-voice-card" data-reveal="up" data-reveal-delay="1">
                     <div className="s-voice-quote-mark">I</div>
                     <blockquote>
                         <strong>縛らない。</strong><br />
@@ -436,7 +527,7 @@ export const HomeScholarly = () => {
                     </footer>
                 </div>
 
-                <div className="s-voice-card">
+                <div className="s-voice-card" data-reveal="up" data-reveal-delay="2">
                     <div className="s-voice-quote-mark">II</div>
                     <blockquote>
                         <strong>まず、話す。</strong><br />
@@ -453,7 +544,7 @@ export const HomeScholarly = () => {
                     </footer>
                 </div>
 
-                <div className="s-voice-card">
+                <div className="s-voice-card" data-reveal="up" data-reveal-delay="3">
                     <div className="s-voice-quote-mark">III</div>
                     <blockquote>
                         <strong>代表が、直接。</strong><br />
@@ -476,7 +567,7 @@ export const HomeScholarly = () => {
     {/* ====== PRICING ====== */}
     <section className="s-pricing" id="pricing">
         <div className="s-container">
-            <div className="s-sec-head">
+            <div className="s-sec-head" data-reveal="up">
                 <div className="s-sec-num">CHAPTER III · 料金</div>
                 <div className="s-sec-titles">
                     <h2>"ちょうどいい"を、<em>一緒に見つける。</em></h2>
@@ -487,12 +578,12 @@ export const HomeScholarly = () => {
             </div>
 
             <div className="s-price-grid">
-                <div className="s-price-card">
+                <div className="s-price-card" data-reveal="up" data-reveal-delay="1">
                     <div className="s-price-label">Plan · 01</div>
                     <h3>単発スポット</h3>
                     <p className="s-price-blurb">まずは一度、現状を見てもらいたい方へ</p>
                     <div className="s-price-amount">
-                        <span className="amount">¥9,800</span>
+                        <span className="amount"><CountUp value={9800} prefix="¥" /></span>
                         <span className="unit">〜 / 回</span>
                     </div>
                     <ul className="s-price-features">
@@ -504,12 +595,12 @@ export const HomeScholarly = () => {
                     <button className="s-price-cta">相談してみる</button>
                 </div>
 
-                <div className="s-price-card featured">
+                <div className="s-price-card featured" data-reveal="up" data-reveal-delay="2">
                     <div className="s-price-label">Plan · 02  —  Recommended</div>
                     <h3>期間コンサル</h3>
                     <p className="s-price-blurb">伴走者として、本気で向き合うなら</p>
                     <div className="s-price-amount">
-                        <span className="amount">¥29,800</span>
+                        <span className="amount"><CountUp value={29800} prefix="¥" /></span>
                         <span className="unit">〜 / 月</span>
                     </div>
                     <ul className="s-price-features">
@@ -521,7 +612,7 @@ export const HomeScholarly = () => {
                     <button className="s-price-cta">詳しく話を聞く</button>
                 </div>
 
-                <div className="s-price-card">
+                <div className="s-price-card" data-reveal="up" data-reveal-delay="3">
                     <div className="s-price-label">Plan · 03</div>
                     <h3>顧問・年間契約</h3>
                     <p className="s-price-blurb">長期的な経営パートナーとして</p>
@@ -538,10 +629,10 @@ export const HomeScholarly = () => {
                 </div>
             </div>
 
-            {/* ====== Sub-pricing : HP保守・運用 ====== */}
-            <div className="s-sub-pricing">
-                <div className="s-sub-pricing-head">
-                    <div className="s-sub-num">HP Maintenance · Add-on</div>
+            {/* ====== Sub-pricing : HP保守・運用（3パターン / データ駆動） ====== */}
+            <div className="s-sub-pricing m-care" id="maintenance">
+                <div className="s-sub-pricing-head" data-reveal="up">
+                    <div className="s-sub-num">HP Maintenance · 3 Plans</div>
                     <h3>HP制作後の、<em>保守・運用プラン</em></h3>
                     <p>
                         作りっぱなしにしない。成長し続けるHPのために、月額¥980〜の保守プランをご用意しています。稼働監視から、AI活用・MEO対策まで。
@@ -549,56 +640,32 @@ export const HomeScholarly = () => {
                 </div>
 
                 <div className="s-sub-price-grid">
-                    <div className="s-sub-price-card">
-                        <div className="s-sub-price-tier">Insurance</div>
-                        <h4>ライト</h4>
-                        <div className="s-sub-price-amount">
-                            <span className="amount">¥980</span>
-                            <span className="unit">/ 月</span>
-                        </div>
-                        <ul className="s-sub-price-features">
-                            <li>稼働監視（自動）</li>
-                            <li>SSL期限チェック（自動）</li>
-                            <li>定期バックアップ作成（自動）</li>
-                            <li>データ保管・ストレージ管理</li>
-                            <li>月1回の更新代行（修正3回まで）</li>
-                        </ul>
-                        <p className="s-sub-price-note">※修正4回目以降は別途有償対応となります</p>
-                    </div>
-
-                    <div className="s-sub-price-card featured">
-                        <div className="s-sub-price-tier">Office Assistant</div>
-                        <h4>ベーシック</h4>
-                        <div className="s-sub-price-amount">
-                            <span className="amount">¥2,980</span>
-                            <span className="unit">/ 月</span>
-                        </div>
-                        <ul className="s-sub-price-features">
-                            <li>チャットでの更新・技術相談</li>
-                            <li>月4回の更新代行（各更新につき修正3回まで）</li>
-                            <li>お知らせ・画像・テキスト修正含む</li>
-                        </ul>
-                        <p className="s-sub-price-note">※ライトプランのすべての内容を含みます</p>
-                    </div>
-
-                    <div className="s-sub-price-card">
-                        <div className="s-sub-price-tier">Strategic Partner</div>
-                        <h4>アドバンス</h4>
-                        <div className="s-sub-price-amount">
-                            <span className="amount">¥29,800</span>
-                            <span className="unit">/ 月</span>
-                        </div>
-                        <ul className="s-sub-price-features">
-                            <li>AI活用支援（ブログ構成案提供等）</li>
-                            <li>MEO対策（Map順位監視）</li>
-                            <li>月1回Zoom定例会（30分）</li>
-                            <li>アクセス解析レポート送付</li>
-                        </ul>
-                        <p className="s-sub-price-note">※Web担当者の代替として機能します</p>
-                    </div>
+                    {MAINTENANCE_PLANS.map((plan, i) => {
+                        const isReco = plan.id === HOME_EMPHASIS.recommendedPlan;
+                        return (
+                            <div
+                                key={plan.id}
+                                className={`s-sub-price-card${isReco ? ' featured' : ''}`}
+                                data-reveal="up"
+                                data-reveal-delay={String(i + 1)}
+                            >
+                                {isReco && <span className="m-care-reco">いちばん選ばれています</span>}
+                                <div className="s-sub-price-tier">{plan.tierEn}</div>
+                                <h4>{plan.name}</h4>
+                                <div className="s-sub-price-amount">
+                                    <span className="amount"><CountUp value={plan.price} prefix="¥" /></span>
+                                    <span className="unit">/ 月</span>
+                                </div>
+                                <ul className="s-sub-price-features">
+                                    {plan.features.map(f => <li key={f}>{f}</li>)}
+                                </ul>
+                                <p className="s-sub-price-note">{plan.note}</p>
+                            </div>
+                        );
+                    })}
                 </div>
 
-                <p className="s-sub-price-cta-row">
+                <p className="s-sub-price-cta-row" data-reveal="up">
                     HP制作費は別途見積（初期¥19,800〜）。詳しくは
                     <a href="/service/hp-production">サービス詳細ページ</a>
                     をご覧ください。
@@ -610,7 +677,7 @@ export const HomeScholarly = () => {
     {/* ====== JOURNAL / BLOG ====== */}
     <section className="s-journal" id="journal">
         <div className="s-container">
-            <div className="s-journal-head">
+            <div className="s-journal-head" data-reveal="up">
                 <div>
                     <div className="s-sec-num">CHAPTER IV · 読みもの</div>
                     <h2>小さな塾のための、<em>思考のノート</em>。</h2>
@@ -618,7 +685,7 @@ export const HomeScholarly = () => {
                 <a href="https://note.com/katsu_yossy" target="_blank" rel="noopener" className="s-journal-more">noteですべての記事を読む →</a>
             </div>
 
-            <div className="s-journal-grid" id="journal-grid">
+            <div className="s-journal-grid" id="journal-grid" data-reveal="up" data-reveal-delay="1">
                 <a href="https://note.com/katsu_yossy/n/n773d255a24a6" target="_blank" rel="noopener" className="s-journal-card feat">
                     <div className="s-journal-thumb photo" style={{"backgroundImage": `url('https://assets.st-note.com/production/uploads/images/263326116/rectangle_large_type_2_27918fe56697697903911e638e4a2a5a.jpeg?fit=bounds&quality=85&width=1280')`}}>
                         <span className="s-journal-thumb-label">Featured · AI対話</span>
@@ -687,7 +754,7 @@ export const HomeScholarly = () => {
     {/* ====== COMPANY ====== */}
     <section className="s-company" id="company">
         <div className="s-container">
-            <div className="s-sec-head">
+            <div className="s-sec-head" data-reveal="up">
                 <div className="s-sec-num">CHAPTER V · 会社概要</div>
                 <div className="s-sec-titles">
                     <h2>About <em>EduShift</em>.</h2>
@@ -750,7 +817,7 @@ export const HomeScholarly = () => {
     {/* ====== FAQ ====== */}
     <section className="s-faq" id="faq">
         <div className="s-container">
-            <div className="s-sec-head">
+            <div className="s-sec-head" data-reveal="up">
                 <div className="s-sec-num">CHAPTER VI · よくあるご質問</div>
                 <div className="s-sec-titles">
                     <h2>ご相談の前に、<em>よくいただく問い</em>。</h2>
@@ -837,7 +904,7 @@ export const HomeScholarly = () => {
 
     {/* ====== FINAL CTA ====== */}
     <section className="s-final" id="contact">
-        <div className="s-container s-final-inner">
+        <div className="s-container s-final-inner" data-reveal="up">
             <div className="s-final-brand">Edu<em>Shift</em></div>
             <div className="s-final-eyebrow">— 最後に、ひとことだけ。</div>
             <h2>
@@ -849,7 +916,7 @@ export const HomeScholarly = () => {
                 "売り込み"は、ひとつもいたしません。情報収集のためだけでも、歓迎です。
             </p>
             <a href="mailto:info@edu-shift.com?subject=%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%81%AE%E4%BE%9D%E9%A0%BC&body=%E2%97%8B%E5%A1%BE%E5%90%8D%EF%BC%9A%0A%E2%97%8B%E5%9C%B0%E5%9F%9F%EF%BC%9A%0A%E2%97%8B%E7%94%9F%E5%BE%92%E6%95%B0%EF%BC%9A%0A%E2%97%8B%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%EF%BC%9A%0A" className="s-final-cta">
-                無料相談を予約する　→
+                無料相談を予約する{'　'}→
             </a>
         </div>
     </section>
