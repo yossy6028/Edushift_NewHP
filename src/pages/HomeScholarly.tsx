@@ -9,6 +9,7 @@ import { CountUp } from '../components/CountUp';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
 import { useReveal } from '../hooks/useReveal';
 import { MAINTENANCE_PLANS, HOME_EMPHASIS } from '../data/maintenancePlans';
+import { SCHOLARLY_SERVICES } from '../data/scholarlyServices';
 import '../styles/scholarly.css';
 import '../styles/modern.css';
 
@@ -40,6 +41,11 @@ const fmtDate = (iso?: string) => {
 
 const escapeHtml = (s: string) =>
     s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// '¥19,800' → 19800（CountUpアニメーション用）
+const priceToNumber = (price: string) => Number(price.replace(/[^0-9]/g, ''));
+
+const HP_PRICING = SCHOLARLY_SERVICES['hp-production'].pricingBlock;
 
 export const HomeScholarly = () => {
     const [navOpen, setNavOpen] = useState(false);
@@ -449,6 +455,44 @@ export const HomeScholarly = () => {
                     </div>
                 </div>
             </div>
+
+            {/* ---- HP制作料金 3プラン（データはサービス詳細と共通） ---- */}
+            {HP_PRICING && (
+                <div className="m-build-pricing" id="hp-pricing">
+                    <div className="m-build-pricing-head" data-reveal="up">
+                        <div className="s-sec-num">HP Production · 3 Plans</div>
+                        <h3>HP制作料金、<em>3つのプラン</em>。</h3>
+                        <p>{HP_PRICING.lede}</p>
+                    </div>
+                    <div className="m-build-price-grid">
+                        {HP_PRICING.tiers.map((tier, i) => (
+                            <div
+                                key={tier.name}
+                                className={`m-build-price-card${tier.recommended ? ' featured' : ''}`}
+                                data-reveal="up"
+                                data-reveal-delay={String(i + 1)}
+                            >
+                                {tier.recommended && <span className="m-care-reco">おすすめ</span>}
+                                <h4>{tier.name}</h4>
+                                <p className="m-build-blurb">{tier.blurb}</p>
+                                <div className="s-sub-price-amount">
+                                    <span className="amount"><CountUp value={priceToNumber(tier.price)} prefix="¥" /></span>
+                                    {tier.priceUnit && <span className="unit">{tier.priceUnit} · 初期費用</span>}
+                                </div>
+                                <ul className="s-sub-price-features">
+                                    {tier.features.map(f => <li key={f}>{f}</li>)}
+                                </ul>
+                                {tier.notes?.map(n => (
+                                    <p key={n} className="s-sub-price-note">{n}</p>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
+                    <p className="m-build-footnote" data-reveal="up">
+                        公開後の保守・運用は<a href="#maintenance">月額¥980〜の3プラン</a>をご用意しています。
+                    </p>
+                </div>
+            )}
         </div>
     </section>
 
