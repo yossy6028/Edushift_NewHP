@@ -1,70 +1,51 @@
-import { useCallback, useRef, useState } from 'react';
+import { useState } from 'react';
 
 type BeforeAfterSliderProps = {
-    /** One combined image: left half = before, right half = after */
-    src: string;
+    /** Two independent, fully self-contained panel images (each already carries its own label) */
+    beforeSrc: string;
+    afterSrc: string;
     alt: string;
 };
 
 /**
- * Interactive before/after comparison.
- * The combined asset is split in two by rendering it at 200% width twice
- * (left half / right half); the "after" layer is clipped at the handle.
- * Draggable by pointer, and keyboard-accessible through a hidden range input.
+ * Before/After comparison. Unlike a drag-slider — which only makes sense when
+ * both images share identical framing (e.g. a photo color grade) — these two
+ * panels are independent page mockups, each complete with its own title and
+ * annotation labels. Dragging a divider across them would always crop one
+ * label mid-word, so this toggles between the two FULL images with a crossfade
+ * instead, guaranteeing neither is ever cut off.
  */
-export const BeforeAfterSlider = ({ src, alt }: BeforeAfterSliderProps) => {
-    const [pos, setPos] = useState(50);
-    const frameRef = useRef<HTMLDivElement>(null);
-    const dragging = useRef(false);
-
-    const moveTo = useCallback((clientX: number) => {
-        const frame = frameRef.current;
-        if (!frame) return;
-        const rect = frame.getBoundingClientRect();
-        const pct = ((clientX - rect.left) / rect.width) * 100;
-        setPos(Math.min(97, Math.max(3, pct)));
-    }, []);
-
-    const onPointerDown = (e: React.PointerEvent) => {
-        dragging.current = true;
-        (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
-        moveTo(e.clientX);
-    };
-    const onPointerMove = (e: React.PointerEvent) => {
-        if (dragging.current) moveTo(e.clientX);
-    };
-    const endDrag = () => { dragging.current = false; };
+export const BeforeAfterSlider = ({ beforeSrc, afterSrc, alt }: BeforeAfterSliderProps) => {
+    const [showAfter, setShowAfter] = useState(true);
 
     return (
-        <div
-            ref={frameRef}
-            className="ba-frame"
-            style={{ ['--ba-pos' as string]: `${pos}%` }}
-            onPointerDown={onPointerDown}
-            onPointerMove={onPointerMove}
-            onPointerUp={endDrag}
-            onPointerLeave={endDrag}
-        >
-            <div className="ba-layer ba-before" aria-hidden="true">
-                <img src={src} alt="" draggable={false} />
+        <div className="ba-wrap">
+            <div className="ba-frame">
+                <div className="ba-layer ba-before" aria-hidden={showAfter}>
+                    <img src={beforeSrc} alt="" draggable={false} />
+                </div>
+                <div className={`ba-layer ba-after${showAfter ? ' is-visible' : ''}`} aria-hidden={!showAfter}>
+                    <img src={afterSrc} alt={alt} draggable={false} />
+                </div>
             </div>
-            <div className="ba-layer ba-after">
-                <img src={src} alt={alt} draggable={false} />
+            <div className="ba-toggle" role="group" aria-label="Before / After 切り替え">
+                <button
+                    type="button"
+                    className={`ba-toggle-btn${!showAfter ? ' is-active' : ''}`}
+                    onClick={() => setShowAfter(false)}
+                    aria-pressed={!showAfter}
+                >
+                    Before
+                </button>
+                <button
+                    type="button"
+                    className={`ba-toggle-btn${showAfter ? ' is-active' : ''}`}
+                    onClick={() => setShowAfter(true)}
+                    aria-pressed={showAfter}
+                >
+                    After
+                </button>
             </div>
-            <div className="ba-handle" aria-hidden="true">
-                <span className="ba-handle-grip">⇔</span>
-            </div>
-            <span className="ba-tag ba-tag-before" aria-hidden="true">Before</span>
-            <span className="ba-tag ba-tag-after" aria-hidden="true">After</span>
-            <input
-                type="range"
-                className="ba-range"
-                min={3}
-                max={97}
-                value={Math.round(pos)}
-                aria-label="Before / After の表示割合"
-                onChange={e => setPos(Number(e.target.value))}
-            />
         </div>
     );
 };

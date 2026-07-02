@@ -791,95 +791,71 @@
     text-underline-offset: 4px;
 }
 
-/* Before/After slider */
+/* Before/After toggle — two full, independent panels crossfaded (never cropped) */
 .theme-scholarly .ba-frame {
     position: relative;
-    aspect-ratio: 640 / 589;
+    aspect-ratio: 585 / 610;
     overflow: hidden;
     border-radius: 14px;
     border: 1px solid var(--m-glass-line);
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-    touch-action: none;
-    user-select: none;
     background: #0e1c38;
 }
 
 .theme-scholarly .ba-layer {
     position: absolute;
     inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.theme-scholarly .ba-layer.ba-before {
+    opacity: 1;
+}
+
+.theme-scholarly .ba-layer.ba-after.is-visible {
+    opacity: 1;
 }
 
 .theme-scholarly .ba-layer img {
-    position: absolute;
-    width: 200%;
-    height: auto;
-    max-width: none;
-    top: -21.2%;
-    pointer-events: none;
-}
-
-.theme-scholarly .ba-before img { left: 0; }
-
-.theme-scholarly .ba-after {
-    clip-path: inset(0 0 0 var(--ba-pos, 50%));
-}
-
-.theme-scholarly .ba-after img { left: -100%; }
-
-.theme-scholarly .ba-handle {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: var(--ba-pos, 50%);
-    width: 2px;
-    background: var(--m-current);
-    box-shadow: 0 0 20px rgba(0, 164, 168, 0.8);
-    pointer-events: none;
-}
-
-.theme-scholarly .ba-handle-grip {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--m-current);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-}
-
-.theme-scholarly .ba-tag {
-    position: absolute;
-    top: 14px;
-    font-family: var(--s-serif-en);
-    font-style: italic;
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    padding: 4px 12px;
-    border-radius: 999px;
-    background: rgba(7, 16, 34, 0.72);
-    color: var(--m-cream);
-    backdrop-filter: blur(6px);
-    pointer-events: none;
-}
-
-.theme-scholarly .ba-tag-before { left: 14px; }
-.theme-scholarly .ba-tag-after { right: 14px; color: var(--m-teal-bright); }
-
-.theme-scholarly .ba-range {
-    position: absolute;
-    inset: 0;
+    display: block;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    cursor: ew-resize;
-    margin: 0;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.theme-scholarly .ba-toggle {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 4px;
+    border-radius: 999px;
+    background: var(--m-glass);
+    border: 1px solid var(--m-glass-line);
+    gap: 2px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.theme-scholarly .ba-toggle-btn {
+    padding: 8px 22px;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: var(--m-cream-dim);
+    font-family: var(--s-serif-en);
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.theme-scholarly .ba-toggle-btn.is-active {
+    background: var(--m-current);
+    color: #fff;
 }
 
 /* ---------- 保守・運用プラン (night section) ---------- */

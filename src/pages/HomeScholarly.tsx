@@ -3,7 +3,8 @@ import logoImg from '../assets/logo-shift-mark.png';
 import founderImg from '../assets/founder.webp';
 import heroDeskImg from '../assets/hero-desk.jpeg';
 import paperFlatlayImg from '../assets/hero-paper-flatlay.jpeg';
-import hpBeforeAfterImg from '../assets/hp-before-after.jpg';
+import hpBeforePanelImg from '../assets/hp-before-panel.jpg';
+import hpAfterPanelImg from '../assets/hp-after-panel.jpg';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { CountUp } from '../components/CountUp';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
@@ -429,13 +430,14 @@ export const HomeScholarly = () => {
                 <div className="s-sec-num">SHOWCASE · HP制作の実力</div>
                 <h2>同じ塾でも、<em>デザインで、ここまで変わる</em>。</h2>
                 <p className="m-showcase-lede">
-                    私たち自身がHP制作のプロであることを、言葉ではなく実物でお見せします。中央のバーを左右にドラッグして、Before / Afterを比べてみてください。
+                    私たち自身がHP制作のプロであることを、言葉ではなく実物でお見せします。下のボタンでBefore / Afterを切り替えて、変化を見比べてみてください。
                 </p>
             </div>
             <div className="m-showcase-grid">
                 <div data-reveal="left">
                     <BeforeAfterSlider
-                        src={hpBeforeAfterImg}
+                        beforeSrc={hpBeforePanelImg}
+                        afterSrc={hpAfterPanelImg}
                         alt="同じ内容の塾HPを、コピーとデザインの改善でどこまで変えられるかのBefore/After比較"
                     />
                     <p className="m-showcase-note">※同じ掲載内容・1ページ内での比較（Before: 写真なし / After: 写真あり）</p>
