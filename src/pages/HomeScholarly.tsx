@@ -5,6 +5,7 @@ import heroDeskImg from '../assets/hero-desk.jpeg';
 import paperFlatlayImg from '../assets/hero-paper-flatlay.jpeg';
 import hpBeforePanelImg from '../assets/hp-before-panel.jpg';
 import hpAfterPanelImg from '../assets/hp-after-panel.jpg';
+import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { CountUp } from '../components/CountUp';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
@@ -559,6 +560,31 @@ export const HomeScholarly = () => {
                     </p>
                 </div>
             )}
+        </div>
+    </section>
+
+    {/* ====== DEV WORKS : 開発実績(自動添削) ====== */}
+    <section className="m-devworks" id="devworks">
+        <div className="s-container">
+            <div className="s-sec-head" data-reveal="up">
+                <div className="s-sec-num">DEV WORKS · 自社開発SaaS</div>
+                <div className="s-sec-titles">
+                    <h2>作れることの証明は、<em>作ったもの</em>で。</h2>
+                </div>
+            </div>
+            <div className="m-devworks-card" data-reveal="up">
+                <a href="https://auto-tensaku-system.vercel.app/" target="_blank" rel="noopener" className="m-devworks-shot">
+                    <img src={autoTensakuImg} alt="国語記述 自動添削システムの画面" loading="lazy" />
+                </a>
+                <div className="m-devworks-body">
+                    <h3>国語記述 自動添削システム</h3>
+                    <p>中学受験国語の記述答案を、AIが数十秒で添削・採点。企画から開発・運用まで、EduShiftが自社で行っているWebサービスです。この開発力で、あなたの塾専用のツールを作ります。</p>
+                    <div className="m-devworks-links">
+                        <a href="https://auto-tensaku-system.vercel.app/" target="_blank" rel="noopener" className="s-btn-ghost">サービスを見る ↗</a>
+                        <a href="/service/dx-development" className="s-service-link">塾DX・ツール開発について →</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
