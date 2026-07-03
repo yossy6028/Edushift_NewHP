@@ -430,7 +430,7 @@ export const HomeScholarly = () => {
 
                 <div className="s-service-bridge" data-reveal="up">
                     <span className="s-bridge-rule">— and the tools that make it real —</span>
-                    <h4>ふたつの柱を、<em>AI</em> と <em>Web</em> の力で、今日から実装する。</h4>
+                    <h4>三本の柱を、<em>AI</em> と <em>Web</em> の力で、今日から実装する。</h4>
                 </div>
 
                 <div className="s-service-card tool" data-reveal="left" data-reveal-delay="1">
