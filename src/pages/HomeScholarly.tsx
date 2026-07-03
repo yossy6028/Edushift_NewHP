@@ -577,8 +577,8 @@ export const HomeScholarly = () => {
                     <img src={autoTensakuImg} alt="国語記述 自動添削システムの画面" loading="lazy" />
                 </a>
                 <div className="m-devworks-body">
-                    <h3>国語記述 自動添削システム</h3>
-                    <p>中学受験国語の記述答案を、AIが数十秒で添削・採点。企画から開発・運用まで、EduShiftが自社で行っているWebサービスです。この開発力で、あなたの塾専用のツールを作ります。</p>
+                    <h3>Taskal AI — 国語記述 自動添削システム</h3>
+                    <p>中学・高校受験の国語記述答案を、AIが数十秒で添削・採点。企画から開発・運用まで、EduShiftが自社で行っているWebサービスです。この開発力で、あなたの塾専用のツールを作ります。</p>
                     <div className="m-devworks-links">
                         <a href="https://auto-tensaku-system.vercel.app/" target="_blank" rel="noopener" className="s-btn-ghost">サービスを見る ↗</a>
                         <a href="/service/dx-development" className="s-service-link">塾DX・ツール開発について →</a>

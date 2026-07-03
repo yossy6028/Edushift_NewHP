@@ -258,7 +258,7 @@ export const SCHOLARLY_SERVICES: Record<string, ServiceContent> = {
             {
                 label: 'Dev Works',
                 heading: '開発実績 — 国語記述 自動添削システム',
-                body: '中学受験国語の記述答案をAIが数十秒で添削・採点するWebサービスを、企画から設計・開発・運用まで自社で行っています。答案の撮影アップロードから採点根拠の提示、講師による確認フローまで一気通貫。「フル」プランでは、この規模のWebアプリケーション開発をお受けします。デモは auto-tensaku-system.vercel.app からお試しいただけます。',
+                body: '中学・高校受験の国語記述答案をAIが数十秒で添削・採点するWebサービス「Taskal AI」を、企画から設計・開発・運用まで自社で行っています。答案の撮影アップロードから採点根拠の提示、講師による確認フローまで一気通貫。「フル」プランでは、この規模のWebアプリケーション開発をお受けします。デモは auto-tensaku-system.vercel.app からお試しいただけます。',
             },
             {
                 label: 'Process',
