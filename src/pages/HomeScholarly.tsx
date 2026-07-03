@@ -246,19 +246,18 @@ export const HomeScholarly = () => {
                     <span>小さな塾と、フリーランス講師の伴走者 — since 2024</span>
                 </div>
                 <h1>
-                    <span className="m-line"><span><span className="s-accent-line">小さな塾</span>と、</span></span><br />
-                    <span className="m-line"><span><span className="s-accent-line">フリーランス講師</span>を、</span></span><br />
-                    <span className="m-line"><span>AIとWebで支える。</span></span>
-                    <small>EduShift — A long-form partner for small schools and independent tutors, powered by AI &amp; Web.</small>
+                    <span className="m-line"><span><span className="s-accent-line">小さな塾</span>の"デジタル"を、</span></span><br />
+                    <span className="m-line"><span>まるごと。</span></span>
+                    <small>EduShift — HP, in-house tools and AI, all under one roof for small schools and independent tutors.</small>
                 </h1>
                 <div className="m-hero-bottom">
                     <div>
                         <p className="s-hero-body">
-                            経営、集客、事務、保護者対応、教材づくり——。本当は、生徒と向き合う時間がいちばん長いはずでした。EduShiftは、教える人の"周辺"をテクノロジーで軽くします。
+                            HPも、業務アプリも、教材も。自動添削SaaSを自社開発するEduShiftが、あなたの塾の「IT部門」になります。経営、集客、事務、保護者対応——教える人の"周辺"を、テクノロジーで軽くします。
                         </p>
                         <div className="m-aieo">
-                            <span className="m-aieo-tag">NEW · AIEO対策</span>
-                            <strong>AIに読まれるHPを作ります。</strong>
+                            <span className="m-aieo-tag">NEW · 塾DX</span>
+                            <strong>塾専用ツールを、¥19,800から開発します。</strong>
                         </div>
                         <div className="s-hero-cta">
                             <a href="#contact" className="s-btn-primary m-btn-current" data-magnetic>
@@ -268,7 +267,7 @@ export const HomeScholarly = () => {
                             <a href="#services" className="s-btn-ghost">サービスを見る</a>
                         </div>
                     </div>
-                    <div className="s-hero-mini-chips m-chips-row" aria-label="EduShiftが向き合う2つの対象と、2つの実装手段">
+                    <div className="s-hero-mini-chips m-chips-row" aria-label="EduShiftの3つの柱と実装手段">
                         <div className="s-mini-chip" data-reveal="up" data-reveal-delay="1">
                             <span className="num">Pillar · 01</span>
                             <span className="label">小規模塾</span>
@@ -277,13 +276,13 @@ export const HomeScholarly = () => {
                             <span className="num">Pillar · 02</span>
                             <span className="label">独立する先生</span>
                         </div>
-                        <div className="s-mini-chip tool" data-reveal="up" data-reveal-delay="3">
-                            <span className="num">Tool · 01</span>
-                            <span className="label">AI</span>
+                        <div className="s-mini-chip" data-reveal="up" data-reveal-delay="3">
+                            <span className="num">Pillar · 03</span>
+                            <span className="label">塾DX・開発</span>
                         </div>
                         <div className="s-mini-chip tool" data-reveal="up" data-reveal-delay="4">
-                            <span className="num">Tool · 02</span>
-                            <span className="label">Web</span>
+                            <span className="num">Tools</span>
+                            <span className="label">AI × Web</span>
                         </div>
                     </div>
                 </div>
