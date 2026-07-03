@@ -211,6 +211,7 @@ export const HomeScholarly = () => {
                     HP制作
                     <span className="m-nav-hp-badge">{HOME_EMPHASIS.hpNavBadge}</span>
                 </a>
+                <a href="/service/dx-development" onClick={closeNav}>ツール開発</a>
                 <a href="#founder" onClick={closeNav}>代表</a>
                 <a href="#journal" onClick={closeNav}>ブログ</a>
                 <a href="https://note.com/katsu_yossy" target="_blank" rel="noopener" className="s-nav-ext" aria-label="noteを別タブで開く" onClick={closeNav}>note<span className="s-nav-ext-arrow" aria-hidden="true">↗</span></a>
@@ -1079,6 +1080,7 @@ export const HomeScholarly = () => {
                         <li><a href="/service/ai-consulting">AI導入コンサル</a></li>
                         <li><a href="/service/freelance-support">独立支援</a></li>
                         <li><a href="/service/hp-production">HP制作・運用</a></li>
+                        <li><a href="/service/dx-development">塾DX・ツール開発</a></li>
                     </ul>
                 </div>
                 <div>
