@@ -570,7 +570,7 @@ export const HomeScholarly = () => {
             <div className="s-sec-head" data-reveal="up">
                 <div className="s-sec-num">DEV WORKS · 自社開発SaaS</div>
                 <div className="s-sec-titles">
-                    <h2>作れることの証明は、<em>作ったもの</em>で。</h2>
+                    <h2>あなたの指導に合わせた、<em>専用ツール</em>を作ります。</h2>
                 </div>
             </div>
             <div className="m-devworks-card" data-reveal="up">
