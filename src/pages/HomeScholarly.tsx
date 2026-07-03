@@ -624,8 +624,8 @@ export const HomeScholarly = () => {
                     <blockquote>
                         <strong>縛らない。</strong><br />
                         <br />
-                        期間コンサルは月単位で継続・解約が可能。<br />
-                        顧問契約は個別の契約書に基づき、中途の取り扱いもその場で明文化します。
+                        月額コンサル(ライト/スタンダード/フル)は月単位で継続・解約が可能。<br />
+                        契約条件は書面で明文化し、縛りは設けません。
                     </blockquote>
                     <footer>
                         <div className="s-voice-avatar">①</div>
@@ -951,7 +951,7 @@ export const HomeScholarly = () => {
                     </summary>
                     <div className="s-faq-a">
                         <span className="s-faq-a-marker">A.</span>
-                        ございません。期間コンサル（¥29,800/月〜）は月単位で継続・解約が可能です。顧問・年間契約の中途解約については、個別の契約書に定める条件に従います。<br />
+                        ございません。月額コンサル（ライト¥14,800〜フル¥49,800/月）はすべて月単位で継続・解約が可能です。<br />
                         <small style={{"color": `var(--s-ink-500)`}}>※ ご入金後の返金は、当方の都合でサービス提供できなくなった場合を除き、原則お受けしておりません。</small>
                     </div>
                 </details>
@@ -1012,7 +1012,7 @@ export const HomeScholarly = () => {
                     </summary>
                     <div className="s-faq-a">
                         <span className="s-faq-a-marker">A.</span>
-                        単発スポットはご入金確認後、日程調整の上で実施します。期間コンサル・顧問契約は、契約締結後に合意した開始日から提供を開始します。サービス内容は、<a href="#services" style={{"color": `var(--s-teal-deep)`}}>3つのサービス</a>（コンサルティング／アプリ・ツール制作／HP制作・運用）の中から、現状と目的に合わせてご提案します。
+                        単発スポットはご入金確認後、日程調整の上で実施します。月額コンサルは、お申し込み後に合意した開始日から提供を開始します。サービス内容は、<a href="#services" style={{"color": `var(--s-teal-deep)`}}>3つのサービス</a>（コンサルティング／アプリ・ツール制作／HP制作・運用）の中から、現状と目的に合わせてご提案します。
                     </div>
                 </details>
             </div>
