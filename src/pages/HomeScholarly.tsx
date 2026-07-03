@@ -258,8 +258,8 @@ export const HomeScholarly = () => {
                             HPも、業務アプリも、教材も。自動添削SaaSを自社開発するEduShiftが、あなたの塾の「IT部門」になります。経営、集客、事務、保護者対応——教える人の"周辺"を、テクノロジーで軽くします。
                         </p>
                         <div className="m-aieo">
-                            <span className="m-aieo-tag">NEW · 塾DX</span>
-                            <strong>塾専用ツールを、¥19,800から開発します。</strong>
+                            <span className="m-aieo-tag">HP制作 × 塾DX</span>
+                            <strong>AIに読まれるHPも、塾専用ツールも、¥19,800から。</strong>
                         </div>
                         <div className="s-hero-cta">
                             <a href="#contact" className="s-btn-primary m-btn-current" data-magnetic>
@@ -1033,7 +1033,7 @@ export const HomeScholarly = () => {
                     </summary>
                     <div className="s-faq-a">
                         <span className="s-faq-a-marker">A.</span>
-                        単発スポットはご入金確認後、日程調整の上で実施します。期間コンサル・顧問契約は、契約締結後に合意した開始日から提供を開始します。サービス内容は、<a href="#services" style={{"color": `var(--s-teal-deep)`}}>4つのサービス</a>（小規模塾経営サポート／AI導入コンサル／独立支援／HP制作・運用）の中から、現状と目的に合わせてご提案します。
+                        単発スポットはご入金確認後、日程調整の上で実施します。期間コンサル・顧問契約は、契約締結後に合意した開始日から提供を開始します。サービス内容は、<a href="#services" style={{"color": `var(--s-teal-deep)`}}>5つのサービス</a>（小規模塾経営サポート／AI導入コンサル／独立支援／HP制作・運用／塾専用ツール開発）の中から、現状と目的に合わせてご提案します。
                     </div>
                 </details>
             </div>

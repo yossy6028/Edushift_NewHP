@@ -3238,8 +3238,28 @@ html[data-theme="scholarly"] body {
             margin-bottom: 72px;
         }
 
+        /* ナビ項目増(ツール開発追加)に伴う中間幅での溢れ防止 */
+        @media (max-width: 1439px) {
+            .s-nav {
+                gap: 24px;
+            }
+
+            .s-nav a {
+                font-size: 13px;
+            }
+        }
+
         /* Responsive trim */
         @media (max-width: 900px) {
+
+            .s-service-grid.has-pillars {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .s-service-grid.has-pillars .s-service-card.pillar,
+            .s-service-grid.has-pillars .s-service-card.tool {
+                grid-column: auto;
+            }
 
             .s-hero-inner,
             .s-manifesto-inner,
