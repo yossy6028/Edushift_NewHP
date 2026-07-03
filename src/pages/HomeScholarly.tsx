@@ -248,14 +248,14 @@ export const HomeScholarly = () => {
                     <span>小さな塾と、フリーランス講師の伴走者 — since 2024</span>
                 </div>
                 <h1>
-                    <span className="m-line"><span><span className="s-accent-line">小さな塾</span>の"デジタル"を、</span></span><br />
-                    <span className="m-line"><span>まるごと。</span></span>
-                    <small>EduShift — HP, in-house tools and AI, all under one roof for small schools and independent tutors.</small>
+                    <span className="m-line"><span><span className="s-accent-line">教える時間</span>を、</span></span><br />
+                    <span className="m-line"><span>取り戻す。</span></span>
+                    <small>EduShift — giving teachers their time back, with web, custom tools and AI.</small>
                 </h1>
                 <div className="m-hero-bottom">
                     <div>
                         <p className="s-hero-body">
-                            HPも、業務アプリも、教材も。自動添削SaaSを自社開発するEduShiftが、あなたの塾の「IT部門」になります。経営、集客、事務、保護者対応——教える人の"周辺"を、テクノロジーで軽くします。
+                            集客も、事務も、教材づくりも——ひとりで抱える"教える以外"を、HP・専用ツール・AIで軽くします。自動添削SaaSを自社開発するEduShiftが、あなたの塾の「IT部門」として伴走します。
                         </p>
                         <div className="m-aieo">
                             <span className="m-aieo-tag">HP制作 × 塾DX</span>
