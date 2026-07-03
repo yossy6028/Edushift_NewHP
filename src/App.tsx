@@ -38,6 +38,9 @@ function App() {
         <Route element={<StandaloneLayout />}>
           {/* Primary site (Scholarly Navy) */}
           <Route path="/" element={<HomeScholarly />} />
+          <Route path="/service/school-support" element={<Navigate to="/service/consulting" replace />} />
+          <Route path="/service/freelance-support" element={<Navigate to="/service/consulting" replace />} />
+          <Route path="/service/ai-consulting" element={<Navigate to="/service/consulting" replace />} />
           <Route path="/service/:slug" element={<ServiceDetailScholarly />} />
           <Route path="/business-law" element={<BusinessLawScholarly />} />
           <Route path="/privacypolicy" element={<PrivacyPolicyScholarly />} />
