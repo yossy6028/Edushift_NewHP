@@ -5,6 +5,7 @@ import heroDeskImg from '../assets/hero-desk.jpeg';
 import paperFlatlayImg from '../assets/hero-paper-flatlay.jpeg';
 import hpBeforePanelImg from '../assets/hp-before-panel.jpg';
 import hpAfterPanelImg from '../assets/hp-after-panel.jpg';
+import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { CountUp } from '../components/CountUp';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
@@ -210,6 +211,7 @@ export const HomeScholarly = () => {
                     HP制作
                     <span className="m-nav-hp-badge">{HOME_EMPHASIS.hpNavBadge}</span>
                 </a>
+                <a href="/service/dx-development" onClick={closeNav}>ツール開発</a>
                 <a href="#founder" onClick={closeNav}>代表</a>
                 <a href="#journal" onClick={closeNav}>ブログ</a>
                 <a href="https://note.com/katsu_yossy" target="_blank" rel="noopener" className="s-nav-ext" aria-label="noteを別タブで開く" onClick={closeNav}>note<span className="s-nav-ext-arrow" aria-hidden="true">↗</span></a>
@@ -246,19 +248,18 @@ export const HomeScholarly = () => {
                     <span>小さな塾と、フリーランス講師の伴走者 — since 2024</span>
                 </div>
                 <h1>
-                    <span className="m-line"><span><span className="s-accent-line">小さな塾</span>と、</span></span><br />
-                    <span className="m-line"><span><span className="s-accent-line">フリーランス講師</span>を、</span></span><br />
-                    <span className="m-line"><span>AIとWebで支える。</span></span>
-                    <small>EduShift — A long-form partner for small schools and independent tutors, powered by AI &amp; Web.</small>
+                    <span className="m-line"><span><span className="s-accent-line">小さな塾</span>の"デジタル"を、</span></span><br />
+                    <span className="m-line"><span>まるごと。</span></span>
+                    <small>EduShift — HP, in-house tools and AI, all under one roof for small schools and independent tutors.</small>
                 </h1>
                 <div className="m-hero-bottom">
                     <div>
                         <p className="s-hero-body">
-                            経営、集客、事務、保護者対応、教材づくり——。本当は、生徒と向き合う時間がいちばん長いはずでした。EduShiftは、教える人の"周辺"をテクノロジーで軽くします。
+                            HPも、業務アプリも、教材も。自動添削SaaSを自社開発するEduShiftが、あなたの塾の「IT部門」になります。経営、集客、事務、保護者対応——教える人の"周辺"を、テクノロジーで軽くします。
                         </p>
                         <div className="m-aieo">
-                            <span className="m-aieo-tag">NEW · AIEO対策</span>
-                            <strong>AIに読まれるHPを作ります。</strong>
+                            <span className="m-aieo-tag">HP制作 × 塾DX</span>
+                            <strong>AIに読まれるHPも、塾専用ツールも、¥19,800から。</strong>
                         </div>
                         <div className="s-hero-cta">
                             <a href="#contact" className="s-btn-primary m-btn-current" data-magnetic>
@@ -268,7 +269,7 @@ export const HomeScholarly = () => {
                             <a href="#services" className="s-btn-ghost">サービスを見る</a>
                         </div>
                     </div>
-                    <div className="s-hero-mini-chips m-chips-row" aria-label="EduShiftが向き合う2つの対象と、2つの実装手段">
+                    <div className="s-hero-mini-chips m-chips-row" aria-label="EduShiftの3つの柱と実装手段">
                         <div className="s-mini-chip" data-reveal="up" data-reveal-delay="1">
                             <span className="num">Pillar · 01</span>
                             <span className="label">小規模塾</span>
@@ -277,13 +278,13 @@ export const HomeScholarly = () => {
                             <span className="num">Pillar · 02</span>
                             <span className="label">独立する先生</span>
                         </div>
-                        <div className="s-mini-chip tool" data-reveal="up" data-reveal-delay="3">
-                            <span className="num">Tool · 01</span>
-                            <span className="label">AI</span>
+                        <div className="s-mini-chip" data-reveal="up" data-reveal-delay="3">
+                            <span className="num">Pillar · 03</span>
+                            <span className="label">塾DX・開発</span>
                         </div>
                         <div className="s-mini-chip tool" data-reveal="up" data-reveal-delay="4">
-                            <span className="num">Tool · 02</span>
-                            <span className="label">Web</span>
+                            <span className="num">Tools</span>
+                            <span className="label">AI × Web</span>
                         </div>
                     </div>
                 </div>
@@ -299,10 +300,11 @@ export const HomeScholarly = () => {
                 <span key={i}>
                     <span>AI × Education</span>
                     <span>HP制作 ¥19,800〜</span>
+                    <span>ツール開発 ¥19,800〜</span>
                     <span>保守運用 ¥980/月〜</span>
+                    <span>自動添削システム 自社開発</span>
                     <span>小規模塾経営サポート</span>
                     <span>フリーランス独立支援</span>
-                    <span>AIEO — AIに読まれるHPへ</span>
                     <span>EduShift</span>
                 </span>
             ))}
@@ -372,11 +374,11 @@ export const HomeScholarly = () => {
     <section className="s-services" id="services">
         <div className="s-container">
             <div className="s-sec-head" data-reveal="up">
-                <div className="s-sec-num">CHAPTER I · 2 Pillars × 2 Tools</div>
+                <div className="s-sec-num">CHAPTER I · 3 Pillars × 2 Tools</div>
                 <div className="s-sec-titles">
-                    <h2><em>小規模塾</em>と、<em>独立する先生</em>を、<br />テクノロジーで実践する。</h2>
+                    <h2><em>経営</em>も、<em>独立</em>も、<em>開発</em>も。<br />テクノロジーで実践する。</h2>
                     <p className="s-sec-lede">
-                        <strong>EduShift</strong> が本気で向き合う対象は、この2つ。「小規模塾の経営」と「一人で独立する先生の成長」——その両方を、AIとWebの力で実現します。
+                        <strong>EduShift</strong> の柱は3本。「小規模塾の経営」「独立する先生の成長」、そして「塾専用ツールの開発」——AIとWebの力で、教える人の毎日を実装します。
                     </p>
                 </div>
             </div>
@@ -410,9 +412,27 @@ export const HomeScholarly = () => {
                     <a href="/service/freelance-support" className="s-service-link">詳しく読む →</a>
                 </div>
 
+                <div className="s-service-card pillar" data-reveal="up">
+                    <div className="s-service-num">Pillar · 03</div>
+                    <h3>塾DX・ツール開発</h3>
+                    <div className="s-service-en">School DX &amp; Development</div>
+                    <p>初期¥19,800〜+月額。報告書自動化などの単機能ツールから、自動添削システム級のWebアプリまで。あなたの塾専用の道具を、作って育てます。</p>
+                    <div className="m-hp-prices">
+                        <span className="m-hp-price-chip">開発 ¥19,800〜</span>
+                        <span className="m-hp-price-chip">月額 ¥980〜</span>
+                        <span className="m-hp-price-chip">自動添削SaaS 自社開発</span>
+                    </div>
+                    <div className="s-service-tags">
+                        <span className="s-service-tag">バックオフィス</span>
+                        <span className="s-service-tag">教材制作</span>
+                        <span className="s-service-tag tech">指導サポートAI</span>
+                    </div>
+                    <a href="/service/dx-development" className="s-service-link">詳しく読む →</a>
+                </div>
+
                 <div className="s-service-bridge" data-reveal="up">
                     <span className="s-bridge-rule">— and the tools that make it real —</span>
-                    <h4>ふたつの柱を、<em>AI</em> と <em>Web</em> の力で、今日から実装する。</h4>
+                    <h4>三本の柱を、<em>AI</em> と <em>Web</em> の力で、今日から実装する。</h4>
                 </div>
 
                 <div className="s-service-card tool" data-reveal="left" data-reveal-delay="1">
@@ -541,6 +561,31 @@ export const HomeScholarly = () => {
                     </p>
                 </div>
             )}
+        </div>
+    </section>
+
+    {/* ====== DEV WORKS : 開発実績(自動添削) ====== */}
+    <section className="m-devworks" id="devworks">
+        <div className="s-container">
+            <div className="s-sec-head" data-reveal="up">
+                <div className="s-sec-num">DEV WORKS · 自社開発SaaS</div>
+                <div className="s-sec-titles">
+                    <h2>作れることの証明は、<em>作ったもの</em>で。</h2>
+                </div>
+            </div>
+            <div className="m-devworks-card" data-reveal="up">
+                <a href="https://auto-tensaku-system.vercel.app/" target="_blank" rel="noopener" className="m-devworks-shot">
+                    <img src={autoTensakuImg} alt="国語記述 自動添削システムの画面" loading="lazy" />
+                </a>
+                <div className="m-devworks-body">
+                    <h3>Taskal AI — 国語記述 自動添削システム</h3>
+                    <p>中学・高校受験の国語記述答案を、AIが数十秒で添削・採点。企画から開発・運用まで、EduShiftが自社で行っているWebサービスです。この開発力で、あなたの塾専用のツールを作ります。</p>
+                    <div className="m-devworks-links">
+                        <a href="https://auto-tensaku-system.vercel.app/" target="_blank" rel="noopener" className="s-btn-ghost">サービスを見る ↗</a>
+                        <a href="/service/dx-development" className="s-service-link">塾DX・ツール開発について →</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -988,7 +1033,7 @@ export const HomeScholarly = () => {
                     </summary>
                     <div className="s-faq-a">
                         <span className="s-faq-a-marker">A.</span>
-                        単発スポットはご入金確認後、日程調整の上で実施します。期間コンサル・顧問契約は、契約締結後に合意した開始日から提供を開始します。サービス内容は、<a href="#services" style={{"color": `var(--s-teal-deep)`}}>4つのサービス</a>（小規模塾経営サポート／AI導入コンサル／独立支援／HP制作・運用）の中から、現状と目的に合わせてご提案します。
+                        単発スポットはご入金確認後、日程調整の上で実施します。期間コンサル・顧問契約は、契約締結後に合意した開始日から提供を開始します。サービス内容は、<a href="#services" style={{"color": `var(--s-teal-deep)`}}>5つのサービス</a>（小規模塾経営サポート／AI導入コンサル／独立支援／HP制作・運用／塾専用ツール開発）の中から、現状と目的に合わせてご提案します。
                     </div>
                 </details>
             </div>
@@ -1035,6 +1080,7 @@ export const HomeScholarly = () => {
                         <li><a href="/service/ai-consulting">AI導入コンサル</a></li>
                         <li><a href="/service/freelance-support">独立支援</a></li>
                         <li><a href="/service/hp-production">HP制作・運用</a></li>
+                        <li><a href="/service/dx-development">塾DX・ツール開発</a></li>
                     </ul>
                 </div>
                 <div>

@@ -120,7 +120,7 @@ export const ServiceDetailScholarly = () => {
                     <div className="s-container">
                         {svc.extraSections.map((sec, i) => (
                             <div key={i} className="s-detail-extra-card">
-                                <div className="s-detail-extra-label">Voice</div>
+                                <div className="s-detail-extra-label">{sec.label ?? 'Voice'}</div>
                                 <h3>{sec.heading}</h3>
                                 <p>{sec.body}</p>
                             </div>

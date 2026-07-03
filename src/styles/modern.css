@@ -1384,3 +1384,140 @@
         animation: none !important;
     }
 }
+
+/* ---------- DEV WORKS : 開発実績（自動添削） ---------- */
+.theme-scholarly .m-devworks {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(760px 420px at -8% 0%, rgba(2, 147, 240, 0.13), transparent 58%),
+        radial-gradient(640px 380px at 108% 100%, rgba(0, 164, 168, 0.11), transparent 55%),
+        var(--m-night);
+    padding: 108px 0 118px;
+    color: var(--m-cream);
+}
+
+.theme-scholarly .m-devworks .s-container {
+    position: relative;
+    z-index: 1;
+}
+
+.theme-scholarly .m-devworks .s-sec-head {
+    border-top-color: var(--m-glass-line);
+    margin-bottom: 48px;
+}
+
+.theme-scholarly .m-devworks .s-sec-num {
+    color: var(--m-teal-bright);
+}
+
+.theme-scholarly .m-devworks .s-sec-titles h2 {
+    color: var(--m-cream);
+}
+
+.theme-scholarly .m-devworks .s-sec-titles h2 em {
+    background: var(--m-current);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.theme-scholarly .m-devworks-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 52px;
+    align-items: center;
+}
+
+.theme-scholarly .m-devworks-shot {
+    display: block;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--m-glass-line);
+    box-shadow: 0 22px 50px -24px rgba(0, 0, 0, 0.6);
+    transition: transform 0.4s var(--m-ease), box-shadow 0.4s var(--m-ease), border-color 0.3s ease;
+}
+
+.theme-scholarly .m-devworks-shot:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 60px -22px rgba(0, 0, 0, 0.66);
+    border-color: rgba(41, 199, 201, 0.45);
+}
+
+.theme-scholarly .m-devworks-shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.theme-scholarly .m-devworks-body h3 {
+    font-family: var(--s-serif-jp);
+    font-weight: 600;
+    font-size: clamp(21px, 2.4vw, 28px);
+    line-height: 1.5;
+    color: var(--m-cream);
+    margin: 0 0 18px;
+}
+
+.theme-scholarly .m-devworks-body p {
+    font-size: 15px;
+    line-height: 2;
+    color: var(--m-cream-dim);
+    margin: 0 0 30px;
+}
+
+.theme-scholarly .m-devworks-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 28px;
+}
+
+.theme-scholarly .m-devworks-links .s-btn-ghost {
+    color: var(--m-cream);
+    border-bottom-color: var(--m-glass-line);
+    padding: 12px 0;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.theme-scholarly .m-devworks-links .s-btn-ghost:hover {
+    color: var(--m-teal-bright);
+    border-bottom-color: var(--m-teal-bright);
+}
+
+.theme-scholarly .m-devworks-links .s-service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--s-serif-jp);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--m-cream-dim);
+    border-bottom: 1px solid rgba(41, 199, 201, 0.5);
+    padding-bottom: 4px;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.theme-scholarly .m-devworks-links .s-service-link:hover {
+    color: var(--m-teal-bright);
+    border-bottom-color: var(--m-teal-bright);
+}
+
+@media (max-width: 768px) {
+    .theme-scholarly .m-devworks {
+        padding: 76px 0 84px;
+    }
+
+    .theme-scholarly .m-devworks .s-sec-head {
+        margin-bottom: 36px;
+    }
+
+    .theme-scholarly .m-devworks-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .theme-scholarly .m-devworks-links {
+        gap: 14px 22px;
+    }
+}
