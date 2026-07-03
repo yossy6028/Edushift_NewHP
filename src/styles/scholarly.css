@@ -1853,8 +1853,17 @@ html[data-theme="scholarly"] body {
 
         /* ---------- Pillars & Tools variation ---------- */
         .s-service-grid.has-pillars {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            /* 6トラック基盤: Pillar×3 が span 2 で1行(6)、Tool×2 が span 3 で1行(6) */
+            grid-template-columns: repeat(6, minmax(0, 1fr));
             grid-auto-rows: auto;
+        }
+
+        .s-service-grid.has-pillars .s-service-card.pillar {
+            grid-column: span 2;
+        }
+
+        .s-service-grid.has-pillars .s-service-card.tool {
+            grid-column: span 3;
         }
 
         .s-service-card.pillar {

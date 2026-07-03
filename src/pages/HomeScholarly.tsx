@@ -372,11 +372,11 @@ export const HomeScholarly = () => {
     <section className="s-services" id="services">
         <div className="s-container">
             <div className="s-sec-head" data-reveal="up">
-                <div className="s-sec-num">CHAPTER I · 2 Pillars × 2 Tools</div>
+                <div className="s-sec-num">CHAPTER I · 3 Pillars × 2 Tools</div>
                 <div className="s-sec-titles">
-                    <h2><em>小規模塾</em>と、<em>独立する先生</em>を、<br />テクノロジーで実践する。</h2>
+                    <h2><em>経営</em>も、<em>独立</em>も、<em>開発</em>も。<br />テクノロジーで実践する。</h2>
                     <p className="s-sec-lede">
-                        <strong>EduShift</strong> が本気で向き合う対象は、この2つ。「小規模塾の経営」と「一人で独立する先生の成長」——その両方を、AIとWebの力で実現します。
+                        <strong>EduShift</strong> の柱は3本。「小規模塾の経営」「独立する先生の成長」、そして「塾専用ツールの開発」——AIとWebの力で、教える人の毎日を実装します。
                     </p>
                 </div>
             </div>
@@ -408,6 +408,24 @@ export const HomeScholarly = () => {
                         <span className="s-service-tag tech">AI活用 × Web発信</span>
                     </div>
                     <a href="/service/freelance-support" className="s-service-link">詳しく読む →</a>
+                </div>
+
+                <div className="s-service-card pillar" data-reveal="up">
+                    <div className="s-service-num">Pillar · 03</div>
+                    <h3>塾DX・ツール開発</h3>
+                    <div className="s-service-en">School DX &amp; Development</div>
+                    <p>初期¥19,800〜+月額。報告書自動化などの単機能ツールから、自動添削システム級のWebアプリまで。あなたの塾専用の道具を、作って育てます。</p>
+                    <div className="m-hp-prices">
+                        <span className="m-hp-price-chip">開発 ¥19,800〜</span>
+                        <span className="m-hp-price-chip">月額 ¥980〜</span>
+                        <span className="m-hp-price-chip">自動添削SaaS 自社開発</span>
+                    </div>
+                    <div className="s-service-tags">
+                        <span className="s-service-tag">バックオフィス</span>
+                        <span className="s-service-tag">教材制作</span>
+                        <span className="s-service-tag tech">指導サポートAI</span>
+                    </div>
+                    <a href="/service/dx-development" className="s-service-link">詳しく読む →</a>
                 </div>
 
                 <div className="s-service-bridge" data-reveal="up">
