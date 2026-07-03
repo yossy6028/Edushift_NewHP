@@ -298,10 +298,11 @@ export const HomeScholarly = () => {
                 <span key={i}>
                     <span>AI × Education</span>
                     <span>HP制作 ¥19,800〜</span>
+                    <span>ツール開発 ¥19,800〜</span>
                     <span>保守運用 ¥980/月〜</span>
+                    <span>自動添削システム 自社開発</span>
                     <span>小規模塾経営サポート</span>
                     <span>フリーランス独立支援</span>
-                    <span>AIEO — AIに読まれるHPへ</span>
                     <span>EduShift</span>
                 </span>
             ))}
