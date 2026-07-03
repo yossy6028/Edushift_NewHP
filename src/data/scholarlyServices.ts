@@ -42,7 +42,7 @@ export type ServiceContent = {
     narrativeHeadline: string;
     narrativeParas: string[];
     supportItems: { title: string; body: string }[];
-    extraSections?: { heading: string; body: string }[];
+    extraSections?: { label?: string; heading: string; body: string }[];
     voice?: VoiceTestimonial;
     pricingBlock?: PricingBlock;
     ctaHeadline: string;
@@ -256,17 +256,19 @@ export const SCHOLARLY_SERVICES: Record<string, ServiceContent> = {
         ],
         extraSections: [
             {
+                label: 'Dev Works',
                 heading: '開発実績 — 国語記述 自動添削システム',
                 body: '中学受験国語の記述答案をAIが数十秒で添削・採点するWebサービスを、企画から設計・開発・運用まで自社で行っています。答案の撮影アップロードから採点根拠の提示、講師による確認フローまで一気通貫。「フル」プランでは、この規模のWebアプリケーション開発をお受けします。デモは auto-tensaku-system.vercel.app からお試しいただけます。',
             },
             {
+                label: 'Process',
                 heading: '進め方 — 小さく作って、現場で育てる',
                 body: 'まず30分の無料相談で「いま一番時間を奪っている作業」を特定します。最初の1本は最小構成で素早く納品し、実際に使いながら月次で改善。作って終わりではなく、月額プランの中で塾の成長に合わせてツールも育てていきます。',
             },
         ],
         pricingBlock: {
             headline: '「作りたいものの大きさ」で選べる、3つのプラン',
-            lede: '単機能の自動化ツールから、自動添削システム級のWebアプリまで。すべて初期費+月額(保守と月1回の改善相談込み)のシンプルな2部料金です。',
+            lede: '単機能の自動化ツールから、自動添削システム級のWebアプリまで。すべて「初期費＋月額」のシンプルな料金体系。月額には保守と月1回の改善相談が含まれます。',
             tiers: [
                 {
                     name: 'ミニ',
@@ -277,7 +279,7 @@ export const SCHOLARLY_SERVICES: Record<string, ServiceContent> = {
                         '報告書・お知らせのテンプレ自動化',
                         'スプレッドシート自動集計',
                         '教材プリント1セットのデジタル化',
-                        '納品後の保守・微修正込み(月額)',
+                        '納品後の保守・微修正込み（月額）',
                     ],
                     notes: ['※既存のGoogle環境等を活用し低コストで構築'],
                 },
@@ -290,7 +292,7 @@ export const SCHOLARLY_SERVICES: Record<string, ServiceContent> = {
                         '生徒情報・指導記録のデータベース化',
                         '保護者連絡・請求管理などの業務アプリ',
                         '宿題管理・小テスト自動化ツール',
-                        '月1回の改善相談・機能追加の割引',
+                        '機能追加・改修費用の優待',
                     ],
                     recommended: true,
                 },
@@ -302,8 +304,8 @@ export const SCHOLARLY_SERVICES: Record<string, ServiceContent> = {
                     features: [
                         '要件定義から設計・開発・運用まで一気通貫',
                         '会員登録・決済などを含むWebサービス',
-                        'AI組み込み(添削・教材生成・チャット等)',
-                        '運用監視・継続改善(月額)',
+                        'AI組み込み（添削・教材生成・チャット等）',
+                        '運用監視・継続改善（月額）',
                     ],
                     notes: ['※開発実績: 国語記述 自動添削システム'],
                 },
