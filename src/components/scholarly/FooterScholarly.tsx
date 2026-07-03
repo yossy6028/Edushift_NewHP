@@ -19,9 +19,7 @@ export const FooterScholarly = ({ mode = 'subpage' }: { mode?: 'home' | 'subpage
                     <div>
                         <h5>Services</h5>
                         <ul>
-                            <li><Link to="/service/school-support">小規模塾経営サポート</Link></li>
-                            <li><Link to="/service/ai-consulting">AI導入コンサル</Link></li>
-                            <li><Link to="/service/freelance-support">独立支援</Link></li>
+                            <li><Link to="/service/consulting">コンサルティング</Link></li>
                             <li><Link to="/service/hp-production">HP制作・運用</Link></li>
                             <li><Link to="/service/dx-development">塾DX・ツール開発</Link></li>
                         </ul>

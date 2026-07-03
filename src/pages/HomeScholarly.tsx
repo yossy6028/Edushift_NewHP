@@ -212,6 +212,7 @@ export const HomeScholarly = () => {
                     <span className="m-nav-hp-badge">{HOME_EMPHASIS.hpNavBadge}</span>
                 </a>
                 <a href="/service/dx-development" onClick={closeNav}>ツール開発</a>
+                <a href="/service/consulting" onClick={closeNav}>コンサル</a>
                 <a href="#founder" onClick={closeNav}>代表</a>
                 <a href="#journal" onClick={closeNav}>ブログ</a>
                 <a href="https://note.com/katsu_yossy" target="_blank" rel="noopener" className="s-nav-ext" aria-label="noteを別タブで開く" onClick={closeNav}>note<span className="s-nav-ext-arrow" aria-hidden="true">↗</span></a>
@@ -272,15 +273,15 @@ export const HomeScholarly = () => {
                     <div className="s-hero-mini-chips m-chips-row" aria-label="EduShiftの3つの柱と実装手段">
                         <div className="s-mini-chip" data-reveal="up" data-reveal-delay="1">
                             <span className="num">Pillar · 01</span>
-                            <span className="label">小規模塾</span>
+                            <span className="label">コンサル</span>
                         </div>
                         <div className="s-mini-chip" data-reveal="up" data-reveal-delay="2">
                             <span className="num">Pillar · 02</span>
-                            <span className="label">独立する先生</span>
+                            <span className="label">アプリ開発</span>
                         </div>
                         <div className="s-mini-chip" data-reveal="up" data-reveal-delay="3">
                             <span className="num">Pillar · 03</span>
-                            <span className="label">塾DX・開発</span>
+                            <span className="label">HP制作</span>
                         </div>
                         <div className="s-mini-chip tool" data-reveal="up" data-reveal-delay="4">
                             <span className="num">Tools</span>
@@ -303,8 +304,7 @@ export const HomeScholarly = () => {
                     <span>ツール開発 ¥19,800〜</span>
                     <span>保守運用 ¥980/月〜</span>
                     <span>自動添削システム 自社開発</span>
-                    <span>小規模塾経営サポート</span>
-                    <span>フリーランス独立支援</span>
+                    <span>伴走コンサル ¥9,800〜</span>
                     <span>EduShift</span>
                 </span>
             ))}
@@ -374,11 +374,11 @@ export const HomeScholarly = () => {
     <section className="s-services" id="services">
         <div className="s-container">
             <div className="s-sec-head" data-reveal="up">
-                <div className="s-sec-num">CHAPTER I · 3 Pillars × 2 Tools</div>
+                <div className="s-sec-num">CHAPTER I · 3 Pillars</div>
                 <div className="s-sec-titles">
-                    <h2><em>経営</em>も、<em>独立</em>も、<em>開発</em>も。<br />テクノロジーで実践する。</h2>
+                    <h2><em>相談</em>も、<em>道具</em>も、<em>集客</em>も。<br />3つの柱で伴走する。</h2>
                     <p className="s-sec-lede">
-                        <strong>EduShift</strong> の柱は3本。「小規模塾の経営」「独立する先生の成長」、そして「塾専用ツールの開発」——AIとWebの力で、教える人の毎日を実装します。
+                        <strong>EduShift</strong> の柱は3本。悩みに寄り添う「コンサルティング」、日々を軽くする「アプリ・ツール制作」、選ばれる入口を作る「HP制作」——教える人の毎日を、まるごと支えます。
                     </p>
                 </div>
             </div>
@@ -386,34 +386,24 @@ export const HomeScholarly = () => {
             <div className="s-service-grid has-pillars">
                 <div className="s-service-card pillar" data-reveal="left">
                     <div className="s-service-num">Pillar · 01</div>
-                    <h3>小規模塾経営サポート</h3>
-                    <div className="s-service-en">School Management</div>
-                    <p>生徒10〜50名規模の塾に特化。収益構造、集客、ブランディング——"先生一人の塾"が持続できる仕組みを、AIと実データを味方につけて一緒に整えます。</p>
-                    <div className="s-service-tags">
-                        <span className="s-service-tag">収益改善</span>
-                        <span className="s-service-tag">地域集客</span>
-                        <span className="s-service-tag">ブランディング</span>
-                        <span className="s-service-tag tech">AIデータ分析</span>
+                    <h3>コンサルティング</h3>
+                    <div className="s-service-en">Consulting</div>
+                    <p>塾経営も、独立も、AI活用も、月¥14,800からの伴走型。単発スポット相談¥9,800で今日から。相場の1/3以下で、実務者が隣に付きます。</p>
+                    <div className="m-hp-prices">
+                        <span className="m-hp-price-chip">単発 ¥9,800/回</span>
+                        <span className="m-hp-price-chip">月額 ¥14,800〜</span>
+                        <span className="m-hp-price-chip">縛りなし</span>
                     </div>
-                    <a href="/service/school-support" className="s-service-link">詳しく読む →</a>
-                </div>
-
-                <div className="s-service-card pillar" data-reveal="right">
-                    <div className="s-service-num">Pillar · 02</div>
-                    <h3>フリーランス独立支援</h3>
-                    <div className="s-service-en">Independent Tutor Support</div>
-                    <p>「教えるのは好き、経営は苦手」——その気持ちに寄り添う3ヶ月の伴走プログラム。事業計画から初案件獲得まで、AI活用と自前HPで"選ばれる先生"になる道を、一緒に歩きます。</p>
                     <div className="s-service-tags">
-                        <span className="s-service-tag">事業計画</span>
-                        <span className="s-service-tag">ポートフォリオ</span>
-                        <span className="s-service-tag">案件獲得</span>
-                        <span className="s-service-tag tech">AI活用 × Web発信</span>
+                        <span className="s-service-tag">塾経営</span>
+                        <span className="s-service-tag">独立支援</span>
+                        <span className="s-service-tag tech">AI活用</span>
                     </div>
-                    <a href="/service/freelance-support" className="s-service-link">詳しく読む →</a>
+                    <a href="/service/consulting" className="s-service-link">詳しく読む →</a>
                 </div>
 
                 <div className="s-service-card pillar" data-reveal="up">
-                    <div className="s-service-num">Pillar · 03</div>
+                    <div className="s-service-num">Pillar · 02</div>
                     <h3>塾DX・ツール開発</h3>
                     <div className="s-service-en">School DX &amp; Development</div>
                     <p>初期¥19,800〜+月額。報告書自動化などの単機能ツールから、自動添削システム級のWebアプリまで。あなたの塾専用の道具を、作って育てます。</p>
@@ -430,27 +420,9 @@ export const HomeScholarly = () => {
                     <a href="/service/dx-development" className="s-service-link">詳しく読む →</a>
                 </div>
 
-                <div className="s-service-bridge" data-reveal="up">
-                    <span className="s-bridge-rule">— and the tools that make it real —</span>
-                    <h4>三本の柱を、<em>AI</em> と <em>Web</em> の力で、今日から実装する。</h4>
-                </div>
-
-                <div className="s-service-card tool" data-reveal="left" data-reveal-delay="1">
-                    <div className="s-service-num">Tool · 01</div>
-                    <h3>AI導入コンサルティング</h3>
-                    <div className="s-service-en">AI Integration</div>
-                    <p>AIは"人の温かみ"を奪うものではなく、取り戻すもの。週5〜10時間の事務を削って、先生が教育に集中できる環境をつくります。</p>
-                    <div className="s-service-tags">
-                        <span className="s-service-tag">業務自動化</span>
-                        <span className="s-service-tag">AI教材</span>
-                        <span className="s-service-tag">スタッフ研修</span>
-                    </div>
-                    <a href="/service/ai-consulting" className="s-service-link">詳しく読む →</a>
-                </div>
-
-                <div className="s-service-card tool m-hp-featured" data-reveal="right" data-reveal-delay="2">
+                <div className="s-service-card pillar m-hp-featured" data-reveal="right" data-reveal-delay="1">
                     <span className="m-hp-ribbon">{HOME_EMPHASIS.hpCardBadge}</span>
-                    <div className="s-service-num">Tool · 02</div>
+                    <div className="s-service-num">Pillar · 03</div>
                     <h3>HP制作・保守運用</h3>
                     <div className="s-service-en">Web Production &amp; Care</div>
                     <p>初期19,800円〜、月々980円〜。「立派なHP」より「今日から選ばれるHP」を。ブログ更新もSEOも、Web担当者のように支えます。</p>
@@ -652,8 +624,8 @@ export const HomeScholarly = () => {
                     <blockquote>
                         <strong>縛らない。</strong><br />
                         <br />
-                        期間コンサルは月単位で継続・解約が可能。<br />
-                        顧問契約は個別の契約書に基づき、中途の取り扱いもその場で明文化します。
+                        月額コンサル(ライト/スタンダード/フル)は月単位で継続・解約が可能。<br />
+                        契約条件は書面で明文化し、縛りは設けません。
                     </blockquote>
                     <footer>
                         <div className="s-voice-avatar">①</div>
@@ -734,37 +706,44 @@ export const HomeScholarly = () => {
 
                 <div className="s-price-card featured" data-reveal="up" data-reveal-delay="2">
                     <div className="s-price-label">Plan · 02  —  Recommended</div>
-                    <h3>期間コンサル</h3>
-                    <p className="s-price-blurb">伴走者として、本気で向き合うなら</p>
+                    <h3>スタンダード</h3>
+                    <p className="s-price-blurb">施策を一緒に実行する、本格伴走</p>
                     <div className="s-price-amount">
                         <span className="amount"><CountUp value={29800} prefix="¥" /></span>
                         <span className="unit">〜 / 月</span>
                     </div>
                     <ul className="s-price-features">
-                        <li>チャット相談し放題</li>
-                        <li>月3回の定例ミーティング</li>
-                        <li>施策の実行・検証サポート</li>
-                        <li>月単位で継続 / 解約可</li>
+                        <li>月3回のオンライン面談</li>
+                        <li>チャット相談 無制限</li>
+                        <li>施策の実行・検証まで伴走</li>
+                        <li>集客物・資料の添削込み</li>
                     </ul>
                     <button className="s-price-cta">詳しく話を聞く</button>
                 </div>
 
                 <div className="s-price-card" data-reveal="up" data-reveal-delay="3">
                     <div className="s-price-label">Plan · 03</div>
-                    <h3>顧問・年間契約</h3>
-                    <p className="s-price-blurb">長期的な経営パートナーとして</p>
+                    <h3>フル</h3>
+                    <p className="s-price-blurb">AI活用まで含めた、まるごと顧問</p>
                     <div className="s-price-amount">
-                        <span className="amount">要相談</span>
+                        <span className="amount"><CountUp value={49800} prefix="¥" /></span>
+                        <span className="unit">〜 / 月</span>
                     </div>
                     <ul className="s-price-features">
-                        <li>事業規模に応じたフルオーダー</li>
-                        <li>経営戦略の立案・遂行</li>
-                        <li>新規事業開発サポート</li>
-                        <li>優先的なリソース確保</li>
+                        <li>月4回（週1ペース）のオンライン面談</li>
+                        <li>AI活用ハンズオン</li>
+                        <li>ツール開発・HP制作の優待価格</li>
+                        <li>優先対応</li>
                     </ul>
                     <button className="s-price-cta">お問い合わせ</button>
                 </div>
             </div>
+
+            <p className="s-sub-price-cta-row" data-reveal="up">
+                ライト（月2回面談 ¥14,800/月）など全プランの詳細は
+                <a href="/service/consulting">コンサルティングのページ</a>
+                へ。
+            </p>
 
             {/* ====== Sub-pricing : HP保守・運用（3パターン / データ駆動） ====== */}
             <div className="s-sub-pricing m-care" id="maintenance">
@@ -972,7 +951,7 @@ export const HomeScholarly = () => {
                     </summary>
                     <div className="s-faq-a">
                         <span className="s-faq-a-marker">A.</span>
-                        ございません。期間コンサル（¥29,800/月〜）は月単位で継続・解約が可能です。顧問・年間契約の中途解約については、個別の契約書に定める条件に従います。<br />
+                        ございません。月額コンサル（ライト¥14,800〜フル¥49,800/月）はすべて月単位で継続・解約が可能です。<br />
                         <small style={{"color": `var(--s-ink-500)`}}>※ ご入金後の返金は、当方の都合でサービス提供できなくなった場合を除き、原則お受けしておりません。</small>
                     </div>
                 </details>
@@ -1033,7 +1012,7 @@ export const HomeScholarly = () => {
                     </summary>
                     <div className="s-faq-a">
                         <span className="s-faq-a-marker">A.</span>
-                        単発スポットはご入金確認後、日程調整の上で実施します。期間コンサル・顧問契約は、契約締結後に合意した開始日から提供を開始します。サービス内容は、<a href="#services" style={{"color": `var(--s-teal-deep)`}}>5つのサービス</a>（小規模塾経営サポート／AI導入コンサル／独立支援／HP制作・運用／塾専用ツール開発）の中から、現状と目的に合わせてご提案します。
+                        単発スポットはご入金確認後、日程調整の上で実施します。月額コンサルは、お申し込み後に合意した開始日から提供を開始します。サービス内容は、<a href="#services" style={{"color": `var(--s-teal-deep)`}}>3つのサービス</a>（コンサルティング／アプリ・ツール制作／HP制作・運用）の中から、現状と目的に合わせてご提案します。
                     </div>
                 </details>
             </div>
@@ -1076,9 +1055,7 @@ export const HomeScholarly = () => {
                 <div>
                     <h5>Services</h5>
                     <ul>
-                        <li><a href="/service/school-support">小規模塾経営サポート</a></li>
-                        <li><a href="/service/ai-consulting">AI導入コンサル</a></li>
-                        <li><a href="/service/freelance-support">独立支援</a></li>
+                        <li><a href="/service/consulting">コンサルティング</a></li>
                         <li><a href="/service/hp-production">HP制作・運用</a></li>
                         <li><a href="/service/dx-development">塾DX・ツール開発</a></li>
                     </ul>
