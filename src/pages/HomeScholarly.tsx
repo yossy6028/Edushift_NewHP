@@ -88,7 +88,7 @@ const SAMPLE_APPS: SampleApp[] = [
         desc: '3Dの日本地図で合戦の流れをたどる歴史学習アプリ。年表・人物図鑑・クイズつき。',
         video: '/videos/app-genpei.mp4',
         image: genpeiAppImg,
-        tags: [{ label: '社会・歴史' }, { label: '中学受験', gold: true }],
+        tags: [{ label: '社会・歴史' }, { label: '中学受験・高校受験', gold: true }],
     },
     {
         url: 'https://yossy6028.github.io/star-chart-3d/',
@@ -96,7 +96,7 @@ const SAMPLE_APPS: SampleApp[] = [
         desc: '季節・日付・時刻を動かして星空の変化を体感できる天体学習アプリ。星座クイズつき。',
         video: '/videos/app-starchart.mp4',
         image: starChartAppImg,
-        tags: [{ label: '理科・天体' }, { label: '中学受験', gold: true }],
+        tags: [{ label: '理科・天体' }, { label: '中学受験・高校受験', gold: true }],
     },
 ];
 
@@ -512,10 +512,10 @@ export const HomeScholarly = () => {
                 <div className="m-devworks-body">
                     <div className="m-devworks-tags">
                         <span className="m-devworks-tag">国語</span>
-                        <span className="m-devworks-tag gold">中学受験・高校受験</span>
+                        <span className="m-devworks-tag gold">中学・高校・大学受験</span>
                     </div>
                     <h3>Taskal AI — 国語記述 自動添削システム</h3>
-                    <p>中学・高校受験の国語記述答案を、AIが数十秒で添削・採点。企画から開発・運用まで、EduShiftが自社で行っているWebサービスです。この開発力で、あなたの塾専用のツールを作ります。</p>
+                    <p>中学・高校・大学受験の国語記述答案を、AIが数十秒で添削・採点。企画から開発・運用まで、EduShiftが自社で行っているWebサービスです。この開発力で、あなたの塾専用のツールを作ります。</p>
                     <div className="m-devworks-links">
                         <a href="https://auto-tensaku-system.vercel.app/" target="_blank" rel="noopener" className="s-btn-ghost">サービスを見る ↗</a>
                         <a href="/service/dx-development" className="s-service-link">塾DX・ツール開発について →</a>
