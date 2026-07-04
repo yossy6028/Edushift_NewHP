@@ -496,6 +496,64 @@ export const HomeScholarly = () => {
         </div>
     </section>
 
+    {/* ====== DEV WORKS : 開発実績(自動添削) ====== */}
+    <section className="m-devworks" id="devworks">
+        <div className="s-container">
+            <div className="s-sec-head" data-reveal="up">
+                <div className="s-sec-num">DEV WORKS · 自社開発SaaS</div>
+                <div className="s-sec-titles">
+                    <h2>あなたの指導に合わせた、<em>専用ツール</em>を作ります。</h2>
+                </div>
+            </div>
+            <div className="m-devworks-card" data-reveal="up">
+                <a href="https://auto-tensaku-system.vercel.app/" target="_blank" rel="noopener" className="m-devworks-shot">
+                    <img src={autoTensakuImg} alt="国語記述 自動添削システムの画面" loading="lazy" />
+                </a>
+                <div className="m-devworks-body">
+                    <div className="m-devworks-tags">
+                        <span className="m-devworks-tag">国語</span>
+                        <span className="m-devworks-tag gold">中学受験・高校受験</span>
+                    </div>
+                    <h3>Taskal AI — 国語記述 自動添削システム</h3>
+                    <p>中学・高校受験の国語記述答案を、AIが数十秒で添削・採点。企画から開発・運用まで、EduShiftが自社で行っているWebサービスです。この開発力で、あなたの塾専用のツールを作ります。</p>
+                    <div className="m-devworks-links">
+                        <a href="https://auto-tensaku-system.vercel.app/" target="_blank" rel="noopener" className="s-btn-ghost">サービスを見る ↗</a>
+                        <a href="/service/dx-development" className="s-service-link">塾DX・ツール開発について →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div className="m-devworks-sub" data-reveal="up">
+                <div className="m-devworks-sub-num">Playable Samples</div>
+                <h3>言葉より、<em>触れるサンプル</em>で。</h3>
+                <p>「こういうものが作れます」の代わりに、遊べるサンプルアプリを公開しています。学習アプリの操作感を、そのままお確かめください。</p>
+            </div>
+            <div className="m-devworks-grid">
+                {SAMPLE_APPS.map((app, i) => (
+                    <a key={app.url} href={app.url} target="_blank" rel="noopener" className="m-devworks-mini" data-reveal="up" data-reveal-delay={String((i % 2) + 1)}>
+                        <div className="m-devworks-mini-shot">
+                            {app.video ? (
+                                <SampleVideo src={app.video} poster={app.image} label={`${app.title}のデモ動画`} />
+                            ) : (
+                                <img src={app.image} alt={`${app.title}の画面`} loading="lazy" />
+                            )}
+                        </div>
+                        <div className="m-devworks-mini-body">
+                            <div className="m-devworks-tags">
+                                {app.tags.map(tag => (
+                                    <span key={tag.label} className={`m-devworks-tag${tag.gold ? ' gold' : ''}`}>{tag.label}</span>
+                                ))}
+                            </div>
+                            <h4>{app.title}</h4>
+                            <p>{app.desc}</p>
+                            <span className="m-devworks-try">触ってみる ↗</span>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </div>
+    </section>
+
     {/* ====== SHOWCASE : HP制作 Before / After ====== */}
     <section className="m-showcase" id="hp-showcase">
         <div className="m-giant-word" aria-hidden="true">PROOF</div>
@@ -587,64 +645,6 @@ export const HomeScholarly = () => {
                     </p>
                 </div>
             )}
-        </div>
-    </section>
-
-    {/* ====== DEV WORKS : 開発実績(自動添削) ====== */}
-    <section className="m-devworks" id="devworks">
-        <div className="s-container">
-            <div className="s-sec-head" data-reveal="up">
-                <div className="s-sec-num">DEV WORKS · 自社開発SaaS</div>
-                <div className="s-sec-titles">
-                    <h2>あなたの指導に合わせた、<em>専用ツール</em>を作ります。</h2>
-                </div>
-            </div>
-            <div className="m-devworks-card" data-reveal="up">
-                <a href="https://auto-tensaku-system.vercel.app/" target="_blank" rel="noopener" className="m-devworks-shot">
-                    <img src={autoTensakuImg} alt="国語記述 自動添削システムの画面" loading="lazy" />
-                </a>
-                <div className="m-devworks-body">
-                    <div className="m-devworks-tags">
-                        <span className="m-devworks-tag">国語</span>
-                        <span className="m-devworks-tag gold">中学受験・高校受験</span>
-                    </div>
-                    <h3>Taskal AI — 国語記述 自動添削システム</h3>
-                    <p>中学・高校受験の国語記述答案を、AIが数十秒で添削・採点。企画から開発・運用まで、EduShiftが自社で行っているWebサービスです。この開発力で、あなたの塾専用のツールを作ります。</p>
-                    <div className="m-devworks-links">
-                        <a href="https://auto-tensaku-system.vercel.app/" target="_blank" rel="noopener" className="s-btn-ghost">サービスを見る ↗</a>
-                        <a href="/service/dx-development" className="s-service-link">塾DX・ツール開発について →</a>
-                    </div>
-                </div>
-            </div>
-
-            <div className="m-devworks-sub" data-reveal="up">
-                <div className="m-devworks-sub-num">Playable Samples</div>
-                <h3>言葉より、<em>触れるサンプル</em>で。</h3>
-                <p>「こういうものが作れます」の代わりに、遊べるサンプルアプリを公開しています。学習アプリの操作感を、そのままお確かめください。</p>
-            </div>
-            <div className="m-devworks-grid">
-                {SAMPLE_APPS.map((app, i) => (
-                    <a key={app.url} href={app.url} target="_blank" rel="noopener" className="m-devworks-mini" data-reveal="up" data-reveal-delay={String((i % 2) + 1)}>
-                        <div className="m-devworks-mini-shot">
-                            {app.video ? (
-                                <SampleVideo src={app.video} poster={app.image} label={`${app.title}のデモ動画`} />
-                            ) : (
-                                <img src={app.image} alt={`${app.title}の画面`} loading="lazy" />
-                            )}
-                        </div>
-                        <div className="m-devworks-mini-body">
-                            <div className="m-devworks-tags">
-                                {app.tags.map(tag => (
-                                    <span key={tag.label} className={`m-devworks-tag${tag.gold ? ' gold' : ''}`}>{tag.label}</span>
-                                ))}
-                            </div>
-                            <h4>{app.title}</h4>
-                            <p>{app.desc}</p>
-                            <span className="m-devworks-try">触ってみる ↗</span>
-                        </div>
-                    </a>
-                ))}
-            </div>
         </div>
     </section>
 
