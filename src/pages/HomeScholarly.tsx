@@ -6,6 +6,8 @@ import paperFlatlayImg from '../assets/hero-paper-flatlay.jpeg';
 import hpBeforePanelImg from '../assets/hp-before-panel.jpg';
 import hpAfterPanelImg from '../assets/hp-after-panel.jpg';
 import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
+import genpeiAppImg from '../assets/app-genpei.jpg';
+import starChartAppImg from '../assets/app-starchart.jpg';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { CountUp } from '../components/CountUp';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
@@ -550,6 +552,10 @@ export const HomeScholarly = () => {
                     <img src={autoTensakuImg} alt="国語記述 自動添削システムの画面" loading="lazy" />
                 </a>
                 <div className="m-devworks-body">
+                    <div className="m-devworks-tags">
+                        <span className="m-devworks-tag">国語</span>
+                        <span className="m-devworks-tag gold">中学受験・高校受験</span>
+                    </div>
                     <h3>Taskal AI — 国語記述 自動添削システム</h3>
                     <p>中学・高校受験の国語記述答案を、AIが数十秒で添削・採点。企画から開発・運用まで、EduShiftが自社で行っているWebサービスです。この開発力で、あなたの塾専用のツールを作ります。</p>
                     <div className="m-devworks-links">
@@ -557,6 +563,42 @@ export const HomeScholarly = () => {
                         <a href="/service/dx-development" className="s-service-link">塾DX・ツール開発について →</a>
                     </div>
                 </div>
+            </div>
+
+            <div className="m-devworks-sub" data-reveal="up">
+                <div className="m-devworks-sub-num">Playable Samples</div>
+                <h3>言葉より、<em>触れるサンプル</em>で。</h3>
+                <p>「こういうものが作れます」の代わりに、遊べるサンプルアプリを公開しています。学習アプリの操作感を、そのままお確かめください。</p>
+            </div>
+            <div className="m-devworks-grid">
+                <a href="https://yossy6028.github.io/genpei-kassen-app/" target="_blank" rel="noopener" className="m-devworks-mini" data-reveal="up" data-reveal-delay="1">
+                    <div className="m-devworks-mini-shot">
+                        <img src={genpeiAppImg} alt="源平合戦 3Dヒストリーマップの画面" loading="lazy" />
+                    </div>
+                    <div className="m-devworks-mini-body">
+                        <div className="m-devworks-tags">
+                            <span className="m-devworks-tag">社会・歴史</span>
+                            <span className="m-devworks-tag gold">中学受験</span>
+                        </div>
+                        <h4>源平合戦 3Dヒストリーマップ</h4>
+                        <p>3Dの日本地図で合戦の流れをたどる歴史学習アプリ。年表・人物図鑑・クイズつき。</p>
+                        <span className="m-devworks-try">触ってみる ↗</span>
+                    </div>
+                </a>
+                <a href="https://yossy6028.github.io/star-chart-3d/" target="_blank" rel="noopener" className="m-devworks-mini" data-reveal="up" data-reveal-delay="2">
+                    <div className="m-devworks-mini-shot">
+                        <img src={starChartAppImg} alt="3D星図 — 季節と時刻で変わる星空の画面" loading="lazy" />
+                    </div>
+                    <div className="m-devworks-mini-body">
+                        <div className="m-devworks-tags">
+                            <span className="m-devworks-tag">理科・天体</span>
+                            <span className="m-devworks-tag gold">中学受験</span>
+                        </div>
+                        <h4>3D星図 — 季節と時刻で変わる星空</h4>
+                        <p>季節・日付・時刻を動かして星空の変化を体感できる天体学習アプリ。星座クイズつき。</p>
+                        <span className="m-devworks-try">触ってみる ↗</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
