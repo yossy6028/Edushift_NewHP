@@ -36,3 +36,39 @@
 - **粒子文字が「雲」に見える誤診**: スクショのタイミングがモーフ途中（aFrom→aToの経路上）だと文字ボックス全体に一様散布に見える。**検証は必ず時系列連続撮影**（2.5s/3.5s/4.5s/6s/8s）で形成保持フェーズを捉えてから判定する。
 - **three.jsはメインバンドル同梱禁止**: 直importでバンドルが343KB→857KBに肥大。`React.lazy`+`Suspense`（フォールバック=静的透かし文字）で512KBを非同期チャンクに分離。
 - **Edit失敗「File has not been read yet」×3（scholarly.css）**: Bashのgrep/sedで内容を確認しただけでEditツールを呼んだため、ハーネスの「Edit前にReadツールで読むこと」制約に抵触。Readして即再実行で解決（良性・実害なし）。**再発防止**: grep/sedでの下見はRead代わりにならない。Editする予定のファイルは、該当範囲をReadツールで読んでから編集する。
+
+## 2026-07-03 Edit競合(File has been modified since read)
+- 事象: HomeScholarly.tsx へのEdit呼び出しが「File has been modified since read」で失敗
+- 原因: subagent-driven開発中、implementerサブエージェントが同ファイルをコミットした後に、親セッションが古い読み取りキャッシュのままEditを実行したため(想定内の楽観ロック)
+- 対処: 対象範囲をRead し直してからEdit再実行で成功
+- 再発防止: サブエージェントがファイルを変更した後は、親セッションで編集前に必ず該当範囲をReadし直す運用とする(本セッションで徹底)
+
+## 2026-07-03 GSC sitemap送信 invalid_grant
+- 事象: `~/.config/gsc-cli/submit_sitemap.py` が google.auth invalid_grant で失敗
+- 原因: OAuthリフレッシュトークンの失効(長期未使用/期限切れ)。コード起因ではない
+- 対処: 再認証が必要(ユーザー操作)。sitemap自体は本番反映済みでGoogleの自然クロールでも拾われるため緊急性低
+- 再発防止: 再認証後に再実行。認証フローはユーザーのブラウザ操作が必要なため自動化対象外
+
+## 2026-07-03 Bash: フォアグラウンドsleepブロック
+- 事象: `sleep 60 && python gsc_register.py` がハーネスの方針(foreground sleep禁止)でブロック
+- 原因: 固定時間待ちをsleepチェーンで書いたため。ハーネスは`until <check>; do sleep N; done`形式か run_in_background を要求
+- 対処: 即時実行に切替(伝播済みで成功)。以降の待機は `until curl ...; do sleep 10; done` 形式を使用
+- 再発防止: 待機が必要な場合は最初から until ループ(条件待ち)で書く。固定sleepチェーンは書かない
+
+## 2026-07-04 Edit競合(再発・既知)
+- 事象: HomeScholarly.tsxへのEditが「File has been modified since read」で1回失敗
+- 原因: 2026-07-03記録と同一(サブエージェント編集後の親セッション読み取りキャッシュ失効)
+- 対処: 記録済み手順どおり再Read→Edit再実行で成功。実害なし
+- 再発防止: 「サブエージェント編集後のファイルは編集前に必ず再Read」を継続。本件は防止策が機能した(1回目の失敗→即回復)ケース
+
+## 2026-07-04 スマホでヒーロー粒子アニメーションが見えない
+- **症状**: 本番(edu-shift.com)をスマホで見ると3D粒子演出が表示されない
+- **根本原因**: ParticleHero の samplePhrase() が横長画面前提で、粒子テキストの scale/cx/cy を halfW（アスペクト比比例）から算出。縦長画面では粒子がデスクトップ比約1/6サイズで右下に配置され、z-index上位のヒーロー文言・CTAカードの真後ろに完全に隠れていた（描画自体は成功、JSエラーなし）
+- **対処**: samplePhrase() に縦長分岐を追加（scale=halfW*1.9/W・中央・cy=halfH*0.55 で太字大見出し背後に配置）。390×844エミュレーションで3回のverify→fixループ後、可視・可読を確認。デスクトップ1440×900はリグレッションなし
+- **教訓**: ビューポート比から座標を導出する演出は縦長画面で必ず実機比率の検証を行う。「アニメーションが出ない」はコード無効化だけでなく「描画はされているが不可視領域/遮蔽物の背後」も疑う（canvas単体スクショで切り分け）
+
+## 2026-07-04 Playwright同梱ChromiumでH.264動画が再生されない
+- 事象: <video>自動再生の検証でpaused=trueのまま。実装バグを疑った
+- 原因: Playwright同梱Chromiumはプロプライエタリコーデック(H.264)非搭載(canPlayType=''で確認)。実装は正常
+- 対処: `pw.chromium.launch(channel='chrome')`で実Chromeを起動して検証→正常再生を確認
+- 再発防止: 動画・音声を含むUI検証は必ずchannel='chrome'で行う(同梱Chromiumは코덱検証に使わない)

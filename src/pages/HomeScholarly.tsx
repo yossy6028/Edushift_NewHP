@@ -69,6 +69,58 @@ const escapeHtml = (s: string) =>
 // '¥19,800' → 19800（CountUpアニメーション用）
 const priceToNumber = (price: string) => Number(price.replace(/[^0-9]/g, ''));
 
+// Playable Samples — 新しいサンプルアプリは配列に1件追加するだけで掲載される。
+// video は public/videos/ 配下(25秒前後・880px幅・無音・faststartに圧縮して置く)。
+// image はカードのポスター兼動画なし時のフォールバック。
+type SampleApp = {
+    url: string;
+    title: string;
+    desc: string;
+    video?: string;
+    image: string;
+    tags: { label: string; gold?: boolean }[];
+};
+
+const SAMPLE_APPS: SampleApp[] = [
+    {
+        url: 'https://yossy6028.github.io/genpei-kassen-app/',
+        title: '源平合戦 3Dヒストリーマップ',
+        desc: '3Dの日本地図で合戦の流れをたどる歴史学習アプリ。年表・人物図鑑・クイズつき。',
+        video: '/videos/app-genpei.mp4',
+        image: genpeiAppImg,
+        tags: [{ label: '社会・歴史' }, { label: '中学受験', gold: true }],
+    },
+    {
+        url: 'https://yossy6028.github.io/star-chart-3d/',
+        title: '3D星図 — 季節と時刻で変わる星空',
+        desc: '季節・日付・時刻を動かして星空の変化を体感できる天体学習アプリ。星座クイズつき。',
+        video: '/videos/app-starchart.mp4',
+        image: starChartAppImg,
+        tags: [{ label: '理科・天体' }, { label: '中学受験', gold: true }],
+    },
+];
+
+// 見えている間だけ再生するデモ動画。muted はReactが属性として出力しない既知の癖が
+// あるため、プロパティ代入で確実にミュートしてから play() する(自動再生ポリシー対策)。
+const SampleVideo = ({ src, poster, label }: { src: string; poster: string; label: string }) => {
+    const ref = useRef<HTMLVideoElement>(null);
+    useEffect(() => {
+        const v = ref.current;
+        if (!v) return;
+        v.muted = true;
+        const io = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                v.play().catch(() => {});
+            } else {
+                v.pause();
+            }
+        }, { threshold: 0.25 });
+        io.observe(v);
+        return () => io.disconnect();
+    }, []);
+    return <video ref={ref} src={src} poster={poster} muted loop playsInline preload="metadata" aria-label={label} />;
+};
+
 const HP_PRICING = SCHOLARLY_SERVICES['hp-production'].pricingBlock;
 
 export const HomeScholarly = () => {
@@ -571,34 +623,27 @@ export const HomeScholarly = () => {
                 <p>「こういうものが作れます」の代わりに、遊べるサンプルアプリを公開しています。学習アプリの操作感を、そのままお確かめください。</p>
             </div>
             <div className="m-devworks-grid">
-                <a href="https://yossy6028.github.io/genpei-kassen-app/" target="_blank" rel="noopener" className="m-devworks-mini" data-reveal="up" data-reveal-delay="1">
-                    <div className="m-devworks-mini-shot">
-                        <img src={genpeiAppImg} alt="源平合戦 3Dヒストリーマップの画面" loading="lazy" />
-                    </div>
-                    <div className="m-devworks-mini-body">
-                        <div className="m-devworks-tags">
-                            <span className="m-devworks-tag">社会・歴史</span>
-                            <span className="m-devworks-tag gold">中学受験</span>
+                {SAMPLE_APPS.map((app, i) => (
+                    <a key={app.url} href={app.url} target="_blank" rel="noopener" className="m-devworks-mini" data-reveal="up" data-reveal-delay={String((i % 2) + 1)}>
+                        <div className="m-devworks-mini-shot">
+                            {app.video ? (
+                                <SampleVideo src={app.video} poster={app.image} label={`${app.title}のデモ動画`} />
+                            ) : (
+                                <img src={app.image} alt={`${app.title}の画面`} loading="lazy" />
+                            )}
                         </div>
-                        <h4>源平合戦 3Dヒストリーマップ</h4>
-                        <p>3Dの日本地図で合戦の流れをたどる歴史学習アプリ。年表・人物図鑑・クイズつき。</p>
-                        <span className="m-devworks-try">触ってみる ↗</span>
-                    </div>
-                </a>
-                <a href="https://yossy6028.github.io/star-chart-3d/" target="_blank" rel="noopener" className="m-devworks-mini" data-reveal="up" data-reveal-delay="2">
-                    <div className="m-devworks-mini-shot">
-                        <img src={starChartAppImg} alt="3D星図 — 季節と時刻で変わる星空の画面" loading="lazy" />
-                    </div>
-                    <div className="m-devworks-mini-body">
-                        <div className="m-devworks-tags">
-                            <span className="m-devworks-tag">理科・天体</span>
-                            <span className="m-devworks-tag gold">中学受験</span>
+                        <div className="m-devworks-mini-body">
+                            <div className="m-devworks-tags">
+                                {app.tags.map(tag => (
+                                    <span key={tag.label} className={`m-devworks-tag${tag.gold ? ' gold' : ''}`}>{tag.label}</span>
+                                ))}
+                            </div>
+                            <h4>{app.title}</h4>
+                            <p>{app.desc}</p>
+                            <span className="m-devworks-try">触ってみる ↗</span>
                         </div>
-                        <h4>3D星図 — 季節と時刻で変わる星空</h4>
-                        <p>季節・日付・時刻を動かして星空の変化を体感できる天体学習アプリ。星座クイズつき。</p>
-                        <span className="m-devworks-try">触ってみる ↗</span>
-                    </div>
-                </a>
+                    </a>
+                ))}
             </div>
         </div>
     </section>
