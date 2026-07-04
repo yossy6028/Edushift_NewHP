@@ -115,10 +115,19 @@ const samplePhrase = (phrase: Phrase, count: number, halfW: number, halfH: numbe
     }
     if (!pts.length) return out;
 
-    // ワールド座標系へ: 文字幅はビューポート幅の~62%、中心を右下寄りにオフセット
-    const scale = (halfW * 1.25) / W;
-    const cx = halfW * 0.36;
-    const cy = -halfH * 0.42;
+    // ワールド座標系へ変換（x: 右+ / y: 上+、可視範囲は x∈[-halfW,halfW], y∈[-halfH,halfH]）
+    // 横長画面: 文字幅はビューポート幅の~62%、旧透かし文字と同じ右下領域
+    let scale = (halfW * 1.25) / W;
+    let cx = halfW * 0.36;
+    let cy = -halfH * 0.42;
+    if (halfW < halfH) {
+        // 縦長（スマホ）画面: 右下配置だとヒーロー文言・CTAカードの真後ろに隠れ、
+        // halfW比例のスケールでは判読不能なほど小さくなるため、
+        // 画面幅いっぱい・中央配置でコピーの背後に透かすレイアウトに切り替える
+        scale = (halfW * 1.9) / W;
+        cx = 0;
+        cy = halfH * 0.55; // 中央だとCTAカード、0.4だと細字タグラインに重なるため、太字大見出しの背後へ
+    }
     for (let i = 0; i < count; i++) {
         const j = Math.floor(Math.random() * (pts.length / 2)) * 2;
         out[i * 3] = (pts[j] - W / 2) * scale + cx + (Math.random() - 0.5) * 0.25;

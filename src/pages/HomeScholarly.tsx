@@ -6,6 +6,8 @@ import paperFlatlayImg from '../assets/hero-paper-flatlay.jpeg';
 import hpBeforePanelImg from '../assets/hp-before-panel.jpg';
 import hpAfterPanelImg from '../assets/hp-after-panel.jpg';
 import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
+import genpeiAppImg from '../assets/app-genpei.jpg';
+import starChartAppImg from '../assets/app-starchart.jpg';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { CountUp } from '../components/CountUp';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
@@ -66,6 +68,58 @@ const escapeHtml = (s: string) =>
 
 // '¥19,800' → 19800（CountUpアニメーション用）
 const priceToNumber = (price: string) => Number(price.replace(/[^0-9]/g, ''));
+
+// Playable Samples — 新しいサンプルアプリは配列に1件追加するだけで掲載される。
+// video は public/videos/ 配下(25秒前後・880px幅・無音・faststartに圧縮して置く)。
+// image はカードのポスター兼動画なし時のフォールバック。
+type SampleApp = {
+    url: string;
+    title: string;
+    desc: string;
+    video?: string;
+    image: string;
+    tags: { label: string; gold?: boolean }[];
+};
+
+const SAMPLE_APPS: SampleApp[] = [
+    {
+        url: 'https://yossy6028.github.io/genpei-kassen-app/',
+        title: '源平合戦 3Dヒストリーマップ',
+        desc: '3Dの日本地図で合戦の流れをたどる歴史学習アプリ。年表・人物図鑑・クイズつき。',
+        video: '/videos/app-genpei.mp4',
+        image: genpeiAppImg,
+        tags: [{ label: '社会・歴史' }, { label: '中学受験', gold: true }],
+    },
+    {
+        url: 'https://yossy6028.github.io/star-chart-3d/',
+        title: '3D星図 — 季節と時刻で変わる星空',
+        desc: '季節・日付・時刻を動かして星空の変化を体感できる天体学習アプリ。星座クイズつき。',
+        video: '/videos/app-starchart.mp4',
+        image: starChartAppImg,
+        tags: [{ label: '理科・天体' }, { label: '中学受験', gold: true }],
+    },
+];
+
+// 見えている間だけ再生するデモ動画。muted はReactが属性として出力しない既知の癖が
+// あるため、プロパティ代入で確実にミュートしてから play() する(自動再生ポリシー対策)。
+const SampleVideo = ({ src, poster, label }: { src: string; poster: string; label: string }) => {
+    const ref = useRef<HTMLVideoElement>(null);
+    useEffect(() => {
+        const v = ref.current;
+        if (!v) return;
+        v.muted = true;
+        const io = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                v.play().catch(() => {});
+            } else {
+                v.pause();
+            }
+        }, { threshold: 0.25 });
+        io.observe(v);
+        return () => io.disconnect();
+    }, []);
+    return <video ref={ref} src={src} poster={poster} muted loop playsInline preload="metadata" aria-label={label} />;
+};
 
 const HP_PRICING = SCHOLARLY_SERVICES['hp-production'].pricingBlock;
 
@@ -550,6 +604,10 @@ export const HomeScholarly = () => {
                     <img src={autoTensakuImg} alt="国語記述 自動添削システムの画面" loading="lazy" />
                 </a>
                 <div className="m-devworks-body">
+                    <div className="m-devworks-tags">
+                        <span className="m-devworks-tag">国語</span>
+                        <span className="m-devworks-tag gold">中学受験・高校受験</span>
+                    </div>
                     <h3>Taskal AI — 国語記述 自動添削システム</h3>
                     <p>中学・高校受験の国語記述答案を、AIが数十秒で添削・採点。企画から開発・運用まで、EduShiftが自社で行っているWebサービスです。この開発力で、あなたの塾専用のツールを作ります。</p>
                     <div className="m-devworks-links">
@@ -557,6 +615,35 @@ export const HomeScholarly = () => {
                         <a href="/service/dx-development" className="s-service-link">塾DX・ツール開発について →</a>
                     </div>
                 </div>
+            </div>
+
+            <div className="m-devworks-sub" data-reveal="up">
+                <div className="m-devworks-sub-num">Playable Samples</div>
+                <h3>言葉より、<em>触れるサンプル</em>で。</h3>
+                <p>「こういうものが作れます」の代わりに、遊べるサンプルアプリを公開しています。学習アプリの操作感を、そのままお確かめください。</p>
+            </div>
+            <div className="m-devworks-grid">
+                {SAMPLE_APPS.map((app, i) => (
+                    <a key={app.url} href={app.url} target="_blank" rel="noopener" className="m-devworks-mini" data-reveal="up" data-reveal-delay={String((i % 2) + 1)}>
+                        <div className="m-devworks-mini-shot">
+                            {app.video ? (
+                                <SampleVideo src={app.video} poster={app.image} label={`${app.title}のデモ動画`} />
+                            ) : (
+                                <img src={app.image} alt={`${app.title}の画面`} loading="lazy" />
+                            )}
+                        </div>
+                        <div className="m-devworks-mini-body">
+                            <div className="m-devworks-tags">
+                                {app.tags.map(tag => (
+                                    <span key={tag.label} className={`m-devworks-tag${tag.gold ? ' gold' : ''}`}>{tag.label}</span>
+                                ))}
+                            </div>
+                            <h4>{app.title}</h4>
+                            <p>{app.desc}</p>
+                            <span className="m-devworks-try">触ってみる ↗</span>
+                        </div>
+                    </a>
+                ))}
             </div>
         </div>
     </section>
