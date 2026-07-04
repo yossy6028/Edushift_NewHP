@@ -406,7 +406,7 @@ export const HomeScholarly = () => {
                     <div className="s-service-num">Pillar · 02</div>
                     <h3>塾DX・ツール開発</h3>
                     <div className="s-service-en">School DX &amp; Development</div>
-                    <p>初期¥19,800〜+月額。報告書自動化などの単機能ツールから、自動添削システム級のWebアプリまで。あなたの塾専用の道具を、作って育てます。</p>
+                    <p>初期¥19,800〜+月額。時間割自動生成などの単機能ツールから、自動添削システム級のWebアプリまで。あなたの塾専用の道具を、作って育てます。</p>
                     <div className="m-hp-prices">
                         <span className="m-hp-price-chip">開発 ¥19,800〜</span>
                         <span className="m-hp-price-chip">月額 ¥980〜</span>
