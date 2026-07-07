@@ -8,6 +8,7 @@ import hpAfterPanelImg from '../assets/hp-after-panel.jpg';
 import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
 import genpeiAppImg from '../assets/app-genpei.jpg';
 import starChartAppImg from '../assets/app-starchart.jpg';
+import jukuTimetableImg from '../assets/app-juku-timetable.jpg';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { CountUp } from '../components/CountUp';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
@@ -97,6 +98,13 @@ const SAMPLE_APPS: SampleApp[] = [
         video: '/videos/app-starchart.mp4',
         image: starChartAppImg,
         tags: [{ label: '理科・天体' }, { label: '中学受験・高校受験', gold: true }],
+    },
+    {
+        url: 'https://juku-timetable.vercel.app',
+        title: '塾時間割メーカー',
+        desc: '講師の出勤・生徒の都合・コマの相性——毎週の時間割パズルを、全条件を満たして数秒で自動生成する塾運営ツール。',
+        image: jukuTimetableImg,
+        tags: [{ label: '塾運営ツール' }, { label: '時間割 自動生成', gold: true }],
     },
 ];
 
@@ -526,7 +534,7 @@ export const HomeScholarly = () => {
             <div className="m-devworks-sub" data-reveal="up">
                 <div className="m-devworks-sub-num">Playable Samples</div>
                 <h3>言葉より、<em>触れるサンプル</em>で。</h3>
-                <p>「こういうものが作れます」の代わりに、遊べるサンプルアプリを公開しています。学習アプリの操作感を、そのままお確かめください。</p>
+                <p>「こういうものが作れます」の代わりに、実際に触れるサンプルアプリを公開しています。学習アプリから塾運営ツールまで、操作感をそのままお確かめください。</p>
             </div>
             <div className="m-devworks-grid">
                 {SAMPLE_APPS.map((app, i) => (
