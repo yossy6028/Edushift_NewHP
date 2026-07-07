@@ -5,6 +5,7 @@ import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
 import { SCHOLARLY_SERVICES } from '../../data/scholarlyServices';
 import { MAINTENANCE_PLANS, HOME_EMPHASIS } from '../../data/maintenancePlans';
 import '../../styles/scholarly.css';
+import { DxProductGallery } from './DxProductGallery';
 
 // AIEO section style helpers
 const cardStyle: React.CSSProperties = {
@@ -128,6 +129,8 @@ export const ServiceDetailScholarly = () => {
                     </div>
                 </section>
             )}
+
+            {slug === 'dx-development' && <DxProductGallery />}
 
             {slug === 'hp-production' && (
                 <section
