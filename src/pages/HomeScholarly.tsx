@@ -9,6 +9,8 @@ import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
 import genpeiAppImg from '../assets/app-genpei.jpg';
 import starChartAppImg from '../assets/app-starchart.jpg';
 import jukuTimetableImg from '../assets/app-juku-timetable.jpg';
+import tutorRevenueImg from '../assets/app-tutor-revenue.jpg';
+import tabibitozanImg from '../assets/app-tabibitozan.jpg';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { CountUp } from '../components/CountUp';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
@@ -83,6 +85,22 @@ type SampleApp = {
 };
 
 const SAMPLE_APPS: SampleApp[] = [
+    // ---- 塾運営ツール（自動添削は上部のメインショーケースが先頭を担う） ----
+    {
+        url: 'https://juku-timetable.vercel.app',
+        title: '塾時間割メーカー',
+        desc: '講師の出勤・生徒の都合・コマの相性——毎週の時間割パズルを、全条件を満たして数秒で自動生成する塾運営ツール。',
+        image: jukuTimetableImg,
+        tags: [{ label: '塾運営ツール' }, { label: '時間割 自動生成', gold: true }],
+    },
+    {
+        url: 'https://tutor-revenue.vercel.app/',
+        title: '売上ダッシュボード',
+        desc: 'Googleカレンダーの授業予定から、月次売上・年間累計・前年比を自動集計。転記も手計算も不要の、個人講師のための売上台帳。',
+        image: tutorRevenueImg,
+        tags: [{ label: '個人講師向け' }, { label: '売上 自動集計', gold: true }],
+    },
+    // ---- 各教科の学習アプリ ----
     {
         url: 'https://yossy6028.github.io/genpei-kassen-app/',
         title: '源平合戦 3Dヒストリーマップ',
@@ -100,11 +118,11 @@ const SAMPLE_APPS: SampleApp[] = [
         tags: [{ label: '理科・天体' }, { label: '中学受験・高校受験', gold: true }],
     },
     {
-        url: 'https://juku-timetable.vercel.app',
-        title: '塾時間割メーカー',
-        desc: '講師の出勤・生徒の都合・コマの相性——毎週の時間割パズルを、全条件を満たして数秒で自動生成する塾運営ツール。',
-        image: jukuTimetableImg,
-        tags: [{ label: '塾運営ツール' }, { label: '時間割 自動生成', gold: true }],
+        url: 'https://tabibitozan.vercel.app',
+        title: '旅人算ラボ',
+        desc: '出会い・追いつき・折り返し——旅人算7パターンを、動くアニメとダイアグラムで直感的に学べる算数学習アプリ。',
+        image: tabibitozanImg,
+        tags: [{ label: '算数・文章題' }, { label: '中学受験・高校受験', gold: true }],
     },
 ];
 
