@@ -152,6 +152,64 @@ const groupTitleStyle: React.CSSProperties = {
 };
 const groupLeadStyle: React.CSSProperties = { fontSize: 14.5, color: '#475569', marginBottom: 24, lineHeight: 1.8 };
 
+const SUITE_URL = 'https://edushift-juku-apps.vercel.app';
+const SUITE_APPS = [
+    { name: '退塾リスク早期警告ボード', desc: '通塾・成績・支払いの変化から、辞めそうな生徒を先に見つける' },
+    { name: '塾長KPIダッシュボード', desc: '生徒数・売上・継続率など、経営の数字をひと目で把握' },
+    { name: '内申点シミュレータ（7都府県対応）', desc: '志望校に必要な内申と現在地の差を、その場で計算' },
+    { name: '合格実績ダッシュボード', desc: '年度ごとの合格実績を、見せられる形で可視化' },
+];
+
+const SuiteCallout = () => (
+    <div
+        style={{
+            background: 'linear-gradient(135deg, #eef2ff 0%, #ffffff 55%, #f5f3ff 100%)',
+            border: '1px solid #c7d2fe',
+            borderRadius: 24,
+            padding: '32px 32px 34px',
+            marginTop: 8,
+            boxShadow: '0 1px 3px rgba(79,70,229,0.06)',
+        }}
+    >
+        <div style={pill('#4f46e5', '#e0e7ff', '#3730a3')}>公開中のデモ · 塾バックオフィス・スイート</div>
+        <h3 style={{ fontSize: 24, fontWeight: 700, color: '#0f172a', margin: '0 0 12px', lineHeight: 1.5 }}>
+            塾経営を支える4つのボードを、<br />ログイン不要でそのまま触れます。
+        </h3>
+        <p style={{ fontSize: 14.5, color: '#334155', lineHeight: 1.9, margin: '0 0 20px' }}>
+            退塾リスクの早期発見から経営数字の可視化、内申点シミュレーション、合格実績の見える化まで。塾のバックオフィスをまるごと支えるツール群を、会員登録なしで実際にお試しいただけます。稼働中の<strong style={{ color: '#4338ca' }}>塾時間割メーカー</strong>・<strong style={{ color: '#4338ca' }}>売上ダッシュボード</strong>にも、ここから移動できます。
+        </p>
+        <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px 20px' }}>
+            {SUITE_APPS.map((a) => (
+                <li key={a.name} style={{ fontSize: 14, color: '#334155', lineHeight: 1.6, paddingLeft: 22, position: 'relative' }}>
+                    <span style={{ position: 'absolute', left: 0, top: 0, color: '#4f46e5', fontWeight: 700 }}>✓</span>
+                    <strong style={{ color: '#0f172a' }}>{a.name}</strong><br />
+                    <span style={{ fontSize: 13, color: '#475569' }}>{a.desc}</span>
+                </li>
+            ))}
+        </ul>
+        <a
+            href={SUITE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                padding: '13px 26px',
+                borderRadius: 999,
+                background: '#4f46e5',
+                color: 'white',
+                fontSize: 15,
+                fontWeight: 700,
+                textDecoration: 'none',
+                boxShadow: '0 6px 16px rgba(79,70,229,0.25)',
+            }}
+        >
+            スイートのデモを開く ↗
+        </a>
+    </div>
+);
+
 const AppCard = ({ app }: { app: DxApp }) => (
     <div style={cardOuter}>
         <a href={app.url} target="_blank" rel="noopener noreferrer">
@@ -220,6 +278,8 @@ export const DxProductGallery = () => (
                     塾の事務を軽くする<strong style={{ color: '#4338ca' }}>運営ツール</strong>から、生徒の理解を助ける<strong style={{ color: '#047857' }}>教科アプリ</strong>まで。ひとつずつ、何ができるのかをご紹介します。
                 </p>
             </div>
+
+            <SuiteCallout />
 
             <h3 style={groupTitleStyle}>
                 <span style={{ color: '#4f46e5' }}>◆</span> 塾の運営を軽くするツール
