@@ -154,8 +154,8 @@ const groupLeadStyle: React.CSSProperties = { fontSize: 14.5, color: '#475569', 
 
 const SUITE_URL = 'https://edushift-juku-apps.vercel.app';
 const SUITE_APPS = [
-    { name: '退塾リスク早期警告ボード', desc: '通塾・成績・支払いの変化から、辞めそうな生徒を先に見つける' },
-    { name: '塾長KPIダッシュボード', desc: '生徒数・売上・継続率など、経営の数字をひと目で把握' },
+    { name: '退塾リスク早期警告ボード', desc: '欠席・宿題・成績・面談の変化から、辞めそうな生徒を先に見つける' },
+    { name: '塾長KPIダッシュボード', desc: '在籍・問い合わせ・退塾率など、経営の数字をひと目で把握' },
     { name: '内申点シミュレータ（7都府県対応）', desc: '志望校に必要な内申と現在地の差を、その場で計算' },
     { name: '合格実績ダッシュボード', desc: '年度ごとの合格実績を、見せられる形で可視化' },
 ];
