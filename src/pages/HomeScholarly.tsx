@@ -11,6 +11,10 @@ import starChartAppImg from '../assets/app-starchart.jpg';
 import jukuTimetableImg from '../assets/app-juku-timetable.jpg';
 import tutorRevenueImg from '../assets/app-tutor-revenue.jpg';
 import tabibitozanImg from '../assets/app-tabibitozan.jpg';
+import churnAppImg from '../assets/app-churn.jpg';
+import kpiAppImg from '../assets/app-kpi.jpg';
+import naishinAppImg from '../assets/app-naishin.jpg';
+import goukakuAppImg from '../assets/app-goukaku.jpg';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { CountUp } from '../components/CountUp';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
@@ -100,6 +104,27 @@ const SAMPLE_APPS: SampleApp[] = [
         image: tutorRevenueImg,
         tags: [{ label: '個人講師向け' }, { label: '売上 自動集計', gold: true }],
     },
+    {
+        url: 'https://edushift-juku-apps.vercel.app/churn/',
+        title: '退塾リスク早期警告ボード',
+        desc: '欠席・宿題・成績・面談の変化からリスクスコアを算出し、今週声をかけるべき生徒を提示する塾運営ツール。',
+        image: churnAppImg,
+        tags: [{ label: '塾運営ツール' }, { label: '退塾予防', gold: true }],
+    },
+    {
+        url: 'https://edushift-juku-apps.vercel.app/kpi/',
+        title: '塾長KPIダッシュボード',
+        desc: '在籍推移・入塾ファネル・退塾率・学年構成を1画面に。「今月どうだった？」に即答できる経営ダッシュボード。',
+        image: kpiAppImg,
+        tags: [{ label: '塾運営ツール' }, { label: '経営数字 見える化', gold: true }],
+    },
+    {
+        url: 'https://edushift-juku-apps.vercel.app/goukaku/',
+        title: '合格実績ダッシュボード',
+        desc: '文字の羅列だった合格実績を、カウントアップと年度別グラフで魅せるダッシュボード。',
+        image: goukakuAppImg,
+        tags: [{ label: '塾運営ツール' }, { label: '合格実績 見える化', gold: true }],
+    },
     // ---- 各教科の学習アプリ ----
     {
         url: 'https://yossy6028.github.io/genpei-kassen-app/',
@@ -124,7 +149,26 @@ const SAMPLE_APPS: SampleApp[] = [
         image: tabibitozanImg,
         tags: [{ label: '算数・文章題' }, { label: '中学受験・高校受験', gold: true }],
     },
+    // ---- 受験・内申 ----
+    {
+        url: 'https://edushift-juku-apps.vercel.app/naishin/',
+        title: '内申点シミュレータ',
+        desc: '7都府県の公式資料に準拠した換算内申を、成績を入れた瞬間に計算。志望校との差がその場でわかる。',
+        image: naishinAppImg,
+        tags: [{ label: '高校受験・内申' }, { label: '7都府県対応', gold: true }],
+    },
 ];
+
+// Playable Samples のカテゴリ絞り込み。各カードの1つ目のタグ(種別)から導出する。
+const SAMPLE_FILTERS: { key: string; label: string; types?: string[] }[] = [
+    { key: 'all', label: 'すべて' },
+    { key: 'ops', label: '塾運営ツール', types: ['塾運営ツール', '個人講師向け'] },
+    { key: 'study', label: '学習アプリ', types: ['社会・歴史', '理科・天体', '算数・文章題'] },
+    { key: 'exam', label: '受験・内申', types: ['高校受験・内申'] },
+];
+
+const appMatchesFilter = (app: SampleApp, key: string) =>
+    key === 'all' || (SAMPLE_FILTERS.find(f => f.key === key)?.types ?? []).includes(app.tags[0].label);
 
 // 見えている間だけ再生するデモ動画。muted はReactが属性として出力しない既知の癖が
 // あるため、プロパティ代入で確実にミュートしてから play() する(自動再生ポリシー対策)。
@@ -153,6 +197,7 @@ export const HomeScholarly = () => {
     const [navOpen, setNavOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [fxOn] = useState(canRunFx);
+    const [sampleFilter, setSampleFilter] = useState('all');
     // イントロ演出はセッション初回のみ（リピーターには遅延にしかならない）
     const [introDone, setIntroDone] = useState(() =>
         sessionStorage.getItem('es-intro-seen') === '1' ||
@@ -554,28 +599,59 @@ export const HomeScholarly = () => {
                 <h3>言葉より、<em>触れるサンプル</em>で。</h3>
                 <p>「こういうものが作れます」の代わりに、実際に触れるサンプルアプリを公開しています。学習アプリから塾運営ツールまで、操作感をそのままお確かめください。</p>
             </div>
+            <div className="m-devworks-filters" role="radiogroup" aria-label="サンプルアプリの絞り込み" data-reveal="up">
+                {SAMPLE_FILTERS.map(f => {
+                    const active = sampleFilter === f.key;
+                    return (
+                        <button
+                            key={f.key}
+                            type="button"
+                            role="radio"
+                            aria-checked={active}
+                            className={`m-devworks-filter${active ? ' is-active' : ''}`}
+                            onClick={() => setSampleFilter(f.key)}
+                        >
+                            {f.label}
+                        </button>
+                    );
+                })}
+            </div>
             <div className="m-devworks-grid">
-                {SAMPLE_APPS.map((app, i) => (
-                    <a key={app.url} href={app.url} target="_blank" rel="noopener" className="m-devworks-mini" data-reveal="up" data-reveal-delay={String((i % 2) + 1)}>
-                        <div className="m-devworks-mini-shot">
-                            {app.video ? (
-                                <SampleVideo src={app.video} poster={app.image} label={`${app.title}のデモ動画`} />
-                            ) : (
-                                <img src={app.image} alt={`${app.title}の画面`} loading="lazy" />
-                            )}
-                        </div>
-                        <div className="m-devworks-mini-body">
-                            <div className="m-devworks-tags">
-                                {app.tags.map(tag => (
-                                    <span key={tag.label} className={`m-devworks-tag${tag.gold ? ' gold' : ''}`}>{tag.label}</span>
-                                ))}
+                {SAMPLE_APPS.map((app, i) => {
+                    const shown = appMatchesFilter(app, sampleFilter);
+                    return (
+                        <a
+                            key={app.url}
+                            href={app.url}
+                            target="_blank"
+                            rel="noopener"
+                            className="m-devworks-mini"
+                            data-reveal="up"
+                            data-reveal-delay={String((i % 2) + 1)}
+                            style={shown ? undefined : { display: 'none' }}
+                            aria-hidden={shown ? undefined : true}
+                            tabIndex={shown ? undefined : -1}
+                        >
+                            <div className="m-devworks-mini-shot">
+                                {app.video ? (
+                                    <SampleVideo src={app.video} poster={app.image} label={`${app.title}のデモ動画`} />
+                                ) : (
+                                    <img src={app.image} alt={`${app.title}の画面`} loading="lazy" />
+                                )}
                             </div>
-                            <h4>{app.title}</h4>
-                            <p>{app.desc}</p>
-                            <span className="m-devworks-try">触ってみる ↗</span>
-                        </div>
-                    </a>
-                ))}
+                            <div className="m-devworks-mini-body">
+                                <div className="m-devworks-tags">
+                                    {app.tags.map(tag => (
+                                        <span key={tag.label} className={`m-devworks-tag${tag.gold ? ' gold' : ''}`}>{tag.label}</span>
+                                    ))}
+                                </div>
+                                <h4>{app.title}</h4>
+                                <p>{app.desc}</p>
+                                <span className="m-devworks-try">触ってみる ↗</span>
+                            </div>
+                        </a>
+                    );
+                })}
             </div>
         </div>
     </section>
