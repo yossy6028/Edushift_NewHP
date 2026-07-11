@@ -163,7 +163,7 @@ export const ParticleHero = ({ phrases = PHRASES }: { phrases?: Phrase[] }) => {
 
             let w = host.clientWidth;
             let h = host.clientHeight;
-            let halfH = Math.tan(THREE.MathUtils.degToRad(FOV / 2)) * CAM_Z;
+            const halfH = Math.tan(THREE.MathUtils.degToRad(FOV / 2)) * CAM_Z;
             let halfW = halfH * (w / h);
 
             try {

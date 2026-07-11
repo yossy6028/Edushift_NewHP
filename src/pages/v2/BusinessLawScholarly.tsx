@@ -2,14 +2,16 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { HeaderScholarly } from '../../components/scholarly/HeaderScholarly';
 import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
+import { PageMotion } from '../../components/PageMotion';
 import '../../styles/scholarly.css';
 
 export const BusinessLawScholarly = () => {
     useEffect(() => { window.scrollTo(0, 0); }, []);
     return (
-        <div className="theme-scholarly">
+        <div className="theme-scholarly" data-page-motion="legal">
+            <PageMotion variant="legal" />
             <HeaderScholarly />
-            <section className="s-legal-doc">
+            <section className="s-legal-hero">
                 <div className="s-container">
                     <nav className="s-breadcrumb">
                         <Link to="/">Home</Link>
@@ -19,7 +21,12 @@ export const BusinessLawScholarly = () => {
 
                     <h1>特定商取引法に基づく表記</h1>
                     <p className="s-legal-updated">Based on Act on Specified Commercial Transactions</p>
+                </div>
+            </section>
 
+            <section className="s-legal-doc">
+                <div className="s-container">
+                    <article className="s-legal-paper">
                     <dl>
                         <dt>販売業者</dt>
                         <dd>EduShift</dd>
@@ -65,6 +72,7 @@ export const BusinessLawScholarly = () => {
                             顧問契約の中途解約については、契約書の定めに従います。
                         </dd>
                     </dl>
+                    </article>
                 </div>
             </section>
             <FooterScholarly />

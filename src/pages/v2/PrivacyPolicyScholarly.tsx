@@ -2,14 +2,16 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { HeaderScholarly } from '../../components/scholarly/HeaderScholarly';
 import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
+import { PageMotion } from '../../components/PageMotion';
 import '../../styles/scholarly.css';
 
 export const PrivacyPolicyScholarly = () => {
     useEffect(() => { window.scrollTo(0, 0); }, []);
     return (
-        <div className="theme-scholarly">
+        <div className="theme-scholarly" data-page-motion="legal">
+            <PageMotion variant="legal" />
             <HeaderScholarly />
-            <section className="s-legal-doc">
+            <section className="s-legal-hero">
                 <div className="s-container">
                     <nav className="s-breadcrumb">
                         <Link to="/">Home</Link>
@@ -19,7 +21,12 @@ export const PrivacyPolicyScholarly = () => {
 
                     <h1>プライバシーポリシー</h1>
                     <p className="s-legal-updated">Privacy Policy</p>
+                </div>
+            </section>
 
+            <section className="s-legal-doc">
+                <div className="s-container">
+                    <article className="s-legal-paper">
                     <p>
                         EduShift（以下、「当方」といいます。）は、本ウェブサイト上で提供するサービス（以下、「本サービス」といいます。）における、ユーザーの個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下、「本ポリシー」といいます。）を定めます。
                     </p>
@@ -74,6 +81,7 @@ export const PrivacyPolicyScholarly = () => {
                         代表者：吉井 勝彦<br />
                         メール：info@edu-shift.com
                     </p>
+                    </article>
                 </div>
             </section>
             <FooterScholarly />
