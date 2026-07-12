@@ -28,17 +28,20 @@ const monthNum = (month: string) => String(Number(month.split('-')[1]));
 const yearOf = (month: string) => month.split('-')[0];
 
 export const CaseStudyYsKokugo = () => {
+    // ヒーローとdocument.titleの主役数字は先頭指標（HPフォーム問い合わせ）に依存する
+    const [leadMetric] = YS_CASE.metrics;
+
     useEffect(() => {
         window.scrollTo(0, 0);
         const prevTitle = document.title;
-        document.title = `HP制作実績：問い合わせ${YS_CASE.metrics[0].multiplier} | EduShift`;
+        document.title = `HP制作実績：問い合わせ${leadMetric.multiplier} | EduShift`;
         return () => { document.title = prevTitle; };
-    }, []);
+    }, [leadMetric.multiplier]);
 
-    const lead = YS_CASE.metrics[0];
     const siteHost = YS_CASE.siteUrl.replace(/^https?:\/\//, '');
     const maxCount = Math.max(...YS_CASE.monthly.map((m) => m.count));
     const renewalStartIndex = YS_CASE.monthly.findIndex((m) => m.highlight);
+    const renewalStartMonth = renewalStartIndex >= 0 ? YS_CASE.monthly[renewalStartIndex] : undefined;
 
     return (
         <div className="theme-scholarly s-case-page" data-page-motion="service">
@@ -62,14 +65,14 @@ export const CaseStudyYsKokugo = () => {
                         </div>
                         <h1 className="s-case-title" data-reveal>{YS_CASE.heroCopy}</h1>
                         <div className="s-case-hero-figure" data-reveal>
-                            <div className="s-case-hero-label">{lead.label}</div>
+                            <div className="s-case-hero-label">{leadMetric.label}</div>
                             <div className="s-case-hero-numbers">
-                                <span className="before">{lead.before}</span>
+                                <span className="before">{leadMetric.before}</span>
                                 <span className="arrow" aria-hidden="true">→</span>
-                                <span className="after">{lead.after}</span>
-                                <span className="multi">{lead.multiplier}</span>
+                                <span className="after">{leadMetric.after}</span>
+                                <span className="multi">{leadMetric.multiplier}</span>
                             </div>
-                            {lead.note && <p className="s-case-hero-note">{lead.note}</p>}
+                            {leadMetric.note && <p className="s-case-hero-note">{leadMetric.note}</p>}
                         </div>
                     </div>
                 </div>
@@ -90,11 +93,11 @@ export const CaseStudyYsKokugo = () => {
                         <figure className="s-case-ba-item is-before" data-reveal>
                             <figcaption>
                                 <span className="tag">Before</span>
-                                <span className="when">2026年2月時点</span>
+                                <span className="when">{YS_CASE.beforeCapturedAt}</span>
                             </figcaption>
                             <img
                                 src="/works/ys-before.jpg"
-                                alt={`${YS_CASE.siteName}（${siteHost}）リニューアル前のトップページ（2026年2月時点）`}
+                                alt={`${YS_CASE.siteName}（${siteHost}）リニューアル前のトップページ（${YS_CASE.beforeCapturedAt}）`}
                                 loading="lazy"
                                 width={1200}
                                 height={1333}
@@ -157,7 +160,7 @@ export const CaseStudyYsKokugo = () => {
                         <div
                             className="s-case-chart"
                             role="img"
-                            aria-label={`月別HPフォーム問い合わせ件数。${YS_CASE.monthly.map((m) => `${yearOf(m.month)}年${monthNum(m.month)}月 ${m.count}件`).join('、')}。`}
+                            aria-label={`月別HPフォーム問い合わせ件数。${YS_CASE.monthly.map((m) => `${yearOf(m.month)}年${monthNum(m.month)}月 ${m.count}件`).join('、')}。${YS_CASE.renewalDate}にリニューアルし、${renewalStartMonth ? `${yearOf(renewalStartMonth.month)}年${monthNum(renewalStartMonth.month)}月以降` : 'それ以降'}がリニューアル後です。`}
                         >
                             {YS_CASE.monthly.map((m, i) => (
                                 <div
@@ -178,8 +181,9 @@ export const CaseStudyYsKokugo = () => {
                             ))}
                         </div>
                         <ul className="s-case-chart-notes">
-                            <li>※ 2026年7月は、7月12日時点の件数です。</li>
-                            <li>※ 前年（2025年）6月・7月のHPフォーム問い合わせは0件でした。</li>
+                            {YS_CASE.chartNotes.map((note) => (
+                                <li key={note}>※ {note}</li>
+                            ))}
                         </ul>
                     </div>
                 </div>
