@@ -7,6 +7,7 @@ import { SCHOLARLY_SERVICES } from '../../data/scholarlyServices';
 import { MAINTENANCE_PLANS, HOME_EMPHASIS } from '../../data/maintenancePlans';
 import '../../styles/scholarly.css';
 import { DxProductGallery } from './DxProductGallery';
+import { CaseStudyBanner } from './CaseStudyYsKokugo';
 
 const SERVICE_INDEX: Record<string, string> = {
     consulting: '01',
@@ -286,6 +287,8 @@ export const ServiceDetailScholarly = () => {
                     </div>
                 </section>
             )}
+
+            {slug === 'hp-production' && <CaseStudyBanner />}
 
             {svc.pricingBlock && (
                 <section className="s-detail-pricing">

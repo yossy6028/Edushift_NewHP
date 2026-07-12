@@ -761,6 +761,30 @@ html[data-theme="scholarly"] body {
             color: var(--s-gold-deep);
         }
 
+        /* HP制作カード専用：事例ページへの実績リンク（控えめだが目を引く金アクセント） */
+        .s-service-card .s-service-case-link {
+            display: flex;
+            width: fit-content;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            font-family: var(--s-serif-jp);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--s-gold-deep);
+            padding: 7px 14px;
+            border: 1px solid rgba(0, 164, 168, 0.4);
+            background: rgba(0, 164, 168, 0.06);
+            transition: all 0.2s;
+        }
+
+        .s-service-card .s-service-case-link:hover {
+            background: var(--s-gold-deep);
+            border-color: var(--s-gold-deep);
+            color: #fff;
+        }
+
         /* ---------- Service Detail (sub-page) ---------- */
         .s-detail-hero {
             padding: 180px 0 80px;
@@ -4446,5 +4470,136 @@ html[data-theme="scholarly"] body {
 
             .s-case-firsthand h2 {
                 font-size: 22px;
+            }
+        }
+
+        /* ---------- Case Study Banner（サービス詳細ページ内の導線） ---------- */
+        .s-case-banner {
+            padding: 96px 0;
+            background: var(--s-paper);
+        }
+
+        .s-case-banner-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 32px 48px;
+            align-items: center;
+            padding: 48px 56px;
+            color: white;
+            background:
+                radial-gradient(circle at 82% 20%, rgba(2, 147, 240, 0.16), transparent 30%),
+                radial-gradient(circle at 10% 90%, rgba(0, 164, 168, 0.14), transparent 34%),
+                var(--s-navy-900);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .s-case-banner-label {
+            font-family: var(--s-serif-en);
+            font-style: italic;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            color: var(--s-gold);
+            margin-bottom: 14px;
+        }
+
+        .s-case-banner-head h3 {
+            font-family: var(--s-serif-jp);
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.6;
+            margin: 0 0 12px;
+        }
+
+        .s-case-banner-head p {
+            font-family: var(--s-serif-jp);
+            font-size: 13px;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.72);
+            margin: 0;
+        }
+
+        .s-case-banner-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .s-case-banner-metric {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 18px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            text-align: center;
+        }
+
+        .s-case-banner-metric .label {
+            font-family: var(--s-sans-jp);
+            font-size: 11px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        .s-case-banner-metric .multi {
+            font-family: var(--s-serif-jp);
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--s-gold);
+        }
+
+        .s-case-banner-link {
+            grid-column: 1 / -1;
+            justify-self: start;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--s-serif-jp);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--s-navy-900);
+            background: var(--s-gold);
+            padding: 12px 28px;
+            transition: all 0.2s;
+        }
+
+        .s-case-banner-link:hover {
+            background: white;
+            color: var(--s-navy-900);
+        }
+
+        @media (max-width: 900px) {
+            .s-case-banner {
+                padding: 56px 0;
+            }
+
+            .s-case-banner-inner {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                padding: 32px 24px;
+            }
+
+            .s-case-banner-head h3 {
+                font-size: 20px;
+            }
+
+            .s-case-banner-metrics {
+                gap: 8px;
+            }
+
+            .s-case-banner-metric {
+                padding: 14px 8px;
+            }
+
+            .s-case-banner-metric .multi {
+                font-size: 16px;
+                letter-spacing: 0;
+            }
+
+            .s-case-banner-link {
+                justify-self: stretch;
+                justify-content: center;
             }
         }

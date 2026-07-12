@@ -27,6 +27,33 @@ const ACTIONS = [
 const monthNum = (month: string) => String(Number(month.split('-')[1]));
 const yearOf = (month: string) => month.split('-')[0];
 
+/**
+ * HP制作サービスページ等に埋め込む、事例ページへの導線バナー。
+ * 3指標＋短い見出し＋「事例を見る →」のみのコンパクト構成。
+ */
+export const CaseStudyBanner = () => (
+    <section className="s-case-banner">
+        <div className="s-container">
+            <div className="s-case-banner-inner">
+                <div className="s-case-banner-head">
+                    <div className="s-case-banner-label">Case Study · 制作実績</div>
+                    <h3>{YS_CASE.heroCopy}</h3>
+                    <p>EduShift代表自身の塾「{YS_CASE.siteName}」で実証したリニューアル成果です。</p>
+                </div>
+                <div className="s-case-banner-metrics">
+                    {YS_CASE.metrics.map((m) => (
+                        <div key={m.label} className="s-case-banner-metric">
+                            <span className="label">{m.label}</span>
+                            <span className="multi">{m.multiplier}</span>
+                        </div>
+                    ))}
+                </div>
+                <Link to="/works/ys-kokugo" className="s-case-banner-link">事例を見る →</Link>
+            </div>
+        </div>
+    </section>
+);
+
 export const CaseStudyYsKokugo = () => {
     // ヒーローとdocument.titleの主役数字は先頭指標（HPフォーム問い合わせ）に依存する
     const [leadMetric] = YS_CASE.metrics;
