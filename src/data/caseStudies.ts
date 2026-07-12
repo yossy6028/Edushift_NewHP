@@ -23,8 +23,7 @@ export const YS_CASE = {
     siteName: 'YS中学受験国語力研究室',
     siteUrl: 'https://kokugoryoku-up.com',
     renewalDate: '2026年4月下旬',
-    // TODO(human): ヒーローのキャッチコピー（吉井さんが決定して記入する）
-    heroCopy: '',
+    heroCopy: '「きれいなHP」で終わらせない。問い合わせが来るHPへ。',
     metrics: [
         { label: 'HPフォーム問い合わせ', before: '月平均3.4件', after: '月平均9.6件', multiplier: '2.8倍',
           note: 'リニューアル前9ヶ月(2025/8〜2026/4)と後(2026/5〜7/12)の比較' },
