@@ -3833,3 +3833,618 @@ html[data-theme="scholarly"] body {
             }
         }
     
+
+        /* ---------- Case Study (/works/*) ---------- */
+        .s-case-hero {
+            position: relative;
+            padding: 180px 0 96px;
+            color: white;
+            overflow: hidden;
+            isolation: isolate;
+            background:
+                radial-gradient(circle at 80% 28%, rgba(2, 147, 240, 0.16), transparent 26%),
+                radial-gradient(circle at 14% 82%, rgba(0, 164, 168, 0.14), transparent 32%),
+                var(--s-navy-900);
+        }
+
+        .s-case-hero .s-breadcrumb,
+        .s-case-hero .s-breadcrumb a {
+            color: rgba(255, 255, 255, 0.55);
+        }
+
+        .s-case-hero .s-breadcrumb a:hover {
+            color: white;
+        }
+
+        .s-case-hero .s-breadcrumb .current {
+            color: white;
+        }
+
+        .s-case-hero-inner {
+            max-width: 900px;
+        }
+
+        .s-case-hero-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .s-case-chip {
+            font-family: var(--s-serif-en);
+            font-size: 11px;
+            font-style: italic;
+            letter-spacing: 0.3em;
+            padding: 6px 14px;
+            border-radius: 2px;
+            border: 1px solid var(--s-gold);
+            background: rgba(0, 164, 168, 0.14);
+            color: #7fd8da;
+        }
+
+        .s-case-hero-site {
+            font-family: var(--s-serif-jp);
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .s-case-title {
+            font-family: var(--s-serif-jp);
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 1.5;
+            color: white;
+            margin: 0 0 48px;
+            letter-spacing: -0.01em;
+        }
+
+        .s-case-hero-figure {
+            border-top: 1px solid rgba(255, 255, 255, 0.16);
+            padding-top: 36px;
+        }
+
+        .s-case-hero-label {
+            font-family: var(--s-serif-jp);
+            font-size: 14px;
+            letter-spacing: 0.14em;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+        }
+
+        .s-case-hero-numbers {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 16px 20px;
+        }
+
+        .s-case-hero-numbers .before {
+            font-family: var(--s-serif-jp);
+            font-size: 30px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .s-case-hero-numbers .arrow {
+            font-family: var(--s-serif-en);
+            font-size: 28px;
+            color: var(--s-gold);
+        }
+
+        .s-case-hero-numbers .after {
+            font-family: var(--s-serif-jp);
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.1;
+            color: white;
+        }
+
+        .s-case-hero-numbers .multi {
+            font-family: var(--s-serif-jp);
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--s-navy-900);
+            background: var(--s-gold);
+            padding: 6px 16px;
+            border-radius: 2px;
+            align-self: center;
+        }
+
+        .s-case-hero-note {
+            font-family: var(--s-sans-jp);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 20px 0 0;
+        }
+
+        /* Section shells */
+        .s-case-ba,
+        .s-case-chart-sec {
+            padding: 96px 0;
+            background: var(--s-paper);
+        }
+
+        .s-case-metrics,
+        .s-case-actions {
+            padding: 96px 0;
+            background: var(--s-cream);
+            border-top: 1px solid var(--s-line);
+            border-bottom: 1px solid var(--s-line);
+        }
+
+        .s-case-sec-head {
+            margin-bottom: 56px;
+        }
+
+        .s-case-sec-head .s-sec-num {
+            font-family: var(--s-serif-en);
+            font-style: italic;
+            font-size: 11px;
+            letter-spacing: 0.35em;
+            color: var(--s-gold-deep);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .s-case-h2 {
+            font-family: var(--s-serif-jp);
+            font-weight: 600;
+            font-size: 34px;
+            line-height: 1.55;
+            color: var(--s-navy-900);
+            margin: 0;
+        }
+
+        .s-case-h2 em {
+            font-style: normal;
+            color: var(--s-gold-deep);
+        }
+
+        .s-case-sub {
+            font-family: var(--s-serif-jp);
+            font-size: 15px;
+            line-height: 2;
+            color: var(--s-ink-700);
+            max-width: 720px;
+            margin: 24px 0 0;
+        }
+
+        /* Before / After */
+        .s-case-ba-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .s-case-ba-item {
+            margin: 0;
+        }
+
+        .s-case-ba-item figcaption {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .s-case-ba-item .tag {
+            font-family: var(--s-serif-en);
+            font-style: italic;
+            font-size: 20px;
+            letter-spacing: 0.06em;
+        }
+
+        .s-case-ba-item.is-before .tag {
+            color: var(--s-ink-500);
+        }
+
+        .s-case-ba-item.is-after .tag {
+            color: var(--s-gold-deep);
+        }
+
+        .s-case-ba-item .when {
+            font-family: var(--s-serif-jp);
+            font-size: 13px;
+            color: var(--s-ink-500);
+        }
+
+        .s-case-ba-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--s-line);
+        }
+
+        .s-case-ba-item.is-after img {
+            border-color: var(--s-gold);
+            box-shadow: 0 24px 60px -28px rgba(11, 27, 58, 0.45);
+        }
+
+        /* Metric cards */
+        .s-case-metric-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .s-case-metric-card {
+            background: var(--s-paper);
+            border: 1px solid var(--s-line);
+            border-top: 3px solid var(--s-gold);
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .s-case-metric-card .idx {
+            font-family: var(--s-serif-en);
+            font-style: italic;
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            color: var(--s-gold-deep);
+            margin-bottom: 16px;
+        }
+
+        .s-case-metric-card .label {
+            font-family: var(--s-serif-jp);
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--s-navy-900);
+            margin-bottom: 12px;
+        }
+
+        .s-case-metric-card .multi {
+            font-family: var(--s-serif-jp);
+            font-weight: 600;
+            font-size: 44px;
+            line-height: 1.2;
+            color: var(--s-gold-deep);
+            margin-bottom: 12px;
+        }
+
+        .s-case-metric-card .delta {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-family: var(--s-serif-jp);
+            font-size: 15px;
+            color: var(--s-ink-700);
+            margin-bottom: 16px;
+        }
+
+        .s-case-metric-card .delta .from {
+            color: var(--s-ink-500);
+        }
+
+        .s-case-metric-card .delta .arrow {
+            color: var(--s-gold-deep);
+        }
+
+        .s-case-metric-card .delta .to {
+            font-weight: 600;
+            color: var(--s-navy-900);
+        }
+
+        .s-case-metric-card .note {
+            font-family: var(--s-sans-jp);
+            font-size: 12px;
+            line-height: 1.8;
+            color: var(--s-ink-500);
+            margin: auto 0 0;
+        }
+
+        /* Monthly bar chart (pure CSS) */
+        .s-case-chart-wrap {
+            border: 1px solid var(--s-line);
+            background: var(--s-paper);
+            padding: 32px 32px 24px;
+        }
+
+        .s-case-chart-legend {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .s-case-chart-legend .key {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--s-sans-jp);
+            font-size: 12px;
+            color: var(--s-ink-700);
+        }
+
+        .s-case-chart-legend .key i {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+        }
+
+        .s-case-chart-legend .key.is-before i {
+            background: rgba(11, 27, 58, 0.25);
+        }
+
+        .s-case-chart-legend .key.is-after i {
+            background: var(--s-gold-deep);
+        }
+
+        .s-case-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            border-bottom: 1px solid var(--s-line-strong);
+        }
+
+        .s-case-bar-col {
+            flex: 1;
+            min-width: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .s-case-bar-col.is-renewal-start {
+            border-left: 1px dashed var(--s-gold-deep);
+        }
+
+        .s-case-bar-col .flag {
+            position: absolute;
+            top: -4px;
+            left: 6px;
+            font-family: var(--s-sans-jp);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            color: var(--s-gold-deep);
+            white-space: nowrap;
+        }
+
+        .s-case-bar-col .track {
+            position: relative;
+            height: 240px;
+        }
+
+        .s-case-bar-col .fill {
+            position: absolute;
+            bottom: 0;
+            left: 18%;
+            width: 64%;
+            height: var(--h, 0%);
+            background: rgba(11, 27, 58, 0.25);
+        }
+
+        .s-case-bar-col.is-highlight .fill {
+            background: var(--s-gold-deep);
+        }
+
+        .s-case-bar-col .count {
+            position: absolute;
+            bottom: var(--h, 0%);
+            left: 0;
+            right: 0;
+            transform: translateY(-4px);
+            text-align: center;
+            font-family: var(--s-serif-en);
+            font-size: 13px;
+            color: var(--s-ink-500);
+            line-height: 1.4;
+        }
+
+        .s-case-bar-col.is-highlight .count {
+            color: var(--s-gold-deep);
+            font-weight: 700;
+        }
+
+        .s-case-bar-col .month {
+            text-align: center;
+            font-family: var(--s-sans-jp);
+            font-size: 11px;
+            color: var(--s-ink-500);
+            padding-top: 8px;
+            line-height: 1.4;
+        }
+
+        .s-case-bar-col .month em {
+            display: block;
+            font-style: normal;
+            font-size: 10px;
+            color: var(--s-ink-300);
+        }
+
+        .s-case-chart-notes {
+            list-style: none;
+            margin: 20px 0 0;
+            padding: 0;
+        }
+
+        .s-case-chart-notes li {
+            font-family: var(--s-sans-jp);
+            font-size: 12px;
+            line-height: 1.9;
+            color: var(--s-ink-500);
+        }
+
+        /* Actions (what we did) */
+        .s-case-action-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .s-case-action-card {
+            background: var(--s-paper);
+            border: 1px solid var(--s-line);
+            padding: 32px 28px;
+        }
+
+        .s-case-action-card .num {
+            font-family: var(--s-serif-en);
+            font-style: italic;
+            font-size: 13px;
+            letter-spacing: 0.2em;
+            color: var(--s-gold-deep);
+            margin-bottom: 16px;
+        }
+
+        .s-case-action-card h3 {
+            font-family: var(--s-serif-jp);
+            font-weight: 600;
+            font-size: 20px;
+            color: var(--s-navy-900);
+            margin: 0 0 12px;
+        }
+
+        .s-case-action-card p {
+            font-family: var(--s-serif-jp);
+            font-size: 14px;
+            line-height: 2;
+            color: var(--s-ink-700);
+            margin: 0;
+        }
+
+        /* First-hand proof */
+        .s-case-firsthand {
+            padding: 96px 0;
+            background: var(--s-navy-900);
+            color: var(--s-cream);
+        }
+
+        .s-case-firsthand-inner {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .s-case-firsthand-label {
+            font-family: var(--s-serif-en);
+            font-style: italic;
+            font-size: 11px;
+            letter-spacing: 0.35em;
+            color: var(--s-gold);
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .s-case-firsthand h2 {
+            font-family: var(--s-serif-jp);
+            font-weight: 600;
+            font-size: 30px;
+            line-height: 1.6;
+            color: white;
+            margin: 0 0 24px;
+        }
+
+        .s-case-firsthand p {
+            font-family: var(--s-serif-jp);
+            font-size: 15px;
+            line-height: 2.2;
+            color: rgba(247, 242, 232, 0.8);
+            margin: 0;
+            text-align: left;
+        }
+
+        /* Disclaimer */
+        .s-case-disclaimer {
+            padding: 40px 0;
+            background: var(--s-paper);
+            border-top: 1px solid var(--s-line);
+        }
+
+        .s-case-disclaimer p {
+            font-family: var(--s-sans-jp);
+            font-size: 11px;
+            line-height: 2;
+            color: var(--s-ink-500);
+            max-width: 860px;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .s-case-hero {
+                padding: 140px 0 64px;
+            }
+
+            .s-case-title {
+                font-size: 30px;
+                margin-bottom: 36px;
+            }
+
+            .s-case-hero-numbers .before {
+                font-size: 20px;
+            }
+
+            .s-case-hero-numbers .arrow {
+                font-size: 20px;
+            }
+
+            .s-case-hero-numbers .after {
+                font-size: 40px;
+            }
+
+            .s-case-hero-numbers .multi {
+                font-size: 15px;
+                padding: 4px 12px;
+            }
+
+            .s-case-ba,
+            .s-case-chart-sec,
+            .s-case-metrics,
+            .s-case-actions,
+            .s-case-firsthand {
+                padding: 64px 0;
+            }
+
+            .s-case-sec-head {
+                margin-bottom: 36px;
+            }
+
+            .s-case-h2 {
+                font-size: 24px;
+            }
+
+            .s-case-ba-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .s-case-metric-grid,
+            .s-case-action-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .s-case-chart-wrap {
+                padding: 24px 14px 18px;
+            }
+
+            .s-case-chart {
+                gap: 4px;
+            }
+
+            .s-case-bar-col .track {
+                height: 170px;
+            }
+
+            .s-case-bar-col .count {
+                font-size: 10px;
+            }
+
+            .s-case-bar-col .month {
+                font-size: 9px;
+            }
+
+            /* 狭幅ではフラグがバーと重なるため非表示（凡例が同じ情報を担う） */
+            .s-case-bar-col .flag {
+                display: none;
+            }
+
+            .s-case-firsthand h2 {
+                font-size: 22px;
+            }
+        }

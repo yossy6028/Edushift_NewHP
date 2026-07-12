@@ -19,6 +19,7 @@ const REVEAL_SELECTORS = [
     '.s-aieo-measure',
     '.s-aieo-closing',
     '.dx-product-gallery [data-reveal]',
+    '.s-case-page [data-reveal]',
     '.s-detail-pricing-head',
     '.s-detail-price-card',
     '.s-sub-pricing-head',
