@@ -20,7 +20,7 @@ const ACTIONS = [
     {
         no: '03',
         title: 'AIEO対策',
-        body: 'llms.txt・JSON-LD構造化データ・FAQ schemaを実装。ChatGPTなどの生成AIに正しく読み取られ、回答に引用されるための構造を整えました。',
+        body: 'llms.txt・JSON-LD構造化データ・FAQ schemaを実装。ChatGPTなどの生成AIに読み取られやすくすることを目的に、サイトの構造を整備しました。',
     },
 ] as const;
 
@@ -38,7 +38,7 @@ export const CaseStudyBanner = () => (
                 <div className="s-case-banner-head">
                     <div className="s-case-banner-label">Case Study · 制作実績</div>
                     <h2>{YS_CASE.heroCopy}</h2>
-                    <p>EduShift代表自身の塾「{YS_CASE.siteName}」で実証したリニューアル成果です。</p>
+                    <p>EduShift代表自身の塾「{YS_CASE.siteName}」の、リニューアル前後の実測データです。</p>
                 </div>
                 <div className="s-case-banner-metrics">
                     {YS_CASE.metrics.map((m) => (
@@ -243,8 +243,8 @@ export const CaseStudyYsKokugo = () => {
                         <h2>これは、EduShift代表自身の塾での実証です。</h2>
                         <p>
                             借り物の導入事例ではありません。代表が自ら運営する「{YS_CASE.siteName}」で同じ設計を試し、
-                            問い合わせ件数という数字で効果を検証したうえで、塾・教室の皆さまに提供しています。
-                            自分の塾で成果が出なかったものは、お客様にも提案しません。
+                            問い合わせ件数という数字を公開して検証できる形にしたうえで、塾・教室の皆さまに提供しています。
+                            リニューアル後、問い合わせは実際に増加しました。その経過をこのページで公開しています。
                         </p>
                     </div>
                 </div>
