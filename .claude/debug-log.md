@@ -78,3 +78,24 @@
 - 原因: `git add -A src` の広域ステージング。コミット前のdiff目視も省略していた
 - 影響: 変更自体は良性(コメント付き改善・ビルド緑・モバイル検証スクショで動作確認済み)のため実害なし
 - 再発防止: ステージングは変更したファイルを明示列挙する(`git add -A`/`git add -A <dir>`禁止)。コミット前に `git status` で意図しない変更の有無を確認する
+
+## 2026-07-07 アシスタントが偽ツール結果を自己生成し自走ループに陥った（重大）
+- 事象: dx-development詳細ギャラリー実装中、Write/Bash/Editを実ツール呼び出しとして発行せず、応答テキスト内にツール呼び出しと「偽の実行結果」(`情報開示:`/`System: Continue`/`257 lines`/存在しないコミットハッシュ`97e989b`等)を自分で書いてしまった。以降、実際にはユーザー入力でない「再開」「続けて」等まで自己生成し、自問自答ループ化。ファイルが一度破損（import重複＋地の文混入）し、存在しないファイルをビルドしようとした
+- 原因(根本): 一度偽tool_use/tool_resultを出力したことで、実環境からの入力と自己生成テキストの区別が崩壊。巨大JSXを1回のEditでインライン挿入しようとした無理も引き金
+- 検知: ユーザーの「途中の検証をシステムメッセージだと勘違いしてない？」「自問自答しているように見える」の指摘で発覚
+- 復旧: 破損ファイルは `git checkout HEAD --` で復元。巨大JSXは独立コンポーネント`DxProductGallery.tsx`にWrite分離し、呼び出し側は1行Editに縮小して確実化。以後は各ツールを単独発行し、生の出力＋裏取り(`git rev-list --left-right --count`、本番URLをPlaywright実描画で確認)のみを根拠にした
+- 結果: 本番反映は客観確認済み(edu-shift.com のトップ＋/service/dx-development に全アプリ表示、コミット02461f9、ahead/behind=0/0)
+- 再発防止: ①ツールは必ず実呼び出しで発行し、結果は自分で書かない ②tool結果末尾のノイズ(重複行等)は無視し、判定は exit code と裏取りコマンドで行う ③巨大なJSX/コード塊はインラインEditせず新規ファイルWrite＋1行差し込みに分割 ④WebFetchはSPAの描画後内容を検証できない→本番検証はPlaywright等の実ブラウザを使う
+
+## 2026-07-12 Waybackスクショの画像欠落（Task1: Before素材）
+- 症状: Wayback経由の旧HPスクショでロゴ・画像7点が全て読み込み失敗（壊れ画像アイコン）
+- 原因1: web.archive.orgの画像配信スロットリング。ブラウザ内リトライ8回でも2/7しか成功しない
+- 原因2: 対策で書いたPlaywright sync APIのrouteハンドラ内でurllib同期fetch→イベントループを塞ぎpage.goto自体がタイムアウト
+- 解決: 二段階方式。(1) curlで画像を順次リトライDLしてローカルキャッシュ (2) routeハンドラはディスク読みのみでfulfill
+- 補足: ロゴはクエリ付きURL（?1770561333）だと404。クエリ無しURLで取得してクエリ付きキーに保存
+- 教訓: Playwright sync APIのrouteハンドラ内でネットワークI/Oをしない。Wayback素材は先にcurlで確保してから供給する
+
+## 2026-07-12 Task3: 事例ページのfull_pageスクショで後半セクションが空白に見える
+- 原因: PageMotionのリビール（IntersectionObserver + opacity 0）は実スクロールでしか発火せず、Playwrightのfull_pageスクショはスクロールを介さないため未リビール要素がopacity 0のまま写る。ページ自体のバグではない（実スクロール検証で21/21要素がis-visible化を確認済み）
+- 対処: レイアウト検証用スクショでは撮影前に `document.querySelectorAll('[data-pm-reveal]').forEach(e => e.classList.add('is-visible'))` を実行してから撮る
+- 再発防止: /works/ys-kokugo 等 Scholarly配下ページのスクショ検証では常に上記の強制リビールを入れる（Task6の本番検証でも同様）
