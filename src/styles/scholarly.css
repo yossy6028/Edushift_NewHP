@@ -769,10 +769,11 @@ html[data-theme="scholarly"] body {
             gap: 8px;
             margin-top: 18px;
             font-family: var(--s-serif-jp);
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             letter-spacing: 0.05em;
-            color: var(--s-gold-deep);
+            /* --s-gold-deep(#00868a)は淡背景でAA(4.5:1)未満のため1段濃いティールで可読性確保 */
+            color: #007478;
             padding: 7px 14px;
             border: 1px solid rgba(0, 164, 168, 0.4);
             background: rgba(0, 164, 168, 0.06);
@@ -780,8 +781,8 @@ html[data-theme="scholarly"] body {
         }
 
         .s-service-card .s-service-case-link:hover {
-            background: var(--s-gold-deep);
-            border-color: var(--s-gold-deep);
+            background: #007478;
+            border-color: #007478;
             color: #fff;
         }
 
@@ -4502,7 +4503,7 @@ html[data-theme="scholarly"] body {
             margin-bottom: 14px;
         }
 
-        .s-case-banner-head h3 {
+        .s-case-banner-head h2 {
             font-family: var(--s-serif-jp);
             font-size: 24px;
             font-weight: 600;
@@ -4581,7 +4582,7 @@ html[data-theme="scholarly"] body {
                 padding: 32px 24px;
             }
 
-            .s-case-banner-head h3 {
+            .s-case-banner-head h2 {
                 font-size: 20px;
             }
 

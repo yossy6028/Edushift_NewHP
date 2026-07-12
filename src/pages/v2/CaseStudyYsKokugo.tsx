@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { HeaderScholarly } from '../../components/scholarly/HeaderScholarly';
 import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
 import { PageMotion } from '../../components/PageMotion';
-import { YS_CASE } from '../../data/caseStudies';
+import { YS_CASE, YS_LEAD_METRIC } from '../../data/caseStudies';
 import '../../styles/scholarly.css';
 
 const ACTIONS = [
@@ -37,7 +37,7 @@ export const CaseStudyBanner = () => (
             <div className="s-case-banner-inner">
                 <div className="s-case-banner-head">
                     <div className="s-case-banner-label">Case Study · 制作実績</div>
-                    <h3>{YS_CASE.heroCopy}</h3>
+                    <h2>{YS_CASE.heroCopy}</h2>
                     <p>EduShift代表自身の塾「{YS_CASE.siteName}」で実証したリニューアル成果です。</p>
                 </div>
                 <div className="s-case-banner-metrics">
@@ -55,8 +55,8 @@ export const CaseStudyBanner = () => (
 );
 
 export const CaseStudyYsKokugo = () => {
-    // ヒーローとdocument.titleの主役数字は先頭指標（HPフォーム問い合わせ）に依存する
-    const [leadMetric] = YS_CASE.metrics;
+    // ヒーローとdocument.titleの主役数字は主役指標（HPフォーム問い合わせ）に依存する
+    const leadMetric = YS_LEAD_METRIC;
 
     useEffect(() => {
         window.scrollTo(0, 0);

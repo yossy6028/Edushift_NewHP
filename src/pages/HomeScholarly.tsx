@@ -23,7 +23,7 @@ import { DeviceShowcase } from '../components/immersive/DeviceShowcase';
 import { useReveal } from '../hooks/useReveal';
 import { MAINTENANCE_PLANS, HOME_EMPHASIS } from '../data/maintenancePlans';
 import { SCHOLARLY_SERVICES } from '../data/scholarlyServices';
-import { YS_CASE } from '../data/caseStudies';
+import { YS_LEAD_METRIC } from '../data/caseStudies';
 import '../styles/scholarly.css';
 import '../styles/modern.css';
 import '../styles/immersive.css';
@@ -563,7 +563,7 @@ export const HomeScholarly = () => {
                         <span className="s-service-tag">保守運用</span>
                     </div>
                     <a href="/service/hp-production" className="s-service-link">詳しく読む →</a>
-                    <a href="/works/ys-kokugo" className="s-service-case-link">実績: 問い合わせ{YS_CASE.metrics[0].multiplier}の事例 →</a>
+                    <a href="/works/ys-kokugo" className="s-service-case-link">実績: 問い合わせ{YS_LEAD_METRIC.multiplier}の事例 →</a>
                 </div>
             </div>
         </div>
