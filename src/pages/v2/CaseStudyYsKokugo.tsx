@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { HeaderScholarly } from '../../components/scholarly/HeaderScholarly';
 import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
 import { PageMotion } from '../../components/PageMotion';
-import { YS_CASE, YS_LEAD_METRIC } from '../../data/caseStudies';
+import { YS_CASE, YS_LEAD_METRIC, YS_AIEO } from '../../data/caseStudies';
 import '../../styles/scholarly.css';
 
 const ACTIONS = [
@@ -20,9 +20,15 @@ const ACTIONS = [
     {
         no: '03',
         title: 'AIEO対策',
-        body: 'llms.txt・JSON-LD構造化データ・FAQ schemaを実装。ChatGPTなどの生成AIに読み取られやすくすることを目的に、サイトの構造を整備しました。',
+        body: 'llms.txt・JSON-LD構造化データ・FAQ schemaを実装。ChatGPTなどの生成AIに読み取られやすくすることを目的に、サイトの構造を整備しました。実装後のAI経由流入は下記セクションで実測データを公開しています。',
     },
 ] as const;
+
+const AIEO_SECTION_LEAD =
+    '保護者が塾を探す場所は、もう検索エンジンだけではありません。' +
+    'ChatGPTに「中学受験 国語 家庭教師」と尋ね、その回答から比較検討を始める——そんな探し方がすでに始まっています。' +
+    'AIの回答に名前が挙がらなければ、比較の土俵にすら上がれない。' +
+    'だからこそ、AIEO対策の実装前後でAI経由の流入がどう変わったかを、Google Analyticsの実測データで公開します。';
 
 const monthNum = (month: string) => String(Number(month.split('-')[1]));
 const yearOf = (month: string) => month.split('-')[0];
@@ -69,6 +75,8 @@ export const CaseStudyYsKokugo = () => {
     const maxCount = Math.max(...YS_CASE.monthly.map((m) => m.count));
     const renewalStartIndex = YS_CASE.monthly.findIndex((m) => m.highlight);
     const renewalStartMonth = renewalStartIndex >= 0 ? YS_CASE.monthly[renewalStartIndex] : undefined;
+    const maxAieo = Math.max(...YS_AIEO.monthly.map((m) => m.count));
+    const aieoStartIndex = YS_AIEO.monthly.findIndex((m) => m.highlight);
 
     return (
         <div className="theme-scholarly s-case-page" data-page-motion="service">
@@ -209,6 +217,66 @@ export const CaseStudyYsKokugo = () => {
                         </div>
                         <ul className="s-case-chart-notes">
                             {YS_CASE.chartNotes.map((note) => (
+                                <li key={note}>※ {note}</li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            {/* 4.5 AIEO results */}
+            <section className="s-case-metrics s-case-aieo">
+                <div className="s-container">
+                    <div className="s-case-sec-head" data-reveal>
+                        <div className="s-sec-num">AI Referral · AIEO実測</div>
+                        <h2 className="s-case-h2">ChatGPT経由の流入も、<em>実測データ</em>で公開。</h2>
+                        <p className="s-case-sub">{AIEO_SECTION_LEAD}</p>
+                    </div>
+                    <div className="s-case-metric-grid">
+                        {YS_AIEO.metrics.map((m, i) => (
+                            <div key={m.label} className="s-case-metric-card" data-reveal>
+                                <div className="idx">{String(i + 1).padStart(2, '0')}</div>
+                                <div className="label">{m.label}</div>
+                                <div className="multi">{m.multiplier}</div>
+                                <div className="delta">
+                                    <span className="from">{m.before}</span>
+                                    <span className="arrow" aria-hidden="true">→</span>
+                                    <span className="to">{m.after}</span>
+                                </div>
+                                {m.note && <p className="note">{m.note}</p>}
+                            </div>
+                        ))}
+                    </div>
+                    <div className="s-case-chart-wrap" data-reveal>
+                        <div className="s-case-chart-legend" aria-hidden="true">
+                            <span className="key is-before"><i />AIEO実装前</span>
+                            <span className="key is-after"><i />AIEO実装後</span>
+                        </div>
+                        <div
+                            className="s-case-chart"
+                            role="img"
+                            aria-label={`月別のAI経由セッション数。${YS_AIEO.monthly.map((m) => `${yearOf(m.month)}年${monthNum(m.month)}月 ${m.count}件`).join('、')}。AIEOは${YS_AIEO.implementedAt}に実装しました。`}
+                        >
+                            {YS_AIEO.monthly.map((m, i) => (
+                                <div
+                                    key={m.month}
+                                    className={`s-case-bar-col${m.highlight ? ' is-highlight' : ''}${i === aieoStartIndex ? ' is-renewal-start' : ''}`}
+                                    style={{ '--h': `${(m.count / maxAieo) * 100}%` } as CSSProperties}
+                                >
+                                    {i === aieoStartIndex && <span className="flag">AIEO実装後</span>}
+                                    <div className="track">
+                                        <span className="count">{m.count}</span>
+                                        <span className="fill" />
+                                    </div>
+                                    <div className="month">
+                                        {monthNum(m.month)}
+                                        {(i === 0 || m.month.endsWith('-01')) && <em>{yearOf(m.month)}</em>}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <ul className="s-case-chart-notes">
+                            {YS_AIEO.chartNotes.map((note) => (
                                 <li key={note}>※ {note}</li>
                             ))}
                         </ul>
