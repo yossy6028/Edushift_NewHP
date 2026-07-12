@@ -31,7 +31,7 @@ export const CaseStudyYsKokugo = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         const prevTitle = document.title;
-        document.title = 'HP制作実績：問い合わせ2.8倍 | EduShift';
+        document.title = `HP制作実績：問い合わせ${YS_CASE.metrics[0].multiplier} | EduShift`;
         return () => { document.title = prevTitle; };
     }, []);
 
