@@ -104,3 +104,13 @@ export const YS_AIEO = {
         'AI経由の流入は全体の約1.4%です。件数は小さい一方、問い合わせ等の行動に至る割合が検索経由より高いのが特徴です。',
     ],
 } as const;
+
+/** ヒーロー・トップ導線の主役に据えるAI経由流入の指標（GPT流入をトップに置く方針・2026-07-13） */
+export const YS_AI_LEAD_METRIC = YS_AIEO.metrics[0];
+
+/** CaseStudyBanner用。AI経由流入を先頭に置いた3指標 */
+export const YS_BANNER_METRICS: CaseMetric[] = [
+    YS_AIEO.metrics[0],
+    YS_CASE.metrics[0],
+    YS_CASE.metrics[1],
+];

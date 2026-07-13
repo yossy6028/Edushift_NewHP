@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { HeaderScholarly } from '../../components/scholarly/HeaderScholarly';
 import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
 import { PageMotion } from '../../components/PageMotion';
-import { YS_CASE, YS_LEAD_METRIC, YS_AIEO } from '../../data/caseStudies';
+import { YS_CASE, YS_LEAD_METRIC, YS_AIEO, YS_AI_LEAD_METRIC, YS_BANNER_METRICS } from '../../data/caseStudies';
 import '../../styles/scholarly.css';
 
 const ACTIONS = [
@@ -47,7 +47,7 @@ export const CaseStudyBanner = () => (
                     <p>EduShift代表自身の塾「{YS_CASE.siteName}」の、リニューアル前後の実測データです。</p>
                 </div>
                 <div className="s-case-banner-metrics">
-                    {YS_CASE.metrics.map((m) => (
+                    {YS_BANNER_METRICS.map((m) => (
                         <div key={m.label} className="s-case-banner-metric">
                             <span className="label">{m.label}</span>
                             <span className="multi">{m.multiplier}</span>
@@ -61,15 +61,16 @@ export const CaseStudyBanner = () => (
 );
 
 export const CaseStudyYsKokugo = () => {
-    // ヒーローとdocument.titleの主役数字は主役指標（HPフォーム問い合わせ）に依存する
+    // ヒーローの主役はAI経由流入（GPT流入をトップに置く方針）、HPフォーム問い合わせが従
+    const aiMetric = YS_AI_LEAD_METRIC;
     const leadMetric = YS_LEAD_METRIC;
 
     useEffect(() => {
         window.scrollTo(0, 0);
         const prevTitle = document.title;
-        document.title = `HP制作実績：問い合わせ${leadMetric.multiplier} | EduShift`;
+        document.title = `HP制作実績：AI経由流入${aiMetric.multiplier}・問い合わせ${leadMetric.multiplier} | EduShift`;
         return () => { document.title = prevTitle; };
-    }, [leadMetric.multiplier]);
+    }, [aiMetric.multiplier, leadMetric.multiplier]);
 
     const siteHost = YS_CASE.siteUrl.replace(/^https?:\/\//, '');
     const maxCount = Math.max(...YS_CASE.monthly.map((m) => m.count));
@@ -100,14 +101,29 @@ export const CaseStudyYsKokugo = () => {
                         </div>
                         <h1 className="s-case-title" data-reveal>{YS_CASE.heroCopy}</h1>
                         <div className="s-case-hero-figure" data-reveal>
-                            <div className="s-case-hero-label">{leadMetric.label}</div>
-                            <div className="s-case-hero-numbers">
-                                <span className="before">{leadMetric.before}</span>
-                                <span className="arrow" aria-hidden="true">→</span>
-                                <span className="after">{leadMetric.after}</span>
-                                <span className="multi">{leadMetric.multiplier}</span>
+                            <div className="s-case-hero-stats">
+                                <div className="s-case-hero-stat is-primary">
+                                    <div className="s-case-hero-label">{aiMetric.label}</div>
+                                    <div className="stat-multi">{aiMetric.multiplier}</div>
+                                    <div className="stat-delta">
+                                        {aiMetric.before}
+                                        <span className="arrow" aria-hidden="true"> → </span>
+                                        {aiMetric.after}セッション
+                                    </div>
+                                </div>
+                                <div className="s-case-hero-stat">
+                                    <div className="s-case-hero-label">{leadMetric.label}</div>
+                                    <div className="stat-multi">{leadMetric.multiplier}</div>
+                                    <div className="stat-delta">
+                                        {leadMetric.before}
+                                        <span className="arrow" aria-hidden="true"> → </span>
+                                        {leadMetric.after}
+                                    </div>
+                                </div>
                             </div>
-                            {leadMetric.note && <p className="s-case-hero-note">{leadMetric.note}</p>}
+                            <p className="s-case-hero-note">
+                                AI経由の流入はGA4参照元（chatgpt.com等）の実測、問い合わせはHPフォーム経由メールのスレッド単位集計。集計方法の詳細は下記の各セクションをご覧ください。
+                            </p>
                         </div>
                     </div>
                 </div>

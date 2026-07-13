@@ -3939,44 +3939,34 @@ html[data-theme="scholarly"] body {
             margin-bottom: 12px;
         }
 
-        .s-case-hero-numbers {
+        /* 倍率を主役に・絶対数は小さく（2026-07-13 視覚階層を反転） */
+        .s-case-hero-stats {
             display: flex;
-            align-items: baseline;
             flex-wrap: wrap;
-            gap: 16px 20px;
+            gap: 28px 72px;
         }
 
-        .s-case-hero-numbers .before {
+        .s-case-hero-stat .stat-multi {
             font-family: var(--s-serif-jp);
-            font-size: 30px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .s-case-hero-numbers .arrow {
-            font-family: var(--s-serif-en);
-            font-size: 28px;
-            color: var(--s-gold);
-        }
-
-        .s-case-hero-numbers .after {
-            font-family: var(--s-serif-jp);
-            font-size: 56px;
+            font-size: 60px;
             font-weight: 600;
-            line-height: 1.1;
+            line-height: 1.05;
             color: white;
         }
 
-        .s-case-hero-numbers .multi {
-            font-family: var(--s-serif-jp);
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            color: var(--s-navy-900);
-            background: var(--s-gold);
-            padding: 6px 16px;
-            border-radius: 2px;
-            align-self: center;
+        .s-case-hero-stat.is-primary .stat-multi {
+            color: var(--s-gold);
+        }
+
+        .s-case-hero-stat .stat-delta {
+            font-family: var(--s-sans-jp);
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.55);
+            margin-top: 10px;
+        }
+
+        .s-case-hero-stat .stat-delta .arrow {
+            color: var(--s-gold);
         }
 
         .s-case-hero-note {
@@ -4400,21 +4390,16 @@ html[data-theme="scholarly"] body {
                 margin-bottom: 36px;
             }
 
-            .s-case-hero-numbers .before {
-                font-size: 20px;
+            .s-case-hero-stats {
+                gap: 24px 40px;
             }
 
-            .s-case-hero-numbers .arrow {
-                font-size: 20px;
+            .s-case-hero-stat .stat-multi {
+                font-size: 42px;
             }
 
-            .s-case-hero-numbers .after {
-                font-size: 40px;
-            }
-
-            .s-case-hero-numbers .multi {
-                font-size: 15px;
-                padding: 4px 12px;
+            .s-case-hero-stat .stat-delta {
+                font-size: 12px;
             }
 
             .s-case-ba,
