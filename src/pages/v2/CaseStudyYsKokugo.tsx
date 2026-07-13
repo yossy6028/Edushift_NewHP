@@ -180,6 +180,19 @@ export const CaseStudyYsKokugo = () => {
                 </div>
             </section>
 
+            {/* 3.5 Scale context — 個人塾の規模感での意味づけ */}
+            <section className="s-case-firsthand s-case-scale">
+                <div className="s-container">
+                    <div className="s-case-firsthand-inner" data-reveal>
+                        <div className="s-case-firsthand-label">{YS_CASE.scaleContext.label}</div>
+                        <h2>{YS_CASE.scaleContext.title}</h2>
+                        {YS_CASE.scaleContext.paragraphs.map((para) => (
+                            <p key={para}>{para}</p>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* 4. Monthly chart */}
             <section className="s-case-chart-sec">
                 <div className="s-container">
