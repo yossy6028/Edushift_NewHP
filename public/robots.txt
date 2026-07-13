@@ -52,5 +52,22 @@ Allow: /
 User-agent: PhindBot
 Allow: /
 
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Amazon (Alexa / Rufus)
+User-agent: Amazonbot
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# Diffbot (knowledge graph)
+User-agent: Diffbot
+Allow: /
+
 # ── Sitemap & LLM index ──
 Sitemap: https://edu-shift.com/sitemap.xml
+# LLM-friendly site summary: https://edu-shift.com/llms.txt
