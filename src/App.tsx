@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Outlet, useLocation, Navigate, useParams } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
-import { HomeScholarly } from './pages/HomeScholarly';
+import { HomeModern } from './pages/HomeModern';
 import { ServiceDetailScholarly } from './pages/v2/ServiceDetailScholarly';
 import { BusinessLawScholarly } from './pages/v2/BusinessLawScholarly';
 import { PrivacyPolicyScholarly } from './pages/v2/PrivacyPolicyScholarly';
@@ -37,8 +37,8 @@ function App() {
       <ScholarlyTheme />
       <Routes>
         <Route element={<StandaloneLayout />}>
-          {/* Primary site (Scholarly Navy) */}
-          <Route path="/" element={<HomeScholarly />} />
+          {/* Primary site (Modern Dark) */}
+          <Route path="/" element={<HomeModern />} />
           <Route path="/service/school-support" element={<Navigate to="/service/consulting" replace />} />
           <Route path="/service/freelance-support" element={<Navigate to="/service/consulting" replace />} />
           <Route path="/service/ai-consulting" element={<Navigate to="/service/consulting" replace />} />
