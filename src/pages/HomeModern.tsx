@@ -161,6 +161,51 @@ const MotionMedia = ({ src, poster, alt, className }: MotionMediaProps) => {
     );
 };
 
+const HeroMedia = ({ poster }: { poster: string }) => {
+    const [motionAllowed, setMotionAllowed] = useState(false);
+    const [videoFailed, setVideoFailed] = useState(false);
+
+    useEffect(() => {
+        const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const updatePreference = () => setMotionAllowed(!motionPreference.matches);
+
+        updatePreference();
+        motionPreference.addEventListener('change', updatePreference);
+        return () => motionPreference.removeEventListener('change', updatePreference);
+    }, []);
+
+    const mediaClassName = 'h-full w-full object-cover object-[68%_50%] opacity-60';
+
+    if (!motionAllowed || videoFailed) {
+        return (
+            <img
+                src={poster}
+                alt=""
+                className={`es-hero-image ${mediaClassName}`}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                aria-hidden="true"
+            />
+        );
+    }
+
+    return (
+        <video
+            className={mediaClassName}
+            src="/videos/edushift-hero-classroom.mp4"
+            poster={poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            onError={() => setVideoFailed(true)}
+            aria-hidden="true"
+        />
+    );
+};
+
 const Brand = ({ compact = false }: { compact?: boolean }) => (
     <span className={`inline-flex items-center ${compact ? 'gap-2.5' : 'gap-3.5'}`}>
         <img
@@ -318,12 +363,12 @@ export const HomeModern = () => {
             <main id="main-content" tabIndex={-1}>
                 <section id="about" className="relative isolate flex min-h-screen flex-col items-center justify-center overflow-hidden px-5 pb-20 pt-32 sm:px-6">
                     <div className="absolute inset-0 -z-20 bg-black">
-                        <img src={aiClassroomImg} alt="" className="es-hero-image h-full w-full object-cover object-[68%_50%] opacity-60" />
+                        <HeroMedia poster={aiClassroomImg} />
                     </div>
                     <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(0,0,0,.42),rgba(0,0,0,.34)_36%,#000_96%)]" />
                     <div className="es-noise pointer-events-none absolute inset-0 -z-10 opacity-[0.09]" aria-hidden="true" />
                     <div className="pointer-events-none absolute left-1/2 top-[38%] -z-10 h-[520px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(45,179,160,.2),rgba(2,147,240,.08)_45%,transparent_70%)] blur-2xl" aria-hidden="true" />
-                    <span className="absolute bottom-5 right-5 z-10 text-[10px] tracking-[0.12em] text-white/25 sm:right-6">AI生成イメージ</span>
+                    <span className="absolute bottom-5 right-5 z-10 text-[10px] tracking-[0.12em] text-white/25 sm:right-6">AI生成ビジュアル</span>
 
                     <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center">
                         <FadeInUp>
