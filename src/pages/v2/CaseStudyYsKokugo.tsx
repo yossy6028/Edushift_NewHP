@@ -20,7 +20,7 @@ const ACTIONS = [
     {
         no: '03',
         title: 'AIEO対策',
-        body: 'llms.txt・JSON-LD構造化データ・FAQ schemaを実装。ChatGPTなどの生成AIに読み取られやすくすることを目的に、サイトの構造を整備しました。実装後のAI経由流入は下記セクションで実測データを公開しています。',
+        body: '生成AIに塾の特徴が正しく伝わるよう、サイト全体にAIEO対策を実装しました。具体的な手法は非公開ですが、実装後のAI経由流入は下記セクションで実測データを公開しています。',
     },
 ] as const;
 
@@ -360,13 +360,13 @@ export const CaseStudyYsKokugo = () => {
                     <h2>あなたの塾のHPも、<br />「問い合わせが来るHP」へ。</h2>
                     <p>
                         まずは30分の無料相談から。"売り込み"はひとつもいたしません。<br />
-                        料金プラン・AIEO対策の詳細は、HP制作サービスのページでご覧いただけます。
+                        AIEO対応の可否と優先順位は、現在のHPを確認したうえで個別にご案内します。
                     </p>
                     <div className="s-detail-cta-row">
                         <Link to="/#contact" className="s-btn-primary">
                             無料相談を予約する<span className="arrow">→</span>
                         </Link>
-                        <Link to="/service/hp-production" className="s-btn-ghost">HP制作サービスの詳細を見る</Link>
+                        <Link to="/service/hp-production" className="s-btn-ghost">HP制作サービスを見る</Link>
                     </div>
                 </div>
             </section>

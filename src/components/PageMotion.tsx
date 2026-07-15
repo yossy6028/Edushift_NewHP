@@ -15,6 +15,8 @@ const REVEAL_SELECTORS = [
     '.s-detail-extra-card',
     '.s-aieo-head',
     '.s-aieo-card',
+    '.s-aieo-outcome',
+    '.s-aieo-consult',
     '.s-aieo-measures-head',
     '.s-aieo-measure',
     '.s-aieo-closing',

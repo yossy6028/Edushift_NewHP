@@ -1,4 +1,4 @@
-import { useEffect, type CSSProperties } from 'react';
+import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { HeaderScholarly } from '../../components/scholarly/HeaderScholarly';
 import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
@@ -115,179 +115,71 @@ export const ServiceDetailScholarly = () => {
             {slug === 'hp-production' && (
                 <section className="s-aieo">
                     <div className="s-container s-aieo-container">
-                        {/* Header */}
                         <div className="s-aieo-head">
                             <span className="s-aieo-badge">
-                                NEW · AIEO対策（AI Engine Optimization）
+                                AIEO対策 · AI Engine Optimization
                             </span>
-                            <h2>AIに読まれるHPを、作ります。</h2>
+                            <h2>AI検索に選ばれる設計を、<br />塾ごとに。</h2>
                             <p>
-                                保護者が塾を探す方法は、Google検索からChatGPT・Perplexity・Google Geminiへの「相談」へと急速に移っています。<br />
-                                EduShiftの全プランは、こうした生成AIに正しく読み取られ、正しく引用されるための構造を標準実装します。
+                                AIEOは、公開されたチェックリストを当てはめれば終わる施策ではありません。
+                                地域、対象学年、指導の強み、競合状況によって、優先すべき対策は変わります。
+                            </p>
+                            <p className="s-aieo-private-note">
+                                実装項目と判断基準の詳細は公開していません。現在のHPを確認したうえで、相談時に必要な範囲だけをご説明します。
                             </p>
                         </div>
 
-                        {/* AIEOとは */}
-                        <div className="s-aieo-card">
-                            <div className="s-aieo-pill is-teal">DEFINITION</div>
-                            <h3>AIEOとは何か——「答えに選ばれるための最適化」</h3>
-                            <p>
-                                AIEO（AI Engine Optimization）とは、ChatGPT・Perplexity・Google Gemini・Microsoft Copilot といった生成AIが質問に答える際に、自塾のHPを情報源として参照・引用してもらえるようにHPの構造とコンテンツを最適化する取り組みです。
-                                日本語では「生成AI最適化」「AI検索最適化」とも呼ばれ、欧米では「GEO（Generative Engine Optimization）」という呼び方も並行して使われています。
-                            </p>
-                            <p>
-                                従来のSEO（Search Engine Optimization）が「検索結果ページの上位10件に入る」ことを目指していたのに対し、AIEOが目指すのは「AIが生成する数行の回答の中に塾名と特徴が含まれる」ことです。
-                                ユーザーは検索結果を1件ずつ開いて比較するのではなく、AIが要約した1つの回答を読んで判断します。つまり<strong>「上位10件に入る」ではなく「3件の回答候補に入る」</strong>を狙う、より厳しい競争に変わったのです。
-                            </p>
-                            <p>
-                                AIEOで重要になるのは、HPの「読まれやすさ」ではなく「引用されやすさ」。AIに「この一文を切り取れば、塾の特徴が完結する」と思わせる構造化と、固有名詞・数値・地名を明確に含む自然文の両立が鍵になります。
-                            </p>
-                        </div>
-
-                        {/* Background */}
-                        <div className="s-aieo-card">
-                            <div className="s-aieo-pill is-blue">BACKGROUND</div>
-                            <h3>なぜ今、AIEO対策が必要なのか</h3>
-
-                            <h4>① 保護者の塾選びの起点が「検索」から「AIへの相談」に変わった</h4>
-                            <p>
-                                これまで塾選びの起点は、Googleで「地域名＋塾」と検索することでした。表示された10件の中から保護者がHPを開き、料金・実績・授業内容を比較するという、いわゆるSEOの時代です。
-                                ところが2024年から2025年にかけて、保護者の行動は大きく変わりました。世界の生成AI週間アクティブユーザーは ChatGPT 単独で5億人を超え、日本でも保護者世代の利用率が急上昇しています。
-                                「うちの子は中堅校志望、共働きで送り迎えが厳しい、月3万円以内で。飯能で合う塾を3つ教えて」——こうした<strong>条件を文章でAIに相談し、AIが提示した数件だけを比較する</strong>パターンが、いまや塾検討の主流になりつつあります。
-                            </p>
-
-                            <h4>② SEOで勝てているHPが、AIに引用されるとは限らない</h4>
-                            <p>
-                                AIが「どの塾を答えに含めるか」を決めているのは、HPの中身です。AIはクローラーで塾のHPを読み取り、構造化されたデータと自然文を解釈し、回答候補に入れるかどうかを判断します。
-                                ところが、<strong>SEOで上位を取れているHPが、必ずしもAIに引用されるとは限りません</strong>。Googleの検索アルゴリズムは「リンクの多さ」「ページ滞在時間」など人間の挙動を見ますが、AIは「データが構造化されているか」「事実が一文で完結しているか」「他媒体での言及と整合しているか」を見ます。
-                                評価軸が違うため、SEOとAIEOは別々の最適化が必要です。とくに小規模塾は被リンク数で大手に勝てないため、SEOよりAIEOで先行する方が、コストパフォーマンスが高い戦略になります。
-                            </p>
-
-                            <h4>③ AIに引用されないHPは「存在しないHP」になる</h4>
-                            <p>
-                                AIの回答に塾が出てこなければ、そもそも保護者の検討候補に入りません。SEOの場合は2ページ目・3ページ目に表示されていても「目立たない」だけで存在は認識されますが、AIの回答は数件で打ち切られるため、入らないHPは事実上「存在しないHP」と同じ扱いになります。
-                                この変化は、HP制作の世界における産業革命級の転換です。AIEO対策をしないHPは、2025年以降、急速に問い合わせを失っていく可能性が高いと考えています。
-                            </p>
-                        </div>
-
-                        {/* Comparison */}
-                        <div className="s-aieo-card">
-                            <div className="s-aieo-pill is-neutral">COMPARISON</div>
-                            <h3>SEO と AIEO の違い</h3>
-                            <p>両者は対立するものではなく、補完関係にあります。EduShiftはSEOとAIEOを両立させる設計を、すべての制作プランで標準にしています。</p>
-                            <div className="s-aieo-table-wrap">
-                                <table className="s-aieo-table">
-                                    <thead>
-                                        <tr>
-                                            <th>観点</th>
-                                            <th>SEO（従来型）</th>
-                                            <th className="is-accent">AIEO（生成AI時代）</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {[
-                                            ['目的', '検索結果の上位10件に入る', 'AIの回答3件以内に名前を出す'],
-                                            ['評価軸', '被リンク数・滞在時間・キーワード', '構造化データ・事実の一文完結性'],
-                                            ['勝負の場', '検索結果ページ', 'AIが生成する数行の回答'],
-                                            ['小規模塾の不利', '被リンクで大手に劣る', '構造化次第で逆転可能'],
-                                            ['改善の見通し', '3〜6か月かかる', '数週間〜2か月で兆候が見える'],
-                                        ].map(([a, b, c], i) => (
-                                            <tr key={i}>
-                                                <td className="is-label">{a}</td>
-                                                <td>{b}</td>
-                                                <td>{c}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        {/* 5 Measures */}
-                        <div className="s-aieo-measures-head">
-                            <h3>EduShiftが標準実装する5つのAIEO対策</h3>
-                            <p>すべてライトプラン（¥19,800）から標準で含まれます。追加料金は発生しません。</p>
-                        </div>
-
-                        <div className="s-aieo-measures">
+                        <div className="s-aieo-outcomes" aria-label="AIEO対策で目指す状態">
                             {[
                                 {
                                     no: '01',
-                                    title: '構造化データ（JSON-LD）の完全実装',
-                                    p1: '塾の所在地・対象学年・指導科目・営業時間・代表者名・合格実績などを、検索エンジンとAIが機械的に理解できる形式（JSON-LD）でHPに埋め込みます。',
-                                    p2: '具体的には LocalBusiness／EducationalOrganization／FAQPage スキーマを使い、塾の基本情報を一意のデータとして提示。AIが「飯能市の小中高生向け塾」と質問されたときに、塾を候補として正しく列挙できる土台になります。',
+                                    title: 'AIに、塾の強みが正しく伝わる',
+                                    body: '地域や対象、指導方針が要約の途中で失われず、比較候補として理解されやすい情報設計を目指します。',
                                 },
                                 {
                                     no: '02',
-                                    title: 'llms.txt の設置と運用',
-                                    p1: 'AIクローラー専用の案内書として、サイトのルートに /llms.txt を配置します。これは、AIに対して「このサイトの何を優先的に読み、どう要約してほしいか」を明示するファイルです。',
-                                    p2: '塾の強み（少人数指導／合格実績／指導料金）、対象地域、料金体系、問い合わせ動線を簡潔にまとめ、AIが誤解せずに塾を紹介できるようにします。HPの本文を増やしすぎると逆に焦点がぼやけるため、AI向けの要約として独立して用意することが効きます。',
+                                    title: '検索以外の入口を増やす',
+                                    body: 'Google検索だけに頼らず、生成AIへの相談からも塾を知ってもらえる接点を整えます。',
                                 },
                                 {
                                     no: '03',
-                                    title: 'AI引用に最適化された自然文コピー',
-                                    p1: 'AIが回答に引用しやすい文章には、共通の特徴があります。固有名詞（塾名・地域名・対象学年）が文中に明示されていること、合格実績や指導方針が完結した一文で表現されていること、抽象論ではなく具体的な数値で語られていること。',
-                                    p2: 'EduShiftはコピーライティングの段階で「AIが切り取って引用したくなる一文」を意識的に組み込みます。たとえば「飯能市の中高生がGMARCH以上を目指す通い放題の学習塾です」のように、地域・対象・目標・特徴が一文で完結する書き方を全ページに散りばめます。',
+                                    title: '公開後の変化まで確認する',
+                                    body: '作って終わりにせず、AI経由の流入や問い合わせの変化を確認し、次の改善につなげます。',
                                 },
-                                {
-                                    no: '04',
-                                    title: 'FAQ・Q&A形式コンテンツの設置',
-                                    p1: 'AIは「保護者が聞きそうな質問」と「その答え」が明示的にペアで書かれているページを高く評価します。料金・授業時間・体験申込の流れ・退塾ルールなど、よく聞かれる質問を10〜15個、自然文の問答形式でページに配置します。',
-                                    p2: 'さらに FAQPage スキーマで構造化することで、AIだけでなくGoogleの検索結果にも質問形式のリッチリザルトとして表示されやすくなります。SEOとAIEOの両方に効く、費用対効果の高い施策です。',
-                                },
-                                {
-                                    no: '05',
-                                    title: '一次情報の数値化と外部整合性の確保',
-                                    p1: 'AIは「他のサイトでも同じ情報が載っているか」をチェックして信頼度を判定します。塾名・住所・電話番号・営業時間・代表者名がHP・Googleビジネスプロフィール・Mapsの口コミ・各種塾検索ポータルで一致しているかを点検し、ブレを解消します。これを「NAP一貫性」と呼び、AIEOとローカルSEOの両方の根幹になります。',
-                                    p2: '加えて、合格実績・指導年数・在籍生徒数・講師の経歴などを「中堅校◯名合格」「指導歴12年」のように具体的な数値で記載します。AIは数値を含む一文を「引用に値する一次情報」として優先するため、感覚的な表現（「多くの生徒が合格」）よりも、明確な数字を載せた方が回答に採用される確率が大きく上がります。',
-                                },
-                            ].map((m) => (
-                                <div key={m.no} className="s-aieo-measure">
-                                    <div className="s-aieo-measure-num">{m.no}</div>
-                                    <h4>{m.title}</h4>
-                                    <p>{m.p1}</p>
-                                    <p>{m.p2}</p>
-                                </div>
+                            ].map((item) => (
+                                <article key={item.no} className="s-aieo-outcome">
+                                    <span>{item.no}</span>
+                                    <h3>{item.title}</h3>
+                                    <p>{item.body}</p>
+                                </article>
                             ))}
                         </div>
 
-                        {/* Effect */}
-                        <div className="s-aieo-card">
-                            <div className="s-aieo-pill is-blue">EFFECT</div>
-                            <h3>どのような効果が見込めるか</h3>
-                            <p>AIEO対策の効果は、実装直後・数か月後・半年〜1年後の3段階で現れます。</p>
-
-                            {[
-                                { color: '#10b981', label: '短期（公開〜1か月）', title: 'AIに「認識」される塾になる', body: '構造化データとllms.txtの設置により、ChatGPTやPerplexityのクローラーが塾の存在を正しく認識します。AIに「○○市の塾を教えて」と聞いた際に、塾名が回答に含まれる確率が、実装前のほぼ0%から30〜50%程度まで上昇する事例が出始めます。' },
-                                { color: '#6366f1', label: '中期（1〜3か月）', title: 'AI経由の問い合わせが目に見えて増える', body: 'FAQと自然文コピーが整い、AIが「料金は？」「対象学年は？」と聞かれたときに塾の情報を正しく引用できるようになります。問い合わせフォームに「ChatGPTで知りました」「Perplexityで紹介されていて」というコメントが届き始めるのが、このフェーズの特徴です。AI経由の流入は、純粋に新規層の追加流入になります。' },
-                                { color: '#0f172a', label: '長期（3か月〜1年）', title: '地域での「指名相談」が増える', body: 'NAP一貫性と一次情報の数値化により、AIが塾を「信頼できる一次情報源」として記憶します。保護者が「飯能の中学受験塾といえば？」とAIに聞いたときに、地域内で先頭に名前が挙がる状態を作れます。これは大手塾相手でも逆転可能で、被リンクで勝てない小規模塾にとってAIEOが現実的な勝ち筋になる理由です。' },
-                            ].map((e) => (
-                                <div key={e.label} className="s-aieo-effect" style={{ '--aieo-accent': e.color } as CSSProperties}>
-                                    <div className="s-aieo-effect-label">{e.label}</div>
-                                    <h4>{e.title}</h4>
-                                    <p>{e.body}</p>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Closing */}
-                        <div className="s-aieo-closing">
-                            <h3>
-                                EduShiftの方針：AIEO対策は、ライトプランから「あたりまえの仕様」
-                            </h3>
-                            <p>
-                                上記5つのAIEO対策は、ライトプラン（¥19,800）から全プランで標準実装します。プレミアムプランへの追加料金や、保守プランのオプションではありません。
-                                AI時代に塾HPを作るうえで、これらは「あたりまえの仕様」だと考えているからです。
-                            </p>
-                            <p>
-                                EduShiftの強みは、塾という業種に特化していること。塾の保護者が何を不安に思い、どんな質問をAIにするかを把握しているため、構造化データの粒度・FAQの質問設計・自然文コピーの言い回しを、塾向けに最適化できます。
-                                AI時代に取り残されないHPを、初期費用を抑えながら今日から始めていただけます。
-                            </p>
+                        <div className="s-aieo-consult">
+                            <div className="s-aieo-consult-copy">
+                                <div className="s-aieo-pill is-teal">CONSULTATION</div>
+                                <h3>自塾に必要な対策は、<br />無料相談で具体化します。</h3>
+                                <p>
+                                    一般論ではなく、現在のHPと塾の状況を見ながら、優先順位を整理します。
+                                    対策が不要な場合や、先に直すべき課題が別にある場合も、そのままお伝えします。
+                                </p>
+                            </div>
+                            <div className="s-aieo-consult-detail">
+                                <p className="s-aieo-consult-label">30分の相談で確認できること</p>
+                                <ul>
+                                    <li>現在のHPがAIにどう伝わっているか</li>
+                                    <li>最初に整えるべき情報と優先順位</li>
+                                    <li>対応範囲・費用・進め方の見通し</li>
+                                </ul>
+                                <Link to="/#contact" className="s-aieo-consult-cta">
+                                    自塾のAIEO対策を相談する<span aria-hidden="true">→</span>
+                                </Link>
+                                <small>30分・オンライン／相談だけでも構いません</small>
+                            </div>
                         </div>
                     </div>
                 </section>
             )}
-
             {slug === 'hp-production' && <CaseStudyBanner />}
 
             {svc.pricingBlock && (
