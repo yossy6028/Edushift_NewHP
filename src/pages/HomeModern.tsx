@@ -174,7 +174,7 @@ const HeroMedia = ({ poster }: { poster: string }) => {
         return () => motionPreference.removeEventListener('change', updatePreference);
     }, []);
 
-    const mediaClassName = 'h-full w-full object-cover object-[68%_50%] opacity-60';
+    const mediaClassName = 'h-full w-full object-cover object-[68%_50%] opacity-70';
 
     if (!motionAllowed || videoFailed) {
         return (
@@ -368,8 +368,6 @@ export const HomeModern = () => {
                     <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(0,0,0,.42),rgba(0,0,0,.34)_36%,#000_96%)]" />
                     <div className="es-noise pointer-events-none absolute inset-0 -z-10 opacity-[0.09]" aria-hidden="true" />
                     <div className="pointer-events-none absolute left-1/2 top-[38%] -z-10 h-[520px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(45,179,160,.2),rgba(2,147,240,.08)_45%,transparent_70%)] blur-2xl" aria-hidden="true" />
-                    <span className="absolute bottom-5 right-5 z-10 text-[10px] tracking-[0.12em] text-white/25 sm:right-6">AI生成ビジュアル</span>
-
                     <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center">
                         <FadeInUp>
                             <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white/70 backdrop-blur-sm">
@@ -478,7 +476,6 @@ export const HomeModern = () => {
                                     alt="塾内でAIを活用するイメージ"
                                 />
                                 <div className="absolute inset-0 bg-black/35" />
-                                <span className="absolute right-5 top-5 z-10 rounded-full border border-white/10 bg-black/35 px-3 py-1.5 text-[10px] tracking-[0.12em] text-white/65 backdrop-blur-md">AI活用イメージ</span>
                                 <div className="relative flex min-h-[436px] items-end">
                                     <div className="w-full rounded-2xl border border-white/10 bg-[#1C1C1E]/90 p-5 shadow-2xl backdrop-blur-xl">
                                         <div className="mb-5 flex flex-wrap gap-2">
