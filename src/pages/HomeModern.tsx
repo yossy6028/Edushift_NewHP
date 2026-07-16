@@ -41,6 +41,48 @@ const CAPABILITIES = [
     { label: '伴走支援', Icon: MessageSquareText },
 ];
 
+const SERVICE_MENU = [
+    {
+        href: '/service/hp-production',
+        en: 'WEB PRODUCTION & CARE',
+        title: 'HP制作・保守運用',
+        desc: '選ばれる塾のHPを、最短1週間・低価格で。公開後の保守まで対応。',
+        accent: 'text-[#55D8CA]',
+        items: [
+            { name: '制作ライト（LP 1枚）', price: '¥19,800' },
+            { name: '制作スタンダード（TOP＋3ページ）', price: '¥39,800' },
+            { name: '制作プレミアム（TOP＋5〜7ページ）', price: '¥98,000' },
+            { name: '保守・運用（3プラン）', price: '月額 ¥980〜' },
+        ],
+    },
+    {
+        href: '/service/dx-development',
+        en: 'SCHOOL DX & DEVELOPMENT',
+        title: '塾DX・専用ツール開発',
+        desc: '報告書・教材・成績管理など、塾の繰り返し作業を専用ツールに。',
+        accent: 'text-sky-300',
+        items: [
+            { name: 'ミニ（単機能ツール）', price: '¥19,800〜' },
+            { name: 'スタンダード（業務アプリ）', price: '¥29,800〜' },
+            { name: 'フル（Webサービス開発）', price: '¥98,000〜' },
+            { name: '保守・改善相談つき', price: '月額 ¥980〜' },
+        ],
+    },
+    {
+        href: '/service/consulting',
+        en: 'CONSULTING',
+        title: '経営・独立・AI活用コンサル',
+        desc: '塾経営の立て直し、講師の独立、AI活用を実務者が伴走支援。',
+        accent: 'text-lime-300',
+        items: [
+            { name: '初回相談（30分・オンライン）', price: '無料' },
+            { name: '単発スポット相談', price: '¥9,800/回' },
+            { name: '月額伴走（ライト〜フル）', price: '¥14,800〜' },
+            { name: 'AI活用ハンズオン（フル）', price: '¥49,800' },
+        ],
+    },
+];
+
 const FAQS = [
     {
         question: '初回相談は本当に無料ですか？',
@@ -429,6 +471,37 @@ export const HomeModern = () => {
                             </h2>
                             <p className="mt-6 text-[16px] leading-8 text-white/55">
                                 相談だけで終わらせず、設計から実装、公開後の改善まで。塾の規模と今の課題に合わせて組み合わせます。
+                            </p>
+                        </FadeInUp>
+
+                        <div className="mb-8 grid gap-5 lg:grid-cols-3" aria-label="サービスメニュー一覧">
+                            {SERVICE_MENU.map((service, index) => (
+                                <FadeInUp key={service.href} delay={index * 90} className="h-full">
+                                    <a
+                                        href={service.href}
+                                        className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#0E0E10] p-7 transition duration-500 hover:-translate-y-2 hover:border-white/20"
+                                    >
+                                        <p className={`text-[10px] font-semibold tracking-[0.18em] ${service.accent}`}>{service.en}</p>
+                                        <h3 className="es-serif mt-3 text-xl font-semibold text-white">{service.title}</h3>
+                                        <p className="mt-3 text-sm leading-6 text-white/55">{service.desc}</p>
+                                        <ul className="mt-6 flex-1 divide-y divide-white/[0.06] border-t border-white/[0.06]">
+                                            {service.items.map((item) => (
+                                                <li key={item.name} className="flex items-baseline justify-between gap-4 py-3">
+                                                    <span className="text-[13px] leading-5 text-white/65">{item.name}</span>
+                                                    <span className="shrink-0 text-sm font-semibold text-white">{item.price}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <span className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold ${service.accent}`}>
+                                            詳しく見る <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                                        </span>
+                                    </a>
+                                </FadeInUp>
+                            ))}
+                        </div>
+                        <FadeInUp>
+                            <p className="text-center text-xs leading-6 text-white/45">
+                                表示価格はすべて税抜です。各サービスの考え方と進め方は、このまま下へスクロールしてご覧いただけます。
                             </p>
                         </FadeInUp>
 
