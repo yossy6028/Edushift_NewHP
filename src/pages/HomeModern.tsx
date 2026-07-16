@@ -608,6 +608,73 @@ export const HomeModern = () => {
                     </FadeInUp>
                 </section>
 
+                <section id="company" className="border-t border-white/[0.06] px-5 py-24 sm:px-6 md:py-32">
+                    <div className="mx-auto max-w-7xl">
+                        <FadeInUp className="mb-14">
+                            <p className="mb-5 text-xs font-semibold tracking-[0.2em] text-[#55D8CA]">REPRESENTATIVE</p>
+                            <h2 className="es-display text-4xl font-semibold tracking-tight sm:text-5xl">代表挨拶・会社概要</h2>
+                        </FadeInUp>
+
+                        <div className="grid gap-5 lg:grid-cols-2">
+                            <FadeInUp delay={90}>
+                                <div className="h-full rounded-2xl border border-white/10 bg-[#0E0E10] p-7 sm:p-9">
+                                    <h3 className="es-serif border-b border-white/10 pb-5 text-xl font-semibold">代表挨拶</h3>
+                                    <div className="mt-6 space-y-4 text-[15px] leading-8 text-white/65">
+                                        <p className="es-serif text-white/85">「現場の先生が、もっと教育に集中できる環境をつくりたい」</p>
+                                        <p>
+                                            それが、EduShiftを立ち上げた原点です。
+                                            私自身、長年教育業界に身を置き、生徒の成長に立ち会う喜びと同時に、
+                                            経営や雑務に追われ、理想の教育を追求しきれないジレンマも感じてきました。
+                                        </p>
+                                        <p>
+                                            AI技術の進化は、この課題を解決する大きな鍵となります。
+                                            しかし、技術ありきではなく、あくまで「人の温かみ」を活かすための技術でなければなりません。
+                                            私たちは、最新のテクノロジーと現場の泥臭い知見を融合させ、
+                                            教育に関わるすべての人を、裏側から力強く支えていきます。
+                                        </p>
+                                    </div>
+                                    <div className="mt-8 text-right">
+                                        <p className="text-sm font-semibold text-white">EduShift 代表</p>
+                                        <p className="mt-1 text-sm text-white/55">吉井 勝彦</p>
+                                    </div>
+                                </div>
+                            </FadeInUp>
+
+                            <FadeInUp delay={180}>
+                                <div className="h-full overflow-hidden rounded-2xl border border-white/10 bg-[#0E0E10]">
+                                    <h3 className="es-serif border-b border-white/10 px-7 py-6 text-xl font-semibold sm:px-9">会社概要</h3>
+                                    <dl className="divide-y divide-white/[0.06]">
+                                        <div className="flex flex-col gap-2 px-7 py-5 sm:flex-row sm:px-9">
+                                            <dt className="shrink-0 text-sm font-medium text-white/55 sm:w-28">屋号</dt>
+                                            <dd className="text-sm font-medium text-white">EduShift</dd>
+                                        </div>
+                                        <div className="flex flex-col gap-2 px-7 py-5 sm:flex-row sm:px-9">
+                                            <dt className="shrink-0 text-sm font-medium text-white/55 sm:w-28">代表者</dt>
+                                            <dd className="text-sm text-white/85">吉井 勝彦</dd>
+                                        </div>
+                                        <div className="flex flex-col gap-2 px-7 py-5 sm:flex-row sm:px-9">
+                                            <dt className="shrink-0 text-sm font-medium text-white/55 sm:w-28">事業内容</dt>
+                                            <dd className="text-sm text-white/85">
+                                                <ul className="list-disc space-y-1.5 pl-5 marker:text-[#55D8CA]">
+                                                    <li>学習塾・スクール向け経営コンサルティング</li>
+                                                    <li>教育機関向けAI導入支援・DX推進</li>
+                                                    <li>教育関連フリーランス独立支援・育成</li>
+                                                    <li>教育アプリ・システム開発</li>
+                                                    <li>Webサイト制作・保守運用支援</li>
+                                                </ul>
+                                            </dd>
+                                        </div>
+                                        <div className="flex flex-col gap-2 px-7 py-5 sm:flex-row sm:px-9">
+                                            <dt className="shrink-0 text-sm font-medium text-white/55 sm:w-28">所在地</dt>
+                                            <dd className="text-sm leading-6 text-white/85">〒150-0021<br />東京都渋谷区恵比寿西2丁目4番8号ウィンド恵比寿ビル8F</dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </FadeInUp>
+                        </div>
+                    </div>
+                </section>
+
                 <section id="faq" className="px-5 py-24 sm:px-6 md:py-32">
                     <div className="mx-auto max-w-3xl">
                         <FadeInUp>
@@ -680,6 +747,7 @@ export const HomeModern = () => {
                         <div>
                             <h3 className="mb-5 text-xs font-semibold tracking-[0.16em] text-white/75">COMPANY</h3>
                             <div className="space-y-3 text-sm text-white/55">
+                                <a className="block transition hover:text-white" href="#company">代表挨拶・会社概要</a>
                                 <a className="block transition hover:text-white" href="#faq">よくあるご質問</a>
                                 <a className="block transition hover:text-white" href="https://note.com/katsu_yossy" target="_blank" rel="noopener noreferrer">note</a>
                                 <a className="block transition hover:text-white" href="https://x.com/YSTConsulting" target="_blank" rel="noopener noreferrer">X</a>
