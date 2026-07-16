@@ -170,7 +170,7 @@ const SAMPLE_APPS: SampleApp[] = [
     {
         url: 'https://edushift-juku-apps.vercel.app/zenchishi/',
         title: '前置詞ビジュアルラボ',
-        desc: '箱とボールのアニメで in・on・into・through などの空間イメージを体感する英語学習アプリ。10種の前置詞クイズつき。',
+        desc: '箱とボールのアニメで in・on・into・through などの空間イメージを体感する英語学習アプリ。34種の前置詞クイズつき。',
         image: zenchishiAppImg,
         tags: [{ label: '英語・前置詞' }, { label: '中学英語', gold: true }],
     },
