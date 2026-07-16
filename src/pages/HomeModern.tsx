@@ -16,7 +16,7 @@ import {
     X,
 } from 'lucide-react';
 import logoImg from '../assets/logo-shift-mark.png';
-import hpAfterImg from '../assets/hp-after-panel.jpg';
+import sampleJukuHeroImg from '../assets/generated/sample-juku-hero.webp';
 import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
 import starChartImg from '../assets/app-starchart.jpg';
 import genpeiImg from '../assets/app-genpei.jpg';
@@ -530,9 +530,48 @@ export const HomeModern = () => {
                                         <span className="rounded-full bg-[#2DB3A0]/15 px-2.5 py-1 text-[10px] font-semibold text-[#55D8CA]">LIVE</span>
                                     </div>
                                     <div className="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_30px_80px_rgba(0,0,0,.55)]">
-                                        <img src={hpAfterImg} alt="EduShiftが制作する学習塾ホームページの例" className="aspect-[4/4.35] w-full object-cover object-top" loading="lazy" />
+                                        <div className="flex items-center gap-1.5 border-b border-black/5 bg-[#F3F4F6] px-4 py-2.5">
+                                            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+                                            <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
+                                            <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
+                                            <span className="ml-3 flex-1 truncate rounded-md bg-white px-3 py-1 text-[10px] text-black/40">seiran-seminar.jp</span>
+                                        </div>
+                                        <div className="relative aspect-[4/3] overflow-hidden bg-[#101828]">
+                                            <MotionMedia
+                                                src="/videos/sample-juku-hero.mp4"
+                                                poster={sampleJukuHeroImg}
+                                                alt="制作サンプル: 架空の学習塾「青藍ゼミナール」のホームページ"
+                                                className="absolute inset-0 h-full w-full"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30" />
+                                            <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 px-5 py-3.5">
+                                                <p className="es-serif text-[13px] font-bold tracking-[0.12em] text-white">青藍ゼミナール</p>
+                                                <div className="hidden items-center gap-3 text-[9px] font-medium text-white/85 sm:flex">
+                                                    {['特長', 'コース', '合格実績', 'アクセス'].map((item) => <span key={item}>{item}</span>)}
+                                                </div>
+                                                <span className="rounded-full bg-[#1D4ED8] px-2.5 py-1 text-[9px] font-semibold text-white">無料体験</span>
+                                            </div>
+                                            <div className="absolute inset-x-0 bottom-0 px-5 pb-5">
+                                                <p className="es-serif text-2xl font-semibold leading-snug text-white sm:text-[28px]">藍より、青く。</p>
+                                                <p className="mt-1.5 text-[10px] leading-relaxed text-white/85 sm:text-[11px]">先生を超えていく生徒を育てる、地域密着の個別指導塾。</p>
+                                                <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-[10px] font-bold text-[#1D4ED8]">
+                                                    無料体験授業に申し込む <ArrowRight className="h-3 w-3" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="grid grid-cols-3 divide-x divide-black/[0.06] bg-white">
+                                            {[
+                                                ['合格実績', '地域トップ校 多数'],
+                                                ['個別指導', '1:2 完全担任制'],
+                                            ].map(([title, sub]) => (
+                                                <div key={title} className="px-2 py-3 text-center">
+                                                    <p className="text-[10px] font-bold text-[#1D4ED8]">{title}</p>
+                                                    <p className="mt-0.5 text-[9px] text-black/55">{sub}</p>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
-                                    <div className="absolute -bottom-2 -right-2 rounded-2xl border border-white/10 bg-[#1C1C1E]/90 p-4 shadow-xl backdrop-blur-xl sm:bottom-6 sm:right-1">
+                                    <div className="absolute -bottom-3 -right-2 rounded-2xl border border-white/10 bg-[#1C1C1E]/90 p-4 shadow-xl backdrop-blur-xl sm:-bottom-5 sm:-right-4">
                                         <p className="text-[10px] uppercase tracking-[0.14em] text-white/60">Starting from</p>
                                         <p className="mt-1 text-xl font-semibold">¥19,800</p>
                                     </div>
