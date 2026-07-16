@@ -16,7 +16,7 @@ import {
     X,
 } from 'lucide-react';
 import logoImg from '../assets/logo-shift-mark.png';
-import sampleJukuHeroImg from '../assets/generated/sample-juku-hero.webp';
+import sampleJukuHeroImg from '../assets/generated/stella-hero.webp';
 import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
 import starChartImg from '../assets/app-starchart.jpg';
 import genpeiImg from '../assets/app-genpei.jpg';
@@ -102,6 +102,10 @@ const FAQS = [
     {
         question: 'AIに詳しくなくても利用できますか？',
         answer: '問題ありません。ツール名から決めるのではなく、今の業務を確認して、使う意味がある部分だけにAIを組み込みます。導入後に現場で使い続けられる形まで伴走します。',
+    },
+    {
+        question: '塾のAI活用は、何から始めればいいですか？',
+        answer: '効果が出やすいのは、教材・小テストの作成、記述添削、指導報告書や保護者向け文面の作成です。EduShiftはChatGPT・Claude・Geminiを業務と予算に合わせて選び、今日から使える形で導入まで伴走します。国語記述の自動添削SaaS「Taskal AI」の自社開発で得た実務ノウハウが土台です。',
     },
     {
         question: '遠方でも依頼できますか？',
@@ -549,26 +553,26 @@ export const HomeModern = () => {
                                             <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
                                             <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
                                             <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-                                            <span className="ml-3 flex-1 truncate rounded-md bg-white px-3 py-1 text-[10px] text-black/40">seiran-seminar.jp</span>
+                                            <span className="ml-3 flex-1 truncate rounded-md bg-white px-3 py-1 text-[10px] text-black/40">stella-academy.jp</span>
                                         </div>
                                         <div className="relative aspect-[4/3] overflow-hidden bg-[#101828]">
                                             <MotionMedia
-                                                src="/videos/sample-juku-hero.mp4"
+                                                src="/videos/stella-hero.mp4"
                                                 poster={sampleJukuHeroImg}
-                                                alt="制作サンプル: 架空の学習塾「青藍ゼミナール」のホームページ"
+                                                alt="制作サンプル: 架空の学習塾「Stella Academy」のホームページ"
                                                 className="absolute inset-0 h-full w-full"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30" />
                                             <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 px-5 py-3.5">
-                                                <p className="es-serif text-[13px] font-bold tracking-[0.12em] text-white">青藍ゼミナール</p>
+                                                <p className="es-wordmark text-[14px] tracking-[0.02em]">Stella <em>Academy</em></p>
                                                 <div className="hidden items-center gap-3 text-[9px] font-medium text-white/85 sm:flex">
                                                     {['特長', 'コース', '合格実績', 'アクセス'].map((item) => <span key={item}>{item}</span>)}
                                                 </div>
                                                 <span className="rounded-full bg-[#1D4ED8] px-2.5 py-1 text-[9px] font-semibold text-white">無料体験</span>
                                             </div>
                                             <div className="absolute inset-x-0 bottom-0 px-5 pb-5">
-                                                <p className="es-serif text-2xl font-semibold leading-snug text-white sm:text-[28px]">藍より、青く。</p>
-                                                <p className="mt-1.5 text-[10px] leading-relaxed text-white/85 sm:text-[11px]">先生を超えていく生徒を育てる、地域密着の個別指導塾。</p>
+                                                <p className="es-serif text-2xl font-semibold leading-snug text-white sm:text-[28px]">願う星から、掴む星へ。</p>
+                                                <p className="mt-1.5 text-[10px] leading-relaxed text-white/85 sm:text-[11px]">桜咲く春まで、一人ひとりの軌道を描く個別指導塾。</p>
                                                 <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-[10px] font-bold text-[#1D4ED8]">
                                                     無料体験授業に申し込む <ArrowRight className="h-3 w-3" />
                                                 </span>
