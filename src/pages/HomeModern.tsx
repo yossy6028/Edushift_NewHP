@@ -20,6 +20,9 @@ import sampleJukuHeroImg from '../assets/generated/sample-juku-hero.webp';
 import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
 import starChartImg from '../assets/app-starchart.jpg';
 import genpeiImg from '../assets/app-genpei.jpg';
+import shokuensuiImg from '../assets/app-shokuensui.jpg';
+import kairoImg from '../assets/app-kairo.jpg';
+import zenchishiImg from '../assets/app-zenchishi.jpg';
 import aiClassroomImg from '../assets/generated/edushift-ai-classroom.webp';
 import aiWorkspaceImg from '../assets/generated/edushift-ai-workspace.webp';
 import MetaTags from '../components/MetaTags';
@@ -103,6 +106,18 @@ const FAQS = [
     {
         question: '遠方でも依頼できますか？',
         answer: '全国からオンラインで依頼できます。打ち合わせは原則オンラインで行い、訪問が必要な場合は内容と交通費を事前に相談します。',
+    },
+    {
+        question: '契約期間の縛りはありますか？いつでも解約できますか？',
+        answer: 'ございません。月額コンサル（ライト¥14,800〜フル¥49,800/月）はすべて月単位で継続・解約が可能です。なお、ご入金後の返金は、当方の都合でサービス提供できなくなった場合を除き、原則お受けしておりません。',
+    },
+    {
+        question: '支払い方法・支払い時期はどうなっていますか？',
+        answer: '銀行振込またはクレジットカード決済に対応しています。銀行振込は請求書発行から1週間以内、クレジットカードは各カード会社の引き落とし日となります。詳細は特定商取引法に基づく表記をご参照ください。',
+    },
+    {
+        question: 'サービス提供までの流れと、提供期間を教えてください。',
+        answer: '単発スポットはご入金確認後、日程調整の上で実施します。月額コンサル（スタンダード・フルなど）は、契約締結後に合意した開始日から提供を開始します。サービス内容は3つのサービス（コンサルティング／アプリ・ツール制作／HP制作・運用）の中から、現状と目的に合わせてご提案します。',
     },
 ];
 
@@ -679,6 +694,27 @@ export const HomeModern = () => {
                                     href: 'https://yossy6028.github.io/edushift-juku-apps/apps/genpei/',
                                     image: genpeiImg,
                                     video: '/videos/app-genpei.mp4',
+                                },
+                                {
+                                    eyebrow: '3D MATH LAB',
+                                    title: '食塩水の濃度ラボ',
+                                    text: '3Dビーカーで「濃さ」を目で見る。まぜても濃度が足し算にならない理由を体感。',
+                                    href: 'https://edushift-juku-apps.vercel.app/shokuensui/',
+                                    image: shokuensuiImg,
+                                },
+                                {
+                                    eyebrow: '3D CIRCUIT',
+                                    title: '電流回路スロット',
+                                    text: '電池と豆電球を3Dの机に置いて点灯。直列・並列・スイッチ付きを切り替えて比較。',
+                                    href: 'https://edushift-juku-apps.vercel.app/kairo/',
+                                    image: kairoImg,
+                                },
+                                {
+                                    eyebrow: 'ENGLISH VISUAL',
+                                    title: '前置詞ビジュアルラボ',
+                                    text: '箱とボールのアニメで in・into・through の空間イメージを体感。クイズつき。',
+                                    href: 'https://edushift-juku-apps.vercel.app/zenchishi/',
+                                    image: zenchishiImg,
                                 },
                             ].map((work, index) => (
                                 <FadeInUp key={work.title} delay={index * 90}>

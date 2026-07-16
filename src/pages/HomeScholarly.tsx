@@ -15,6 +15,9 @@ import churnAppImg from '../assets/app-churn.jpg';
 import kpiAppImg from '../assets/app-kpi.jpg';
 import naishinAppImg from '../assets/app-naishin.jpg';
 import goukakuAppImg from '../assets/app-goukaku.jpg';
+import shokuensuiAppImg from '../assets/app-shokuensui.jpg';
+import kairoAppImg from '../assets/app-kairo.jpg';
+import zenchishiAppImg from '../assets/app-zenchishi.jpg';
 import { FloatingCTA } from '../components/FloatingCTA';
 import { CountUp } from '../components/CountUp';
 import { BeforeAfterSlider } from '../components/BeforeAfterSlider';
@@ -150,6 +153,27 @@ const SAMPLE_APPS: SampleApp[] = [
         image: tabibitozanImg,
         tags: [{ label: '算数・文章題' }, { label: '中学受験・高校受験', gold: true }],
     },
+    {
+        url: 'https://edushift-juku-apps.vercel.app/shokuensui/',
+        title: '食塩水の濃度ラボ',
+        desc: '3Dビーカーの水と食塩を動かして「濃さ」を目で見る算数学習アプリ。まぜると濃度が足し算にならない理由まで体感できる。',
+        image: shokuensuiAppImg,
+        tags: [{ label: '算数・割合' }, { label: '中学受験', gold: true }],
+    },
+    {
+        url: 'https://edushift-juku-apps.vercel.app/kairo/',
+        title: '電流回路スロット',
+        desc: '3Dの机に電池と豆電球を置いて点灯させる理科学習アプリ。直列・並列・スイッチ付きを切り替えて明るさの違いを比べられる。クイズつき。',
+        image: kairoAppImg,
+        tags: [{ label: '理科・電気' }, { label: '中学受験・高校受験', gold: true }],
+    },
+    {
+        url: 'https://edushift-juku-apps.vercel.app/zenchishi/',
+        title: '前置詞ビジュアルラボ',
+        desc: '箱とボールのアニメで in・on・into・through などの空間イメージを体感する英語学習アプリ。10種の前置詞クイズつき。',
+        image: zenchishiAppImg,
+        tags: [{ label: '英語・前置詞' }, { label: '中学英語', gold: true }],
+    },
     // ---- 受験・内申 ----
     {
         url: 'https://edushift-juku-apps.vercel.app/naishin/',
@@ -164,7 +188,7 @@ const SAMPLE_APPS: SampleApp[] = [
 const SAMPLE_FILTERS: { key: string; label: string; types?: string[] }[] = [
     { key: 'all', label: 'すべて' },
     { key: 'ops', label: '塾運営ツール', types: ['塾運営ツール', '個人講師向け'] },
-    { key: 'study', label: '学習アプリ', types: ['社会・歴史', '理科・天体', '算数・文章題'] },
+    { key: 'study', label: '学習アプリ', types: ['社会・歴史', '理科・天体', '理科・電気', '算数・文章題', '算数・割合', '英語・前置詞'] },
     { key: 'exam', label: '受験・内申', types: ['高校受験・内申'] },
 ];
 
