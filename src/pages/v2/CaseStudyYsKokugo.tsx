@@ -4,6 +4,7 @@ import { HeaderScholarly } from '../../components/scholarly/HeaderScholarly';
 import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
 import { PageMotion } from '../../components/PageMotion';
 import { YS_CASE, YS_LEAD_METRIC, YS_AIEO, YS_AI_LEAD_METRIC, YS_BANNER_METRICS } from '../../data/caseStudies';
+import MetaTags, { SITE_BASE_URL, breadcrumbJsonLd } from '../../components/MetaTags';
 import '../../styles/scholarly.css';
 
 const ACTIONS = [
@@ -67,10 +68,10 @@ export const CaseStudyYsKokugo = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        const prevTitle = document.title;
-        document.title = `HP制作実績：AI経由流入${aiMetric.multiplier}・問い合わせ${leadMetric.multiplier} | EduShift`;
-        return () => { document.title = prevTitle; };
-    }, [aiMetric.multiplier, leadMetric.multiplier]);
+    }, []);
+
+    const pageTitle = `HP制作実績：AI経由流入${aiMetric.multiplier}・問い合わせ${leadMetric.multiplier}`;
+    const pageDescription = `${YS_CASE.siteName}のHPリニューアル事例。デザイン刷新・モーション演出・AIEO対策により、AI経由の流入が${aiMetric.multiplier}（${aiMetric.before} → ${aiMetric.after}）、HPフォーム問い合わせが${leadMetric.multiplier}（${leadMetric.before} → ${leadMetric.after}）に。${YS_CASE.asOf}時点の実測データを全公開しています。`;
 
     const siteHost = YS_CASE.siteUrl.replace(/^https?:\/\//, '');
     const maxCount = Math.max(...YS_CASE.monthly.map((m) => m.count));
@@ -81,6 +82,37 @@ export const CaseStudyYsKokugo = () => {
 
     return (
         <div className="theme-scholarly s-case-page" data-page-motion="service">
+            <MetaTags
+                title={pageTitle}
+                description={pageDescription}
+                image="/ogp-works-ys.png"
+                url="/works/ys-kokugo"
+                jsonLd={[
+                    breadcrumbJsonLd([
+                        { name: 'HP制作・運用', path: '/service/hp-production' },
+                        { name: `制作実績：${YS_CASE.siteName}`, path: '/works/ys-kokugo' },
+                    ]),
+                    {
+                        '@context': 'https://schema.org',
+                        '@type': 'Article',
+                        '@id': `${SITE_BASE_URL}/works/ys-kokugo#article`,
+                        headline: `${pageTitle} — ${YS_CASE.siteName}のHPリニューアル事例`,
+                        description: pageDescription,
+                        url: `${SITE_BASE_URL}/works/ys-kokugo`,
+                        image: `${SITE_BASE_URL}/ogp-works-ys.png`,
+                        inLanguage: 'ja',
+                        datePublished: '2026-07-12',
+                        dateModified: '2026-07-13',
+                        author: { '@id': `${SITE_BASE_URL}/#founder` },
+                        publisher: { '@id': `${SITE_BASE_URL}/#organization` },
+                        isPartOf: { '@id': `${SITE_BASE_URL}/#website` },
+                        about: [
+                            { '@type': 'Thing', name: 'AIEO（AI Engine Optimization）' },
+                            { '@type': 'Thing', name: '学習塾のホームページ制作' },
+                        ],
+                    },
+                ]}
+            />
             <PageMotion variant="service" />
             <HeaderScholarly />
 

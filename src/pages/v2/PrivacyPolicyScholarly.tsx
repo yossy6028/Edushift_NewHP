@@ -3,12 +3,19 @@ import { Link } from 'react-router-dom';
 import { HeaderScholarly } from '../../components/scholarly/HeaderScholarly';
 import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
 import { PageMotion } from '../../components/PageMotion';
+import MetaTags, { breadcrumbJsonLd } from '../../components/MetaTags';
 import '../../styles/scholarly.css';
 
 export const PrivacyPolicyScholarly = () => {
     useEffect(() => { window.scrollTo(0, 0); }, []);
     return (
         <div className="theme-scholarly" data-page-motion="legal">
+            <MetaTags
+                title="プライバシーポリシー"
+                description="EduShift（代表：吉井勝彦）のプライバシーポリシー。個人情報の取得・利用目的・第三者提供・安全管理措置・お問い合わせ窓口について定めています。"
+                url="/privacypolicy"
+                jsonLd={breadcrumbJsonLd([{ name: 'プライバシーポリシー', path: '/privacypolicy' }])}
+            />
             <PageMotion variant="legal" />
             <HeaderScholarly />
             <section className="s-legal-hero">

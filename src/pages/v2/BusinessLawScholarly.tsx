@@ -3,12 +3,19 @@ import { Link } from 'react-router-dom';
 import { HeaderScholarly } from '../../components/scholarly/HeaderScholarly';
 import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
 import { PageMotion } from '../../components/PageMotion';
+import MetaTags, { breadcrumbJsonLd } from '../../components/MetaTags';
 import '../../styles/scholarly.css';
 
 export const BusinessLawScholarly = () => {
     useEffect(() => { window.scrollTo(0, 0); }, []);
     return (
         <div className="theme-scholarly" data-page-motion="legal">
+            <MetaTags
+                title="特定商取引法に基づく表記"
+                description="EduShift（代表：吉井勝彦）の特定商取引法に基づく表記。事業者情報、料金、支払い方法・時期、サービス提供時期、キャンセル・返金の条件を記載しています。"
+                url="/business-law"
+                jsonLd={breadcrumbJsonLd([{ name: '特定商取引法に基づく表記', path: '/business-law' }])}
+            />
             <PageMotion variant="legal" />
             <HeaderScholarly />
             <section className="s-legal-hero">

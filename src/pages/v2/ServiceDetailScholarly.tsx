@@ -5,6 +5,7 @@ import { FooterScholarly } from '../../components/scholarly/FooterScholarly';
 import { PageMotion } from '../../components/PageMotion';
 import { SCHOLARLY_SERVICES } from '../../data/scholarlyServices';
 import { MAINTENANCE_PLANS, HOME_EMPHASIS } from '../../data/maintenancePlans';
+import MetaTags, { SITE_BASE_URL, breadcrumbJsonLd } from '../../components/MetaTags';
 import '../../styles/scholarly.css';
 import { DxProductGallery } from './DxProductGallery';
 import { CaseStudyBanner } from './CaseStudyYsKokugo';
@@ -27,6 +28,29 @@ export const ServiceDetailScholarly = () => {
 
     return (
         <div className="theme-scholarly" data-page-motion="service">
+            <MetaTags
+                title={svc.label}
+                description={svc.heroLead}
+                url={`/service/${slug}`}
+                jsonLd={[
+                    breadcrumbJsonLd([
+                        { name: 'サービス', path: '/#services' },
+                        { name: svc.label, path: `/service/${slug}` },
+                    ]),
+                    {
+                        '@context': 'https://schema.org',
+                        '@type': 'WebPage',
+                        '@id': `${SITE_BASE_URL}/service/${slug}#webpage`,
+                        url: `${SITE_BASE_URL}/service/${slug}`,
+                        name: `${svc.label} | EduShift`,
+                        description: svc.heroLead,
+                        inLanguage: 'ja',
+                        isPartOf: { '@id': `${SITE_BASE_URL}/#website` },
+                        about: { '@id': `${SITE_BASE_URL}/service/${slug}#service` },
+                        publisher: { '@id': `${SITE_BASE_URL}/#organization` },
+                    },
+                ]}
+            />
             <PageMotion key={slug} variant="service" />
             <HeaderScholarly />
 
