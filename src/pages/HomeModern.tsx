@@ -545,7 +545,7 @@ export const HomeModern = () => {
                                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(45,179,160,.18),transparent_45%),radial-gradient(circle_at_90%_90%,rgba(2,147,240,.16),transparent_45%)]" />
                                 <div className="relative mx-auto flex h-full max-w-[440px] flex-col justify-center">
                                     <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 backdrop-blur-xl">
-                                        <div className="flex items-center gap-2 text-xs text-white/55"><MonitorSmartphone className="h-4 w-4 text-[#55D8CA]" />Responsive preview</div>
+                                        <div className="flex items-center gap-2 text-xs text-white/55"><MonitorSmartphone className="h-4 w-4 text-[#55D8CA]" />HP制作サンプル｜ライトプラン</div>
                                         <span className="rounded-full bg-[#2DB3A0]/15 px-2.5 py-1 text-[10px] font-semibold text-[#55D8CA]">LIVE</span>
                                     </div>
                                     <div className="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_30px_80px_rgba(0,0,0,.55)]">
@@ -559,7 +559,7 @@ export const HomeModern = () => {
                                             <MotionMedia
                                                 src="/videos/stella-hero.mp4"
                                                 poster={sampleJukuHeroImg}
-                                                alt="制作サンプル: 架空の学習塾「Stella Academy」のホームページ"
+                                                alt="HP制作サンプル（ライトプラン）: 架空の学習塾「Stella Academy」のホームページ"
                                                 className="absolute inset-0 h-full w-full"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30" />
@@ -591,7 +591,7 @@ export const HomeModern = () => {
                                         </div>
                                     </div>
                                     <div className="absolute -bottom-3 -right-2 rounded-2xl border border-white/10 bg-[#1C1C1E]/90 p-4 shadow-xl backdrop-blur-xl sm:-bottom-5 sm:-right-4">
-                                        <p className="text-[10px] uppercase tracking-[0.14em] text-white/60">Starting from</p>
+                                        <p className="text-[10px] tracking-[0.14em] text-white/60">ライトプラン</p>
                                         <p className="mt-1 text-xl font-semibold">¥19,800</p>
                                     </div>
                                 </div>
