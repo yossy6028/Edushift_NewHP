@@ -72,7 +72,7 @@ export const YS_CASE = {
 export const YS_LEAD_METRIC = YS_CASE.metrics[0];
 
 /** AIEO実測の集計時点。GA4再集計時はここを更新 */
-const AIEO_AS_OF = '2026年7月13日';
+const AIEO_AS_OF = '2026年7月17日';
 
 /**
  * AIEO（AI経由流入）の実測データ。
@@ -87,16 +87,16 @@ export const YS_AIEO = {
         { label: 'AI経由の流入（ChatGPT等）', before: '実装前77日間 21', after: '実装後77日間 120',
           multiplier: '約5.7倍',
           note: 'AIEO実装（2026/4/27）前後の同日数（77日間）でのセッション数比較。参照元の内訳はほぼChatGPT（chatgpt.com / openai）' },
-        { label: 'AI経由訪問の行動率', before: '検索経由 0.4%', after: 'AI経由 8.3%',
-          multiplier: '約20倍',
-          note: '問い合わせ等のキーイベントに至ったセッションの割合（2026/4/27〜7/12）。平均滞在もAI経由233秒 vs 検索経由149秒' },
+        { label: 'AI経由訪問の行動率', before: '検索経由 0.5%', after: 'AI経由 7.9%',
+          multiplier: '約16倍',
+          note: '問い合わせ等のキーイベントに至ったセッションの割合（2026/4/27〜7/17）。平均滞在もAI経由233秒 vs 検索経由150秒' },
     ] satisfies CaseMetric[],
     monthly: [
         { month: '2026-01', count: 14 }, { month: '2026-02', count: 7 },
         { month: '2026-03', count: 0 }, { month: '2026-04', count: 17 },
         { month: '2026-05', count: 33, highlight: true },
         { month: '2026-06', count: 72, highlight: true },
-        { month: '2026-07', count: 14, highlight: true }, // 7/12時点
+        { month: '2026-07', count: 21, highlight: true }, // 7/17時点
     ] satisfies MonthlyCount[],
     chartNotes: [
         `2026年7月は、${AIEO_AS_OF}時点の件数です。`,
