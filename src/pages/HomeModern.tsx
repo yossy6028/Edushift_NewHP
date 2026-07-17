@@ -18,6 +18,8 @@ import {
 import logoImg from '../assets/logo-shift-mark.png';
 import sampleJukuHeroImg from '../assets/generated/stella-hero.webp';
 import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
+import jukuTimetableImg from '../assets/app-juku-timetable.jpg';
+import tutorRevenueImg from '../assets/app-tutor-revenue.jpg';
 import starChartImg from '../assets/app-starchart.jpg';
 import genpeiImg from '../assets/app-genpei.jpg';
 import shokuensuiImg from '../assets/app-shokuensui.jpg';
@@ -734,6 +736,46 @@ export const HomeModern = () => {
                                         </div>
                                         <div className="p-6">
                                             <p className="text-[10px] font-semibold tracking-[0.18em] text-[#55D8CA]">{work.eyebrow}</p>
+                                            <h3 className="es-serif mt-3 text-xl font-semibold">{work.title}</h3>
+                                            <p className="mt-3 text-sm leading-6 text-white/55">{work.text}</p>
+                                        </div>
+                                    </a>
+                                </FadeInUp>
+                            ))}
+                        </div>
+
+                        <FadeInUp className="mb-10 mt-20">
+                            <p className="mb-5 text-xs font-semibold tracking-[0.2em] text-lime-300">BACK OFFICE</p>
+                            <h3 className="es-display text-3xl font-semibold tracking-tight sm:text-4xl">授業の裏側も、道具で軽くする。</h3>
+                            <p className="mt-4 max-w-xl text-[15px] leading-7 text-white/55">時間割づくりや売上管理など、塾運営のバックオフィス業務を自動化するツールも自社開発・公開中です。</p>
+                        </FadeInUp>
+
+                        <div className="grid gap-5 lg:grid-cols-2">
+                            {[
+                                {
+                                    eyebrow: 'SCHEDULING SAAS',
+                                    title: '塾時間割メーカー',
+                                    text: '講師の出勤日・生徒の都合・ブースの空きなど、絡み合う条件をすべて満たす週間時間割を数秒で自動生成。',
+                                    href: 'https://juku-timetable.vercel.app',
+                                    image: jukuTimetableImg,
+                                },
+                                {
+                                    eyebrow: 'REVENUE DASHBOARD',
+                                    title: '講師向け 売上ダッシュボード',
+                                    text: 'Googleカレンダーの授業予定を読み取り、月次売上・年間累計・前年比まで自動で集計。カレンダーが売上台帳に。',
+                                    href: 'https://tutor-revenue.vercel.app/',
+                                    image: tutorRevenueImg,
+                                },
+                            ].map((work, index) => (
+                                <FadeInUp key={work.title} delay={index * 90}>
+                                    <a href={work.href} target="_blank" rel="noopener noreferrer" className="group block overflow-hidden rounded-2xl border border-white/10 bg-[#0E0E10] transition duration-500 hover:-translate-y-2 hover:border-white/20">
+                                        <div className="relative aspect-[16/9] overflow-hidden bg-[#161619]">
+                                            <img src={work.image} alt={`${work.title}の画面`} loading="lazy" className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.04]" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
+                                            <span className="absolute bottom-4 right-4 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-black/45 text-white backdrop-blur-md transition group-hover:bg-white group-hover:text-black"><ArrowRight className="h-4 w-4 -rotate-45" /></span>
+                                        </div>
+                                        <div className="p-6">
+                                            <p className="text-[10px] font-semibold tracking-[0.18em] text-lime-300">{work.eyebrow}</p>
                                             <h3 className="es-serif mt-3 text-xl font-semibold">{work.title}</h3>
                                             <p className="mt-3 text-sm leading-6 text-white/55">{work.text}</p>
                                         </div>
