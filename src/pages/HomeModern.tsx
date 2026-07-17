@@ -24,7 +24,6 @@ import starChartImg from '../assets/app-starchart.jpg';
 import genpeiImg from '../assets/app-genpei.jpg';
 import shokuensuiImg from '../assets/app-shokuensui.jpg';
 import kairoImg from '../assets/app-kairo.jpg';
-import zenchishiImg from '../assets/app-zenchishi.jpg';
 import aiClassroomImg from '../assets/generated/edushift-ai-classroom.webp';
 import aiWorkspaceImg from '../assets/generated/edushift-ai-workspace.webp';
 import MetaTags from '../components/MetaTags';
@@ -714,13 +713,6 @@ export const HomeModern = () => {
                                     text: '電池と豆電球を3Dの机に置いて点灯。直列・並列・スイッチ付きを切り替えて比較。',
                                     href: 'https://edushift-juku-apps.vercel.app/kairo/',
                                     image: kairoImg,
-                                },
-                                {
-                                    eyebrow: 'ENGLISH VISUAL',
-                                    title: '前置詞ビジュアルラボ',
-                                    text: '箱とボールのアニメで in・into・through の空間イメージを体感。クイズつき。',
-                                    href: 'https://edushift-juku-apps.vercel.app/zenchishi/',
-                                    image: zenchishiImg,
                                 },
                             ].map((work, index) => (
                                 <FadeInUp key={work.title} delay={index * 90}>
