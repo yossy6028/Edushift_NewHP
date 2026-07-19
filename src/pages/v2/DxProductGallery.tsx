@@ -1,9 +1,14 @@
 import autoTensakuImg from '../../assets/auto-tensaku-screenshot.jpg';
 import jukuTimetableImg from '../../assets/app-juku-timetable.jpg';
 import tutorRevenueImg from '../../assets/app-tutor-revenue.jpg';
+import furikaeImg from '../../assets/app-furikae.jpg';
+import akiwakuImg from '../../assets/app-akiwaku.jpg';
+import taikenImg from '../../assets/app-taiken.jpg';
 import genpeiAppImg from '../../assets/app-genpei.jpg';
 import starChartAppImg from '../../assets/app-starchart.jpg';
-import tabibitozanImg from '../../assets/app-tabibitozan.jpg';
+import shokuensuiImg from '../../assets/app-shokuensui.jpg';
+import kairoImg from '../../assets/app-kairo.jpg';
+import { DX_APP_URLS } from '../../data/dxAppLinks';
 
 type DxApp = {
     accent: string;
@@ -20,27 +25,12 @@ type DxApp = {
     benefit: string;
 };
 
-const TOOLS: DxApp[] = [
-    {
-        accent: '#4f46e5', accentBg: '#e0e7ff', accentFg: '#3730a3',
-        image: autoTensakuImg, badge: 'フラッグシップ · AI × Web',
-        title: 'Taskal AI — 国語記述 自動添削システム',
-        url: 'https://auto-tensaku-system.vercel.app/', urlLabel: 'デモを試す',
-        summary: '中学・高校・大学受験の国語記述答案を、AIが数十秒で添削・採点するWebサービス。撮影してアップロードするだけで、減点箇所と改善点、採点根拠までを提示します。企画から設計・開発・運用まで、すべてEduShiftが自社で行っている基幹プロダクトです。',
-        features: [
-            '答案の撮影アップロード → AIが数十秒で添削・採点',
-            '「なぜこの点数か」を示す採点根拠つきフィードバック',
-            '講師が最終確認・修正できるレビューフロー',
-            '会員登録・決済・利用量管理を含むフルスタック構成',
-        ],
-        benefitLabel: '塾での使いどころ',
-        benefit: '記述問題は「採点に時間がかかるから出しにくい」の代表格。その採点負担を数十秒に圧縮し、記述指導の回数そのものを増やせます。「フル」プランでは、この規模のWebアプリケーション開発をそのままお受けします。',
-    },
+const BACK_OFFICE_APPS: DxApp[] = [
     {
         accent: '#4f46e5', accentBg: '#e0e7ff', accentFg: '#3730a3',
         image: jukuTimetableImg, badge: '塾運営ツール · 自動生成',
         title: '塾時間割メーカー',
-        url: 'https://juku-timetable.vercel.app', urlLabel: '登録なしでデモ',
+        url: DX_APP_URLS.timetable, urlLabel: '登録なしでデモ',
         summary: '講師の出勤日、生徒の部活・都合、科目の相性、担任の固定、ブースの空き——パズルのように絡み合う条件を全部満たす週間時間割を、数秒で自動生成します。個別指導塾・自立型学習塾向けのSaaSです。',
         features: [
             '講師・生徒・コマ・ブースの条件を登録する6ステップUI',
@@ -54,8 +44,8 @@ const TOOLS: DxApp[] = [
     {
         accent: '#4f46e5', accentBg: '#e0e7ff', accentFg: '#3730a3',
         image: tutorRevenueImg, badge: '個人講師向け · 売上管理',
-        title: '売上ダッシュボード（カレンダーが売上台帳になる）',
-        url: 'https://tutor-revenue.vercel.app/', urlLabel: 'デモを見る',
+        title: '講師向け 売上ダッシュボード',
+        url: DX_APP_URLS.revenue, urlLabel: 'デモを見る',
         summary: 'いつも使っているGoogleカレンダーの授業予定を読み取り、月次売上・年間累計・前年比までを自動で集計するダッシュボード。月末のスプレッドシート転記も、振替だらけの月謝チェックも不要になります。オンライン個別講師のための売上台帳です。',
         features: [
             'Googleカレンダー連携で授業実績を自動集計',
@@ -66,29 +56,74 @@ const TOOLS: DxApp[] = [
         benefitLabel: '塾での使いどころ',
         benefit: '「今月いくら稼げたか」を、カレンダーに授業を入れるだけで常に把握できます。転記ミスや計算漏れが起きる場所を、そもそも無くす設計です。',
     },
+    {
+        accent: '#4f46e5', accentBg: '#e0e7ff', accentFg: '#3730a3',
+        image: furikaeImg, badge: '欠席対応 · 日程調整',
+        title: '振替パズル',
+        url: DX_APP_URLS.furikae, urlLabel: 'デモを試す',
+        summary: '欠席する授業を選ぶと、講師・教室・生徒の予定を照合し、実際に振替できる日時だけを候補として提示する調整ツールです。空き状況を何度も見比べる作業と、保護者への候補日連絡をひとつの流れにまとめます。',
+        features: [
+            '時間割上の授業をタップして欠席登録を開始',
+            '講師・教室・生徒の3条件をまとめて照合',
+            '候補が複数ある場合から満枠の場合まで結果を整理',
+            '振替候補と保護者向け連絡文を続けて準備',
+        ],
+        benefitLabel: '塾での使いどころ',
+        benefit: '電話やメッセージのたびに時間割を開き、講師と教室の空きを探し直す手間を減らします。候補を出すまでの時間が短くなり、連絡漏れや二重予約も防ぎやすくなります。',
+    },
+    {
+        accent: '#4f46e5', accentBg: '#e0e7ff', accentFg: '#3730a3',
+        image: akiwakuImg, badge: '候補日時 · 共有リンク',
+        title: '空き枠リンクメーカー',
+        url: DX_APP_URLS.akiwaku, urlLabel: 'デモを試す',
+        summary: '講師の空いているコマを選ぶだけで、保護者へ送る候補日時の文面と予約ページの見本を同時に作るツールです。日付・曜日・時間を毎回手入力する作業をなくし、候補提示を短時間で整えます。',
+        features: [
+            '今週・来週の講師スケジュールを一覧表示',
+            '空きコマをタップして複数の候補枠を選択',
+            '選択内容から保護者向け文面を自動整形',
+            '予約ページ風プレビューとコピー機能を用意',
+        ],
+        benefitLabel: '塾での使いどころ',
+        benefit: '面談、振替、追加授業の候補日時を送るたびに起きる転記ミスを減らせます。保護者側も空き枠を一覧で確認できるため、何往復もする日程調整を短くできます。',
+    },
+    {
+        accent: '#4f46e5', accentBg: '#e0e7ff', accentFg: '#3730a3',
+        image: taikenImg, badge: '集客導線 · 予約受付',
+        title: '体験授業 予約ウィジェットメーカー',
+        url: DX_APP_URLS.taiken, urlLabel: 'デモを試す',
+        summary: '塾名・ブランド色・コース・受付曜日・時間帯を設定し、ホームページに組み込む体験授業予約画面をその場で試作できます。見た目を確認するだけでなく、実際の塾ホームページへの導入まで想定したデモです。',
+        features: [
+            '塾名・ブランド色・案内文をリアルタイムで反映',
+            '最大3コースと受付曜日・時間帯を設定',
+            '実際の塾HPに置いた状態をプレビュー',
+            '埋め込みコードの見本を自動生成・コピー',
+        ],
+        benefitLabel: '塾での使いどころ',
+        benefit: '問い合わせ後に日程を調整するのではなく、ホームページを見た保護者が空き枠を選べる入口を作れます。申し込みまでの手間を減らし、体験授業への導線を分かりやすくできます。',
+    },
 ];
 
-const SUBJECTS: DxApp[] = [
+const LEARNING_APPS: DxApp[] = [
     {
         accent: '#047857', accentBg: '#d1fae5', accentFg: '#065f46',
-        image: genpeiAppImg, badge: '社会・歴史 · 中学/高校受験',
-        title: '源平合戦 3Dヒストリーマップ',
-        url: 'https://yossy6028.github.io/genpei-kassen-app/', urlLabel: '触ってみる',
-        summary: '3Dの日本地図の上で、源平合戦がどこで・どんな順番で起きたのかをたどれる歴史学習アプリ。合戦名だけの暗記になりがちな源平争乱を、地理と物語のセットで立体的に理解できます。',
+        image: autoTensakuImg, badge: '国語・記述 · AI添削',
+        title: '国語記述 自動添削システム',
+        url: DX_APP_URLS.autoTensaku, urlLabel: 'デモを試す',
+        summary: '中学・高校・大学受験の国語記述答案を、AIが数十秒で添削・採点するWebサービス「Taskal AI」です。答案を撮影してアップロードするだけで、減点箇所・改善点・採点根拠まで提示します。企画から設計・開発・運用までEduShiftが自社で行っています。',
         features: [
-            '3Dマップ上で合戦の場所と時系列を可視化',
-            '出来事を追える年表モード',
-            '主要人物をまとめた人物図鑑',
-            '理解度を確かめるクイズつき',
+            '答案画像のアップロードから添削・採点までを自動化',
+            '点数だけでなく、減点理由と改善案を提示',
+            '講師が最終確認・修正できるレビューフロー',
+            '会員登録・決済・利用量管理を含むWebサービス構成',
         ],
-        benefitLabel: '生徒へのねらい',
-        benefit: '「一ノ谷・屋島・壇ノ浦がどこにあり、なぜその順に戦いが移ったのか」を地図で体感。年号の丸暗記から、流れで語れる理解へ導きます。',
+        benefitLabel: '生徒・講師への効果',
+        benefit: '採点負担を数十秒まで圧縮し、記述問題を出す回数と書き直す機会を増やします。講師の判断を残しながら、添削の初動を速くする設計です。',
     },
     {
         accent: '#047857', accentBg: '#d1fae5', accentFg: '#065f46',
         image: starChartAppImg, badge: '理科・天体 · 中学/高校受験',
-        title: '3D星図 — 季節と時刻で変わる星空',
-        url: 'https://yossy6028.github.io/star-chart-3d/', urlLabel: '触ってみる',
+        title: '星座学習アプリ',
+        url: DX_APP_URLS.starChart, urlLabel: '触ってみる',
         summary: '季節・日付・時刻のスライダーを動かすと、星空がどう変化するかをその場で体感できる天体学習アプリ。受験理科でつまずきやすい「時刻と星の動き」を、静止した図ではなく動きで理解できます。',
         features: [
             '季節・時刻スライダーで星空の変化を再現',
@@ -101,18 +136,48 @@ const SUBJECTS: DxApp[] = [
     },
     {
         accent: '#047857', accentBg: '#d1fae5', accentFg: '#065f46',
-        image: tabibitozanImg, badge: '算数・文章題 · 中学受験',
-        title: '旅人算ラボ',
-        url: 'https://tabibitozan.vercel.app', urlLabel: '触ってみる',
-        summary: '出会い・追いつき・折り返し・池の周り・トンネル通過・鉄橋わたり——旅人算の代表7パターンを、動くアニメーションと速さダイアグラムの両方で見せる算数学習アプリ。文章題が「絵にできない」子のつまずきを解きほぐします。',
+        image: genpeiAppImg, badge: '社会・歴史 · 中学/高校受験',
+        title: '源平合戦 学習アプリ',
+        url: DX_APP_URLS.genpei, urlLabel: '触ってみる',
+        summary: '3Dの日本地図の上で、源平合戦がどこで・どんな順番で起きたのかをたどれる歴史学習アプリです。1180年の挙兵から壇ノ浦、鎌倉幕府成立までを、場所・人物・物語のつながりで理解できます。',
         features: [
-            '旅人算の7パターンをワンタップで切り替え',
-            '登場人物が実際に動くアニメーション',
-            '「うごき」と「ダイアグラム」を連動表示',
-            '再生速度（×0.5〜×4）を変えて観察',
+            '3Dマップ上で合戦の場所と時系列を可視化',
+            '主要な出来事を順番に追う物語モード',
+            '源氏・平氏の主要人物をまとめた人物図鑑',
+            '理解度を確かめるクイズを搭載',
         ],
         benefitLabel: '生徒へのねらい',
-        benefit: '旅人算は「状況を図にできれば解ける」単元。アニメで状況を、ダイアグラムで式を橋渡しし、文章から図・式へ翻訳する力を育てます。',
+        benefit: '「一ノ谷・屋島・壇ノ浦がどこにあり、なぜその順に戦いが移ったのか」を地図で体感できます。合戦名と年号の丸暗記から、流れを説明できる理解へつなげます。',
+    },
+    {
+        accent: '#047857', accentBg: '#d1fae5', accentFg: '#065f46',
+        image: shokuensuiImg, badge: '算数・理科 · 割合と水溶液',
+        title: '食塩水の濃度ラボ',
+        url: DX_APP_URLS.shokuensui, urlLabel: '触ってみる',
+        summary: '水と食塩の量をスライダーで変えながら、濃度の変化を3Dビーカーで確かめる体感型教材です。2つの食塩水を混ぜたとき、濃度を単純に足せない理由も、食塩と全体量の動きから理解できます。',
+        features: [
+            '水と食塩の量を動かし、濃度をリアルタイム計算',
+            '食塩の粒を3Dビーカー内で可視化・回転・拡大',
+            '2つの食塩水を混ぜた結果と計算式を表示',
+            '誤答例と正しい考え方を並べて解説',
+        ],
+        benefitLabel: '生徒へのねらい',
+        benefit: '公式を覚える前に、「水が増えると薄くなる」「食塩が増えると濃くなる」という量の関係を目で確かめられます。中学受験算数の食塩水と、中学理科の水溶液をつなぐ教材です。',
+    },
+    {
+        accent: '#047857', accentBg: '#d1fae5', accentFg: '#065f46',
+        image: kairoImg, badge: '理科・電流 · 小学/中学',
+        title: '電流回路スロット',
+        url: DX_APP_URLS.kairo, urlLabel: '触ってみる',
+        summary: '電池・豆電球・スイッチを3Dの実験台に置き、回路が一周つながると点灯する仕組みを確かめる学習アプリです。直列・並列からショート回路まで、複数の回路を切り替えて比較できます。',
+        features: [
+            '自由実験と直列・並列・スイッチなど15モード',
+            'スロットを選んで電池・豆電球を設置・取り外し',
+            '点灯状態と電流の通り道を視覚的に表示',
+            '電球の明るさを考える確認クイズを搭載',
+        ],
+        benefitLabel: '生徒へのねらい',
+        benefit: '回路図だけでは見落としやすい「電気は切れ目のない一周の道を流れる」という基本を、組み立てと点灯で確認できます。直列と並列の明るさの違いも比較しやすくなります。',
     },
 ];
 
@@ -152,77 +217,17 @@ const groupTitleStyle: React.CSSProperties = {
 };
 const groupLeadStyle: React.CSSProperties = { fontSize: 14.5, color: '#475569', marginBottom: 24, lineHeight: 1.8 };
 
-const SUITE_URL = 'https://edushift-juku-apps.vercel.app';
-const SUITE_APPS = [
-    { name: '退塾リスク早期警告ボード', desc: '欠席・宿題・成績・面談の変化から、辞めそうな生徒を先に見つける' },
-    { name: '塾長KPIダッシュボード', desc: '在籍・問い合わせ・退塾率など、経営の数字をひと目で把握' },
-    { name: '内申点シミュレータ（7都府県対応）', desc: '志望校に必要な内申と現在地の差を、その場で計算' },
-    { name: '合格実績ダッシュボード', desc: '年度ごとの合格実績を、見せられる形で可視化' },
-];
-
-const SuiteCallout = () => (
-    <div
-        style={{
-            background: 'linear-gradient(135deg, #eef2ff 0%, #ffffff 55%, #f5f3ff 100%)',
-            border: '1px solid #c7d2fe',
-            borderRadius: 24,
-            padding: '32px 32px 34px',
-            marginTop: 8,
-            boxShadow: '0 1px 3px rgba(79,70,229,0.06)',
-        }}
-    >
-        <div style={pill('#4f46e5', '#e0e7ff', '#3730a3')}>公開中のデモ · 塾バックオフィス・スイート</div>
-        <h3 style={{ fontSize: 24, fontWeight: 700, color: '#0f172a', margin: '0 0 12px', lineHeight: 1.5 }}>
-            塾経営を支える4つのボードを、<br />ログイン不要でそのまま触れます。
-        </h3>
-        <p style={{ fontSize: 14.5, color: '#334155', lineHeight: 1.9, margin: '0 0 20px' }}>
-            退塾リスクの早期発見から経営数字の可視化、内申点シミュレーション、合格実績の見える化まで。塾のバックオフィスをまるごと支えるツール群を、会員登録なしで実際にお試しいただけます。稼働中の<strong style={{ color: '#4338ca' }}>塾時間割メーカー</strong>・<strong style={{ color: '#4338ca' }}>売上ダッシュボード</strong>にも、ここから移動できます。
-        </p>
-        <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px 20px' }}>
-            {SUITE_APPS.map((a) => (
-                <li key={a.name} style={{ fontSize: 14, color: '#334155', lineHeight: 1.6, paddingLeft: 22, position: 'relative' }}>
-                    <span style={{ position: 'absolute', left: 0, top: 0, color: '#4f46e5', fontWeight: 700 }}>✓</span>
-                    <strong style={{ color: '#0f172a' }}>{a.name}</strong><br />
-                    <span style={{ fontSize: 13, color: '#475569' }}>{a.desc}</span>
-                </li>
-            ))}
-        </ul>
-        <a
-            href={SUITE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                padding: '13px 26px',
-                borderRadius: 999,
-                background: '#4f46e5',
-                color: 'white',
-                fontSize: 15,
-                fontWeight: 700,
-                textDecoration: 'none',
-                boxShadow: '0 6px 16px rgba(79,70,229,0.25)',
-            }}
-        >
-            スイートのデモを開く ↗
-        </a>
-    </div>
-);
-
 const AppCard = ({ app }: { app: DxApp }) => (
     <div style={cardOuter}>
-        <a href={app.url} target="_blank" rel="noopener noreferrer">
-            <img src={app.image} alt={`${app.title}の画面`} loading="lazy" style={shotStyle} />
-        </a>
+        <img src={app.image} alt={`${app.title}の画面`} loading="lazy" style={shotStyle} />
         <div style={{ padding: '28px 32px' }}>
             <div style={pill(app.accent, app.accentBg, app.accentFg)}>{app.badge}</div>
-            <h3 style={{ fontSize: 20, fontWeight: 700, color: '#0f172a', marginBottom: 12, lineHeight: 1.5 }}>{app.title}</h3>
+            <h4 style={{ fontSize: 20, fontWeight: 700, color: '#0f172a', marginBottom: 12, lineHeight: 1.5 }}>{app.title}</h4>
             <p style={{ fontSize: 14.5, color: '#334155', lineHeight: 1.9, marginBottom: 18 }}>{app.summary}</p>
-            <h4 style={{ fontSize: 15, fontWeight: 700, color: '#0f172a', marginBottom: 10 }}>主な機能</h4>
+            <h5 style={{ fontSize: 15, fontWeight: 700, color: '#0f172a', marginBottom: 10 }}>主な機能</h5>
             <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 18px' }}>
-                {app.features.map((f, i) => (
-                    <li key={i} style={{ fontSize: 14, color: '#334155', lineHeight: 1.7, paddingLeft: 22, position: 'relative', marginBottom: 8 }}>
+                {app.features.map((f) => (
+                    <li key={f} style={{ fontSize: 14, color: '#334155', lineHeight: 1.7, paddingLeft: 22, position: 'relative', marginBottom: 8 }}>
                         <span style={{ position: 'absolute', left: 0, top: 0, color: app.accent, fontWeight: 700 }}>✓</span>
                         {f}
                     </li>
@@ -238,7 +243,8 @@ const AppCard = ({ app }: { app: DxApp }) => (
                 rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, fontWeight: 700, color: app.accent, textDecoration: 'none' }}
             >
-                {app.urlLabel} ↗
+                {app.urlLabel} <span aria-hidden="true">↗</span>
+                <span className="sr-only">（新しいタブで開きます）</span>
             </a>
         </div>
     </div>
@@ -274,27 +280,25 @@ export const DxProductGallery = () => (
                     「作れます」ではなく、<br />もう作って、動いています。
                 </h2>
                 <p style={{ fontSize: 17, color: '#334155', maxWidth: 760, margin: '0 auto 8px', lineHeight: 1.8 }}>
-                    EduShiftが企画・設計・開発・運用まで自社で手がけたアプリを、実際に触れる形で公開しています。<br />
-                    塾の事務を軽くする<strong style={{ color: '#4338ca' }}>運営ツール</strong>から、生徒の理解を助ける<strong style={{ color: '#047857' }}>教科アプリ</strong>まで。ひとつずつ、何ができるのかをご紹介します。
+                    トップページで紹介している10アプリを、同じ順序で掲載しています。<br />
+                    塾の事務を軽くする<strong style={{ color: '#4338ca' }}>バックオフィスアプリ</strong>から、生徒の理解を助ける<strong style={{ color: '#047857' }}>学習アプリ</strong>まで。解決する課題、主な機能、利用場面を詳しくご紹介します。
                 </p>
             </div>
 
-            <SuiteCallout />
-
             <h3 style={groupTitleStyle}>
-                <span style={{ color: '#4f46e5' }}>◆</span> 塾の運営を軽くするツール
+                <span style={{ color: '#4f46e5' }}>◆</span> バックオフィスアプリ
             </h3>
-            <p style={groupLeadStyle}>集客・事務・売上管理。授業のあとに残る&quot;教える以外&quot;の作業を、道具に変えます。</p>
+            <p style={groupLeadStyle}>時間割、売上、振替、候補日時、体験予約。授業の前後に発生する運営業務を、現場で使える道具に変えます。</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24 }}>
-                {TOOLS.map((app) => <AppCard key={app.title} app={app} />)}
+                {BACK_OFFICE_APPS.map((app) => <AppCard key={app.title} app={app} />)}
             </div>
 
             <h3 style={groupTitleStyle}>
-                <span style={{ color: '#047857' }}>◆</span> 生徒の理解を助ける教科アプリ
+                <span style={{ color: '#047857' }}>◆</span> 学習アプリ
             </h3>
-            <p style={groupLeadStyle}>暗記や文章題でつまずきやすい単元を、「動き」と「図」で直感的に理解できる教材アプリです。</p>
+            <p style={groupLeadStyle}>記述添削、天体、歴史、食塩水、電流回路。言葉や静止画だけではつまずきやすい内容を、操作と変化で理解できる教材です。</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 24 }}>
-                {SUBJECTS.map((app) => <AppCard key={app.title} app={app} />)}
+                {LEARNING_APPS.map((app) => <AppCard key={app.title} app={app} />)}
             </div>
         </div>
     </section>

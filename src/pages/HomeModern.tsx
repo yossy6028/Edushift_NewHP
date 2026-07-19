@@ -30,6 +30,7 @@ import kairoImg from '../assets/app-kairo.jpg';
 import aiClassroomImg from '../assets/generated/edushift-ai-classroom.webp';
 import aiWorkspaceImg from '../assets/generated/edushift-ai-workspace.webp';
 import MetaTags from '../components/MetaTags';
+import { DX_APP_URLS } from '../data/dxAppLinks';
 
 const CONTACT_HREF = 'mailto:info@edu-shift.com?subject=%E7%84%A1%E6%96%99%E7%9B%B8%E8%AB%87%E3%81%AE%E4%BE%9D%E9%A0%BC&body=%E2%97%8B%E5%A1%BE%E5%90%8D%EF%BC%9A%0A%E2%97%8B%E5%9C%B0%E5%9F%9F%EF%BC%9A%0A%E2%97%8B%E7%94%9F%E5%BE%92%E6%95%B0%EF%BC%9A%0A%E2%97%8B%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%EF%BC%9A%0A';
 
@@ -748,35 +749,35 @@ export const HomeModern = () => {
                                     eyebrow: 'SCHEDULING SAAS',
                                     title: '塾時間割メーカー',
                                     text: '講師の出勤日・生徒の都合・ブースの空きなど、絡み合う条件をすべて満たす週間時間割を数秒で自動生成。',
-                                    href: 'https://juku-timetable.vercel.app',
+                                    href: DX_APP_URLS.timetable,
                                     image: jukuTimetableImg,
                                 },
                                 {
                                     eyebrow: 'REVENUE DASHBOARD',
                                     title: '講師向け 売上ダッシュボード',
                                     text: 'Googleカレンダーの授業予定を読み取り、月次売上・年間累計・前年比まで自動で集計。カレンダーが売上台帳に。',
-                                    href: 'https://tutor-revenue.vercel.app/',
+                                    href: DX_APP_URLS.revenue,
                                     image: tutorRevenueImg,
                                 },
                                 {
                                     eyebrow: 'TRANSFER SCHEDULING',
                                     title: '振替パズル',
                                     text: '欠席授業を選ぶと、講師・教室・生徒の予定を照合。振替候補と保護者への連絡文をまとめて提案。',
-                                    href: 'https://edushift-juku-apps.vercel.app/furikae/',
+                                    href: DX_APP_URLS.furikae,
                                     image: furikaeImg,
                                 },
                                 {
                                     eyebrow: 'AVAILABILITY SHARING',
                                     title: '空き枠リンクメーカー',
                                     text: '空いているコマを選ぶだけで、保護者へ送る候補日時の文面と予約ページの見本を同時に作成。',
-                                    href: 'https://edushift-juku-apps.vercel.app/akiwaku/',
+                                    href: DX_APP_URLS.akiwaku,
                                     image: akiwakuImg,
                                 },
                                 {
                                     eyebrow: 'TRIAL BOOKING WIDGET',
                                     title: '体験授業 予約ウィジェットメーカー',
                                     text: '塾の色・コース・受付枠を設定し、ホームページに組み込む体験授業の予約画面をその場で試作。',
-                                    href: 'https://edushift-juku-apps.vercel.app/taiken/',
+                                    href: DX_APP_URLS.taiken,
                                     image: taikenImg,
                                 },
                             ].map((work, index) => (
@@ -809,14 +810,14 @@ export const HomeModern = () => {
                                     eyebrow: 'AI FEEDBACK',
                                     title: '国語記述 自動添削システム',
                                     text: '答案画像を読み取り、記述問題を数十秒で添削・採点。',
-                                    href: 'https://auto-tensaku-system.vercel.app/',
+                                    href: DX_APP_URLS.autoTensaku,
                                     image: autoTensakuImg,
                                 },
                                 {
                                     eyebrow: 'INTERACTIVE LEARNING',
                                     title: '星座学習アプリ',
                                     text: '触って確かめる、立体的な星座・神話学習体験。',
-                                    href: 'https://yossy6028.github.io/edushift-juku-apps/apps/starchart/',
+                                    href: DX_APP_URLS.starChart,
                                     image: starChartImg,
                                     video: '/videos/app-starchart.mp4',
                                 },
@@ -824,7 +825,7 @@ export const HomeModern = () => {
                                     eyebrow: 'HISTORY GAME',
                                     title: '源平合戦 学習アプリ',
                                     text: '物語と操作を組み合わせた歴史学習コンテンツ。',
-                                    href: 'https://yossy6028.github.io/edushift-juku-apps/apps/genpei/',
+                                    href: DX_APP_URLS.genpei,
                                     image: genpeiImg,
                                     video: '/videos/app-genpei.mp4',
                                 },
@@ -832,14 +833,14 @@ export const HomeModern = () => {
                                     eyebrow: '3D MATH LAB',
                                     title: '食塩水の濃度ラボ',
                                     text: '3Dビーカーで「濃さ」を目で見る。まぜても濃度が足し算にならない理由を体感。',
-                                    href: 'https://edushift-juku-apps.vercel.app/shokuensui/',
+                                    href: DX_APP_URLS.shokuensui,
                                     image: shokuensuiImg,
                                 },
                                 {
                                     eyebrow: '3D CIRCUIT',
                                     title: '電流回路スロット',
                                     text: '電池と豆電球を3Dの机に置いて点灯。直列・並列・スイッチ付きを切り替えて比較。',
-                                    href: 'https://edushift-juku-apps.vercel.app/kairo/',
+                                    href: DX_APP_URLS.kairo,
                                     image: kairoImg,
                                 },
                             ].map((work, index) => (
