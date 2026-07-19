@@ -55,6 +55,7 @@ const SERVICE_MENU = [
         title: 'HP制作・保守運用',
         desc: '選ばれる塾のHPを、最短1週間・低価格で。公開後の保守まで対応。',
         accent: 'text-[#55D8CA]',
+        features: ['企画・構成設計', 'デザイン・実装', '公開後の更新・保守'],
         items: [
             { name: '制作ライト（LP 1枚）', price: '¥19,800' },
             { name: '制作スタンダード（TOP＋3ページ）', price: '¥39,800' },
@@ -68,6 +69,7 @@ const SERVICE_MENU = [
         title: '塾DX・専用ツール開発',
         desc: '報告書・教材・成績管理など、塾の繰り返し作業を専用ツールに。',
         accent: 'text-sky-300',
+        features: ['業務手順の整理', '試作品・業務アプリ開発', '導入後の改善支援'],
         items: [
             { name: 'ミニ（単機能ツール）', price: '¥19,800〜' },
             { name: 'スタンダード（業務アプリ）', price: '¥29,800〜' },
@@ -81,6 +83,7 @@ const SERVICE_MENU = [
         title: '経営・独立・AI活用コンサル',
         desc: '塾経営の立て直し、講師の独立、AI活用を実務者が伴走支援。',
         accent: 'text-lime-300',
+        features: ['経営課題の整理', '独立・集客導線づくり', 'AI活用の実務導入'],
         items: [
             { name: '初回相談（30分・オンライン）', price: '無料' },
             { name: '単発スポット相談', price: '¥9,800/回' },
@@ -101,7 +104,7 @@ const FAQS = [
     },
     {
         question: 'HP制作や専用ツールの料金はいくらですか？',
-        answer: 'HP制作と小規模な専用ツールは初期19,800円からです。要件やページ数、機能により変わるため、着手前に範囲と金額を明示します。HP保守は月額980円から用意しています。',
+        answer: 'ページ終盤の料金表に、HP制作・専用ツール・コンサルティングの目安をまとめています。要件やページ数、機能により変わる場合も、着手前に範囲と金額を明示します。',
     },
     {
         question: 'AIに詳しくなくても利用できますか？',
@@ -117,7 +120,7 @@ const FAQS = [
     },
     {
         question: '契約期間の縛りはありますか？いつでも解約できますか？',
-        answer: 'ございません。月額コンサル（ライト¥14,800〜フル¥49,800/月）はすべて月単位で継続・解約が可能です。なお、ご入金後の返金は、当方の都合でサービス提供できなくなった場合を除き、原則お受けしておりません。',
+        answer: 'ございません。月額コンサルはすべて月単位で継続・解約が可能です。なお、ご入金後の返金は、当方の都合でサービス提供できなくなった場合を除き、原則お受けしておりません。',
     },
     {
         question: '支払い方法・支払い時期はどうなっていますか？',
@@ -497,7 +500,7 @@ export const HomeModern = () => {
                             </p>
                         </FadeInUp>
 
-                        <div className="mb-8 grid gap-5 lg:grid-cols-3" aria-label="サービスメニュー一覧">
+                        <div className="mb-8 grid gap-5 lg:grid-cols-3" aria-label="サービス一覧">
                             {SERVICE_MENU.map((service, index) => (
                                 <FadeInUp key={service.href} delay={index * 90} className="h-full">
                                     <a
@@ -507,11 +510,11 @@ export const HomeModern = () => {
                                         <p className={`text-[10px] font-semibold tracking-[0.18em] ${service.accent}`}>{service.en}</p>
                                         <h3 className="es-serif mt-3 text-xl font-semibold text-white">{service.title}</h3>
                                         <p className="mt-3 text-sm leading-6 text-white/55">{service.desc}</p>
-                                        <ul className="mt-6 flex-1 divide-y divide-white/[0.06] border-t border-white/[0.06]">
-                                            {service.items.map((item) => (
-                                                <li key={item.name} className="flex items-baseline justify-between gap-4 py-3">
-                                                    <span className="text-[13px] leading-5 text-white/65">{item.name}</span>
-                                                    <span className="shrink-0 text-sm font-semibold text-white">{item.price}</span>
+                                        <ul className="mt-6 flex-1 space-y-3 border-t border-white/[0.06] pt-5">
+                                            {service.features.map((feature) => (
+                                                <li key={feature} className="flex items-center gap-3 text-[13px] leading-5 text-white/65">
+                                                    <Check className={`h-4 w-4 shrink-0 ${service.accent}`} />
+                                                    {feature}
                                                 </li>
                                             ))}
                                         </ul>
@@ -522,18 +525,12 @@ export const HomeModern = () => {
                                 </FadeInUp>
                             ))}
                         </div>
-                        <FadeInUp>
-                            <p className="text-center text-xs leading-6 text-white/45">
-                                表示価格はすべて税抜です。各サービスの考え方と進め方は、このまま下へスクロールしてご覧いただけます。
-                            </p>
-                        </FadeInUp>
-
                         <div className="grid items-center gap-14 py-12 lg:grid-cols-2 lg:gap-20">
                             <FadeInUp>
                                 <SectionBadge>HP制作・運用</SectionBadge>
                                 <h3 className="es-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">選ばれる理由を、<br />一画面ずつ形にする。</h3>
                                 <p className="mt-6 max-w-xl text-[16px] leading-8 text-white/55">
-                                    学習塾の検討者が知りたい情報を整理し、スマートフォンで読みやすく、AIにも内容が伝わるHPを制作します。初期19,800円から、保守は月額980円からです。
+                                    学習塾の検討者が知りたい情報を整理し、スマートフォンで読みやすく、AIにも内容が伝わるHPを制作します。企画から公開後の更新・保守まで一貫して対応します。
                                 </p>
                                 <ul className="mt-8 space-y-3 text-sm text-white/65">
                                     {['最短1週間のスピード公開', 'AI検索を見据えた情報設計', '公開後の更新・保守まで対応'].map((item) => (
@@ -595,8 +592,8 @@ export const HomeModern = () => {
                                         </div>
                                     </div>
                                     <div className="absolute -bottom-3 -right-2 rounded-2xl border border-white/10 bg-[#1C1C1E]/90 p-4 shadow-xl backdrop-blur-xl sm:-bottom-5 sm:-right-4">
-                                        <p className="text-[10px] tracking-[0.14em] text-white/60">ライトプラン</p>
-                                        <p className="mt-1 text-xl font-semibold">¥19,800</p>
+                                        <p className="text-[10px] tracking-[0.14em] text-white/60">企画から公開まで</p>
+                                        <p className="mt-1 text-base font-semibold">一貫して対応</p>
                                     </div>
                                 </div>
                             </FadeInUp>
@@ -629,7 +626,7 @@ export const HomeModern = () => {
                                 <SectionBadge tone="blue">塾DX・専用ツール開発</SectionBadge>
                                 <h3 className="es-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl">市販品に業務を合わせず、<br />業務に道具を合わせる。</h3>
                                 <p className="mt-6 max-w-xl text-[16px] leading-8 text-white/55">
-                                    指導報告、教材制作、成績分析、日程調整。今の運用を確認し、繰り返し作業を減らす専用ツールを設計・開発します。小規模な開発は19,800円からです。
+                                    指導報告、教材制作、成績分析、日程調整。今の運用を確認し、繰り返し作業を減らす専用ツールを設計・開発します。実際に触れる試作品で確認しながら進めます。
                                 </p>
                                 <ul className="mt-8 space-y-3 text-sm text-white/65">
                                     {['現場の手順から要件を整理', '実際に触れる試作品で確認', '導入後の修正と運用も支援'].map((item) => (
@@ -652,13 +649,13 @@ export const HomeModern = () => {
                                 </div>
                                 <div className="grid gap-3 sm:grid-cols-3">
                                     {[
-                                        ['無料', '初回30分', '現状の整理から'],
-                                        ['¥9,800', '単発相談', '改善案まで提示'],
-                                        ['¥14,800〜', '月額伴走', '実行と検証まで'],
-                                    ].map(([price, label, sub]) => (
+                                        ['現状整理', '課題を言語化', '抱えている仕事と悩みを一緒に整理'],
+                                        ['改善設計', '優先順位を決定', '次に取り組む一手を具体化'],
+                                        ['実行伴走', '検証まで支援', '必要ならHPやツールも実装'],
+                                    ].map(([eyebrow, label, sub]) => (
                                         <div key={label} className="rounded-2xl border border-white/10 bg-black/40 p-5">
-                                            <p className="text-2xl font-semibold tracking-tight">{price}</p>
-                                            <p className="es-serif mt-5 text-base text-white/80">{label}</p>
+                                            <p className="text-[10px] font-semibold tracking-[0.16em] text-lime-300">{eyebrow}</p>
+                                            <p className="es-serif mt-4 text-base text-white/80">{label}</p>
                                             <p className="mt-2 text-xs leading-5 text-white/55">{sub}</p>
                                         </div>
                                     ))}
@@ -918,6 +915,47 @@ export const HomeModern = () => {
                                     </div>
                                 );
                             })}
+                        </FadeInUp>
+                    </div>
+                </section>
+
+                <section id="pricing" className="border-t border-white/[0.06] px-5 py-24 sm:px-6 md:py-32">
+                    <div className="mx-auto max-w-7xl">
+                        <FadeInUp className="mx-auto mb-14 max-w-3xl text-center">
+                            <p className="mb-5 text-xs font-semibold tracking-[0.2em] text-[#55D8CA]">PRICING</p>
+                            <h2 className="es-display text-balance text-4xl font-semibold tracking-tight sm:text-5xl">3つの料金を、ひと目で比較。</h2>
+                            <p className="mt-6 text-[16px] leading-8 text-white/55">
+                                支援内容と実例をご覧いただいたうえで、3つのサービス料金をまとめて比較できます。
+                            </p>
+                        </FadeInUp>
+
+                        <div className="grid gap-5 lg:grid-cols-3" aria-label="サービス料金一覧">
+                            {SERVICE_MENU.map((service, index) => (
+                                <FadeInUp key={service.href} delay={index * 90} className="h-full">
+                                    <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-[#0E0E10] p-7">
+                                        <p className={`text-[10px] font-semibold tracking-[0.18em] ${service.accent}`}>{service.en}</p>
+                                        <h3 className="es-serif mt-3 text-xl font-semibold text-white">{service.title}</h3>
+                                        <p className="mt-3 text-sm leading-6 text-white/55">{service.desc}</p>
+                                        <ul className="mt-6 flex-1 divide-y divide-white/[0.06] border-t border-white/[0.06]">
+                                            {service.items.map((item) => (
+                                                <li key={item.name} className="flex items-baseline justify-between gap-4 py-3">
+                                                    <span className="text-[13px] leading-5 text-white/65">{item.name}</span>
+                                                    <span className="shrink-0 text-sm font-semibold text-white">{item.price}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <a href={service.href} className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold ${service.accent}`}>
+                                            詳しく見る <ArrowRight className="h-4 w-4" />
+                                        </a>
+                                    </div>
+                                </FadeInUp>
+                            ))}
+                        </div>
+
+                        <FadeInUp>
+                            <p className="mt-8 text-center text-xs leading-6 text-white/45">
+                                表示価格はすべて税抜です。要件により金額が変わる場合は、着手前に範囲と見積もりを明示します。
+                            </p>
                         </FadeInUp>
                     </div>
                 </section>
