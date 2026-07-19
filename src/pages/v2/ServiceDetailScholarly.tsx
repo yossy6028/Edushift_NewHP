@@ -9,6 +9,7 @@ import MetaTags, { SITE_BASE_URL, breadcrumbJsonLd } from '../../components/Meta
 import '../../styles/scholarly.css';
 import { DxProductGallery } from './DxProductGallery';
 import { CaseStudyBanner } from './CaseStudyYsKokugo';
+import { DeviceShowcase } from '../../components/immersive/DeviceShowcase';
 
 const SERVICE_INDEX: Record<string, string> = {
     consulting: '01',
@@ -135,6 +136,39 @@ export const ServiceDetailScholarly = () => {
             )}
 
             {slug === 'dx-development' && <DxProductGallery />}
+
+            {slug === 'hp-production' && (
+                <section className="s-hp-sample" id="hp-sample" aria-labelledby="hp-sample-title">
+                    <div className="s-hp-sample-word" aria-hidden="true">DESIGN</div>
+                    <div className="s-container">
+                        <div className="s-hp-sample-head">
+                            <div className="s-sec-num">LIVE SAMPLE · FLEXIBLE PRODUCTION</div>
+                            <h2 id="hp-sample-title">「こうしたい」を、<br /><em>画面の中で確かめる。</em></h2>
+                            <p>
+                                トップページに掲載している、実際に操作できる塾HPサンプルです。
+                                画像だけではなく、画面の動きや情報の流れまでご確認いただけます。
+                            </p>
+                        </div>
+
+                        <DeviceShowcase />
+
+                        <div className="s-hp-sample-flexibility" id="hp-sample-flexibility">
+                            <div>
+                                <div className="s-hp-sample-flexibility-label">YOUR IMAGE, YOUR WEBSITE</div>
+                                <h3>型を土台に、塾らしさはきちんと残します。</h3>
+                                <p>
+                                    サンプルと同じ見た目に限定するわけではありません。伝えたい強みや対象の保護者、今ある原稿を整理したうえで、標準の型の範囲内で色・構成・見せ方・お問い合わせまでの流れを、ご希望のイメージに合わせて調整します。型に収まらないページ構成や機能は、着手前に対応範囲・期間・費用を明確にします。
+                                </p>
+                            </div>
+                            <ul>
+                                <li><strong>見た目</strong><span>色、写真の見せ方、文字の雰囲気を、塾の印象に合わせて整えます。</span></li>
+                                <li><strong>伝える順番</strong><span>指導の強み、コース、実績、料金などを、保護者に伝わる順番へ組み替えます。</span></li>
+                                <li><strong>相談・申込み導線</strong><span>体験申込みや問い合わせにつながる入口を、運用方法に合わせて設計します。</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {slug === 'hp-production' && (
                 <section className="s-aieo">
