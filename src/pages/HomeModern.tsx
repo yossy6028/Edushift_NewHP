@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import {
     ArrowRight,
     BarChart3,
@@ -55,6 +55,10 @@ const SERVICE_MENU = [
         title: 'HP制作・保守運用',
         desc: '選ばれる塾のHPを、最短1週間・低価格で。公開後の保守まで対応。',
         accent: 'text-[#55D8CA]',
+        windowPath: 'studio.edu-shift.com',
+        line: '#55D8CA',
+        glow: 'rgba(85, 216, 202, .28)',
+        tilt: '-2.8deg',
         features: ['企画・構成設計', 'デザイン・実装', '公開後の更新・保守'],
         items: [
             { name: '制作ライト（LP 1枚）', price: '¥19,800' },
@@ -69,6 +73,10 @@ const SERVICE_MENU = [
         title: '塾DX・専用ツール開発',
         desc: '報告書・教材・成績管理など、塾の繰り返し作業を専用ツールに。',
         accent: 'text-sky-300',
+        windowPath: 'tools.edu-shift.com',
+        line: '#7DD3FC',
+        glow: 'rgba(56, 189, 248, .26)',
+        tilt: '0deg',
         features: ['業務手順の整理', '試作品・業務アプリ開発', '導入後の改善支援'],
         items: [
             { name: 'ミニ（単機能ツール）', price: '¥19,800〜' },
@@ -83,6 +91,10 @@ const SERVICE_MENU = [
         title: '経営・独立・AI活用コンサル',
         desc: '塾経営の立て直し、講師の独立、AI活用を実務者が伴走支援。',
         accent: 'text-lime-300',
+        windowPath: 'partner.edu-shift.com',
+        line: '#BEF264',
+        glow: 'rgba(163, 230, 53, .24)',
+        tilt: '2.8deg',
         features: ['経営課題の整理', '独立・集客導線づくり', 'AI活用の実務導入'],
         items: [
             { name: '初回相談（30分・オンライン）', price: '無料' },
@@ -357,11 +369,29 @@ export const HomeModern = () => {
                 .es-faq-grid.is-open { grid-template-rows: 1fr; }
                 .es-faq-grid > div { overflow: hidden; }
                 .es-noise { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E"); }
+                .es-service-perspective { perspective: 1100px; }
+                .es-service-perspective:hover, .es-service-perspective:focus-within { z-index: 20; }
+                .es-service-window-back { background: #0b0b0e; background: linear-gradient(145deg, color-mix(in srgb, var(--service-line) 14%, #111114), #080809 65%); border: 1px solid rgba(255,255,255,.08); border-color: color-mix(in srgb, var(--service-line) 18%, transparent); box-shadow: 0 26px 80px rgba(0,0,0,.56); }
+                .es-service-window { box-shadow: 0 24px 55px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.04); transition: transform .65s cubic-bezier(.16,1,.3,1), border-color .45s ease, box-shadow .65s cubic-bezier(.16,1,.3,1); }
+                .es-service-window::before { content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; background: linear-gradient(125deg, rgba(255,255,255,.09), transparent 24%, transparent 76%, rgba(255,255,255,.025)); background: linear-gradient(125deg, rgba(255,255,255,.09), transparent 24%, transparent 76%, color-mix(in srgb, var(--service-line) 10%, transparent)); pointer-events: none; }
+                .es-service-window-clip { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; }
+                .es-service-window-glow { background: var(--service-glow); filter: blur(48px); opacity: .62; }
+                .es-service-window-sheen { background: linear-gradient(112deg, transparent 18%, rgba(255,255,255,.07) 43%, transparent 62%); opacity: .5; transform: translateX(-42%); transition: transform .85s cubic-bezier(.16,1,.3,1); }
+                .es-service-window-line { background: linear-gradient(90deg, transparent, var(--service-line), transparent); box-shadow: 0 0 24px var(--service-glow); }
                 @keyframes es-marquee { to { transform: translateX(-33.333333%); } }
                 @keyframes es-hero-drift { from { transform: scale(1.04) translate3d(0,0,0); } to { transform: scale(1.12) translate3d(-2%, -1.5%, 0); } }
+                @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+                    .es-service-window-back { transform: translate3d(0, 10px, -34px) rotateY(var(--service-tilt)); }
+                    .es-service-window { transform-style: preserve-3d; transform: rotateX(1.6deg) rotateY(var(--service-tilt)) translateZ(0); }
+                    .es-service-window-chrome { transform: translateZ(16px); }
+                    .es-service-window-content { transform: translateZ(22px); }
+                    .es-service-window:hover, .es-service-window:focus-visible { transform: rotateX(0) rotateY(0) translate3d(0, -10px, 24px); border-color: rgba(255,255,255,.22); border-color: color-mix(in srgb, var(--service-line) 34%, transparent); box-shadow: 0 36px 85px rgba(0,0,0,.5), 0 0 42px var(--service-glow); }
+                    .es-service-window:hover .es-service-window-sheen, .es-service-window:focus-visible .es-service-window-sheen { transform: translateX(38%); }
+                }
                 @media (prefers-reduced-motion: reduce) {
                     html { scroll-behavior: auto; }
                     .es-hero-image, .es-marquee-track { animation: none !important; }
+                    .es-service-window, .es-service-window-back, .es-service-window-content, .es-service-window-chrome { transform: none !important; }
                     .es-dark *, .es-dark *::before, .es-dark *::after {
                         animation-duration: .01ms !important;
                         animation-iteration-count: 1 !important;
@@ -500,28 +530,59 @@ export const HomeModern = () => {
                             </p>
                         </FadeInUp>
 
-                        <div className="mb-8 grid gap-5 lg:grid-cols-3" aria-label="サービス一覧">
+                        <div className="mb-10 grid gap-8 lg:grid-cols-3 lg:gap-7" aria-label="サービス一覧">
                             {SERVICE_MENU.map((service, index) => (
                                 <FadeInUp key={service.href} delay={index * 90} className="h-full">
-                                    <a
-                                        href={service.href}
-                                        className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[#0E0E10] p-7 transition duration-500 hover:-translate-y-2 hover:border-white/20"
+                                    <div
+                                        className="es-service-perspective relative isolate h-full"
+                                        style={{
+                                            '--service-line': service.line,
+                                            '--service-glow': service.glow,
+                                            '--service-tilt': service.tilt,
+                                        } as CSSProperties}
                                     >
-                                        <p className={`text-[10px] font-semibold tracking-[0.18em] ${service.accent}`}>{service.en}</p>
-                                        <h3 className="es-serif mt-3 text-xl font-semibold text-white">{service.title}</h3>
-                                        <p className="mt-3 text-sm leading-6 text-white/55">{service.desc}</p>
-                                        <ul className="mt-6 flex-1 space-y-3 border-t border-white/[0.06] pt-5">
-                                            {service.features.map((feature) => (
-                                                <li key={feature} className="flex items-center gap-3 text-[13px] leading-5 text-white/65">
-                                                    <Check className={`h-4 w-4 shrink-0 ${service.accent}`} />
-                                                    {feature}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                        <span className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold ${service.accent}`}>
-                                            詳しく見る <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                                        </span>
-                                    </a>
+                                        <span className="es-service-window-back pointer-events-none absolute inset-x-4 bottom-[-10px] top-4 z-0 rounded-[24px]" aria-hidden="true" />
+                                        <a
+                                            href={service.href}
+                                            aria-label={`${service.title}の詳細を見る`}
+                                            className="es-service-window group relative z-10 flex h-full flex-col rounded-[24px] border border-white/10 bg-[#0E0E10] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+                                        >
+                                            <span className="es-service-window-clip z-0" aria-hidden="true">
+                                                <span className="es-service-window-glow absolute -right-20 -top-24 h-64 w-64 rounded-full" />
+                                                <span className="es-service-window-sheen absolute inset-0 z-[1]" />
+                                            </span>
+                                            <span className="es-service-window-line pointer-events-none absolute inset-x-12 top-0 z-20 h-px opacity-80" aria-hidden="true" />
+
+                                            <div className="es-service-window-chrome relative z-10 flex items-center rounded-t-[23px] border-b border-white/[0.07] bg-white/[0.025] px-5 py-3.5">
+                                                <span className="flex shrink-0 items-center gap-1.5" aria-hidden="true">
+                                                    <span className="h-2 w-2 rounded-full bg-[#FF5F57]/85" />
+                                                    <span className="h-2 w-2 rounded-full bg-[#FEBC2E]/85" />
+                                                    <span className="h-2 w-2 rounded-full bg-[#28C840]/85" />
+                                                </span>
+                                                <span className="ml-3 min-w-0 flex-1 truncate rounded-md border border-white/[0.06] bg-black/25 px-3 py-1 text-[9px] tracking-[0.08em] text-white/35" aria-hidden="true">
+                                                    {service.windowPath}
+                                                </span>
+                                                <span className={`ml-3 text-[9px] font-semibold tracking-[0.16em] ${service.accent}`} aria-hidden="true">0{index + 1}</span>
+                                            </div>
+
+                                            <div className="es-service-window-content relative z-10 flex flex-1 flex-col p-7 pt-6">
+                                                <p className={`text-[10px] font-semibold tracking-[0.18em] ${service.accent}`}>{service.en}</p>
+                                                <h3 className="es-serif mt-3 text-xl font-semibold text-white">{service.title}</h3>
+                                                <p className="mt-3 text-sm leading-6 text-white/55">{service.desc}</p>
+                                                <ul className="mt-6 flex-1 space-y-3 border-t border-white/[0.06] pt-5">
+                                                    {service.features.map((feature) => (
+                                                        <li key={feature} className="flex items-center gap-3 text-[13px] leading-5 text-white/65">
+                                                            <Check className={`h-4 w-4 shrink-0 ${service.accent}`} />
+                                                            {feature}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                                <span className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold ${service.accent}`}>
+                                                    詳しく見る <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </FadeInUp>
                             ))}
                         </div>
