@@ -5,6 +5,8 @@ import '../styles/immersive.css';
 
 type PageMotionVariant = 'service' | 'legal' | 'studio';
 
+// DeviceShowcase's .dsc root changes className when live mode starts.
+// Do not include it here: React would remove this component's is-visible class.
 const REVEAL_SELECTORS = [
     '.s-breadcrumb',
     '.s-detail-hero-meta',
@@ -14,7 +16,6 @@ const REVEAL_SELECTORS = [
     '.s-detail-support',
     '.s-detail-extra-card',
     '.s-hp-sample-head',
-    '.s-hp-sample .dsc',
     '.s-hp-sample-flexibility',
     '.s-aieo-head',
     '.s-aieo-card',
