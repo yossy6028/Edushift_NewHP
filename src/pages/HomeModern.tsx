@@ -20,6 +20,9 @@ import sampleJukuHeroImg from '../assets/generated/stella-hero.webp';
 import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
 import jukuTimetableImg from '../assets/app-juku-timetable.jpg';
 import tutorRevenueImg from '../assets/app-tutor-revenue.jpg';
+import furikaeImg from '../assets/app-furikae.jpg';
+import akiwakuImg from '../assets/app-akiwaku.jpg';
+import taikenImg from '../assets/app-taiken.jpg';
 import starChartImg from '../assets/app-starchart.jpg';
 import genpeiImg from '../assets/app-genpei.jpg';
 import shokuensuiImg from '../assets/app-shokuensui.jpg';
@@ -742,7 +745,7 @@ export const HomeModern = () => {
                             <p className="mt-4 max-w-xl text-[15px] leading-7 text-white/55">時間割づくりや売上管理など、塾運営のバックオフィス業務を自動化するツールも自社開発・公開中です。</p>
                         </FadeInUp>
 
-                        <div className="grid gap-5 lg:grid-cols-2">
+                        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                             {[
                                 {
                                     eyebrow: 'SCHEDULING SAAS',
@@ -757,6 +760,27 @@ export const HomeModern = () => {
                                     text: 'Googleカレンダーの授業予定を読み取り、月次売上・年間累計・前年比まで自動で集計。カレンダーが売上台帳に。',
                                     href: 'https://tutor-revenue.vercel.app/',
                                     image: tutorRevenueImg,
+                                },
+                                {
+                                    eyebrow: 'TRANSFER SCHEDULING',
+                                    title: '振替パズル',
+                                    text: '欠席授業を選ぶと、講師・教室・生徒の予定を照合。振替候補と保護者への連絡文をまとめて提案。',
+                                    href: 'https://edushift-juku-apps.vercel.app/furikae/',
+                                    image: furikaeImg,
+                                },
+                                {
+                                    eyebrow: 'AVAILABILITY SHARING',
+                                    title: '空き枠リンクメーカー',
+                                    text: '空いているコマを選ぶだけで、保護者へ送る候補日時の文面と予約ページの見本を同時に作成。',
+                                    href: 'https://edushift-juku-apps.vercel.app/akiwaku/',
+                                    image: akiwakuImg,
+                                },
+                                {
+                                    eyebrow: 'TRIAL BOOKING WIDGET',
+                                    title: '体験授業 予約ウィジェットメーカー',
+                                    text: '塾の色・コース・受付枠を設定し、ホームページに組み込む体験授業の予約画面をその場で試作。',
+                                    href: 'https://edushift-juku-apps.vercel.app/taiken/',
+                                    image: taikenImg,
                                 },
                             ].map((work, index) => (
                                 <FadeInUp key={work.title} delay={index * 90}>
