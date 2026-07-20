@@ -166,11 +166,12 @@ const FadeInUp = ({ children, className = '', delay = 0 }: FadeInUpProps) => {
 
         element.style.opacity = '0';
 
+        let controls: ReturnType<typeof animate> | undefined;
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (!entry.isIntersecting) return;
                 observer.disconnect();
-                animate(
+                controls = animate(
                     element,
                     { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0px)'] },
                     { type: spring, bounce: 0, duration: 0.7, delay: delay / 1000 },
@@ -182,7 +183,9 @@ const FadeInUp = ({ children, className = '', delay = 0 }: FadeInUpProps) => {
         observer.observe(element);
         return () => {
             observer.disconnect();
+            controls?.stop();
             element.style.opacity = '';
+            element.style.transform = '';
         };
     }, [delay]);
 
@@ -234,7 +237,7 @@ const TiltWrapper = ({ className, style, children }: TiltWrapperProps) => {
     };
 
     return (
-        <div ref={wrapperRef} className={className} style={style} onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
+        <div ref={wrapperRef} className={className} style={style} onPointerMove={onPointerMove} onPointerLeave={onPointerLeave} onPointerCancel={onPointerLeave}>
             {children}
         </div>
     );

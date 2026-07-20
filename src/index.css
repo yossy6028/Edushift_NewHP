@@ -31,30 +31,34 @@ body {
   min-height: 100vh;
 }
 
-/* ── Fluid press feedback（Apple: pointer-downで即時反応） ── */
-a,
-button,
-[role='button'],
-summary,
-label[for] {
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-}
+/* ── Fluid press feedback（Apple: pointer-downで即時反応） ──
+   @layer base に置くことでTailwindのtransitionユーティリティが常に優先され、
+   transition-colors等の既存演出を上書きしない（scaleはtailwind.config.jsでDEFAULTに追加済み） */
+@layer base {
+  a,
+  button,
+  [role='button'],
+  summary,
+  label[for] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
 
-/* transformではなく独立プロパティscaleを使う: 既存のhover translate/3Dチルトのtransformと合成され、押下時にジャンプしない */
-:is(a, button, [role='button'], [data-pressable]) {
-  transition: scale 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
+  /* transformではなく独立プロパティscaleを使う: 既存のhover translate/3Dチルトのtransformと合成され、押下時にジャンプしない */
+  :is(a, button, [role='button'], [data-pressable]) {
+    transition: scale 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
 
-:is(a, button, [role='button'], [data-pressable]):active {
-  scale: 0.97;
-  transition-duration: 0.1s;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  :is(a, button, [role='button'], [data-pressable]),
   :is(a, button, [role='button'], [data-pressable]):active {
-    transition-duration: 0.01ms;
+    scale: 0.97;
+    transition-duration: 0.1s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :is(a, button, [role='button'], [data-pressable]),
+    :is(a, button, [role='button'], [data-pressable]):active {
+      transition-duration: 0.01ms;
+    }
   }
 }
 

@@ -9,6 +9,10 @@ export default {
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
             },
+            transitionProperty: {
+                // 既定リスト＋独立プロパティscale（押下フィードバック用）
+                DEFAULT: 'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, scale',
+            },
             animation: {
                 'fade-in-up': 'fadeInUp 0.8s ease-out both',
                 'fade-in': 'fadeIn 1s ease-out both',
