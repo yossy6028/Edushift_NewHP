@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { animate } from 'motion/mini';
+import { spring } from 'motion';
 import {
     ArrowRight,
     BarChart3,
@@ -153,37 +155,89 @@ type FadeInUpProps = {
 
 const FadeInUp = ({ children, className = '', delay = 0 }: FadeInUpProps) => {
     const ref = useRef<HTMLDivElement>(null);
-    const [visible, setVisible] = useState(false);
 
-    useEffect(() => {
+    // 初期非表示はJSでのみ付与する（JSが動かない環境では常に可視＝安全側）
+    useLayoutEffect(() => {
         const element = ref.current;
         if (!element) return;
 
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reduced || typeof IntersectionObserver === 'undefined') {
-            const frame = requestAnimationFrame(() => setVisible(true));
-            return () => cancelAnimationFrame(frame);
-        }
+        if (reduced || typeof IntersectionObserver === 'undefined') return;
 
+        element.style.opacity = '0';
+
+        let controls: ReturnType<typeof animate> | undefined;
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (!entry.isIntersecting) return;
-                setVisible(true);
                 observer.disconnect();
+                controls = animate(
+                    element,
+                    { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0px)'] },
+                    { type: spring, bounce: 0, duration: 0.7, delay: delay / 1000 },
+                );
             },
             { threshold: 0.14, rootMargin: '0px 0px -7% 0px' },
         );
 
         observer.observe(element);
-        return () => observer.disconnect();
-    }, []);
+        return () => {
+            observer.disconnect();
+            controls?.stop();
+            element.style.opacity = '';
+            element.style.transform = '';
+        };
+    }, [delay]);
 
     return (
-        <div
-            ref={ref}
-            className={`${className} transition-[opacity,transform] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-            style={{ transitionDelay: `${delay}ms` }}
-        >
+        <div ref={ref} className={className}>
+            {children}
+        </div>
+    );
+};
+
+type TiltWrapperProps = {
+    className?: string;
+    style?: CSSProperties;
+    children: ReactNode;
+};
+
+// DeviceShowcase.tsx のポインタ追従方式を移植（Apple: 1:1追従・rAF・transform/opacityのみ）
+const TiltWrapper = ({ className, style, children }: TiltWrapperProps) => {
+    const wrapperRef = useRef<HTMLDivElement>(null);
+    const rafRef = useRef(0);
+
+    useEffect(() => () => cancelAnimationFrame(rafRef.current), []);
+
+    const findCard = () => wrapperRef.current?.querySelector<HTMLElement>('.es-service-window') ?? null;
+
+    const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+        if (event.pointerType !== 'mouse') return;
+        if (!window.matchMedia('(min-width: 1024px)').matches) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const wrapper = wrapperRef.current;
+        const card = findCard();
+        if (!wrapper || !card) return;
+        const rect = wrapper.getBoundingClientRect();
+        const nx = (event.clientX - rect.left) / rect.width - 0.5;
+        const ny = (event.clientY - rect.top) / rect.height - 0.5;
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = requestAnimationFrame(() => {
+            card.classList.add('is-tilting');
+            card.style.transform = `rotateX(${(-ny * 7).toFixed(2)}deg) rotateY(${(nx * 9).toFixed(2)}deg) translate3d(0, -10px, 24px)`;
+        });
+    };
+
+    const onPointerLeave = () => {
+        cancelAnimationFrame(rafRef.current);
+        const card = findCard();
+        if (!card) return;
+        card.classList.remove('is-tilting');
+        card.style.transform = '';
+    };
+
+    return (
+        <div ref={wrapperRef} className={className} style={style} onPointerMove={onPointerMove} onPointerLeave={onPointerLeave} onPointerCancel={onPointerLeave}>
             {children}
         </div>
     );
@@ -356,12 +410,14 @@ export const HomeModern = () => {
             <style>{`
                 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
                 body { background: #000; }
+                #about { min-height: 100vh; min-height: 100svh; }
                 .es-dark { font-family: "Inter", "Noto Sans JP", sans-serif; }
                 .es-serif { font-family: "Shippori Mincho", "Noto Serif JP", serif; }
                 .es-display { font-family: "Shippori Mincho", "Noto Serif JP", serif; }
                 .es-wordmark { font-family: "Playfair Display", "Shippori Mincho", serif; font-weight: 700; line-height: 1; color: #fff; }
                 .es-wordmark em { color: #0293f0; font-style: italic; font-weight: 500; }
-                .es-header::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,.8); border-bottom: 1px solid rgba(255,255,255,.08); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); opacity: 0; transition: opacity .35s ease; }
+                .es-header::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,.65); border-bottom: 1px solid rgba(255,255,255,.08); -webkit-backdrop-filter: blur(20px) saturate(160%); backdrop-filter: blur(20px) saturate(160%); opacity: 0; transition: opacity .35s ease; }
+                @media (prefers-reduced-transparency: reduce) { .es-header::before { background: rgba(0,0,0,.96); -webkit-backdrop-filter: none; backdrop-filter: none; } }
                 .es-header.is-scrolled::before, .es-header.is-open::before { opacity: 1; }
                 .es-hero-image { animation: es-hero-drift 18s ease-in-out infinite alternate; }
                 .es-marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); }
@@ -388,6 +444,7 @@ export const HomeModern = () => {
                     .es-service-window-content { transform: translateZ(22px); }
                     .es-service-window:hover, .es-service-window:focus-visible { transform: rotateX(0) rotateY(0) translate3d(0, -10px, 24px); border-color: rgba(255,255,255,.22); border-color: color-mix(in srgb, var(--service-line) 34%, transparent); box-shadow: 0 36px 85px rgba(0,0,0,.5), 0 0 42px var(--service-glow); }
                     .es-service-window:hover .es-service-window-sheen, .es-service-window:focus-visible .es-service-window-sheen { transform: translateX(38%); }
+                    .es-service-window.is-tilting { transition-duration: .25s; }
                 }
                 @media (prefers-reduced-motion: reduce) {
                     html { scroll-behavior: auto; }
@@ -443,7 +500,7 @@ export const HomeModern = () => {
                 <div
                     ref={mobileNavRef}
                     id="mobile-navigation"
-                    className={`absolute inset-x-4 top-[calc(100%+8px)] overflow-hidden rounded-2xl border border-white/10 bg-[#111113]/95 shadow-2xl shadow-black/60 transition-[opacity,transform,visibility] duration-300 lg:hidden ${navOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-3 opacity-0'}`}
+                    className={`es-glass absolute inset-x-4 top-[calc(100%+8px)] overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/60 transition-[opacity,transform,visibility] duration-300 lg:hidden ${navOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-3 opacity-0'}`}
                 >
                     <nav className="flex flex-col p-3" aria-label="モバイルナビゲーション">
                         {NAV_ITEMS.map((item) => (
@@ -460,7 +517,7 @@ export const HomeModern = () => {
             </header>
 
             <main id="main-content" tabIndex={-1}>
-                <section id="about" className="relative isolate flex min-h-screen flex-col items-center justify-center overflow-hidden px-5 pb-20 pt-32 sm:px-6">
+                <section id="about" className="relative isolate flex flex-col items-center justify-center overflow-hidden px-5 pb-20 pt-32 sm:px-6">
                     <div className="absolute inset-0 -z-20 bg-black">
                         <HeroMedia poster={aiClassroomImg} />
                     </div>
@@ -469,7 +526,7 @@ export const HomeModern = () => {
                     <div className="pointer-events-none absolute left-1/2 top-[38%] -z-10 h-[520px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(45,179,160,.2),rgba(2,147,240,.08)_45%,transparent_70%)] blur-2xl" aria-hidden="true" />
                     <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center">
                         <FadeInUp>
-                            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white/70 backdrop-blur-sm">
+                            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white/70 backdrop-blur-md backdrop-saturate-150">
                                 <Sparkles className="h-3.5 w-3.5 text-[#55D8CA]" />
                                 小規模塾・独立する先生のための AI × Web パートナー
                             </div>
@@ -534,7 +591,7 @@ export const HomeModern = () => {
                         <div className="mb-10 grid gap-8 lg:grid-cols-3 lg:gap-7" aria-label="サービス一覧">
                             {SERVICE_MENU.map((service, index) => (
                                 <FadeInUp key={service.href} delay={index * 90} className="h-full">
-                                    <div
+                                    <TiltWrapper
                                         className="es-service-perspective relative isolate h-full"
                                         style={{
                                             '--service-line': service.line,
@@ -583,7 +640,7 @@ export const HomeModern = () => {
                                                 </span>
                                             </div>
                                         </a>
-                                    </div>
+                                    </TiltWrapper>
                                 </FadeInUp>
                             ))}
                         </div>

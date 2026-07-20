@@ -16,6 +16,14 @@
     overflow-x: clip;
 }
 
+/* spring近似easing（motionのspringジェネレータで生成: visualDuration .4s / bounce .15、最大オーバーシュート1.006）。
+   Safari 17.2未満はlinear()非対応のため上のcubic-bezierへ自動フォールバック */
+@supports (transition-timing-function: linear(0, 1)) {
+    .theme-scholarly[data-page-motion] {
+        --pm-ease: linear(0, 0.0445 4.17%, 0.1478 8.33%, 0.2764 12.50%, 0.4090 16.67%, 0.5332 20.83%, 0.6423 25.00%, 0.7341 29.17%, 0.8083 33.33%, 0.8665 37.50%, 0.9107 41.67%, 0.9433 45.83%, 0.9666 50.00%, 0.9827 54.17%, 0.9933 58.33%, 1.0000 62.50%, 1.0038 66.67%, 1.0057 70.83%, 1.0063 75.00%, 1.0061 79.17%, 1.0055 83.33%, 1.0047 87.50%, 1.0039 91.67%, 1.0031 95.83%, 1);
+    }
+}
+
 .pm-progress {
     position: fixed;
     inset: 0 0 auto;
