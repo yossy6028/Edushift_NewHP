@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
+import { animate } from 'motion/mini';
+import { spring } from 'motion';
 import {
     ArrowRight,
     BarChart3,
@@ -153,37 +155,39 @@ type FadeInUpProps = {
 
 const FadeInUp = ({ children, className = '', delay = 0 }: FadeInUpProps) => {
     const ref = useRef<HTMLDivElement>(null);
-    const [visible, setVisible] = useState(false);
 
-    useEffect(() => {
+    // 初期非表示はJSでのみ付与する（JSが動かない環境では常に可視＝安全側）
+    useLayoutEffect(() => {
         const element = ref.current;
         if (!element) return;
 
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reduced || typeof IntersectionObserver === 'undefined') {
-            const frame = requestAnimationFrame(() => setVisible(true));
-            return () => cancelAnimationFrame(frame);
-        }
+        if (reduced || typeof IntersectionObserver === 'undefined') return;
+
+        element.style.opacity = '0';
 
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (!entry.isIntersecting) return;
-                setVisible(true);
                 observer.disconnect();
+                animate(
+                    element,
+                    { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0px)'] },
+                    { type: spring, bounce: 0, duration: 0.7, delay: delay / 1000 },
+                );
             },
             { threshold: 0.14, rootMargin: '0px 0px -7% 0px' },
         );
 
         observer.observe(element);
-        return () => observer.disconnect();
-    }, []);
+        return () => {
+            observer.disconnect();
+            element.style.opacity = '';
+        };
+    }, [delay]);
 
     return (
-        <div
-            ref={ref}
-            className={`${className} transition-[opacity,transform] duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${visible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-            style={{ transitionDelay: `${delay}ms` }}
-        >
+        <div ref={ref} className={className}>
             {children}
         </div>
     );
