@@ -356,6 +356,7 @@ export const HomeModern = () => {
             <style>{`
                 html { scroll-behavior: smooth; scroll-padding-top: 88px; }
                 body { background: #000; }
+                #about { min-height: 100vh; min-height: 100svh; }
                 .es-dark { font-family: "Inter", "Noto Sans JP", sans-serif; }
                 .es-serif { font-family: "Shippori Mincho", "Noto Serif JP", serif; }
                 .es-display { font-family: "Shippori Mincho", "Noto Serif JP", serif; }
@@ -460,7 +461,7 @@ export const HomeModern = () => {
             </header>
 
             <main id="main-content" tabIndex={-1}>
-                <section id="about" className="relative isolate flex min-h-screen flex-col items-center justify-center overflow-hidden px-5 pb-20 pt-32 sm:px-6">
+                <section id="about" className="relative isolate flex flex-col items-center justify-center overflow-hidden px-5 pb-20 pt-32 sm:px-6">
                     <div className="absolute inset-0 -z-20 bg-black">
                         <HeroMedia poster={aiClassroomImg} />
                     </div>
