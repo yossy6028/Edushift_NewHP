@@ -413,7 +413,8 @@ export const HomeModern = () => {
                 .es-display { font-family: "Shippori Mincho", "Noto Serif JP", serif; }
                 .es-wordmark { font-family: "Playfair Display", "Shippori Mincho", serif; font-weight: 700; line-height: 1; color: #fff; }
                 .es-wordmark em { color: #0293f0; font-style: italic; font-weight: 500; }
-                .es-header::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,.8); border-bottom: 1px solid rgba(255,255,255,.08); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); opacity: 0; transition: opacity .35s ease; }
+                .es-header::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,.65); border-bottom: 1px solid rgba(255,255,255,.08); -webkit-backdrop-filter: blur(20px) saturate(160%); backdrop-filter: blur(20px) saturate(160%); opacity: 0; transition: opacity .35s ease; }
+                @media (prefers-reduced-transparency: reduce) { .es-header::before { background: rgba(0,0,0,.96); -webkit-backdrop-filter: none; backdrop-filter: none; } }
                 .es-header.is-scrolled::before, .es-header.is-open::before { opacity: 1; }
                 .es-hero-image { animation: es-hero-drift 18s ease-in-out infinite alternate; }
                 .es-marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent); }
@@ -496,7 +497,7 @@ export const HomeModern = () => {
                 <div
                     ref={mobileNavRef}
                     id="mobile-navigation"
-                    className={`absolute inset-x-4 top-[calc(100%+8px)] overflow-hidden rounded-2xl border border-white/10 bg-[#111113]/95 shadow-2xl shadow-black/60 transition-[opacity,transform,visibility] duration-300 lg:hidden ${navOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-3 opacity-0'}`}
+                    className={`es-glass absolute inset-x-4 top-[calc(100%+8px)] overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/60 transition-[opacity,transform,visibility] duration-300 lg:hidden ${navOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-3 opacity-0'}`}
                 >
                     <nav className="flex flex-col p-3" aria-label="モバイルナビゲーション">
                         {NAV_ITEMS.map((item) => (
@@ -522,7 +523,7 @@ export const HomeModern = () => {
                     <div className="pointer-events-none absolute left-1/2 top-[38%] -z-10 h-[520px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(45,179,160,.2),rgba(2,147,240,.08)_45%,transparent_70%)] blur-2xl" aria-hidden="true" />
                     <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center">
                         <FadeInUp>
-                            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white/70 backdrop-blur-sm">
+                            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white/70 backdrop-blur-md backdrop-saturate-150">
                                 <Sparkles className="h-3.5 w-3.5 text-[#55D8CA]" />
                                 小規模塾・独立する先生のための AI × Web パートナー
                             </div>
