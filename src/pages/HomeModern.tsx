@@ -193,6 +193,53 @@ const FadeInUp = ({ children, className = '', delay = 0 }: FadeInUpProps) => {
     );
 };
 
+type TiltWrapperProps = {
+    className?: string;
+    style?: CSSProperties;
+    children: ReactNode;
+};
+
+// DeviceShowcase.tsx のポインタ追従方式を移植（Apple: 1:1追従・rAF・transform/opacityのみ）
+const TiltWrapper = ({ className, style, children }: TiltWrapperProps) => {
+    const wrapperRef = useRef<HTMLDivElement>(null);
+    const rafRef = useRef(0);
+
+    useEffect(() => () => cancelAnimationFrame(rafRef.current), []);
+
+    const findCard = () => wrapperRef.current?.querySelector<HTMLElement>('.es-service-window') ?? null;
+
+    const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+        if (event.pointerType !== 'mouse') return;
+        if (!window.matchMedia('(min-width: 1024px)').matches) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const wrapper = wrapperRef.current;
+        const card = findCard();
+        if (!wrapper || !card) return;
+        const rect = wrapper.getBoundingClientRect();
+        const nx = (event.clientX - rect.left) / rect.width - 0.5;
+        const ny = (event.clientY - rect.top) / rect.height - 0.5;
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = requestAnimationFrame(() => {
+            card.classList.add('is-tilting');
+            card.style.transform = `rotateX(${(-ny * 7).toFixed(2)}deg) rotateY(${(nx * 9).toFixed(2)}deg) translate3d(0, -10px, 24px)`;
+        });
+    };
+
+    const onPointerLeave = () => {
+        cancelAnimationFrame(rafRef.current);
+        const card = findCard();
+        if (!card) return;
+        card.classList.remove('is-tilting');
+        card.style.transform = '';
+    };
+
+    return (
+        <div ref={wrapperRef} className={className} style={style} onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
+            {children}
+        </div>
+    );
+};
+
 type MotionMediaProps = {
     src: string;
     poster: string;
@@ -393,6 +440,7 @@ export const HomeModern = () => {
                     .es-service-window-content { transform: translateZ(22px); }
                     .es-service-window:hover, .es-service-window:focus-visible { transform: rotateX(0) rotateY(0) translate3d(0, -10px, 24px); border-color: rgba(255,255,255,.22); border-color: color-mix(in srgb, var(--service-line) 34%, transparent); box-shadow: 0 36px 85px rgba(0,0,0,.5), 0 0 42px var(--service-glow); }
                     .es-service-window:hover .es-service-window-sheen, .es-service-window:focus-visible .es-service-window-sheen { transform: translateX(38%); }
+                    .es-service-window.is-tilting { transition-duration: .25s; }
                 }
                 @media (prefers-reduced-motion: reduce) {
                     html { scroll-behavior: auto; }
@@ -539,7 +587,7 @@ export const HomeModern = () => {
                         <div className="mb-10 grid gap-8 lg:grid-cols-3 lg:gap-7" aria-label="サービス一覧">
                             {SERVICE_MENU.map((service, index) => (
                                 <FadeInUp key={service.href} delay={index * 90} className="h-full">
-                                    <div
+                                    <TiltWrapper
                                         className="es-service-perspective relative isolate h-full"
                                         style={{
                                             '--service-line': service.line,
@@ -588,7 +636,7 @@ export const HomeModern = () => {
                                                 </span>
                                             </div>
                                         </a>
-                                    </div>
+                                    </TiltWrapper>
                                 </FadeInUp>
                             ))}
                         </div>
