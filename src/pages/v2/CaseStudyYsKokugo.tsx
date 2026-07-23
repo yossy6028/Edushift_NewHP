@@ -102,7 +102,7 @@ export const CaseStudyYsKokugo = () => {
                         image: `${SITE_BASE_URL}/ogp-works-ys.png`,
                         inLanguage: 'ja',
                         datePublished: '2026-07-12',
-                        dateModified: '2026-07-13',
+                        dateModified: '2026-07-23',
                         author: { '@id': `${SITE_BASE_URL}/#founder` },
                         publisher: { '@id': `${SITE_BASE_URL}/#organization` },
                         isPartOf: { '@id': `${SITE_BASE_URL}/#website` },

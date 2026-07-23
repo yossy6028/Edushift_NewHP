@@ -19,7 +19,7 @@ export interface MonthlyCount {
 }
 
 /** 集計の時点日付。再集計時はここを更新すれば注記・disclaimerに反映される */
-const AS_OF = '2026年7月13日';
+const AS_OF = '2026年7月23日';
 
 export const YS_CASE = {
     slug: 'ys-kokugo',
@@ -31,11 +31,11 @@ export const YS_CASE = {
     heroCopy: '「きれいなHP」で終わらせない。問い合わせが来るHPへ。',
     metrics: [
         { label: 'HPフォーム問い合わせ', before: '月平均3.2件', after: '月平均9.0件', multiplier: '約2.8倍',
-          note: 'リニューアル前(2025/8〜2026/4)9ヶ月29件と、後の完了月(2026/5〜6)18件の月平均比較。2026年7月は13日時点で既に7件' },
+          note: 'リニューアル前(2025/8〜2026/4)9ヶ月29件と、後の完了月(2026/5〜6)18件の月平均比較。2026年7月は23日時点で既に11件' },
         { label: '学習相談（商談化）', before: '月2.0件', after: '月5.5件', multiplier: '約2.8倍',
-          note: '事前アンケート回答数。前=2026/1〜4(8件)、後=完了月2026/5〜6(11件)の月平均。7月は6日時点でさらに2件' },
-        { label: 'HP/WEB検索経由の流入', before: '8件中2件', after: '13件中9件（69%）', multiplier: '主経路に',
-          note: '学習相談アンケート「知ったきっかけ」。前=2026/1〜4の回答8件、後=2026/5〜7/6の回答13件。X経由からHP経由へ逆転' },
+          note: '事前アンケート回答数。前=2026/1〜4(8件)、後=完了月2026/5〜6(11件)の月平均。7月は23日時点で既に6件' },
+        { label: 'HP/WEB検索経由の流入', before: '8件中2件', after: '17件中11件（65%）', multiplier: '主経路に',
+          note: '学習相談アンケート「知ったきっかけ」。前=2026/1〜4の回答8件、後=2026/5〜7/23の回答17件。X経由からHP経由へ逆転' },
     ] satisfies CaseMetric[],
     monthly: [
         { month: '2025-08', count: 1 }, { month: '2025-09', count: 5 },
@@ -45,7 +45,7 @@ export const YS_CASE = {
         { month: '2026-04', count: 4 },
         { month: '2026-05', count: 7, highlight: true },
         { month: '2026-06', count: 11, highlight: true },
-        { month: '2026-07', count: 7, highlight: true }, // 7/13時点
+        { month: '2026-07', count: 11, highlight: true }, // 7/23時点
     ] satisfies MonthlyCount[],
     /**
      * 「絶対数が少なく見える」問題への文脈提示コールアウト（満席ストーリー型・2026-07-13追加）。
@@ -65,14 +65,14 @@ export const YS_CASE = {
         '月次比較のため、公開月である2026年4月まではリニューアル前として集計しています。',
         '前年（2025年）6月・7月のHPフォーム問い合わせは0件でした。',
     ],
-    disclaimer: `本事例は個別の実績であり、成果を保証するものではありません。問い合わせ件数はHPフォーム経由のメール通知をスレッド単位で集計し、営業目的のメールを除外しています（${AS_OF}時点）。前年同期（2025年6月・7月）のHPフォーム問い合わせは0件でした。AI経由の流入はGoogle Analytics 4の参照元（chatgpt.com等）に基づく集計で、サイト全体の流入に占める割合は約1.4%です（2026年7月13日時点）。問い合わせ・流入の増加には時期や発信活動など他の要因が影響している可能性があり、リニューアルやAIEO対策単独の効果を示すものではありません。`,
+    disclaimer: `本事例は個別の実績であり、成果を保証するものではありません。問い合わせ件数はHPフォーム経由のメール通知をスレッド単位で集計し、営業目的のメールを除外しています（${AS_OF}時点）。前年同期（2025年6月・7月）のHPフォーム問い合わせは0件でした。AI経由の流入はGoogle Analytics 4の参照元（chatgpt.com等）に基づく集計で、サイト全体の流入に占める割合は約1.4%です（2026年7月23日時点）。問い合わせ・流入の増加には時期や発信活動など他の要因が影響している可能性があり、リニューアルやAIEO対策単独の効果を示すものではありません。`,
 } as const;
 
 /** ヒーロー・導線コピーの主役数字。「問い合わせ」文言とセットで使う */
 export const YS_LEAD_METRIC = YS_CASE.metrics[0];
 
 /** AIEO実測の集計時点。GA4再集計時はここを更新 */
-const AIEO_AS_OF = '2026年7月17日';
+const AIEO_AS_OF = '2026年7月23日';
 
 /**
  * AIEO（AI経由流入）の実測データ。
@@ -87,16 +87,16 @@ export const YS_AIEO = {
         { label: 'AI経由の流入（ChatGPT等）', before: '実装前77日間 21', after: '実装後77日間 120',
           multiplier: '約5.7倍',
           note: 'AIEO実装（2026/4/27）前後の同日数（77日間）でのセッション数比較。参照元の内訳はほぼChatGPT（chatgpt.com / openai）' },
-        { label: 'AI経由訪問の行動率', before: '検索経由 0.5%', after: 'AI経由 7.9%',
-          multiplier: '約16倍',
-          note: '問い合わせ等のキーイベントに至ったセッションの割合（2026/4/27〜7/17）。平均滞在もAI経由233秒 vs 検索経由150秒' },
+        { label: 'AI経由訪問の行動率', before: '検索経由 0.5%', after: 'AI経由 6.9%',
+          multiplier: '約15倍',
+          note: '問い合わせ等のキーイベントに至ったセッションの割合（2026/4/27〜7/23）。平均滞在もAI経由214秒 vs 検索経由156秒' },
     ] satisfies CaseMetric[],
     monthly: [
         { month: '2026-01', count: 14 }, { month: '2026-02', count: 7 },
         { month: '2026-03', count: 0 }, { month: '2026-04', count: 17 },
         { month: '2026-05', count: 33, highlight: true },
         { month: '2026-06', count: 72, highlight: true },
-        { month: '2026-07', count: 21, highlight: true }, // 7/17時点
+        { month: '2026-07', count: 38, highlight: true }, // 7/23時点
     ] satisfies MonthlyCount[],
     chartNotes: [
         `2026年7月は、${AIEO_AS_OF}時点の件数です。`,
