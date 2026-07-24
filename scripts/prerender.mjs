@@ -50,7 +50,7 @@ const servicePage = (slug, label, lead) => ({
 });
 
 const CASE_TITLE = 'HP制作実績：AI経由流入約5.7倍・問い合わせ約2.8倍';
-const CASE_DESC = 'YS中学受験国語力研究室のHPリニューアル事例。デザイン刷新・モーション演出・AIEO対策により、AI経由の流入が約5.7倍（実装前77日間 21 → 実装後77日間 120）、HPフォーム問い合わせが約2.8倍（月平均3.2件 → 月平均9.0件）に。2026年7月13日時点の実測データを全公開しています。';
+const CASE_DESC = 'YS中学受験国語力研究室のHPリニューアル事例。デザイン刷新・モーション演出・AIEO対策により、AI経由の流入が約5.7倍（実装前77日間 21 → 実装後77日間 120）、HPフォーム問い合わせが約2.8倍（月平均3.2件 → 月平均9.0件）に。2026年7月23日時点の実測データを全公開しています。';
 
 const ROUTES = [
     servicePage('consulting', 'コンサルティング', '塾経営の立て直し、講師の独立、AI活用——月¥14,800からの伴走コンサルティング。単発¥9,800のスポット相談から始められます。'),
@@ -76,7 +76,7 @@ const ROUTES = [
                 image: `${BASE}/ogp-works-ys.png`,
                 inLanguage: 'ja',
                 datePublished: '2026-07-12',
-                dateModified: '2026-07-13',
+                dateModified: '2026-07-23',
                 author: { '@id': `${BASE}/#founder` },
                 publisher: { '@id': `${BASE}/#organization` },
                 isPartOf: { '@id': `${BASE}/#website` },
