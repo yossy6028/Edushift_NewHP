@@ -28,13 +28,14 @@ export const pageview = (url: string) => {
 // 問い合わせ導線クリック（GA4キーイベント）
 // mailto / tel リンクのクリックを一括捕捉するグローバルリスナーを設置する。
 // 個々のCTAコンポーネントに手を入れずに全ページ・将来のページも網羅するための方式。
+// イベント名 cta_click はGA4プロパティ側で既にキーイベント登録済みの名前に合わせている。
 export const attachContactClickTracking = () => {
   if (typeof document === 'undefined') return () => {};
   const handler = (e: MouseEvent) => {
     const anchor = (e.target as Element | null)?.closest?.('a[href^="mailto:"], a[href^="tel:"]');
     if (!anchor || !hasGtag()) return;
     const href = anchor.getAttribute('href') || '';
-    window.gtag('event', 'contact_click', {
+    window.gtag('event', 'cta_click', {
       contact_method: href.startsWith('tel:') ? 'tel' : 'mailto',
       link_text: (anchor.textContent || '').trim().slice(0, 100),
       page_path: window.location.pathname,
