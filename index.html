@@ -388,6 +388,20 @@
   }
   </script>
 
+  <!-- 自己アクセス除外: ?ga_optout=1 で以降このブラウザの計測を停止（?ga_optout=0 で解除）。
+       動的IPのためGA4のIP除外は不安定。Google公式の ga-disable フラグで無効化する。 -->
+  <script>
+    (function () {
+      var KEY = 'edushift_ga_optout';
+      try {
+        var p = new URLSearchParams(location.search).get('ga_optout');
+        if (p === '1') localStorage.setItem(KEY, '1');
+        else if (p === '0') localStorage.removeItem(KEY);
+        if (localStorage.getItem(KEY) === '1') window['ga-disable-G-946EWSKPB9'] = true;
+      } catch (e) { /* localStorage不可の環境では通常どおり計測する */ }
+    })();
+  </script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-946EWSKPB9"></script>
   <script>
