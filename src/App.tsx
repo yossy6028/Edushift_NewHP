@@ -6,6 +6,8 @@ import { BusinessLawScholarly } from './pages/v2/BusinessLawScholarly';
 import { PrivacyPolicyScholarly } from './pages/v2/PrivacyPolicyScholarly';
 import { LogoPreview } from './pages/v2/LogoPreview';
 import { CaseStudyYsKokugo } from './pages/v2/CaseStudyYsKokugo';
+import { GuideIndexScholarly } from './pages/v2/GuideIndexScholarly';
+import { GuideArticleScholarly } from './pages/v2/GuideArticleScholarly';
 import { usePageTracking } from './hooks/usePageTracking';
 
 function PageTracker() {
@@ -47,6 +49,8 @@ function App() {
           <Route path="/privacypolicy" element={<PrivacyPolicyScholarly />} />
           <Route path="/logo-preview" element={<LogoPreview />} />
           <Route path="/works/ys-kokugo" element={<CaseStudyYsKokugo />} />
+          <Route path="/guide" element={<GuideIndexScholarly />} />
+          <Route path="/guide/:slug" element={<GuideArticleScholarly />} />
 
           {/* Backward-compatibility: legacy /v2 prefix → root */}
           <Route path="/v2" element={<Navigate to="/" replace />} />

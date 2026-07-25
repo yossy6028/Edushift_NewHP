@@ -9,7 +9,104 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const BASE = 'https://edu-shift.com';
-const DIST = join(dirname(fileURLToPath(import.meta.url)), '..', 'dist');
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const DIST = join(ROOT, 'dist');
+
+// 塾経営ガイド記事（React側 src/data/guides.ts と同一ソース）
+const GUIDES = JSON.parse(readFileSync(join(ROOT, 'src', 'data', 'guides.json'), 'utf8')).guides;
+
+const escHtml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+// JSを実行しないクローラー（GPTBot / ClaudeBot 等）にも記事本文が見えるよう、
+// ガイド記事はheadだけでなく静的本文を#rootに注入する。ハイドレーション時にReactが同内容で置き換える。
+const guideBodyHtml = (g) => {
+    const sections = g.sections.map((sec) => [
+        `<section><h2>${escHtml(sec.heading)}</h2>`,
+        ...(sec.paras ?? []).map((p) => `<p>${escHtml(p)}</p>`),
+        sec.list ? `<ul>${sec.list.map((li) => `<li>${escHtml(li)}</li>`).join('')}</ul>` : '',
+        ...(sec.parasAfter ?? []).map((p) => `<p>${escHtml(p)}</p>`),
+        '</section>',
+    ].join('')).join('');
+    const faq = g.faq.map((f) => `<h3>${escHtml(f.q)}</h3><p>${escHtml(f.a)}</p>`).join('');
+    const related = g.related.map((r) => `<li><a href="${r.path}">${escHtml(r.label)}</a></li>`).join('');
+    return [
+        `<article><nav><a href="/">ホーム</a> / <a href="/guide">塾経営ガイド</a></nav>`,
+        `<h1>${escHtml(g.title)}</h1>`,
+        `<p>${escHtml(g.eyebrow)} ・ ${g.dateModified} 更新</p>`,
+        ...g.lead.map((p) => `<p>${escHtml(p)}</p>`),
+        sections,
+        `<section><h2>よくある質問</h2>${faq}</section>`,
+        `<nav><h2>関連ページ</h2><ul>${related}</ul></nav>`,
+        '</article>',
+    ].join('');
+};
+
+const guideIndexBodyHtml = () => [
+    '<main><nav><a href="/">ホーム</a> / 塾経営ガイド</nav><h1>塾経営ガイド</h1>',
+    '<p>集客・ホームページ・生徒管理・DX・AI活用。小規模塾の塾長が抱えやすい悩みへの実践的な答えを、塾専門のEduShiftが無料で公開しています。</p>',
+    `<ul>${GUIDES.map((g) => `<li><a href="/guide/${g.slug}">${escHtml(g.title)}</a> — ${escHtml(g.description)}</li>`).join('')}</ul>`,
+    '</main>',
+].join('');
+
+const guideRoutes = () => [
+    {
+        path: '/guide',
+        title: '塾経営ガイド｜集客・HP・DX・AI活用の実践知 | EduShift',
+        description: '小規模塾・個人塾の塾長向けに、集客・ホームページ・生徒管理・DX・AI活用の実践的なノウハウを無料公開。塾専門のコンサルティングとツール開発を行うEduShiftが執筆しています。',
+        staticBody: guideIndexBodyHtml(),
+        jsonLd: [
+            breadcrumb([{ name: '塾経営ガイド', path: '/guide' }]),
+            {
+                '@context': 'https://schema.org',
+                '@type': 'CollectionPage',
+                '@id': `${BASE}/guide#collection`,
+                url: `${BASE}/guide`,
+                name: '塾経営ガイド | EduShift',
+                inLanguage: 'ja',
+                isPartOf: { '@id': `${BASE}/#website` },
+                hasPart: GUIDES.map((g) => ({
+                    '@type': 'Article',
+                    headline: g.title,
+                    url: `${BASE}/guide/${g.slug}`,
+                })),
+            },
+        ],
+    },
+    ...GUIDES.map((g) => ({
+        path: `/guide/${g.slug}`,
+        title: `${g.metaTitle} | EduShift`,
+        description: g.description,
+        staticBody: guideBodyHtml(g),
+        jsonLd: [
+            breadcrumb([
+                { name: '塾経営ガイド', path: '/guide' },
+                { name: g.title, path: `/guide/${g.slug}` },
+            ]),
+            {
+                '@context': 'https://schema.org',
+                '@type': 'Article',
+                '@id': `${BASE}/guide/${g.slug}#article`,
+                headline: g.title,
+                description: g.description,
+                datePublished: g.datePublished,
+                dateModified: g.dateModified,
+                inLanguage: 'ja',
+                mainEntityOfPage: `${BASE}/guide/${g.slug}`,
+                author: { '@type': 'Person', name: '吉井勝彦', url: `${BASE}/#founder` },
+                publisher: { '@id': `${BASE}/#organization` },
+            },
+            {
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: g.faq.map((f) => ({
+                    '@type': 'Question',
+                    name: f.q,
+                    acceptedAnswer: { '@type': 'Answer', text: f.a },
+                })),
+            },
+        ],
+    })),
+];
 
 const breadcrumb = (items) => ({
     '@context': 'https://schema.org',
@@ -99,6 +196,7 @@ const ROUTES = [
         description: 'EduShift（代表：吉井勝彦）のプライバシーポリシー。個人情報の取得・利用目的・第三者提供・安全管理措置・お問い合わせ窓口について定めています。',
         jsonLd: [breadcrumb([{ name: 'プライバシーポリシー', path: '/privacypolicy' }])],
     },
+    ...guideRoutes(),
 ];
 
 const escAttr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
@@ -137,6 +235,11 @@ for (const route of ROUTES) {
     // ページ固有JSON-LD。data-page-jsonld はクライアント側 MetaTags が同内容で置換する際の目印
     const script = `<script type="application/ld+json" data-page-jsonld="static">${JSON.stringify(route.jsonLd)}</script>\n</head>`;
     html = html.replace('</head>', script);
+
+    if (route.staticBody) {
+        if (!html.includes('<div id="root"></div>')) throw new Error('#root が空div形式で見つかりません');
+        html = html.replace('<div id="root"></div>', `<div id="root">${route.staticBody}</div>`);
+    }
 
     const outDir = join(DIST, ...route.path.split('/').filter(Boolean));
     mkdirSync(outDir, { recursive: true });

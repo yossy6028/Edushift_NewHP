@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { pageview, GA_MEASUREMENT_ID } from '../utils/gtag';
+import { pageview, GA_MEASUREMENT_ID, attachContactClickTracking } from '../utils/gtag';
 
 /**
  * SPAでのページビュー計測フック
@@ -15,4 +15,7 @@ export const usePageTracking = () => {
     // ルート変更時にページビューを送信
     pageview(location.pathname + location.search);
   }, [location]);
+
+  // 問い合わせ導線（mailto/tel）クリックのキーイベント計測
+  useEffect(() => attachContactClickTracking(), []);
 };

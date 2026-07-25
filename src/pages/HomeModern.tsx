@@ -1121,6 +1121,7 @@ export const HomeModern = () => {
                             <h3 className="mb-5 text-xs font-semibold tracking-[0.16em] text-white/75">COMPANY</h3>
                             <div className="space-y-3 text-sm text-white/55">
                                 <a className="block transition hover:text-white" href="#company">代表挨拶・会社概要</a>
+                                <a className="block transition hover:text-white" href="/guide">塾経営ガイド</a>
                                 <a className="block transition hover:text-white" href="#faq">よくあるご質問</a>
                                 <a className="block transition hover:text-white" href="https://note.com/katsu_yossy" target="_blank" rel="noopener noreferrer">note</a>
                                 <a className="block transition hover:text-white" href="https://x.com/YSTConsulting" target="_blank" rel="noopener noreferrer">X</a>

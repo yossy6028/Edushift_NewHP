@@ -4589,3 +4589,301 @@ html[data-theme="scholarly"] body {
                 justify-content: center;
             }
         }
+
+/* ============================================
+   Guide（塾経営ガイド）
+   ============================================ */
+.theme-scholarly .s-guide-hero {
+    padding: 150px 0 48px;
+    background: linear-gradient(180deg, rgba(11, 27, 58, 0.04), transparent);
+}
+
+.theme-scholarly .s-guide-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 18px 0 14px;
+    color: var(--s-ink-500);
+    font-size: 13px;
+}
+
+.theme-scholarly .s-guide-chip {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 1px solid var(--s-teal);
+    border-radius: 999px;
+    color: var(--s-teal-deep);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+}
+
+.theme-scholarly .s-guide-title {
+    font-family: var(--s-serif-jp);
+    font-size: clamp(26px, 4.2vw, 40px);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--s-navy-900);
+    margin: 0 0 22px;
+    max-width: 780px;
+}
+
+.theme-scholarly .s-guide-lead {
+    max-width: 720px;
+    font-size: 16px;
+    line-height: 1.95;
+    color: var(--s-ink-700);
+    margin: 0 0 14px;
+}
+
+.theme-scholarly .s-guide-body {
+    max-width: 780px;
+    padding-bottom: 90px;
+}
+
+.theme-scholarly .s-guide-section {
+    margin-top: 52px;
+}
+
+.theme-scholarly .s-guide-section h2 {
+    font-family: var(--s-serif-jp);
+    font-size: clamp(20px, 2.8vw, 26px);
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--s-navy-900);
+    margin: 0 0 18px;
+    padding-left: 16px;
+    border-left: 3px solid var(--s-teal);
+}
+
+.theme-scholarly .s-guide-section p {
+    font-size: 15.5px;
+    line-height: 2.0;
+    color: var(--s-ink-700);
+    margin: 0 0 16px;
+}
+
+.theme-scholarly .s-guide-section ul {
+    margin: 0 0 16px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.theme-scholarly .s-guide-section ul li {
+    position: relative;
+    padding: 10px 0 10px 26px;
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--s-ink-700);
+    border-bottom: 1px solid var(--s-line);
+}
+
+.theme-scholarly .s-guide-section ul li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1.05em;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--s-teal);
+}
+
+.theme-scholarly .s-guide-faq details {
+    border: 1px solid var(--s-line);
+    border-radius: 12px;
+    padding: 0;
+    margin-bottom: 12px;
+    background: var(--s-paper);
+}
+
+.theme-scholarly .s-guide-faq summary {
+    cursor: pointer;
+    padding: 16px 18px;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--s-navy-900);
+    list-style: none;
+    position: relative;
+    padding-right: 40px;
+    transition: background-color 150ms ease;
+}
+
+.theme-scholarly .s-guide-faq summary::-webkit-details-marker { display: none; }
+
+.theme-scholarly .s-guide-faq summary::after {
+    content: "+";
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--s-teal-deep);
+    font-size: 20px;
+    transition: transform 200ms ease;
+}
+
+.theme-scholarly .s-guide-faq details[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.theme-scholarly .s-guide-faq summary:active {
+    background: rgba(0, 164, 168, 0.06);
+}
+
+.theme-scholarly .s-guide-faq details > p {
+    padding: 0 18px 16px;
+    margin: 0;
+}
+
+.theme-scholarly .s-guide-related,
+.theme-scholarly .s-guide-more {
+    margin-top: 52px;
+    padding: 24px 26px;
+    border-radius: 14px;
+    background: rgba(11, 27, 58, 0.035);
+}
+
+.theme-scholarly .s-guide-related h2,
+.theme-scholarly .s-guide-more h2 {
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    color: var(--s-navy-800);
+    margin: 0 0 12px;
+}
+
+.theme-scholarly .s-guide-related ul,
+.theme-scholarly .s-guide-more ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.theme-scholarly .s-guide-related li,
+.theme-scholarly .s-guide-more li {
+    padding: 7px 0;
+}
+
+.theme-scholarly .s-guide-related a,
+.theme-scholarly .s-guide-more a {
+    color: var(--s-teal-deep);
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 1.7;
+    border-bottom: 1px solid transparent;
+    transition: border-color 150ms ease;
+}
+
+.theme-scholarly .s-guide-related a:hover,
+.theme-scholarly .s-guide-more a:hover {
+    border-bottom-color: var(--s-teal-deep);
+}
+
+.theme-scholarly .s-guide-cta {
+    margin-top: 52px;
+    padding: 30px 28px;
+    border-radius: 16px;
+    background: var(--s-navy-900);
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.theme-scholarly .s-guide-cta p {
+    margin: 0 0 18px;
+    font-size: 14.5px;
+    line-height: 1.9;
+}
+
+.theme-scholarly .s-guide-cta-btn {
+    display: inline-block;
+    padding: 13px 30px;
+    border-radius: 999px;
+    background: var(--s-teal);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: transform 150ms ease, background-color 150ms ease;
+}
+
+.theme-scholarly .s-guide-cta-btn:hover { transform: translateY(-2px); background: var(--s-teal-deep); }
+.theme-scholarly .s-guide-cta-btn:active { transform: scale(0.97); }
+
+.theme-scholarly .s-guide-index {
+    padding: 10px 0 90px;
+}
+
+.theme-scholarly .s-guide-card-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.theme-scholarly .s-guide-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    padding: 26px 24px;
+    border: 1px solid var(--s-line);
+    border-radius: 16px;
+    background: var(--s-paper);
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.theme-scholarly .s-guide-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--s-teal);
+    box-shadow: 0 14px 34px rgba(11, 27, 58, 0.10);
+}
+
+.theme-scholarly .s-guide-card:active { transform: scale(0.985); }
+
+.theme-scholarly .s-guide-card h2 {
+    font-family: var(--s-serif-jp);
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: -0.005em;
+    color: var(--s-navy-900);
+    margin: 0;
+}
+
+.theme-scholarly .s-guide-card p {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: var(--s-ink-500);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.theme-scholarly .s-guide-card-arrow {
+    margin-top: auto;
+    color: var(--s-teal-deep);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-scholarly .s-guide-card,
+    .theme-scholarly .s-guide-cta-btn,
+    .theme-scholarly .s-guide-faq summary::after {
+        transition: none;
+    }
+    .theme-scholarly .s-guide-card:hover,
+    .theme-scholarly .s-guide-cta-btn:hover,
+    .theme-scholarly .s-guide-card:active,
+    .theme-scholarly .s-guide-cta-btn:active {
+        transform: none;
+    }
+}
+
+@media (max-width: 720px) {
+    .theme-scholarly .s-guide-hero { padding: 120px 0 36px; }
+    .theme-scholarly .s-guide-section { margin-top: 40px; }
+}

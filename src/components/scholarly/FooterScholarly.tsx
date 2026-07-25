@@ -30,6 +30,7 @@ export const FooterScholarly = ({ mode = 'subpage' }: { mode?: 'home' | 'subpage
                             <li><a href={anchor('founder')}>代表挨拶</a></li>
                             <li><a href={anchor('company')}>会社概要</a></li>
                             <li><a href={anchor('journal')}>ブログ（最新記事）</a></li>
+                            <li><Link to="/guide">塾経営ガイド</Link></li>
                             <li><a href="https://note.com/katsu_yossy" target="_blank" rel="noopener" className="s-footer-ext">note プロフィール<span aria-hidden="true">↗</span></a></li>
                             <li><a href={anchor('faq')}>よくあるご質問</a></li>
                             <li><a href={anchor('contact')}>お問い合わせ</a></li>
