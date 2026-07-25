@@ -8,6 +8,7 @@ import { LogoPreview } from './pages/v2/LogoPreview';
 import { CaseStudyYsKokugo } from './pages/v2/CaseStudyYsKokugo';
 import { GuideIndexScholarly } from './pages/v2/GuideIndexScholarly';
 import { GuideArticleScholarly } from './pages/v2/GuideArticleScholarly';
+import { GaOptout } from './pages/v2/GaOptout';
 import { usePageTracking } from './hooks/usePageTracking';
 
 function PageTracker() {
@@ -51,6 +52,7 @@ function App() {
           <Route path="/works/ys-kokugo" element={<CaseStudyYsKokugo />} />
           <Route path="/guide" element={<GuideIndexScholarly />} />
           <Route path="/guide/:slug" element={<GuideArticleScholarly />} />
+          <Route path="/ga-optout" element={<GaOptout />} />
 
           {/* Backward-compatibility: legacy /v2 prefix → root */}
           <Route path="/v2" element={<Navigate to="/" replace />} />

@@ -4887,3 +4887,137 @@ html[data-theme="scholarly"] body {
     .theme-scholarly .s-guide-hero { padding: 120px 0 36px; }
     .theme-scholarly .s-guide-section { margin-top: 40px; }
 }
+
+/* ============================================
+   GA計測 除外設定ページ（社内用 /ga-optout）
+   ============================================ */
+.theme-scholarly .s-optout {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.theme-scholarly .s-optout-inner {
+    max-width: 620px;
+}
+
+.theme-scholarly .s-optout-eyebrow {
+    font-family: var(--s-serif-en);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--s-ink-500);
+    margin: 0 0 10px;
+}
+
+.theme-scholarly .s-optout-title {
+    font-family: var(--s-serif-jp);
+    font-size: clamp(24px, 4vw, 32px);
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--s-navy-900);
+    margin: 0 0 28px;
+}
+
+.theme-scholarly .s-optout-status {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 22px 24px;
+    border-radius: 14px;
+    border: 1px solid var(--s-line);
+    margin-bottom: 14px;
+}
+
+.theme-scholarly .s-optout-status strong {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.theme-scholarly .s-optout-status span {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--s-ink-500);
+}
+
+.theme-scholarly .s-optout-status.is-off {
+    background: rgba(0, 164, 168, 0.08);
+    border-color: var(--s-teal);
+}
+
+.theme-scholarly .s-optout-status.is-off strong { color: var(--s-teal-deep); }
+
+.theme-scholarly .s-optout-status.is-on {
+    background: rgba(165, 51, 42, 0.07);
+    border-color: rgba(165, 51, 42, 0.4);
+}
+
+.theme-scholarly .s-optout-status.is-on strong { color: var(--s-accent); }
+
+.theme-scholarly .s-optout-status.is-unknown { background: rgba(11, 27, 58, 0.04); }
+
+.theme-scholarly .s-optout-note {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--s-ink-500);
+    margin: 0 0 26px;
+}
+
+.theme-scholarly .s-optout-actions { margin-bottom: 36px; }
+
+.theme-scholarly .s-optout-btn {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    padding: 15px 32px;
+    border-radius: 999px;
+    background: var(--s-navy-900);
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: transform 150ms ease, background-color 150ms ease;
+}
+
+.theme-scholarly .s-optout-btn:hover { transform: translateY(-2px); background: var(--s-navy-700); }
+.theme-scholarly .s-optout-btn:active { transform: scale(0.97); }
+
+.theme-scholarly .s-optout-btn.is-secondary {
+    background: transparent;
+    color: var(--s-ink-700);
+    border: 1px solid var(--s-line-strong);
+}
+
+.theme-scholarly .s-optout-btn.is-secondary:hover { background: rgba(11, 27, 58, 0.05); }
+
+.theme-scholarly .s-optout-help h2 {
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    color: var(--s-navy-800);
+    margin: 0 0 10px;
+}
+
+.theme-scholarly .s-optout-help ul {
+    margin: 0 0 30px;
+    padding-left: 20px;
+}
+
+.theme-scholarly .s-optout-help li {
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: var(--s-ink-500);
+    margin-bottom: 6px;
+}
+
+.theme-scholarly .s-optout-back a {
+    font-size: 14px;
+    color: var(--s-teal-deep);
+    text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-scholarly .s-optout-btn { transition: none; }
+    .theme-scholarly .s-optout-btn:hover,
+    .theme-scholarly .s-optout-btn:active { transform: none; }
+}

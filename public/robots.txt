@@ -68,6 +68,10 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
+# 社内用ページ（検索結果に出す必要がないため全クローラーで除外）
+User-agent: *
+Disallow: /ga-optout
+
 # ── Sitemap & LLM index ──
 Sitemap: https://edu-shift.com/sitemap.xml
 # LLM-friendly site summary: https://edu-shift.com/llms.txt
