@@ -82,11 +82,12 @@ export const GaOptout = () => {
                     {excluded === null ? (
                         <div className="s-optout-status is-unknown">
                             <strong>状態を確認できません</strong>
+                            <span>ページを再読み込みしてください。</span>
                         </div>
                     ) : excluded ? (
                         <div className="s-optout-status is-off">
-                            <strong>このブラウザは計測から除外されています</strong>
-                            <span>あなたのアクセスはGoogleアナリティクスに記録されません。</span>
+                            <strong>設定完了：このブラウザは計測から除外されています</strong>
+                            <span>このページを開いた時点で除外が有効になりました。以降、あなたのアクセスはGoogleアナリティクスに記録されません。</span>
                         </div>
                     ) : (
                         <div className="s-optout-status is-on">
@@ -112,8 +113,8 @@ export const GaOptout = () => {
                     <div className="s-optout-help">
                         <h2>使い方</h2>
                         <ul>
-                            <li>普段サイトを閲覧する端末・ブラウザごとに、1回ずつ「除外する」を押してください。</li>
-                            <li>iPhone・iPad の Safari は、しばらく使わないと設定が消えることがあります。数値が急に増えたときは、このページで状態を確認してください。</li>
+                            <li>普段サイトを閲覧する端末・ブラウザごとに、このページを1回開くだけで除外されます（ボタン操作は不要です）。</li>
+                            <li>iPhone・iPad の Safari は、しばらく使わないと設定が消えることがあります。数値が急に増えたときは、このページをもう一度開いてください。</li>
                             <li>プライベートブラウズでは設定が保存されません。通常のタブで開いてください。</li>
                         </ul>
                     </div>

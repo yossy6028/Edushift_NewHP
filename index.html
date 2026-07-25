@@ -404,9 +404,12 @@
         try { on ? localStorage.setItem(KEY, '1') : localStorage.removeItem(KEY); } catch (e) { /* 保存不可 */ }
         document.cookie = KEY + '=' + (on ? '1' : '') + ';path=/;max-age=' + (on ? 34560000 : 0) + ';samesite=lax';
       };
+      // /ga-optout を開いた時点で自動的に除外する（ボタン操作を不要にするため）。
+      // 解除は ?ga_optout=0 のときだけ。社内用URLで検索・導線からは到達しない。
       var p = new URLSearchParams(location.search).get('ga_optout');
-      if (p === '1') save(true);
-      else if (p === '0') save(false);
+      var onOptoutPage = /^\/ga-optout\/?$/.test(location.pathname);
+      if (p === '0') save(false);
+      else if (p === '1' || onOptoutPage) save(true);
       if (has()) window['ga-disable-G-946EWSKPB9'] = true;
       window.__edushiftOptout = { KEY: KEY, has: has, save: save };
     })();
