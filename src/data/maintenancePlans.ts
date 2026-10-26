@@ -15,6 +15,7 @@ export type MaintenancePlan = {
     note: string;
 };
 
+// 各 features 末尾の「脆弱性チェック：…」は頻度の提案。price と name は変更しない。
 export const MAINTENANCE_PLANS: MaintenancePlan[] = [
     {
         id: 'light',
@@ -27,6 +28,7 @@ export const MAINTENANCE_PLANS: MaintenancePlan[] = [
             '定期バックアップ作成（自動）',
             'データ保管・ストレージ管理',
             '月1回の更新代行（修正3回まで）',
+            '脆弱性チェック：月1回',
         ],
         note: '※修正4回目以降は別途有償対応となります',
     },
@@ -39,6 +41,7 @@ export const MAINTENANCE_PLANS: MaintenancePlan[] = [
             'チャットでの更新・技術相談',
             '月4回の更新代行（各更新につき修正3回まで）',
             'お知らせ・画像・テキスト修正含む',
+            '脆弱性チェック：週1回',
         ],
         note: '※ライトプランのすべての内容を含みます',
     },
@@ -52,6 +55,7 @@ export const MAINTENANCE_PLANS: MaintenancePlan[] = [
             'MEO対策（Map順位監視）',
             '月1回Zoom定例会（30分）',
             'アクセス解析レポート送付',
+            '脆弱性チェック：毎日（自動）＋緊急時即時対応',
         ],
         note: '※Web担当者の代替として機能します',
     },

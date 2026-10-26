@@ -31,6 +31,7 @@ import shokuensuiImg from '../assets/app-shokuensui.jpg';
 import kairoImg from '../assets/app-kairo.jpg';
 import aiClassroomImg from '../assets/generated/edushift-ai-classroom.webp';
 import aiWorkspaceImg from '../assets/generated/edushift-ai-workspace.webp';
+import { HpCareSection } from '../components/HpCareSection';
 import MetaTags from '../components/MetaTags';
 import { DX_APP_URLS } from '../data/dxAppLinks';
 
@@ -717,6 +718,8 @@ export const HomeModern = () => {
                                 </div>
                             </FadeInUp>
                         </div>
+
+                        <HpCareSection contactHref={CONTACT_HREF} />
 
                         <div className="grid items-center gap-14 py-20 lg:grid-cols-2 lg:gap-20">
                             <FadeInUp delay={120} className="relative order-2 min-h-[500px] overflow-hidden rounded-[28px] border border-white/10 bg-[#0E0E10] p-5 shadow-2xl shadow-black sm:p-8 lg:order-1">
