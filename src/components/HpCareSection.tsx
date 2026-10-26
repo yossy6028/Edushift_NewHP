@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type RefObject } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties, type RefObject } from 'react';
 import { ArrowRight, Check, ShieldCheck } from 'lucide-react';
 import { HOME_EMPHASIS, MAINTENANCE_PLANS } from '../data/maintenancePlans';
 
@@ -13,7 +13,19 @@ const HOSYU_LOOP_POSTER = '/videos/hosyu-loop-poster.jpg';
 const LAZY_LOAD_ROOT_MARGIN = '0px';
 const LAZY_LOAD_THRESHOLD = 0.01;
 const MISSING_MEDIA_FALLBACK_MS = 1500;
+const POSTER_ONLY_MAX_WIDTH_PX = 479;
+const POSTER_ONLY_QUERY = `(max-width: ${POSTER_ONLY_MAX_WIDTH_PX}px)`;
 const VULNERABILITY_CHECK_PREFIX = '脆弱性チェック：';
+
+const containedMediaStyle: CSSProperties = {
+    width: '100%',
+    height: '100%',
+    objectFit: 'contain',
+};
+
+const frameStyle: CSSProperties = {
+    aspectRatio: '16 / 9',
+};
 
 const VIDEO_LABEL = 'HP、作って終わりにしない。保守と脆弱性チェックで、塾のHPを毎月守ります。';
 
@@ -25,6 +37,16 @@ const vulnerabilityFrequency = (features: readonly string[]) => {
 type MotionPreference = 'pending' | 'allow' | 'reduce';
 
 const formatMonthlyPrice = (price: number) => `¥${price.toLocaleString('ja-JP')}`;
+
+const useMatchesMedia = (query: string) => useSyncExternalStore(
+    (onStoreChange) => {
+        const media = window.matchMedia(query);
+        media.addEventListener('change', onStoreChange);
+        return () => media.removeEventListener('change', onStoreChange);
+    },
+    () => window.matchMedia(query).matches,
+    () => false,
+);
 
 const useMotionPreference = (): MotionPreference => {
     const [preference, setPreference] = useState<MotionPreference>('pending');
@@ -76,20 +98,24 @@ const PosterFrame = () => (
         height={1080}
         loading="lazy"
         decoding="async"
-        className="h-full w-full bg-black object-contain"
+        className="bg-black"
+        style={containedMediaStyle}
     />
 );
 
 /**
- * 画面内に入るまで動画ファイルを読まず、動きを減らす設定ではポスターだけを出す。
+ * 画面内に入るまで動画を読まない。
+ * 動きを減らす設定、または幅 479px 以下ではポスターだけを出す。
+ * 再生時は object-fit: contain の 16:9 で、映像内の見出しを切らない。
  */
 const HosyuLoopVideo = () => {
     const hostRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const motion = useMotionPreference();
-    const inView = useInViewport(hostRef, motion === 'allow');
+    const posterOnly = useMatchesMedia(POSTER_ONLY_QUERY);
+    const inView = useInViewport(hostRef, motion === 'allow' && !posterOnly);
     const [failed, setFailed] = useState(false);
-    const playable = motion === 'allow' && inView && !failed;
+    const playable = motion === 'allow' && inView && !failed && !posterOnly;
 
     useEffect(() => {
         const video = videoRef.current;
@@ -116,11 +142,12 @@ const HosyuLoopVideo = () => {
 
     return (
         <div ref={hostRef} className="mt-10 overflow-hidden rounded-[28px] border border-white/10 bg-black shadow-2xl shadow-black md:mt-14">
-            <div className="relative aspect-video w-full">
+            <div className="relative w-full" style={frameStyle}>
                 {playable ? (
                     <video
                         ref={videoRef}
-                        className="h-full w-full bg-black object-contain"
+                        className="bg-black"
+                        style={containedMediaStyle}
                         poster={HOSYU_LOOP_POSTER}
                         muted
                         autoPlay
