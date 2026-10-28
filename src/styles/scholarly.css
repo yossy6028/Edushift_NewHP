@@ -5023,6 +5023,22 @@ html[data-theme="scholarly"] body {
 }
 
 /* SNS動画サポート。既存プランの料金カードには priceCaption / pricingNotice がない */
+.theme-scholarly .s-sns-scope {
+    max-width: 40em;
+    margin: 0 auto 36px;
+    padding: 18px 22px;
+    border-left: 4px solid var(--s-teal);
+    background: rgba(0, 164, 168, 0.1);
+    font-family: var(--s-serif-jp);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.9;
+    color: var(--s-navy-900);
+    text-align: left;
+    word-break: keep-all;
+    line-break: strict;
+}
+
 .theme-scholarly .s-sns-monitor {
     margin: 28px auto 0;
     max-width: 36em;

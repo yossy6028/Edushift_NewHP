@@ -62,6 +62,8 @@ export type ServiceContent = {
     pricingBlock?: PricingBlock;
     /** 料金表の直上。モニター価格の対象条件など、このサービスだけの注記 */
     pricingNotice?: string;
+    /** 料金表の手前に出す、範囲の補足。未指定のサービスでは描画しない */
+    scopeNote?: string;
     options?: ServiceOption[];
     commonNotes?: string[];
     faqs?: ServiceFaq[];
@@ -361,6 +363,7 @@ export const SCHOLARLY_SERVICES: Record<string, ServiceContent> = {
                 body: 'キャプション案とX告知文を、動画と一緒にお渡しします。投稿操作そのものは含みません。',
             },
         ],
+        scopeNote: '広告だけでなく、解説動画・お知らせ動画・セミナー動画などもご相談いただけます。',
         pricingNotice: 'モニター価格（制作実例の掲載にご協力いただける方向け）。\n表示はすべて税抜です。',
         pricingBlock: {
             eyebrow: 'Monitor Pricing',

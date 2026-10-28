@@ -257,6 +257,9 @@ export const ServiceDetailScholarly = () => {
             {svc.pricingBlock && (
                 <section className="s-detail-pricing">
                     <div className="s-container">
+                        {svc.scopeNote && (
+                            <p className="s-sns-scope">{svc.scopeNote}</p>
+                        )}
                         <div className="s-detail-pricing-head">
                             <div className="s-sec-num">{svc.pricingBlock.eyebrow ?? 'Production Pricing'}</div>
                             <h2>{svc.pricingBlock.headline}</h2>
