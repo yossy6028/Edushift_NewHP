@@ -22,6 +22,7 @@ export const FooterScholarly = ({ mode = 'subpage' }: { mode?: 'home' | 'subpage
                             <li><Link to="/service/consulting">コンサルティング</Link></li>
                             <li><Link to="/service/hp-production">HP制作・運用</Link></li>
                             <li><Link to="/service/dx-development">塾DX・ツール開発</Link></li>
+                            <li><Link to="/service/sns-video">SNS動画広告制作サポート</Link></li>
                         </ul>
                     </div>
                     <div>

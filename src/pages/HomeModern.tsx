@@ -784,6 +784,48 @@ export const HomeModern = () => {
                                 </div>
                             </div>
                         </FadeInUp>
+
+                        <FadeInUp className="mt-12 overflow-hidden rounded-[28px] border border-white/10 bg-[#0D0D0F] p-7 sm:p-10 md:p-12">
+                            <div id="sns-video-home">
+                            <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
+                                <div>
+                                    <p className="mb-5 text-xs font-semibold tracking-[0.2em] text-[#55D8CA]">SNS VIDEO SUPPORT</p>
+                                    <h3 className="es-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">SNSの縦型動画を、<br />塾の現場ペースで。</h3>
+                                    <p className="mt-5 text-[15px] leading-8 text-white/55">
+                                        Instagram・Facebook・Threads・X向けの縦型リールを、企画から書き出し、投稿文まで。ロケ撮影なし・素材支給が標準です。
+                                    </p>
+                                    <p className="mt-4 text-sm leading-7 text-[#55D8CA]">
+                                        モニター価格（制作実例の掲載にご協力いただける方向け）
+                                    </p>
+                                    <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                                        <a href="/service/sns-video" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:-translate-y-0.5">
+                                            プランを見る <ArrowRight className="h-4 w-4" />
+                                        </a>
+                                        <a href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/[0.06]">
+                                            無料相談する
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="grid gap-3 sm:grid-cols-3">
+                                    {[
+                                        ['スポット', '¥9,800', '税抜／本', '15〜45秒 × 1本'],
+                                        ['ライト', '¥29,800', '税抜／月', '月4本'],
+                                        ['スタンダード', '¥49,800', '税抜／月', '月8本'],
+                                    ].map(([name, price, unit, scope]) => (
+                                        <div key={name} className="rounded-2xl border border-white/10 bg-black/40 p-5">
+                                            <p className="text-[10px] font-semibold tracking-[0.16em] text-[#55D8CA]">{name}</p>
+                                            <p className="es-serif mt-4 text-2xl font-semibold text-white">{price}</p>
+                                            <p className="mt-1 text-[11px] text-white/45">{unit}</p>
+                                            <p className="mt-3 text-xs leading-5 text-white/65">{scope}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <p className="mt-8 text-xs leading-6 text-white/45">
+                                表示は税抜のモニター価格です。追加1本 ¥7,000、特急 ＋¥3,000、書き出し先SNSの追加 ＋¥1,000、修正3回目以降 ¥2,000／回。実写・広告作り込みは別見積。投稿代行・広告運用は対象外です。
+                            </p>
+                            </div>
+                        </FadeInUp>
                     </div>
                 </section>
 
@@ -996,6 +1038,7 @@ export const HomeModern = () => {
                                                     <li>教育関連フリーランス独立支援・育成</li>
                                                     <li>教育アプリ・システム開発</li>
                                                     <li>Webサイト制作・保守運用支援</li>
+                                                    <li>SNS縦型動画の企画・制作</li>
                                                 </ul>
                                             </dd>
                                         </div>
@@ -1118,6 +1161,7 @@ export const HomeModern = () => {
                                 <a className="block transition hover:text-white" href="/service/consulting">コンサルティング</a>
                                 <a className="block transition hover:text-white" href="/service/dx-development">塾DX・ツール開発</a>
                                 <a className="block transition hover:text-white" href="/service/hp-production">HP制作・運用</a>
+                                <a className="block transition hover:text-white" href="/service/sns-video">SNS動画広告制作サポート</a>
                             </div>
                         </div>
                         <div>

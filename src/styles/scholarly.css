@@ -5021,3 +5021,178 @@ html[data-theme="scholarly"] body {
     .theme-scholarly .s-optout-btn:hover,
     .theme-scholarly .s-optout-btn:active { transform: none; }
 }
+
+/* SNS動画サポート。既存プランの料金カードには priceCaption / pricingNotice がない */
+.theme-scholarly .s-sns-monitor {
+    margin: 28px auto 0;
+    max-width: 36em;
+    padding: 14px 18px;
+    border: 1px solid var(--s-line-strong, rgba(11, 27, 58, 0.22));
+    background: rgba(0, 164, 168, 0.08);
+    font-family: var(--s-serif-jp);
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--s-navy-900);
+    word-break: keep-all;
+    line-break: strict;
+}
+
+.theme-scholarly .s-sns-price-caption {
+    display: block;
+    margin-top: 8px;
+    font-family: var(--s-serif-jp);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--s-teal-deep);
+}
+
+.theme-scholarly .s-detail-price-card.recommended .s-sns-price-caption {
+    color: var(--s-gold);
+}
+
+.theme-scholarly .s-sns-options,
+.theme-scholarly .s-sns-faq {
+    padding: 0 0 96px;
+    background: var(--s-paper);
+}
+
+.theme-scholarly .s-sns-faq {
+    border-top: 1px solid var(--s-line);
+    padding-top: 96px;
+}
+
+.theme-scholarly .s-sns-option-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--s-navy-900);
+}
+
+.theme-scholarly .s-sns-option-list li {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) auto minmax(0, 1fr);
+    gap: 12px 24px;
+    align-items: baseline;
+    padding: 18px 4px;
+    border-bottom: 1px solid var(--s-line);
+}
+
+.theme-scholarly .s-sns-option-name {
+    font-family: var(--s-serif-jp);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--s-navy-900);
+}
+
+.theme-scholarly .s-sns-option-price {
+    font-family: var(--s-serif-en);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--s-navy-900);
+    white-space: nowrap;
+}
+
+.theme-scholarly .s-sns-option-detail {
+    font-family: var(--s-serif-jp);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--s-ink-500);
+}
+
+.theme-scholarly .s-sns-notes {
+    margin-top: 40px;
+    padding: 28px 32px;
+    background: var(--s-cream);
+    border-left: 4px solid var(--s-gold);
+}
+
+.theme-scholarly .s-sns-notes h3 {
+    margin: 0 0 12px;
+    font-family: var(--s-serif-jp);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--s-navy-900);
+}
+
+.theme-scholarly .s-sns-notes ul {
+    margin: 0;
+    padding-left: 1.2em;
+}
+
+.theme-scholarly .s-sns-notes li {
+    font-family: var(--s-serif-jp);
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--s-ink-700);
+    margin: 0 0 8px;
+}
+
+.theme-scholarly .s-sns-faq-list {
+    max-width: 820px;
+    margin: 0 auto;
+    border-top: 1px solid var(--s-navy-900);
+}
+
+.theme-scholarly .s-sns-faq-list details {
+    border-bottom: 1px solid var(--s-line);
+}
+
+.theme-scholarly .s-sns-faq-list summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 18px 28px 18px 0;
+    font-family: var(--s-serif-jp);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--s-navy-900);
+    line-height: 1.7;
+    position: relative;
+}
+
+.theme-scholarly .s-sns-faq-list summary::-webkit-details-marker {
+    display: none;
+}
+
+.theme-scholarly .s-sns-faq-list summary::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 16px;
+    font-family: var(--s-serif-en);
+    font-size: 20px;
+    color: var(--s-teal-deep);
+}
+
+.theme-scholarly .s-sns-faq-list details[open] summary::after {
+    content: "–";
+}
+
+.theme-scholarly .s-sns-faq-list p {
+    margin: 0 0 18px;
+    font-family: var(--s-serif-jp);
+    font-size: 14px;
+    line-height: 2;
+    color: var(--s-ink-700);
+}
+
+@media (max-width: 768px) {
+    .theme-scholarly .s-sns-option-list li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 16px 0;
+    }
+
+    .theme-scholarly .s-sns-notes {
+        padding: 22px 18px;
+    }
+
+    .theme-scholarly .s-sns-options,
+    .theme-scholarly .s-sns-faq {
+        padding-bottom: 64px;
+    }
+
+    .theme-scholarly .s-sns-faq {
+        padding-top: 64px;
+    }
+}

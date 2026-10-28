@@ -152,7 +152,7 @@
   }
   </script>
 
-  <!-- JSON-LD: ProfessionalService (4 サービス) -->
+  <!-- JSON-LD: ProfessionalService -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -298,6 +298,54 @@
             "price": "98000",
             "priceCurrency": "JPY",
             "description": "初期費用（税抜）+ 月額¥9,800。Webサービス級の開発・運用。"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://edu-shift.com/service/sns-video#service",
+        "name": "SNS動画広告制作サポート",
+        "alternateName": ["SNS Video Support", "塾向け縦型動画制作", "Instagramリール制作"],
+        "url": "https://edu-shift.com/service/sns-video",
+        "description": "Instagram・Facebook・Threads・X向けの縦型動画を、企画から書き出し・投稿文まで制作。ロケ撮影なし・素材支給。モニター価格（制作実例の掲載にご協力いただける方向け・税抜）はスポット¥9,800／本、ライト¥29,800／月（月4本）、スタンダード¥49,800／月（月8本）。",
+        "provider": { "@id": "https://edu-shift.com/#organization" },
+        "areaServed": { "@type": "Country", "name": "日本" },
+        "serviceType": "SNS縦型動画の企画・制作",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "スポット（モニター価格）",
+            "price": "9800",
+            "priceCurrency": "JPY",
+            "description": "税抜・1本。縦型15〜45秒。制作実例の掲載にご協力いただける方向けのモニター価格。"
+          },
+          {
+            "@type": "Offer",
+            "name": "ライト（モニター価格）",
+            "price": "29800",
+            "priceCurrency": "JPY",
+            "description": "税抜・月額。月4本。制作実例の掲載にご協力いただける方向けのモニター価格。",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "29800",
+              "priceCurrency": "JPY",
+              "billingDuration": "P1M",
+              "unitText": "MONTH"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "スタンダード（モニター価格）",
+            "price": "49800",
+            "priceCurrency": "JPY",
+            "description": "税抜・月額。月8本。制作実例の掲載にご協力いただける方向けのモニター価格。",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "49800",
+              "priceCurrency": "JPY",
+              "billingDuration": "P1M",
+              "unitText": "MONTH"
+            }
           }
         ]
       }

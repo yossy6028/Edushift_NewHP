@@ -15,7 +15,10 @@ const SERVICE_INDEX: Record<string, string> = {
     consulting: '01',
     'dx-development': '02',
     'hp-production': '03',
+    'sns-video': '04',
 };
+
+const CONTACT_PATH = '/#contact';
 
 export const ServiceDetailScholarly = () => {
     const { slug = '' } = useParams();
@@ -50,6 +53,17 @@ export const ServiceDetailScholarly = () => {
                         about: { '@id': `${SITE_BASE_URL}/service/${slug}#service` },
                         publisher: { '@id': `${SITE_BASE_URL}/#organization` },
                     },
+                    ...(svc.faqs && svc.faqs.length > 0
+                        ? [{
+                            '@context': 'https://schema.org',
+                            '@type': 'FAQPage',
+                            mainEntity: svc.faqs.map((faq) => ({
+                                '@type': 'Question',
+                                name: faq.q,
+                                acceptedAnswer: { '@type': 'Answer', text: faq.a },
+                            })),
+                        }]
+                        : []),
                 ]}
             />
             <PageMotion key={slug} variant="service" />
@@ -244,9 +258,16 @@ export const ServiceDetailScholarly = () => {
                 <section className="s-detail-pricing">
                     <div className="s-container">
                         <div className="s-detail-pricing-head">
-                            <div className="s-sec-num">Production Pricing</div>
+                            <div className="s-sec-num">{svc.pricingBlock.eyebrow ?? 'Production Pricing'}</div>
                             <h2>{svc.pricingBlock.headline}</h2>
                             <p>{svc.pricingBlock.lede}</p>
+                            {svc.pricingNotice && (
+                                <p className="s-sns-monitor">
+                                    {svc.pricingNotice.split('\n').map((line, index) => (
+                                        <span key={line}>{index > 0 && <br />}{line}</span>
+                                    ))}
+                                </p>
+                            )}
                         </div>
 
                         <div className="s-detail-price-grid">
@@ -259,6 +280,7 @@ export const ServiceDetailScholarly = () => {
                                     <div className="s-detail-price-amount">
                                         <span className="amount">{t.price}</span>
                                         {t.priceUnit && <span className="unit">（{t.priceUnit}）</span>}
+                                        {t.priceCaption && <span className="s-sns-price-caption">{t.priceCaption}</span>}
                                     </div>
                                     <ul className="s-detail-price-features">
                                         {t.features.map((f, j) => (
@@ -272,7 +294,7 @@ export const ServiceDetailScholarly = () => {
                                             ))}
                                         </ul>
                                     )}
-                                    <Link to="/#contact" className="s-detail-price-cta">お問い合わせ</Link>
+                                    <Link to={CONTACT_PATH} className="s-detail-price-cta">{svc.priceCtaLabel ?? 'お問い合わせ'}</Link>
                                 </div>
                             ))}
                         </div>
@@ -387,16 +409,74 @@ export const ServiceDetailScholarly = () => {
                 </section>
             )}
 
+            {(svc.options || (svc.commonNotes && svc.commonNotes.length > 0)) && (
+                <section className="s-sns-options" aria-labelledby="sns-options-title">
+                    <div className="s-container">
+                        {svc.options && svc.options.length > 0 && (
+                            <>
+                                <div className="s-detail-pricing-head">
+                                    <div className="s-sec-num">Options</div>
+                                    <h2 id="sns-options-title">オプション（全プラン共通・税抜）</h2>
+                                    <p>本体のモニター価格に加算、または別見積・対象外となる項目です。</p>
+                                </div>
+                                <ul className="s-sns-option-list">
+                                    {svc.options.map((option) => (
+                                        <li key={option.name}>
+                                            <span className="s-sns-option-name">{option.name}</span>
+                                            <span className="s-sns-option-price">{option.price}</span>
+                                            {option.detail && <span className="s-sns-option-detail">{option.detail}</span>}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </>
+                        )}
+                        {svc.commonNotes && svc.commonNotes.length > 0 && (
+                            <div className="s-sns-notes">
+                                <h3>共通条件</h3>
+                                <ul>
+                                    {svc.commonNotes.map((note) => (
+                                        <li key={note}>{note}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
+                </section>
+            )}
+
+            {svc.faqs && svc.faqs.length > 0 && (
+                <section className="s-sns-faq" aria-labelledby="sns-faq-title">
+                    <div className="s-container">
+                        <div className="s-detail-pricing-head">
+                            <div className="s-sec-num">FAQ</div>
+                            <h2 id="sns-faq-title">よくある質問</h2>
+                        </div>
+                        <div className="s-sns-faq-list">
+                            {svc.faqs.map((faq) => (
+                                <details key={faq.q}>
+                                    <summary>{faq.q}</summary>
+                                    <p>{faq.a}</p>
+                                </details>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
+
             <section className="s-detail-cta">
                 <div className="s-container">
                     <h2>{svc.ctaHeadline}</h2>
-                    <p>
-                        まずは30分の無料相談から。"売り込み"はひとつもいたしません。<br />
-                        単発スポット相談（¥9,800〜/回）もご用意しています。
-                    </p>
+                    {svc.ctaBody ? (
+                        <p>{svc.ctaBody}</p>
+                    ) : (
+                        <p>
+                            まずは30分の無料相談から。"売り込み"はひとつもいたしません。<br />
+                            単発スポット相談（¥9,800〜/回）もご用意しています。
+                        </p>
+                    )}
                     <div className="s-detail-cta-row">
-                        <Link to="/#contact" className="s-btn-primary">
-                            無料相談を予約する<span className="arrow">→</span>
+                        <Link to={CONTACT_PATH} className="s-btn-primary">
+                            {svc.ctaButtonLabel ?? '無料相談を予約する'}<span className="arrow">→</span>
                         </Link>
                         <Link to="/#services" className="s-btn-ghost">他のサービスを見る</Link>
                     </div>
