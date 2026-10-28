@@ -11,14 +11,13 @@ import {
     Mail,
     Menu,
     MessageSquareText,
-    MonitorSmartphone,
     ShieldCheck,
     Sparkles,
     Workflow,
     X,
 } from 'lucide-react';
 import logoImg from '../assets/logo-shift-mark.png';
-import sampleJukuHeroImg from '../assets/generated/stella-hero.webp';
+import { HpSampleMock } from '../components/HpSampleMock';
 import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
 import jukuTimetableImg from '../assets/app-juku-timetable.jpg';
 import tutorRevenueImg from '../assets/app-tutor-revenue.jpg';
@@ -679,57 +678,8 @@ export const HomeModern = () => {
 
                             <FadeInUp delay={120} className="relative min-h-[500px] overflow-hidden rounded-[28px] border border-white/10 bg-[#0E0E10] p-5 shadow-2xl shadow-black sm:p-8">
                                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(45,179,160,.18),transparent_45%),radial-gradient(circle_at_90%_90%,rgba(2,147,240,.16),transparent_45%)]" />
-                                <div className="relative mx-auto flex h-full max-w-[440px] flex-col justify-center">
-                                    <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 backdrop-blur-xl">
-                                        <div className="flex items-center gap-2 text-xs text-white/55"><MonitorSmartphone className="h-4 w-4 text-[#55D8CA]" />HP制作サンプル｜ライトプラン</div>
-                                        <span className="rounded-full bg-[#2DB3A0]/15 px-2.5 py-1 text-[10px] font-semibold text-[#55D8CA]">LIVE</span>
-                                    </div>
-                                    <div className="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_30px_80px_rgba(0,0,0,.55)]">
-                                        <div className="flex items-center gap-1.5 border-b border-black/5 bg-[#F3F4F6] px-4 py-2.5">
-                                            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
-                                            <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
-                                            <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-                                            <span className="ml-3 flex-1 truncate rounded-md bg-white px-3 py-1 text-[10px] text-black/40">stella-academy.jp</span>
-                                        </div>
-                                        <div className="relative aspect-[4/3] overflow-hidden bg-[#101828]">
-                                            <MotionMedia
-                                                src="/videos/stella-hero.mp4"
-                                                poster={sampleJukuHeroImg}
-                                                alt="HP制作サンプル（ライトプラン）: 架空の学習塾「Stella Academy」のホームページ"
-                                                className="absolute inset-0 h-full w-full"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/30" />
-                                            <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 px-5 py-3.5">
-                                                <p className="es-wordmark text-[14px] tracking-[0.02em]">Stella <em>Academy</em></p>
-                                                <div className="hidden items-center gap-3 text-[9px] font-medium text-white/85 sm:flex">
-                                                    {['特長', 'コース', '合格実績', 'アクセス'].map((item) => <span key={item}>{item}</span>)}
-                                                </div>
-                                                <span className="rounded-full bg-[#1D4ED8] px-2.5 py-1 text-[9px] font-semibold text-white">無料体験</span>
-                                            </div>
-                                            <div className="absolute inset-x-0 bottom-0 px-5 pb-5">
-                                                <p className="es-serif text-2xl font-semibold leading-snug text-white sm:text-[28px]">願う星から、掴む星へ。</p>
-                                                <p className="mt-1.5 text-[10px] leading-relaxed text-white/85 sm:text-[11px]">桜咲く春まで、一人ひとりの軌道を描く個別指導塾。</p>
-                                                <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-[10px] font-bold text-[#1D4ED8]">
-                                                    無料体験授業に申し込む <ArrowRight className="h-3 w-3" />
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div className="grid grid-cols-3 divide-x divide-black/[0.06] bg-white">
-                                            {[
-                                                ['合格実績', '地域トップ校 多数'],
-                                                ['個別指導', '1:2 完全担任制'],
-                                            ].map(([title, sub]) => (
-                                                <div key={title} className="px-2 py-3 text-center">
-                                                    <p className="text-[10px] font-bold text-[#1D4ED8]">{title}</p>
-                                                    <p className="mt-0.5 text-[9px] text-black/55">{sub}</p>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <div className="absolute -bottom-3 -right-2 rounded-2xl border border-white/10 bg-[#1C1C1E]/90 p-4 shadow-xl backdrop-blur-xl sm:-bottom-5 sm:-right-4">
-                                        <p className="text-[10px] tracking-[0.14em] text-white/60">企画から公開まで</p>
-                                        <p className="mt-1 text-base font-semibold">一貫して対応</p>
-                                    </div>
+                                <div className="relative">
+                                    <HpSampleMock />
                                 </div>
                             </FadeInUp>
                         </div>
