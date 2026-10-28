@@ -1,5 +1,6 @@
 /* HP制作サンプル：架空塾ヒーローの文字モーション */
-.hp-sample-mock {
+.hp-sample-mock,
+.hp-sample-mock__frame {
   --hsm-ease: cubic-bezier(0.16, 1, 0.3, 1);
   --hsm-accent: #38bdf8;
   --hsm-accent-deep: #0284c7;
@@ -8,7 +9,8 @@
 }
 
 @supports (transition-timing-function: linear(0, 1)) {
-  .hp-sample-mock {
+  .hp-sample-mock,
+  .hp-sample-mock__frame {
     --hsm-ease: linear(0, 0.0445 4.17%, 0.1478 8.33%, 0.2764 12.50%, 0.4090 16.67%, 0.5332 20.83%, 0.6423 25.00%, 0.7341 29.17%, 0.8083 33.33%, 0.8665 37.50%, 0.9107 41.67%, 0.9433 45.83%, 0.9666 50.00%, 0.9827 54.17%, 0.9933 58.33%, 1.0000 62.50%, 1.0038 66.67%, 1.0057 70.83%, 1.0063 75.00%, 1.0061 79.17%, 1.0055 83.33%, 1.0047 87.50%, 1.0039 91.67%, 1.0031 95.83%, 1);
   }
 }
@@ -28,7 +30,7 @@
   object-fit: cover;
   object-position: 55% 40%;
   transform: scale(1.04);
-  transition: transform 8s var(--hsm-ease);
+  transition: transform 8s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1));
   will-change: transform;
 }
 
@@ -86,7 +88,7 @@
 }
 
 .hp-sample-mock.is-active .hp-sample-mock__char {
-  animation: hsm-char-in 0.7s var(--hsm-ease) both;
+  animation: hsm-char-in 0.7s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) both;
 }
 
 .hp-sample-mock__links {
@@ -110,7 +112,7 @@
 }
 
 .hp-sample-mock.is-active .hp-sample-mock__link {
-  animation: hsm-fade-up 0.55s var(--hsm-ease) both;
+  animation: hsm-fade-up 0.55s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) both;
 }
 
 .hp-sample-mock__pill {
@@ -126,7 +128,7 @@
 }
 
 .hp-sample-mock.is-active .hp-sample-mock__pill {
-  animation: hsm-pop 0.55s var(--hsm-ease) 0.55s both;
+  animation: hsm-pop 0.55s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) 0.55s both;
 }
 
 .hp-sample-mock__hero {
@@ -150,7 +152,7 @@
 }
 
 .hp-sample-mock.is-active .hp-sample-mock__kicker {
-  animation: hsm-fade-up 0.6s var(--hsm-ease) 0.35s both;
+  animation: hsm-fade-up 0.6s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) 0.35s both;
 }
 
 .hp-sample-mock__kicker-dot {
@@ -184,7 +186,7 @@
 }
 
 .hp-sample-mock.is-active .hp-sample-mock__title-mask {
-  animation: hsm-mask-reveal 0.95s var(--hsm-ease) 0.45s both;
+  animation: hsm-mask-reveal 0.95s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) 0.45s both;
 }
 
 .hp-sample-mock__title-inner {
@@ -193,7 +195,7 @@
 }
 
 .hp-sample-mock.is-active .hp-sample-mock__title-inner {
-  animation: hsm-rise 0.95s var(--hsm-ease) 0.45s both;
+  animation: hsm-rise 0.95s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) 0.45s both;
 }
 
 .hp-sample-mock__marker {
@@ -212,7 +214,7 @@
 }
 
 .hp-sample-mock.is-active .hp-sample-mock__marker {
-  animation: hsm-draw 0.7s var(--hsm-ease) 1.05s both;
+  animation: hsm-draw 0.7s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) 1.05s both;
 }
 
 .hp-sample-mock__sub {
@@ -227,7 +229,7 @@
 }
 
 .hp-sample-mock.is-active .hp-sample-mock__sub {
-  animation: hsm-fade-up 0.65s var(--hsm-ease) 1.05s both;
+  animation: hsm-fade-up 0.65s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) 1.05s both;
 }
 
 .hp-sample-mock__cta {
@@ -249,7 +251,7 @@
 }
 
 .hp-sample-mock.is-active .hp-sample-mock__cta {
-  animation: hsm-cta-in 0.7s var(--hsm-ease) 1.25s both;
+  animation: hsm-cta-in 0.7s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) 1.25s both;
 }
 
 .hp-sample-mock__shine {
@@ -261,7 +263,7 @@
 }
 
 .hp-sample-mock.is-active .hp-sample-mock__shine {
-  animation: hsm-shine 1.4s var(--hsm-ease) 1.7s both;
+  animation: hsm-shine 1.4s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) 1.7s both;
 }
 
 .hp-sample-mock__stats {
@@ -283,7 +285,7 @@
 }
 
 .hp-sample-mock.is-active .hp-sample-mock__stat {
-  animation: hsm-fade-up 0.55s var(--hsm-ease) both;
+  animation: hsm-fade-up 0.55s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) both;
 }
 
 .hp-sample-mock__stat-label {
@@ -323,7 +325,7 @@
 
 .hp-sample-mock.is-active .hp-sample-mock__badge,
 .hp-sample-mock__badge.is-active {
-  animation: hsm-fade-up 0.65s var(--hsm-ease) 1.45s both;
+  animation: hsm-fade-up 0.65s var(--hsm-ease, cubic-bezier(0.16, 1, 0.3, 1)) 1.45s both;
 }
 
 .hp-sample-mock__badge-kicker {
