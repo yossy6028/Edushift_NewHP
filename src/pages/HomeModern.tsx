@@ -577,6 +577,21 @@ export const HomeModern = () => {
                     </div>
                 </section>
 
+                <section aria-labelledby="timetable-release-title" className="border-t border-white/10 bg-[#101a1b] px-5 py-10 sm:px-6">
+                    <div className="mx-auto flex max-w-7xl flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                        <div className="max-w-3xl">
+                            <p className="text-xs font-semibold tracking-[0.12em] text-[#55D8CA]"><time dateTime="2026-10-28">2026.10.28</time> · 無料体験公開</p>
+                            <h2 id="timetable-release-title" className="es-serif mt-3 text-2xl font-semibold sm:text-3xl">塾時間割メーカーを公開しました。</h2>
+                            <p className="mt-3 text-sm leading-7 text-white/75">講師の勤務日や生徒の予定に合わせて、週間時間割の候補を作成。生徒・講師・時間割の情報はサーバーへ送らず、お使いのブラウザー内で暗号化して保存します。</p>
+                            <p className="mt-2 text-sm leading-6 text-white/60">カード登録不要。生徒30人まで、自動生成1回を無料で試せます。有料プランは準備中です。</p>
+                        </div>
+                        <div className="flex shrink-0 flex-wrap items-center gap-4">
+                            <a href={DX_APP_URLS.timetableStart} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#55D8CA] px-6 py-3 text-sm font-semibold text-[#071513] transition hover:bg-[#80e6dc]">無料で使ってみる<ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
+                            <a href={DX_APP_URLS.timetableDemo} target="_blank" rel="noopener noreferrer" className="text-sm text-white/80 underline underline-offset-4 hover:text-white">デモを見る</a>
+                        </div>
+                    </div>
+                </section>
+
                 <section id="services" className="border-t border-white/[0.06] px-5 py-24 sm:px-6 md:py-32">
                     <div className="mx-auto max-w-7xl">
                         <FadeInUp className="mx-auto mb-20 max-w-3xl text-center">
@@ -806,10 +821,10 @@ export const HomeModern = () => {
                         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
                             {[
                                 {
-                                    eyebrow: 'SCHEDULING SAAS',
+                                    eyebrow: '無料体験公開 · 端末内に保存',
                                     title: '塾時間割メーカー',
-                                    text: '講師の出勤日・生徒の都合・ブースの空きなど、絡み合う条件をすべて満たす週間時間割を数秒で自動生成。',
-                                    href: DX_APP_URLS.timetable,
+                                    text: '講師の勤務日・生徒の予定・ブース数などから週間時間割の候補を作成。塾のデータはブラウザー内で暗号化保存。生徒30人・自動生成1回を無料で試せます。',
+                                    href: DX_APP_URLS.timetableStart,
                                     image: jukuTimetableImg,
                                 },
                                 {

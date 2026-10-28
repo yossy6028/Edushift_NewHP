@@ -1,5 +1,7 @@
 export const DX_APP_URLS = {
     timetable: 'https://juku-timetable.vercel.app/',
+    timetableStart: 'https://juku-timetable.vercel.app/app',
+    timetableDemo: 'https://juku-timetable.vercel.app/demo',
     revenue: 'https://tutor-revenue.vercel.app/',
     furikae: 'https://edushift-juku-apps.vercel.app/furikae/',
     akiwaku: 'https://edushift-juku-apps.vercel.app/akiwaku/',
