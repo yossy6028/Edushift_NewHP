@@ -339,9 +339,9 @@ export const SCHOLARLY_SERVICES: Record<string, ServiceContent> = {
         labelEn: 'SNS Video Support',
         category: 'tool',
         eyebrow: '制作サポート',
-        heroTitle: 'SNSの縦型動画を、\n塾の現場ペースで。',
+        heroTitle: 'SNS動画広告を、\n塾の現場\nペースで。',
         heroLead:
-            'Instagram・Facebook・Threads・X向けの縦型リールと、YouTube連動の短い動画を、企画から書き出しまでサポートします。実画面の素材と、見やすいテロップ（極太ゴシック＋アクセントのマーカー線）を組み合わせた、EduShiftが自社でも使っている作り方です。まずは1本のスポットから、週1本・週2本の月額まで選べます。',
+            'SNS動画広告を、Instagram・Facebook・Threads・X向けの縦型リールと、YouTube連動の短い動画として、企画から書き出しまでサポートします。実画面の素材と、見やすいテロップ（極太ゴシック＋アクセントのマーカー線）を組み合わせた、EduShiftが自社でも使っている作り方です。まずは1本のスポットから、週1本・週2本の月額まで選べます。',
         narrativeHeadline: 'ロケなし、素材支給。\n続けやすい本数で。',
         narrativeParas: [
             '標準はロケ撮影なし・素材支給です。紹介したい画面の録画、公式ロゴ、伝えたい一文、参考URLをご用意いただければ、企画構成からテロップ、BGM、書き出し、投稿文までをまとめてお渡しします。人物のロケ撮影は標準範囲に含みません。',

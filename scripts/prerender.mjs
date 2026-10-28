@@ -147,7 +147,7 @@ const servicePage = (slug, label, lead, extraJsonLd = []) => ({
     ],
 });
 
-const SNS_VIDEO_LEAD = 'Instagram・Facebook・Threads・X向けの縦型リールと、YouTube連動の短い動画を、企画から書き出しまでサポートします。実画面の素材と、見やすいテロップ（極太ゴシック＋アクセントのマーカー線）を組み合わせた、EduShiftが自社でも使っている作り方です。まずは1本のスポットから、週1本・週2本の月額まで選べます。';
+const SNS_VIDEO_LEAD = 'SNS動画広告を、Instagram・Facebook・Threads・X向けの縦型リールと、YouTube連動の短い動画として、企画から書き出しまでサポートします。実画面の素材と、見やすいテロップ（極太ゴシック＋アクセントのマーカー線）を組み合わせた、EduShiftが自社でも使っている作り方です。まずは1本のスポットから、週1本・週2本の月額まで選べます。';
 
 const SNS_VIDEO_FAQS = [
     ['撮影に来てもらえますか？', '標準プランはロケ撮影なし・素材支給です。実写が必要な場合は別見積です。'],

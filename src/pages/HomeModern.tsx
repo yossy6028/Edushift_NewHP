@@ -790,16 +790,16 @@ export const HomeModern = () => {
                             <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-center">
                                 <div>
                                     <p className="mb-5 text-xs font-semibold tracking-[0.2em] text-[#55D8CA]">SNS VIDEO SUPPORT</p>
-                                    <h3 className="es-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">SNSの縦型動画を、<br />塾の現場ペースで。</h3>
+                                    <h3 className="es-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">SNS動画広告を、<br />塾の現場ペースで。</h3>
                                     <p className="mt-5 text-[15px] leading-8 text-white/55">
-                                        Instagram・Facebook・Threads・X向けの縦型リールを、企画から書き出し、投稿文まで。ロケ撮影なし・素材支給が標準です。
+                                        SNS動画広告を、Instagram・Facebook・Threads・X向けの縦型リールとして、企画から書き出し、投稿文まで。ロケ撮影なし・素材支給が標準です。
                                     </p>
                                     <p className="mt-4 text-sm leading-7 text-[#55D8CA]">
                                         モニター価格（制作実例の掲載にご協力いただける方向け）
                                     </p>
                                     <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                                         <a href="/service/sns-video" className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:-translate-y-0.5">
-                                            プランを見る <ArrowRight className="h-4 w-4" />
+                                            SNS動画広告を見る <ArrowRight className="h-4 w-4" />
                                         </a>
                                         <a href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/[0.06]">
                                             無料相談する
@@ -1038,7 +1038,7 @@ export const HomeModern = () => {
                                                     <li>教育関連フリーランス独立支援・育成</li>
                                                     <li>教育アプリ・システム開発</li>
                                                     <li>Webサイト制作・保守運用支援</li>
-                                                    <li>SNS縦型動画の企画・制作</li>
+                                                    <li>SNS動画広告の企画・制作</li>
                                                 </ul>
                                             </dd>
                                         </div>
