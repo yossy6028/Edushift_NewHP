@@ -1,0 +1,485 @@
+/*
+ * トップのヒーロー用ショーケース（時間割メーカー / SNS広告動画 / HP制作を自動で切り替え）
+ * 動くのは transform / opacity のみ。reduced-motion では切り替えを止めて静止表示にする。
+ */
+.hs {
+  --hs-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --hs-ink: #16181d;
+  --hs-sub: #6b7280;
+  --hs-accent: #4f46e5;
+
+  container-type: inline-size;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  background: #0e0e10;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  text-align: left;
+}
+
+/* ---- スライドの重ね合わせ ---- */
+.hs__viewport {
+  display: grid;
+}
+
+.hs__slide {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate3d(0, 8px, 0);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+}
+
+.hs__slide.is-active {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s ease 0.12s, transform 0.9s var(--hs-ease) 0.12s, visibility 0s;
+}
+
+.hs__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #17171a;
+}
+
+/* ---- キャプション ---- */
+.hs__caption {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px 8px;
+}
+
+.hs__eyebrow {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.4);
+  font-variant-numeric: tabular-nums;
+}
+
+.hs__title {
+  margin: 6px 0 0;
+  font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.hs__mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.hs__char {
+  display: inline-block;
+}
+
+.hs__desc {
+  margin: 8px 0 0;
+  max-width: 30em;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.hs__cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  transition: background-color 0.15s ease-out, transform 0.1s ease-out;
+}
+
+.hs__cta:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hs__cta:active {
+  transform: scale(0.97);
+}
+
+.hs__cta:focus-visible,
+.hs__tab:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.75);
+  outline-offset: 2px;
+}
+
+/* ---- タブ＋進行インジケーター ---- */
+.hs__tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding: 0 22px 8px;
+}
+
+.hs__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 0 8px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hs__tab-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.42);
+  transition: color 0.2s ease;
+}
+
+.hs__tab:hover .hs__tab-label,
+.hs__tab.is-active .hs__tab-label {
+  color: #fff;
+}
+
+.hs__tab-bar {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.hs__tab-fill {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform-origin: left center;
+  animation: hs-fill var(--ms, 6500ms) linear forwards;
+}
+
+.hs.is-paused .hs__tab-fill {
+  animation-play-state: paused;
+}
+
+/* ---- 01 時間割メーカー ---- */
+.hs-tt {
+  position: absolute;
+  inset: 6% 6% auto;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
+  color: var(--hs-ink);
+  font-family: 'Inter', 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+  font-size: clamp(9px, 2cqw, 12px);
+}
+
+.hs-tt__chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.75em 1em;
+  background: #f1f3f7;
+  border-bottom: 1px solid #e3e6ec;
+}
+
+.hs-tt__chrome span {
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  background: #cfd3db;
+}
+
+.hs-tt__chrome b {
+  margin-left: 0.8em;
+  padding: 0.2em 0.9em;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0.82em;
+  font-weight: 500;
+  color: #8a909c;
+}
+
+.hs-tt__body {
+  padding: 1em 1.2em 1.1em;
+}
+
+.hs-tt__stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hs-tt__stats li {
+  display: flex;
+  gap: 0.55em;
+  padding: 0.45em 0.85em;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(20, 24, 40, 0.14);
+  font-size: 0.9em;
+  color: var(--hs-sub);
+  white-space: nowrap;
+}
+
+.hs-tt__stats b {
+  font-weight: 700;
+  color: var(--hs-ink);
+}
+
+.hs-tt__days {
+  display: flex;
+  gap: 0.35em;
+  margin: 0.9em 0 0.7em;
+  padding: 0;
+  list-style: none;
+}
+
+.hs-tt__days li {
+  padding: 0.35em 1.05em;
+  border-radius: 4px;
+  background: #e6e9f0;
+  font-size: 0.9em;
+  color: #596071;
+}
+
+.hs-tt__days li.is-on {
+  background: #fff;
+  box-shadow: 0 0 0 1px #dfe3ec;
+  color: var(--hs-accent);
+  font-weight: 600;
+}
+
+.hs-tt__grid {
+  display: grid;
+  grid-template-columns: 3.6em repeat(4, 1fr);
+  border-top: 1px solid #e3e6ec;
+  border-left: 1px solid #e3e6ec;
+}
+
+.hs-tt__row {
+  display: contents;
+}
+
+.hs-tt__grid > span,
+.hs-tt__row > span {
+  border-right: 1px solid #e3e6ec;
+  border-bottom: 1px solid #e3e6ec;
+}
+
+.hs-tt__teacher {
+  padding: 0.6em 0;
+  text-align: center;
+  font-size: 0.92em;
+  font-weight: 600;
+}
+
+.hs-tt__time {
+  padding: 0.4em 0.5em 0 0;
+  text-align: right;
+  font-size: 0.78em;
+  color: #9aa0ad;
+}
+
+.hs-tt__cell {
+  min-height: 3.6em;
+  padding: 0.3em;
+}
+
+.hs-tt__lesson {
+  display: grid;
+  gap: 0.1em;
+  height: 100%;
+  padding: 0.4em 0.55em;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-style: normal;
+  line-height: 1.35;
+}
+
+.hs-tt__lesson b {
+  font-size: 0.92em;
+  font-weight: 700;
+}
+
+.hs-tt__lesson i {
+  font-size: 0.86em;
+  font-style: normal;
+  opacity: 0.75;
+}
+
+.hs-tt__lesson.is-a { background: #e3e6ff; border-color: #c7cdfb; color: #2e3a8c; }
+.hs-tt__lesson.is-b { background: #e6f2e8; border-color: #c4e0c9; color: #1f5a2f; }
+.hs-tt__lesson.is-c { background: #f3e7fb; border-color: #e0c9f1; color: #5a2b80; }
+
+.hs__slide.is-active .hs-tt__lesson {
+  animation: hs-pop 0.6s var(--hs-ease) calc(0.3s + var(--i, 0) * 0.055s) backwards;
+}
+
+/* ---- 02 SNS広告動画 ---- */
+.hs__media--sns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0e0e10;
+}
+
+.hs__backdrop {
+  position: absolute;
+  inset: -12%;
+  width: 124%;
+  height: 124%;
+  object-fit: cover;
+  filter: blur(34px) brightness(0.42) saturate(1.1);
+}
+
+.hs__phone {
+  position: relative;
+  height: 88%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #fbfaf5;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14), 0 24px 50px rgba(0, 0, 0, 0.5);
+}
+
+.hs__phone-poster,
+.hs__phone-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hs__sample-tag {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---- 03 HP制作 ---- */
+.hs__media--hp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 22px 0;
+  background: #0e0e10;
+}
+
+.hs__hp {
+  width: 80%;
+  max-width: 640px;
+  align-self: flex-start;
+}
+
+/* ページの下端は見切れる。境界をやわらかく落として「続きがある」見え方にする */
+.hs__media--hp::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 24%;
+  background: linear-gradient(to bottom, rgba(14, 14, 16, 0), #0e0e10);
+  pointer-events: none;
+}
+
+/* ---- 文字のさりげないモーション ---- */
+.hs__slide.is-active .hs__char {
+  animation: hs-rise 0.8s var(--hs-ease) var(--d, 0s) backwards;
+}
+
+.hs__slide.is-active .hs__eyebrow,
+.hs__slide.is-active .hs__desc,
+.hs__slide.is-active .hs__cta {
+  animation: hs-fade 0.8s var(--hs-ease) 0.3s backwards;
+}
+
+@keyframes hs-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes hs-rise {
+  from { transform: translate3d(0, 110%, 0); }
+  to { transform: none; }
+}
+
+@keyframes hs-fade {
+  from { opacity: 0; transform: translate3d(0, 6px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes hs-pop {
+  from { opacity: 0; transform: translate3d(0, 6px, 0) scale(0.94); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---- 狭い幅（スマホ） ---- */
+@container (max-width: 520px) {
+  .hs__media { aspect-ratio: 4 / 3.5; }
+  .hs-tt { inset: 5% 5% auto; font-size: clamp(8.5px, 2.9cqw, 12px); }
+  .hs-tt__body { padding: 0.8em 0.9em 0.9em; }
+  .hs-tt__stats li:nth-child(n + 3) { display: none; }
+  .hs-tt__grid { grid-template-columns: 3.2em repeat(3, 1fr); }
+  .hs-tt__grid > :nth-child(5),
+  .hs-tt__row > :nth-child(5) { display: none; }
+  .hs-tt__cell { min-height: 3.4em; }
+  .hs__caption { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 18px 6px; }
+  .hs__title { font-size: 20px; }
+  .hs__tabs { gap: 10px; padding: 0 18px 6px; }
+  .hs__tab-label { font-size: 11px; }
+  .hs__sample-tag { left: 12px; bottom: 10px; }
+  .hs__media--hp { padding: 12px 14px 0; }
+  .hs__hp { width: 86%; }
+}
+
+/* ---- 動きを減らす設定：切り替えを止め、静止表示にする ---- */
+@media (prefers-reduced-motion: reduce) {
+  .hs__slide,
+  .hs__slide.is-active {
+    transform: none;
+    transition: opacity 0.2s ease, visibility 0s;
+  }
+  .hs__slide.is-active .hs__char,
+  .hs__slide.is-active .hs__eyebrow,
+  .hs__slide.is-active .hs__desc,
+  .hs__slide.is-active .hs__cta,
+  .hs__slide.is-active .hs-tt__lesson {
+    animation: none;
+  }
+  .hs__tab-fill {
+    animation: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .hs { border-color: rgba(255, 255, 255, 0.5); }
+  .hs__desc, .hs__tab-label { color: rgba(255, 255, 255, 0.85); }
+}

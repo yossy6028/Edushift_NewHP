@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import logoImg from '../assets/logo-shift-mark.png';
 import { HpSampleMock } from '../components/HpSampleMock';
+import { HeroShowcase } from '../components/HeroShowcase';
 import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
 import jukuTimetableImg from '../assets/app-juku-timetable.jpg';
 import tutorRevenueImg from '../assets/app-tutor-revenue.jpg';
@@ -296,50 +297,18 @@ const MotionMedia = ({ src, poster, alt, className }: MotionMediaProps) => {
     );
 };
 
-const HeroMedia = ({ poster }: { poster: string }) => {
-    const [motionAllowed, setMotionAllowed] = useState(false);
-    const [videoFailed, setVideoFailed] = useState(false);
-
-    useEffect(() => {
-        const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-        const updatePreference = () => setMotionAllowed(!motionPreference.matches);
-
-        updatePreference();
-        motionPreference.addEventListener('change', updatePreference);
-        return () => motionPreference.removeEventListener('change', updatePreference);
-    }, []);
-
-    const mediaClassName = 'h-full w-full object-cover object-[68%_50%] opacity-70';
-
-    if (!motionAllowed || videoFailed) {
-        return (
-            <img
-                src={poster}
-                alt=""
-                className={`es-hero-image ${mediaClassName}`}
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-                aria-hidden="true"
-            />
-        );
-    }
-
-    return (
-        <video
-            className={mediaClassName}
-            src="/videos/edushift-hero-classroom.mp4"
-            poster={poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            onError={() => setVideoFailed(true)}
-            aria-hidden="true"
-        />
-    );
-};
+// ヒーロー背景は静止画のみ。動画はショーケース側（SNS広告動画）に集約し、読み込みを増やさない。
+const HeroMedia = ({ poster }: { poster: string }) => (
+    <img
+        src={poster}
+        alt=""
+        className="es-hero-image h-full w-full object-cover object-[68%_50%] opacity-50"
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
+        aria-hidden="true"
+    />
+);
 
 const Brand = ({ compact = false }: { compact?: boolean }) => (
     <span className={`inline-flex items-center ${compact ? 'gap-2.5' : 'gap-3.5'}`}>
@@ -524,40 +493,46 @@ export const HomeModern = () => {
                     <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(0,0,0,.42),rgba(0,0,0,.34)_36%,#000_96%)]" />
                     <div className="es-noise pointer-events-none absolute inset-0 -z-10 opacity-[0.09]" aria-hidden="true" />
                     <div className="pointer-events-none absolute left-1/2 top-[38%] -z-10 h-[520px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(45,179,160,.2),rgba(2,147,240,.08)_45%,transparent_70%)] blur-2xl" aria-hidden="true" />
-                    <div className="mx-auto flex w-full max-w-5xl flex-col items-center text-center">
-                        <FadeInUp>
-                            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white/70 backdrop-blur-md backdrop-saturate-150">
-                                <Sparkles className="h-3.5 w-3.5 text-[#55D8CA]" />
-                                小規模塾・独立する先生のための AI × Web パートナー
-                            </div>
-                        </FadeInUp>
+                    <div className="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,560px)] lg:gap-14 xl:gap-20">
+                        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+                            <FadeInUp>
+                                <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3.5 py-2 text-xs font-medium text-white/70 backdrop-blur-md backdrop-saturate-150">
+                                    <Sparkles className="h-3.5 w-3.5 text-[#55D8CA]" />
+                                    小規模塾・独立する先生のための AI × Web パートナー
+                                </div>
+                            </FadeInUp>
 
-                        <FadeInUp delay={90}>
-                            <h1 className="es-display text-balance text-5xl font-medium leading-[1.18] tracking-[-0.045em] text-white sm:text-6xl md:text-7xl lg:text-[88px]">
-                                教える時間を、<br />
-                                <span className="font-normal italic text-white">取り戻す。</span>
-                            </h1>
-                        </FadeInUp>
+                            <FadeInUp delay={90}>
+                                <h1 className="es-display text-balance text-5xl font-medium leading-[1.18] tracking-[-0.045em] text-white sm:text-6xl md:text-7xl lg:text-[64px] xl:text-[76px]">
+                                    教える時間を、<br />
+                                    <span className="font-normal italic text-white">取り戻す。</span>
+                                </h1>
+                            </FadeInUp>
 
-                        <FadeInUp delay={180}>
-                            <p className="mx-auto mt-7 max-w-2xl text-[16px] leading-8 text-white/55">
-                                集客も、事務も、教材づくりも。ひとりで抱える「教える以外」を、HP・専用ツール・AIで軽くします。
-                            </p>
-                        </FadeInUp>
+                            <FadeInUp delay={180}>
+                                <p className="mx-auto mt-7 max-w-2xl text-[16px] lg:mx-0 leading-8 text-white/55">
+                                    集客も、事務も、教材づくりも。ひとりで抱える「教える以外」を、HP・専用ツール・AIで軽くします。
+                                </p>
+                            </FadeInUp>
 
-                        <FadeInUp delay={270} className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
-                            <a href={CONTACT_HREF} className="inline-flex min-w-44 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-white/90">
-                                まずは無料で相談する
-                                <ArrowRight className="h-4 w-4" />
-                            </a>
-                            <a href="#services" className="inline-flex min-w-40 items-center justify-center gap-2 rounded-full border border-white/10 bg-[#1F1F22]/90 px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#2A2A2D]">
-                                サービスを見る
-                                <ChevronRight className="h-4 w-4" />
-                            </a>
+                            <FadeInUp delay={270} className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
+                                <a href={CONTACT_HREF} className="inline-flex min-w-44 items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-white/90">
+                                    まずは無料で相談する
+                                    <ArrowRight className="h-4 w-4" />
+                                </a>
+                                <a href="#services" className="inline-flex min-w-40 items-center justify-center gap-2 rounded-full border border-white/10 bg-[#1F1F22]/90 px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#2A2A2D]">
+                                    サービスを見る
+                                    <ChevronRight className="h-4 w-4" />
+                                </a>
+                            </FadeInUp>
+                        </div>
+
+                        <FadeInUp delay={200} className="w-full">
+                            <HeroShowcase />
                         </FadeInUp>
                     </div>
 
-                    <div className="mt-24 w-full max-w-7xl">
+                    <div className="mt-20 w-full max-w-7xl">
                         <p className="mb-8 text-center text-sm font-medium text-white/55">塾経営の周辺業務を、ひとつにつなぐ</p>
                         <div className="es-marquee overflow-hidden">
                             <div className="es-marquee-track flex w-max">
