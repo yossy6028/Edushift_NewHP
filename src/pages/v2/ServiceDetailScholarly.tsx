@@ -254,6 +254,45 @@ export const ServiceDetailScholarly = () => {
             )}
             {slug === 'hp-production' && <CaseStudyBanner />}
 
+            {slug === 'sns-video' && (
+                <section className="s-sns-sample" id="sns-sample" aria-labelledby="sns-sample-title">
+                    <div className="s-container">
+                        <div className="s-detail-pricing-head">
+                            <div className="s-sec-num">制作サンプル · Sample Reel</div>
+                            <h2 id="sns-sample-title">実際のトーンを、<br />縦型で確認する。</h2>
+                            <p>
+                                架空の学習塾を想定した、縦型リールの制作サンプルです。テロップとモーションの雰囲気を、再生前の表紙からご覧いただけます。
+                            </p>
+                        </div>
+
+                        <div className="s-sns-sample-stage">
+                            <div className="s-sns-phone" role="group" aria-label="縦型サンプル動画">
+                                <div className="s-sns-phone-notch" aria-hidden="true" />
+                                <video
+                                    className="s-sns-phone-video"
+                                    src="/videos/sns-video-sample.mp4"
+                                    poster="/videos/sns-video-sample-poster.webp"
+                                    controls
+                                    playsInline
+                                    muted
+                                    preload="metadata"
+                                    width={1080}
+                                    height={1920}
+                                >
+                                    お使いのブラウザは動画再生に対応していません。
+                                </video>
+                            </div>
+                            <div className="s-sns-sample-captions">
+                                <p className="s-sns-sample-note">※架空の学習塾を想定したサンプル動画です</p>
+                                <p className="s-sns-sample-credit">
+                                    Music: &quot;Cheery Monday&quot; Kevin MacLeod (incompetech.com) Licensed under CC BY 4.0
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
+
             {svc.pricingBlock && (
                 <section className="s-detail-pricing">
                     <div className="s-container">
