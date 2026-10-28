@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=M+PLUS+1:wght@100..900&display=swap');
 
 /*
- * HP制作サンプル（架空の学習塾「ひなた学舎」）
+ * HP制作サンプル（架空の学習塾「ひなた学舎」＝少人数制の集団授業）
  * ベースのスタイル = 完成状態。アニメーションは .is-playing の間だけ「from」側を
  * animation-fill-mode: backwards で上書きするため、未再生・再生後・reduced-motion でも全文が読める。
  */
@@ -58,7 +58,8 @@
 /* ---- ページ本体（container query で全体を等比にスケール） ---- */
 .hsm__page {
   container-type: inline-size;
-  --pad: 6cqw;
+  --pad: 5.2cqw;
+  position: relative;
 }
 
 /* ---- ナビ ---- */
@@ -66,14 +67,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 3.6cqw var(--pad) 0;
-  font-size: max(10px, 2.9cqw);
+  padding: 3.4cqw var(--pad) 0;
+  font-size: max(10px, 2.4cqw);
   font-weight: 500;
+}
+
+.hsm__wordmark {
+  font-family: var(--hsm-latin);
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--hsm-ink);
 }
 
 .hsm__links {
   display: flex;
-  gap: 3.6cqw;
+  align-items: center;
+  gap: 3.2cqw;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -87,12 +96,63 @@
   padding-bottom: 1px;
 }
 
-/* ---- 塾名ロゴタイプ（主役） ---- */
-.hsm__brand {
-  padding: 6.5cqw var(--pad) 0;
+/* ---- ヒーロー：写真は右端へ出血、塾名ロゴタイプが写真の上辺をまたぐ ---- */
+.hsm__hero {
+  position: relative;
+  height: 67cqw;
+  margin-top: 1.8cqw;
 }
 
+.hsm__figure {
+  position: absolute;
+  top: 9.6cqw;
+  right: 0;
+  bottom: 4.6cqw;
+  width: 80cqw;
+  margin: 0;
+}
+
+.hsm__photo-mask {
+  height: 100%;
+  overflow: hidden;
+  background: #e6e3dc;
+}
+
+.hsm__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+/* 図版キャプション：写真の下、右寄せ */
+.hsm__caption {
+  position: absolute;
+  top: 100%;
+  right: var(--pad);
+  display: flex;
+  gap: 1.8cqw;
+  margin-top: 1.3cqw;
+  font-size: max(9px, 2.1cqw);
+  letter-spacing: 0.06em;
+  color: var(--hsm-sub);
+  white-space: nowrap;
+}
+
+.hsm__caption-no {
+  font-family: var(--hsm-latin);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--hsm-accent);
+}
+
+/* ---- 塾名ロゴタイプ（主役） ---- */
 .hsm__logo {
+  position: absolute;
+  top: 0;
+  left: var(--pad);
+  z-index: 2;
   margin: 0;
   font-weight: 800;
 }
@@ -100,9 +160,9 @@
 .hsm__logo-ja {
   display: flex;
   align-items: flex-end;
-  font-size: 16cqw;
+  font-size: 15.4cqw;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
 }
 
 .hsm__logo-main,
@@ -111,7 +171,7 @@
 }
 
 .hsm__logo-sub {
-  margin-left: 0.06em;
+  margin-left: 0.08em;
 }
 
 .hsm__logo-mask {
@@ -148,83 +208,53 @@
   background: var(--hsm-accent);
 }
 
-.hsm__lockup {
-  display: flex;
-  align-items: center;
-  gap: 3cqw;
-  margin-top: 3.4cqw;
+/* ---- 写真の左下に重なる紙色の切り込み（キャッチ） ---- */
+.hsm__cut {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding: 3.2cqw 4cqw 0 var(--pad);
+  background: var(--hsm-paper);
 }
 
-.hsm__en {
-  font-family: var(--hsm-latin);
-  font-size: max(10px, 3.4cqw);
+/* ---- 縦組みアクセント ---- */
+.hsm__vert {
+  position: absolute;
+  top: 18.4cqw;
+  bottom: 28cqw;
+  left: var(--pad);
+  display: flex;
+  gap: 1.8cqw;
+}
+
+.hsm__vert-rule {
+  width: 1px;
+  background: var(--hsm-ink);
+  opacity: 0.5;
+  transform-origin: center top;
+}
+
+.hsm__vert-text {
+  writing-mode: vertical-rl;
+  font-size: max(10px, 2.2cqw);
   font-weight: 500;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.2em;
   color: var(--hsm-ink);
   white-space: nowrap;
 }
 
-.hsm__rule {
-  flex: 1;
-  height: 1px;
-  background: var(--hsm-line);
-  transform-origin: left center;
-}
-
-.hsm__tag {
-  font-size: max(10px, 2.9cqw);
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  color: var(--hsm-sub);
-}
-
-/* ---- 写真 ---- */
-.hsm__figure {
-  margin: 5cqw 0 0 var(--pad);
-}
-
-.hsm__photo-mask {
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: #e6e3dc;
-}
-
-.hsm__photo {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 56% 40%;
-}
-
-.hsm__caption {
-  display: flex;
-  gap: 2.4cqw;
-  margin-top: 2.2cqw;
-  padding-right: var(--pad);
-  font-size: max(10px, 2.6cqw);
-  letter-spacing: 0.06em;
-  color: var(--hsm-sub);
-}
-
-.hsm__caption-no {
-  font-family: var(--hsm-latin);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  color: var(--hsm-accent);
-}
-
-/* ---- キャッチ（キネティックタイポ） ---- */
-.hsm__copy {
-  padding: 5cqw var(--pad) 0;
+/* ---- 本文（キャッチ・導入・事実） ---- */
+.hsm__body {
+  padding: 0 var(--pad) 5cqw;
 }
 
 .hsm__catch {
   margin: 0;
-  font-size: 8.8cqw;
+  font-size: 7.2cqw;
   font-weight: 700;
-  line-height: 1.32;
-  letter-spacing: -0.01em;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
 }
 
 .hsm__catch-line {
@@ -252,35 +282,50 @@
 .hsm__underline {
   position: absolute;
   left: 0;
-  bottom: 0.02em;
-  height: 0.07em;
+  bottom: 0.04em;
+  height: 0.06em;
   min-height: 2px;
   background: var(--hsm-accent);
   transform-origin: left center;
+  letter-spacing: 0;
+}
+
+.hsm__row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4cqw;
+  margin-top: 3.4cqw;
 }
 
 .hsm__sub {
-  max-width: 34em;
-  margin: 3.6cqw 0 0;
-  font-size: max(11px, 3.3cqw);
+  max-width: 50cqw;
+  margin: 0;
+  font-size: max(10px, 2.55cqw);
   font-weight: 400;
-  line-height: 1.9;
+  line-height: 1.85;
   letter-spacing: 0.02em;
   color: var(--hsm-sub);
 }
 
+.hsm__sub-line {
+  display: block;
+  white-space: nowrap;
+}
+
 .hsm__cta {
   display: inline-flex;
+  flex: none;
   align-items: center;
-  gap: 2.2cqw;
-  margin-top: 4.2cqw;
-  border-radius: 3px;
+  gap: 1.8cqw;
+  border-radius: 2px;
   background: var(--hsm-ink);
-  padding: 3.1cqw 4.6cqw;
-  font-size: max(11px, 3.3cqw);
+  padding: 2.6cqw 3.6cqw;
+  font-size: max(10px, 2.6cqw);
   font-weight: 700;
   letter-spacing: 0.06em;
   color: #fff;
+  white-space: nowrap;
 }
 
 .hsm__cta-arrow {
@@ -288,16 +333,16 @@
   height: 1.15em;
 }
 
-/* ---- 事実3点（枠なし・罫線で区切る） ---- */
+/* 事実3点：細罫と番号で区切る */
 .hsm__facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin: 5.2cqw var(--pad) 5cqw;
-  border-top: 1px solid var(--hsm-line);
+  margin: 4cqw 0 0;
+  border-top: 1px solid var(--hsm-ink);
 }
 
 .hsm__fact {
-  padding: 3.6cqw 0 0 3cqw;
+  padding: 2cqw 0 0 2.6cqw;
   border-left: 1px solid var(--hsm-line);
 }
 
@@ -307,20 +352,121 @@
 }
 
 .hsm__fact dt {
+  display: flex;
+  gap: 1.6cqw;
   margin: 0;
-  font-size: max(10px, 2.6cqw);
+  font-size: max(9px, 2.1cqw);
   letter-spacing: 0.1em;
   color: var(--hsm-sub);
 }
 
-.hsm__fact dd {
-  margin: 1.2cqw 0 0;
+.hsm__fact-no {
   font-family: var(--hsm-latin);
-  font-size: max(16px, 5.4cqw);
+  letter-spacing: 0.08em;
+  color: var(--hsm-accent);
+}
+
+.hsm__fact dd {
+  margin: 0.8cqw 0 0;
+  font-family: var(--hsm-latin);
+  font-size: max(15px, 4.4cqw);
   font-weight: 500;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   line-height: 1.2;
   color: var(--hsm-ink);
+}
+
+/* ---- 狭い幅（スマホ）：写真を全幅に、ロゴが上辺をまたぐ縦構成 ---- */
+@container (max-width: 439px) {
+  .hsm__links li:not(.hsm__nav-cta) {
+    display: none;
+  }
+
+  .hsm__nav {
+    font-size: max(10px, 3cqw);
+  }
+
+  .hsm__hero {
+    height: auto;
+    margin-top: 5cqw;
+    padding-top: 12cqw;
+  }
+
+  .hsm__logo-ja {
+    font-size: 17.5cqw;
+  }
+
+  .hsm__figure {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    height: 64cqw;
+  }
+
+  .hsm__photo {
+    object-position: 52% 50%;
+  }
+
+  .hsm__caption {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 1.8cqw 3cqw 0 var(--pad);
+    background: var(--hsm-paper);
+    font-size: max(9px, 2.8cqw);
+  }
+
+  .hsm__vert {
+    display: none;
+  }
+
+  .hsm__cut {
+    position: relative;
+    padding: 5cqw var(--pad) 0;
+  }
+
+  .hsm__catch {
+    font-size: 8.2cqw;
+  }
+
+  .hsm__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4.4cqw;
+    margin-top: 4cqw;
+  }
+
+  .hsm__sub {
+    max-width: none;
+    font-size: max(11px, 3.4cqw);
+  }
+
+  .hsm__cta {
+    padding: 3.4cqw 5cqw;
+    font-size: max(11px, 3.5cqw);
+  }
+
+  .hsm__facts {
+    margin-top: 6cqw;
+  }
+
+  .hsm__fact {
+    padding-top: 2.6cqw;
+  }
+
+  .hsm__fact dt {
+    font-size: max(9px, 2.7cqw);
+    flex-direction: column;
+    gap: 0.4cqw;
+  }
+
+  .hsm__fact dd {
+    font-size: max(15px, 5cqw);
+  }
 }
 
 /* ======================================================================
@@ -343,22 +489,20 @@
   animation: hsm-sun-rise 1.1s var(--hsm-ease) var(--d, 0s) backwards;
 }
 
-/* 欧文：字間が締まりながら現れる */
-.is-playing .hsm__en {
-  animation: hsm-track 1.5s var(--hsm-ease) var(--d, 0s) backwards;
-}
-
-.is-playing .hsm__rule {
-  animation: hsm-draw-x 1.3s var(--hsm-ease) var(--d, 0s) backwards;
-}
-
-/* 写真：下から幕が上がり、同時にゆっくり寄りが戻る */
+/* 写真：幕が上がり、寄りが戻ったあとも非常にゆっくり引き続ける */
 .is-playing .hsm__photo-mask {
   animation: hsm-wipe-up 1.4s var(--hsm-ease) var(--d, 0s) backwards;
 }
 
 .is-playing .hsm__photo {
-  animation: hsm-photo-settle 2.2s var(--hsm-ease) var(--d, 0s) backwards;
+  animation:
+    hsm-photo-settle 2.4s var(--hsm-ease) var(--d, 0s) backwards,
+    hsm-photo-drift 18s ease-out calc(var(--d, 0s) + 2.4s) forwards;
+}
+
+/* 縦組みの罫線：上から描かれる */
+.is-playing .hsm__vert-rule {
+  animation: hsm-draw-y 1.4s var(--hsm-ease) var(--d, 0s) backwards;
 }
 
 /* キャッチ：1字ずつ立ち上がり、細字から太字へ */
@@ -368,6 +512,11 @@
 
 .is-playing .hsm__underline {
   animation: hsm-draw-x 0.9s var(--hsm-ease) var(--d, 0s) backwards;
+}
+
+/* 事実の上罫：左から描かれる */
+.is-playing .hsm__facts {
+  animation: hsm-rule-x 1.2s var(--hsm-ease) 2.4s backwards;
 }
 
 @keyframes hsm-fade {
@@ -386,12 +535,16 @@
   from { transform: translateY(120%); }
 }
 
-@keyframes hsm-track {
-  from { opacity: 0; letter-spacing: 0.8em; }
-}
-
 @keyframes hsm-draw-x {
   from { transform: scaleX(0); }
+}
+
+@keyframes hsm-draw-y {
+  from { transform: scaleY(0); }
+}
+
+@keyframes hsm-rule-x {
+  from { border-top-color: transparent; }
 }
 
 @keyframes hsm-wipe-up {
@@ -403,6 +556,11 @@
   from { transform: scale(1.14); }
 }
 
+@keyframes hsm-photo-drift {
+  from { transform: scale(1); }
+  to { transform: scale(1.045); }
+}
+
 @keyframes hsm-catch-rise {
   from { transform: translateY(100%); font-weight: 200; }
 }
@@ -411,10 +569,10 @@
   .is-playing .hsm__fade,
   .is-playing .hsm__logo-char,
   .is-playing .hsm__sun,
-  .is-playing .hsm__en,
-  .is-playing .hsm__rule,
   .is-playing .hsm__photo-mask,
   .is-playing .hsm__photo,
+  .is-playing .hsm__vert-rule,
+  .is-playing .hsm__facts,
   .is-playing .hsm__catch-char,
   .is-playing .hsm__underline {
     animation: none;
