@@ -75,6 +75,7 @@ export function HpSampleMock({ className = '' }: HpSampleMockProps) {
         <span className="rounded-full bg-[#2DB3A0]/15 px-2.5 py-1 text-[10px] font-semibold text-[#55D8CA]">SAMPLE</span>
       </div>
 
+      <div className="hp-sample-mock__frame relative">
       <div className={`hp-sample-mock overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_30px_80px_rgba(0,0,0,.55)]${active ? ' is-active' : ''}`} key={cycle}>
         <div className="flex items-center gap-1.5 border-b border-black/5 bg-[#F3F4F6] px-4 py-2.5">
           <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
@@ -171,7 +172,8 @@ export function HpSampleMock({ className = '' }: HpSampleMockProps) {
         <p className="hp-sample-mock__badge-kicker">企画から公開まで</p>
         <p className="hp-sample-mock__badge-title">一貫して対応</p>
       </div>
-      <p className="mt-8 text-center text-[10px] tracking-[0.08em] text-white/35">※架空の学習塾サンプルです</p>
+      </div>
+      <p className="mt-10 text-center text-[10px] tracking-[0.08em] text-white/35">※架空の学習塾サンプルです</p>
     </div>
   );
 }

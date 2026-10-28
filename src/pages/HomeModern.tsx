@@ -676,8 +676,8 @@ export const HomeModern = () => {
                                 </a>
                             </FadeInUp>
 
-                            <FadeInUp delay={120} className="relative min-h-[500px] overflow-hidden rounded-[28px] border border-white/10 bg-[#0E0E10] p-5 shadow-2xl shadow-black sm:p-8">
-                                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(45,179,160,.18),transparent_45%),radial-gradient(circle_at_90%_90%,rgba(2,147,240,.16),transparent_45%)]" />
+                            <FadeInUp delay={120} className="relative min-h-[500px] overflow-visible rounded-[28px] border border-white/10 bg-[#0E0E10] p-5 shadow-2xl shadow-black sm:p-8">
+                                <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[28px] bg-[radial-gradient(circle_at_20%_10%,rgba(45,179,160,.18),transparent_45%),radial-gradient(circle_at_90%_90%,rgba(2,147,240,.16),transparent_45%)]" />
                                 <div className="relative">
                                     <HpSampleMock />
                                 </div>
