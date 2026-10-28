@@ -3,19 +3,23 @@ import { ArrowRight } from 'lucide-react';
 import classroomHeroImg from '../assets/generated/lumina-classroom-hero.webp';
 import '../styles/hp-sample-mock.css';
 
-const SCHOOL_NAME = 'ルミナ進学';
-const SCHOOL_EN = 'LUMINA';
-const DOMAIN = 'lumina-juku.example';
-const CATCH_LINES = ['わかった瞬間が、', 'いちばん明るい。'] as const;
-const SUB = '明るい教室で、先生の説明が届く個別指導。テスト対策から受験まで、一人ひとりのペースに合わせます。';
+const SCHOOL_NAME = 'ひなた学舎';
+const SCHOOL_MAIN = 'ひなた';
+const SCHOOL_SUB = '学舎';
+const SCHOOL_EN = 'HINATA ACADEMY';
+const DOMAIN = 'hinata-gakusha.example';
+const CATCH_LINES = ['わからないを、', 'そのままにしない。'] as const;
+const CATCH_EMPHASIS = 'そのまま';
+const SUB = '授業のあとに「なるほど」が残るまで付き合う、小1から高3までの個別指導塾です。';
 const NAV = ['特長', 'コース', '合格実績', 'アクセス'] as const;
-const CHIPS: Array<[string, string]> = [
-  ['合格実績', '地域トップ校多数'],
-  ['指導形態', '1:2 完全担任制'],
-  ['無料体験', 'いつでも予約可'],
+const FACTS: Array<[string, string]> = [
+  ['対象', '小1–高3'],
+  ['指導形態', '1:2'],
+  ['無料体験', '随時'],
 ];
 
-const splitChars = (text: string) => Array.from(text);
+const chars = (text: string) => Array.from(text);
+const at = (seconds: number): CSSProperties => ({ '--d': `${seconds}s` } as CSSProperties);
 
 type HpSampleMockProps = {
   className?: string;
@@ -23,181 +27,145 @@ type HpSampleMockProps = {
 
 export function HpSampleMock({ className = '' }: HpSampleMockProps) {
   const hostRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
-  const [settled, setSettled] = useState(false);
+  const [playing, setPlaying] = useState(false);
   const [cycle, setCycle] = useState(0);
 
+  // 画面に入るたびに1回だけ再生する。ベースのCSSが「完成状態」なので、
+  // 未再生・再生後・reduced-motion のいずれでも文字は完全に読める。
   useEffect(() => {
     const host = hostRef.current;
     if (!host) return;
-
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced || typeof IntersectionObserver === 'undefined') {
-      setActive(true);
-      setSettled(true);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof IntersectionObserver === 'undefined') {
       return;
     }
 
-    let loopTimer: number | undefined;
-    let settleTimer: number | undefined;
-
-    const play = () => {
-      setSettled(false);
-      setActive(false);
-      window.requestAnimationFrame(() => {
-        setCycle((value) => value + 1);
-        setActive(true);
-        if (settleTimer) window.clearTimeout(settleTimer);
-        settleTimer = window.setTimeout(() => setSettled(true), 2400);
-      });
-    };
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) {
-          setActive(false);
-          setSettled(false);
-          if (loopTimer) window.clearInterval(loopTimer);
-          if (settleTimer) window.clearTimeout(settleTimer);
-          return;
+        if (entry.isIntersecting) {
+          setCycle((value) => value + 1);
+          setPlaying(true);
+        } else {
+          setPlaying(false);
         }
-        play();
-        if (loopTimer) window.clearInterval(loopTimer);
-        loopTimer = window.setInterval(play, 8200);
       },
-      { threshold: 0.28, rootMargin: '40px 0px' },
+      { threshold: 0.3, rootMargin: '40px 0px' },
     );
 
     observer.observe(host);
-    return () => {
-      observer.disconnect();
-      if (loopTimer) window.clearInterval(loopTimer);
-      if (settleTimer) window.clearTimeout(settleTimer);
-    };
+    return () => observer.disconnect();
   }, []);
 
-  const stateClass = `${active ? ' is-active' : ''}${settled ? ' is-settled' : ''}`;
-
   return (
-    <div ref={hostRef} className={`relative mx-auto flex h-full max-w-[440px] flex-col justify-center ${className}`}>
-      <div className="mb-4 flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 backdrop-blur-xl">
-        <div className="flex items-center gap-2 text-xs text-white/55">
-          <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#55D8CA]/20 text-[10px] font-bold text-[#55D8CA]">HP</span>
-          HP制作サンプル｜ライトプラン
-        </div>
-        <span className="rounded-full bg-[#2DB3A0]/15 px-2.5 py-1 text-[10px] font-semibold text-[#55D8CA]">SAMPLE</span>
+    <div ref={hostRef} className={`relative mx-auto flex h-full max-w-[460px] flex-col justify-center ${className}`}>
+      <div className="mb-3 flex items-baseline justify-between px-1 text-[11px] tracking-[0.06em] text-white/60">
+        <span>HP制作サンプル｜ライトプラン</span>
+        <span className="font-medium tracking-[0.22em] text-white/40">SAMPLE</span>
       </div>
 
-      <div className="hp-sample-mock__frame relative">
-        <div className={`hp-sample-mock overflow-hidden rounded-2xl border border-white/10 bg-[#0B1220] shadow-[0_30px_80px_rgba(0,0,0,.55)]${stateClass}`} key={cycle}>
-          <div className="flex items-center gap-1.5 border-b border-black/5 bg-[#F3F4F6] px-4 py-2.5">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
-            <span className="ml-3 flex-1 truncate rounded-md bg-white px-3 py-1 text-[10px] text-black/40">{DOMAIN}</span>
+      <div className="hsm" key={cycle}>
+        <div className="hsm__chrome" aria-hidden="true">
+          <span className="hsm__dot" />
+          <span className="hsm__dot" />
+          <span className="hsm__dot" />
+          <span className="hsm__url">{DOMAIN}</span>
+        </div>
+
+        <div
+          className={`hsm__page${playing ? ' is-playing' : ''}`}
+          role="img"
+          aria-label={`HP制作サンプル（ライトプラン）: 架空の学習塾「${SCHOOL_NAME}」のホームページ。キャッチコピーは「${CATCH_LINES.join('')}」`}
+        >
+          <div className="hsm__nav" aria-hidden="true">
+            <ul className="hsm__links">
+              {NAV.map((item, index) => (
+                <li key={item} className="hsm__fade" style={at(0.1 + index * 0.06)}>{item}</li>
+              ))}
+            </ul>
+            <span className="hsm__nav-cta hsm__fade" style={at(0.45)}>無料体験</span>
           </div>
 
-          <div className="hp-sample-mock__stage" role="img" aria-label={`HP制作サンプル（ライトプラン）: 架空の学習塾「${SCHOOL_NAME}」のホームページ`}>
-            <img
-              src={classroomHeroImg}
-              alt=""
-              className="hp-sample-mock__photo"
-              loading="lazy"
-              decoding="async"
-              aria-hidden="true"
-            />
-            <div className="hp-sample-mock__veil" aria-hidden="true" />
-
-            <div className="hp-sample-mock__nav">
-              <div className="hp-sample-mock__brand">
-                <span className="hp-sample-mock__brand-ja" aria-label={SCHOOL_NAME}>
-                  {splitChars(SCHOOL_NAME).map((char, index) => (
-                    <span
-                      key={`${char}-${index}`}
-                      className="hp-sample-mock__char"
-                      style={{ animationDelay: `${0.12 + index * 0.05}s` } as CSSProperties}
-                    >
-                      {char}
+          <header className="hsm__brand" aria-hidden="true">
+            <h3 className="hsm__logo">
+              <span className="hsm__logo-ja">
+                <span className="hsm__logo-main">
+                  {chars(SCHOOL_MAIN).map((char, index) => (
+                    <span key={`${char}-${index}`} className="hsm__logo-mask">
+                      <span className="hsm__logo-char" style={at(0.2 + index * 0.09)}>{char}</span>
                     </span>
                   ))}
                 </span>
-                <span className="hp-sample-mock__brand-en">
-                  {splitChars(SCHOOL_EN).map((char, index) => (
-                    <span
-                      key={`${char}-${index}`}
-                      className="hp-sample-mock__char"
-                      style={{ animationDelay: `${0.38 + index * 0.04}s` } as CSSProperties}
-                    >
-                      {char}
+                <span className="hsm__logo-sub">
+                  {chars(SCHOOL_SUB).map((char, index) => (
+                    <span key={`${char}-${index}`} className="hsm__logo-mask">
+                      <span className="hsm__logo-char hsm__logo-char--light" style={at(0.2 + (SCHOOL_MAIN.length + index) * 0.09)}>{char}</span>
                     </span>
                   ))}
                 </span>
-              </div>
-              <div className="hp-sample-mock__links" aria-hidden="true">
-                {NAV.map((item, index) => (
-                  <span
-                    key={item}
-                    className="hp-sample-mock__link"
-                    style={{ animationDelay: `${0.45 + index * 0.07}s` } as CSSProperties}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <span className="hp-sample-mock__pill">無料体験</span>
-            </div>
-
-            <div className="hp-sample-mock__hero">
-              <p className="hp-sample-mock__kicker">
-                <span className="hp-sample-mock__kicker-dot" aria-hidden="true" />
-                個別指導 × 明るい教室
-              </p>
-              <h3 className="hp-sample-mock__title">
-                {CATCH_LINES.map((line, lineIndex) => (
-                  <span className="hp-sample-mock__title-line" key={line}>
-                    <span className="hp-sample-mock__title-mask">
-                      <span
-                        className="hp-sample-mock__title-inner"
-                        style={{ animationDelay: `${0.45 + lineIndex * 0.12}s` } as CSSProperties}
-                      >
-                        {line}
-                      </span>
-                    </span>
-                    {lineIndex === CATCH_LINES.length - 1 ? (
-                      <span className="hp-sample-mock__marker" aria-hidden="true" />
-                    ) : null}
-                  </span>
-                ))}
-              </h3>
-              <p className="hp-sample-mock__sub">{SUB}</p>
-              <span className="hp-sample-mock__cta">
-                <span className="hp-sample-mock__shine" aria-hidden="true" />
-                無料体験授業に申し込む
-                <ArrowRight className="h-3 w-3" />
+                <span className="hsm__sun-mask">
+                  <span className="hsm__sun" style={at(0.95)} />
+                </span>
               </span>
-
-              <div className="hp-sample-mock__chips" aria-hidden="true">
-                {CHIPS.map(([title, sub], index) => (
-                  <div
-                    key={title}
-                    className="hp-sample-mock__chip"
-                    style={{ animationDelay: `${1.4 + index * 0.08}s` } as CSSProperties}
-                  >
-                    <p className="hp-sample-mock__chip-label">{title}</p>
-                    <p className="hp-sample-mock__chip-value">{sub}</p>
-                  </div>
-                ))}
-              </div>
+            </h3>
+            <div className="hsm__lockup">
+              <span className="hsm__en" style={at(0.8)}>{SCHOOL_EN}</span>
+              <span className="hsm__rule" style={at(0.9)} />
+              <span className="hsm__tag hsm__fade" style={at(1.3)}>学習塾</span>
             </div>
-          </div>
-        </div>
+          </header>
 
-        <div className={`hp-sample-mock__badge${active ? ' is-active' : ''}${settled ? ' is-settled' : ''}`}>
-          <p className="hp-sample-mock__badge-kicker">企画から公開まで</p>
-          <p className="hp-sample-mock__badge-title">一貫して対応</p>
+          <figure className="hsm__figure" aria-hidden="true">
+            <div className="hsm__photo-mask" style={at(1.05)}>
+              <img src={classroomHeroImg} alt="" className="hsm__photo" decoding="async" style={at(1.05)} />
+            </div>
+            <figcaption className="hsm__caption hsm__fade" style={at(2.0)}>
+              <span className="hsm__caption-no">Fig.01</span>
+              ホワイトボードを使った授業の様子
+            </figcaption>
+          </figure>
+
+          <div className="hsm__copy" aria-hidden="true">
+            <p className="hsm__catch">
+              {CATCH_LINES.map((line, lineIndex) => (
+                <span className="hsm__catch-line" key={line}>
+                  {chars(line).map((char, index) => {
+                    const offset = CATCH_LINES.slice(0, lineIndex).join('').length;
+                    const inEmphasis = lineIndex === 1 && index < CATCH_EMPHASIS.length;
+                    return (
+                      <span key={`${char}-${index}`} className="hsm__catch-mask">
+                        <span
+                          className={`hsm__catch-char${inEmphasis ? ' is-emphasis' : ''}`}
+                          style={at(1.7 + (offset + index) * 0.045)}
+                        >
+                          {char}
+                        </span>
+                      </span>
+                    );
+                  })}
+                  {lineIndex === 1 ? (
+                    <span className="hsm__underline" style={{ ...at(2.9), width: `${CATCH_EMPHASIS.length}em` }} />
+                  ) : null}
+                </span>
+              ))}
+            </p>
+            <p className="hsm__sub hsm__fade" style={at(2.45)}>{SUB}</p>
+            <span className="hsm__cta hsm__fade" style={at(2.65)}>
+              無料体験授業を予約する
+              <ArrowRight className="hsm__cta-arrow" strokeWidth={2} />
+            </span>
+          </div>
+
+          <dl className="hsm__facts" aria-hidden="true">
+            {FACTS.map(([label, value], index) => (
+              <div key={label} className="hsm__fact hsm__fade" style={at(2.8 + index * 0.08)}>
+                <dt>{label}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
-      <p className="mt-10 text-center text-[10px] tracking-[0.08em] text-white/35">※架空の学習塾サンプルです</p>
+
+      <p className="mt-6 text-center text-[11px] tracking-[0.08em] text-white/50">※架空の学習塾サンプルです</p>
     </div>
   );
 }
