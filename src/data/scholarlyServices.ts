@@ -19,6 +19,8 @@ export type PricingTier = {
     blurb: string;
     price: string;
     priceUnit?: string;
+    /** 金額の直下に添える短い注記。未指定の既存プランでは描画しない */
+    priceCaption?: string;
     features: string[];
     notes?: string[];
     recommended?: boolean;
@@ -26,9 +28,22 @@ export type PricingTier = {
 
 export type PricingBlock = {
     headline: string;
+    /** 料金見出し上の英字ラベル。未指定時は既存の "Production Pricing" */
+    eyebrow?: string;
     lede: string;
     tiers: PricingTier[];
     footnote?: string;
+};
+
+export type ServiceOption = {
+    name: string;
+    price: string;
+    detail?: string;
+};
+
+export type ServiceFaq = {
+    q: string;
+    a: string;
 };
 
 export type ServiceContent = {
@@ -45,6 +60,19 @@ export type ServiceContent = {
     extraSections?: { label?: string; heading: string; body: string }[];
     voice?: VoiceTestimonial;
     pricingBlock?: PricingBlock;
+    /** 料金表の直上。モニター価格の対象条件など、このサービスだけの注記 */
+    pricingNotice?: string;
+    /** 料金表の手前に出す、範囲の補足。未指定のサービスでは描画しない */
+    scopeNote?: string;
+    options?: ServiceOption[];
+    commonNotes?: string[];
+    faqs?: ServiceFaq[];
+    /** 未指定時は既存サービスと同じCTA本文 */
+    ctaBody?: string;
+    /** 未指定時は「無料相談を予約する」 */
+    ctaButtonLabel?: string;
+    /** 料金カードのボタン文言。未指定時は「お問い合わせ」 */
+    priceCtaLabel?: string;
     ctaHeadline: string;
 };
 
@@ -306,5 +334,146 @@ export const SCHOLARLY_SERVICES: Record<string, ServiceContent> = {
             footnote: 'いずれも契約期間の縛りはありません。月額は保守+月1回の改善相談を含みます。',
         },
         ctaHeadline: 'まず、いちばん面倒な作業を教えてください。',
+    },
+    'sns-video': {
+        slug: 'sns-video',
+        label: 'SNS動画広告制作サポート',
+        labelEn: 'SNS Video Support',
+        category: 'tool',
+        eyebrow: '制作サポート',
+        heroTitle: 'SNS動画広告を、\n塾の現場\nペースで。',
+        heroLead:
+            'SNS動画広告を、Instagram・Facebook・Threads・X向けの縦型リールと、YouTube連動の短い動画として、企画から書き出しまでサポートします。実画面の素材と、見やすいテロップ（極太ゴシック＋アクセントのマーカー線）を組み合わせた、EduShiftが自社でも使っている作り方です。まずは1本のスポットから、週1本・週2本の月額まで選べます。',
+        narrativeHeadline: 'ロケなし、素材支給。\n続けやすい本数で。',
+        narrativeParas: [
+            '標準はロケ撮影なし・素材支給です。紹介したい画面の録画、公式ロゴ、伝えたい一文、参考URLをご用意いただければ、企画構成からテロップ、BGM、書き出し、投稿文までをまとめてお渡しします。人物のロケ撮影は標準範囲に含みません。',
+            '画面素材とイラスト調の見せ方、極太ゴシックとティールのマーカー線、YouTube連動、Xの告知文。EduShiftが自社の発信でも使っている作り方を、塾と小規模事業者のペースに合わせて組み立てます。',
+        ],
+        supportItems: [
+            {
+                title: '画面とイラストを組み合わせた縦型',
+                body: 'サービス画面・公式素材を活かし、伝えたい一点が先に目に入る構成にします。',
+            },
+            {
+                title: '複数SNSへの書き出し',
+                body: 'Instagram／Facebook／Threads／Xを想定します。必要に応じてYouTubeショート向けの尺・字幕位置も調整します。',
+            },
+            {
+                title: '投稿文までセット',
+                body: 'キャプション案とX告知文を、動画と一緒にお渡しします。投稿操作そのものは含みません。',
+            },
+        ],
+        scopeNote: '広告だけでなく、解説動画・お知らせ動画・セミナー動画などもご相談いただけます。',
+        pricingNotice: 'モニター価格（制作実例の掲載にご協力いただける方向け）。\n表示はすべて税抜です。',
+        pricingBlock: {
+            eyebrow: 'Monitor Pricing',
+            headline: '1本から、月4本、月8本まで。',
+            lede: 'まずは1本のトーンを確認するスポット、週1本ペースのライト、発信量を増やすスタンダード。いずれもモニター価格で、制作実例の掲載にご協力いただける方向けです。',
+            tiers: [
+                {
+                    name: 'スポット',
+                    blurb: '1本だけ試したい方向け。15〜45秒の縦型を、指定SNS向けに納品。修正2回・素材支給。',
+                    price: '¥9,800',
+                    priceUnit: '税抜／本',
+                    priceCaption: 'モニター価格',
+                    features: [
+                        '縦型（9:16）15〜45秒 × 1本',
+                        'Instagramリール／Facebook／Threads／X 向け書き出し（同一構成）',
+                        '企画構成・テロップ・BGM',
+                        'サムネ用静止画1枚・投稿キャプション案',
+                        '修正2回まで（3回目以降 ¥2,000／回）',
+                    ],
+                    notes: [
+                        '納期: 素材受領後 7〜10営業日',
+                        '画面録画・公式ロゴ・訴求テキスト・参考URLは支給。人物ロケ撮影なし',
+                        'まず1本のトーンを確認したい塾・教室向け',
+                    ],
+                },
+                {
+                    name: 'ライト',
+                    blurb: '月4本。Xの告知文付き。うち1本はYouTube連動用に切り替え可。週1本ペースで続けたい塾向け。',
+                    price: '¥29,800',
+                    priceUnit: '税抜／月',
+                    priceCaption: 'モニター価格・月4本',
+                    features: [
+                        '縦型15〜45秒 × 月4本（週1本ペース想定）',
+                        'スポット相当の制作に、各本のX告知文を追加',
+                        '月初の月間テーマ案',
+                        'うち月1本まで YouTubeショート／チャンネル連動用に切替可',
+                        '修正は各本2回まで（3回目以降 ¥2,000／回）',
+                    ],
+                    notes: [
+                        '月初にテーマ確定 → 週次で順次納品',
+                        '月単位。長期の縛りはありません。途中解約は当月末まで制作分を納品',
+                        '素材条件はスポットと同じ（支給素材ベース）',
+                    ],
+                },
+                {
+                    name: 'スタンダード',
+                    blurb: '月8本。多媒体の尺調整とキャプション、月1回の振り返りメモ付き。発信量を増やしたい教室・教育サービス向け。',
+                    price: '¥49,800',
+                    priceUnit: '税抜／月',
+                    priceCaption: 'モニター価格・月8本',
+                    features: [
+                        '縦型15〜45秒 × 月8本',
+                        'IG／FB／Threads／X に加え、YouTubeショート想定の尺・字幕位置を調整',
+                        '投稿キャプション＋各本のX告知文',
+                        '月1回の振り返りメモ（切り口の整理と翌月案。再生数・集客の数値保証はしません）',
+                        '修正は各本2回まで（3回目以降 ¥2,000／回）',
+                    ],
+                    notes: [
+                        '隔日〜週2本ペースで納品。月初に素材カレンダーを共有',
+                        '月単位。素材条件はスポットと同じ',
+                        '複数SNSを並行して回したい教室・教育サービス向け',
+                    ],
+                },
+            ],
+        },
+        options: [
+            { name: '追加1本（月額契約中）', price: '¥7,000／本', detail: '税抜' },
+            { name: '特急納品（5営業日以内）', price: '＋¥3,000／本', detail: '税抜' },
+            { name: '書き出し先SNSの追加', price: '＋¥1,000', detail: '税抜。追加する書き出し先1つあたり' },
+            { name: '修正（3回目以降）', price: '¥2,000／回', detail: '税抜。各本2回までは料金に含む' },
+            { name: '実写・ロケ撮影', price: '別見積', detail: '標準プランには含みません' },
+            { name: '広告出稿用の作り込み', price: '別見積', detail: 'ナレーション収録・高度なグラフィックなど' },
+            { name: '投稿代行・広告運用', price: '対象外', detail: '本プランの範囲外です' },
+        ],
+        commonNotes: [
+            '納品形式は MP4（縦型）とサムネ静止画です。自社HPやチラシQRなどへの二次利用は、相談のうえ範囲を明示します。',
+            '著作権・肖像権のある素材は、クライアントの責任でご用意ください。',
+            '本プランはホームページ保守プランとは別枠です。併用できます。',
+            '料金と範囲は、無料相談のあとにお出しする見積で確定します。',
+        ],
+        faqs: [
+            {
+                q: '撮影に来てもらえますか？',
+                a: '標準プランはロケ撮影なし・素材支給です。実写が必要な場合は別見積です。',
+            },
+            {
+                q: '素材は何を渡せばよいですか？',
+                a: '紹介したい画面の録画または操作手順、ロゴ、伝えたい一文、参考URLがあれば十分です。不足分は無料相談で整理します。',
+            },
+            {
+                q: '修正は何回までですか？',
+                a: '各本2回まで料金に含みます。3回目以降は1回あたり¥2,000（税抜）です。大きな構成変更は追加見積になる場合があります。',
+            },
+            {
+                q: '既存のホームページ保守プランと一緒に申し込めますか？',
+                a: 'はい。本プランは保守（¥980／¥2,980／¥29,800）とは別枠です。併用できます。',
+            },
+            {
+                q: '投稿や広告の出稿もお願いできますか？',
+                a: '標準範囲は「制作と文案の納品」までです。投稿代行・広告運用は本プランの対象外です。',
+            },
+            {
+                q: '効果（再生数や問い合わせ増）は保証されますか？',
+                a: '数値や成果の保証はしていません。切り口の設計と、継続しやすい本数の選択をお手伝いします。',
+            },
+        ],
+        ctaHeadline: 'まずは30分の無料相談',
+        ctaBody:
+            'いまのアカウント状況と、出せる素材を伺い、スポット／ライト／スタンダードのどれが合うかを一緒に決めます。押し売りはありません。',
+        ctaButtonLabel: '無料相談する',
+        priceCtaLabel: '無料相談する',
     },
 };

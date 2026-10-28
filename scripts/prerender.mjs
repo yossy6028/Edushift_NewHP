@@ -122,7 +122,7 @@ const breadcrumb = (items) => ({
     ],
 });
 
-const servicePage = (slug, label, lead) => ({
+const servicePage = (slug, label, lead, extraJsonLd = []) => ({
     path: `/service/${slug}`,
     title: `${label} | EduShift`,
     description: lead,
@@ -143,8 +143,20 @@ const servicePage = (slug, label, lead) => ({
             about: { '@id': `${BASE}/service/${slug}#service` },
             publisher: { '@id': `${BASE}/#organization` },
         },
+        ...extraJsonLd,
     ],
 });
+
+const SNS_VIDEO_LEAD = 'SNS動画広告を、Instagram・Facebook・Threads・X向けの縦型リールと、YouTube連動の短い動画として、企画から書き出しまでサポートします。実画面の素材と、見やすいテロップ（極太ゴシック＋アクセントのマーカー線）を組み合わせた、EduShiftが自社でも使っている作り方です。まずは1本のスポットから、週1本・週2本の月額まで選べます。';
+
+const SNS_VIDEO_FAQS = [
+    ['撮影に来てもらえますか？', '標準プランはロケ撮影なし・素材支給です。実写が必要な場合は別見積です。'],
+    ['素材は何を渡せばよいですか？', '紹介したい画面の録画または操作手順、ロゴ、伝えたい一文、参考URLがあれば十分です。不足分は無料相談で整理します。'],
+    ['修正は何回までですか？', '各本2回まで料金に含みます。3回目以降は1回あたり¥2,000（税抜）です。大きな構成変更は追加見積になる場合があります。'],
+    ['既存のホームページ保守プランと一緒に申し込めますか？', 'はい。本プランは保守（¥980／¥2,980／¥29,800）とは別枠です。併用できます。'],
+    ['投稿や広告の出稿もお願いできますか？', '標準範囲は「制作と文案の納品」までです。投稿代行・広告運用は本プランの対象外です。'],
+    ['効果（再生数や問い合わせ増）は保証されますか？', '数値や成果の保証はしていません。切り口の設計と、継続しやすい本数の選択をお手伝いします。'],
+];
 
 const CASE_TITLE = 'HP制作実績：AI経由流入約5.7倍・問い合わせ約2.8倍';
 const CASE_DESC = 'YS中学受験国語力研究室のHPリニューアル事例。デザイン刷新・モーション演出・AIEO対策により、AI経由の流入が約5.7倍（実装前77日間 21 → 実装後77日間 120）、HPフォーム問い合わせが約2.8倍（月平均3.2件 → 月平均9.0件）に。2026年7月23日時点の実測データを全公開しています。';
@@ -153,6 +165,15 @@ const ROUTES = [
     servicePage('consulting', 'コンサルティング', '塾経営の立て直し、講師の独立、AI活用——月¥14,800からの伴走コンサルティング。単発¥9,800のスポット相談から始められます。'),
     servicePage('dx-development', '塾DX・ツール開発', 'バックオフィスアプリ、教材制作、指導サポートツール。自動添削SaaSを自社開発するEduShiftが、あなたの塾専用の道具を作ります。'),
     servicePage('hp-production', 'HP制作・保守運用', '初期19,800円〜、月々980円〜。「立派なHP」より「今日から選ばれるHP」を。'),
+    servicePage('sns-video', 'SNS動画広告制作サポート', SNS_VIDEO_LEAD, [{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: SNS_VIDEO_FAQS.map(([name, text]) => ({
+            '@type': 'Question',
+            name,
+            acceptedAnswer: { '@type': 'Answer', text },
+        })),
+    }]),
     {
         path: '/works/ys-kokugo',
         title: `${CASE_TITLE} | EduShift`,
