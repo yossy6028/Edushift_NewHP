@@ -20,6 +20,7 @@ import logoImg from '../assets/logo-shift-mark.png';
 import { HpSampleMock } from '../components/HpSampleMock';
 import autoTensakuImg from '../assets/auto-tensaku-screenshot.jpg';
 import jukuTimetableImg from '../assets/app-juku-timetable.jpg';
+import timetableSampleImg from '../assets/juku-timetable-sample.png';
 import tutorRevenueImg from '../assets/app-tutor-revenue.jpg';
 import furikaeImg from '../assets/app-furikae.jpg';
 import akiwakuImg from '../assets/app-akiwaku.jpg';
@@ -589,6 +590,12 @@ export const HomeModern = () => {
                             <a href={DX_APP_URLS.timetableDemo} target="_blank" rel="noopener noreferrer" className="text-sm text-white/80 underline underline-offset-4 hover:text-white">デモを見る</a>
                         </div>
                     </div>
+                    <figure className="mx-auto mt-8 max-w-7xl">
+                        <a href={timetableSampleImg} target="_blank" rel="noopener noreferrer" aria-label="時間割メーカーのサンプル画像を拡大する（新しいタブ）" className="block overflow-hidden rounded-2xl border border-white/15 bg-[#f7f9fc] transition hover:border-[#55D8CA] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#55D8CA]">
+                            <img src={timetableSampleImg} width={2020} height={884} loading="lazy" decoding="async" alt="塾時間割メーカーの時間割サンプル。曜日を切り替え、講師別・時刻別に生徒、科目、ブースの割り当てを表示。" className="block h-auto w-full" />
+                        </a>
+                        <figcaption className="mt-3 text-xs leading-6 text-white/60">時間割の表示サンプル（架空の講師・生徒）。画像をタップすると拡大できます。割当数や生成時間などの数値は、このサンプルの結果です。</figcaption>
+                    </figure>
                 </section>
 
                 <section id="services" className="border-t border-white/[0.06] px-5 py-24 sm:px-6 md:py-32">
