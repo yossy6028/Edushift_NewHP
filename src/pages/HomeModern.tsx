@@ -90,6 +90,24 @@ const SERVICE_MENU = [
         ],
     },
     {
+        href: '/service/sns-video',
+        en: 'SNS VIDEO SUPPORT',
+        title: 'SNS動画広告制作サポート',
+        desc: '縦型動画の企画・編集から投稿文まで。1本から継続制作まで対応します。',
+        accent: 'text-rose-300',
+        windowPath: 'edu-shift.com/service/sns-video',
+        line: '#FDA4AF',
+        glow: 'rgba(251, 113, 133, .24)',
+        tilt: '0deg',
+        features: ['企画構成・テロップ・BGM', 'SNS向け動画の書き出し', '投稿キャプション案の作成'],
+        items: [
+            { name: 'スポット（1本）', price: '¥9,800' },
+            { name: 'ライト（月4本）', price: '月額 ¥29,800' },
+            { name: 'スタンダード（月8本）', price: '月額 ¥49,800' },
+        ],
+        priceNote: '制作実例の掲載にご協力いただける方向けのモニター価格です。投稿代行・広告運用は含みません。',
+    },
+    {
         href: '/service/consulting',
         en: 'CONSULTING',
         title: '経営・独立・AI活用コンサル',
@@ -601,7 +619,7 @@ export const HomeModern = () => {
                 <section id="services" className="border-t border-white/[0.06] px-5 py-24 sm:px-6 md:py-32">
                     <div className="mx-auto max-w-7xl">
                         <FadeInUp className="mx-auto mb-20 max-w-3xl text-center">
-                            <p className="mb-5 text-xs font-semibold tracking-[0.2em] text-[#55D8CA]">THREE PILLARS</p>
+                            <p className="mb-5 text-xs font-semibold tracking-[0.2em] text-[#55D8CA]">OUR SERVICES</p>
                             <h2 className="es-display text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
                                 必要な支援を、<br className="sm:hidden" />ひとつの窓口で。
                             </h2>
@@ -610,7 +628,7 @@ export const HomeModern = () => {
                             </p>
                         </FadeInUp>
 
-                        <div className="mb-10 grid gap-8 lg:grid-cols-3 lg:gap-7" aria-label="サービス一覧">
+                        <div className="mb-10 grid gap-8 md:grid-cols-2 lg:gap-7" aria-label="サービス一覧">
                             {SERVICE_MENU.map((service, index) => (
                                 <FadeInUp key={service.href} delay={index * 90} className="h-full">
                                     <TiltWrapper
@@ -1065,13 +1083,13 @@ export const HomeModern = () => {
                     <div className="mx-auto max-w-7xl">
                         <FadeInUp className="mx-auto mb-14 max-w-3xl text-center">
                             <p className="mb-5 text-xs font-semibold tracking-[0.2em] text-[#55D8CA]">PRICING</p>
-                            <h2 className="es-display text-balance text-4xl font-semibold tracking-tight sm:text-5xl">3つの料金を、ひと目で比較。</h2>
+                            <h2 className="es-display text-balance text-4xl font-semibold tracking-tight sm:text-5xl">4つのサービス料金を、ひと目で比較。</h2>
                             <p className="mt-6 text-[16px] leading-8 text-white/55">
-                                支援内容と実例をご覧いただいたうえで、3つのサービス料金をまとめて比較できます。
+                                支援内容と実例をご覧いただいたうえで、4つのサービス料金をまとめて比較できます。
                             </p>
                         </FadeInUp>
 
-                        <div className="grid gap-5 lg:grid-cols-3" aria-label="サービス料金一覧">
+                        <div className="grid gap-5 md:grid-cols-2" aria-label="サービス料金一覧">
                             {SERVICE_MENU.map((service, index) => (
                                 <FadeInUp key={service.href} delay={index * 90} className="h-full">
                                     <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-[#0E0E10] p-7">
@@ -1086,6 +1104,7 @@ export const HomeModern = () => {
                                                 </li>
                                             ))}
                                         </ul>
+                                        {service.priceNote && <p className="mt-4 text-xs leading-6 text-white/55">{service.priceNote}</p>}
                                         <a href={service.href} className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold ${service.accent}`}>
                                             詳しく見る <ArrowRight className="h-4 w-4" />
                                         </a>
